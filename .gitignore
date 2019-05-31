@@ -1,6 +1,6 @@
 debug
 release
-
+obj
 .qmake.stash
 *.vcxproj*
 
