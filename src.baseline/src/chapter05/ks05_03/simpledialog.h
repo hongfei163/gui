@@ -14,20 +14,20 @@
 #ifndef SIMPLEDIALOG_H
 #define SIMPLEDIALOG_H
 
+#include <QDialog>
 #include "ui_simpledialogbase.h" // 头文件名称来自: simpledialogbase.ui  ---> ui_simpledialogbase.h
 
 
-// 第一个父类的名称来自ui文件中对话框的类名：对象查看器中的类名
-// 第二个父类的名称来自ui文件中对话框基类的名称(objeceName属性)： CDialogBase
-class CSimpleDialog : public QDialog, public Ui::CSimpleDialogBase
+// 父类的名称来自ui文件中对话框的类名：对象查看器中的类名
+class CSimpleDialog : public QDialog
 {
 	Q_OBJECT
 public:
 	CSimpleDialog(QWidget* pParent);
 	~CSimpleDialog();
 
-public slots:
 private:
+    Ui::CSimpleDialogBase ui;
 };
 
 #endif // SIMPLEDIALOG_H

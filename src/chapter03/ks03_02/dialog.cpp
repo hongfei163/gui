@@ -4,9 +4,9 @@
 
 CDialog::CDialog(QWidget* pParent) : QDialog(pParent)
 {
-	setupUi(this);
+	ui.setupUi(this);
 
-	connect(checkBox, &QCheckBox::clicked, this, &CDialog::onChecked);
+	connect(ui.checkBox, &QCheckBox::clicked, this, &CDialog::onChecked);
 }
 
 CDialog::~CDialog()
@@ -25,5 +25,5 @@ void CDialog::onChecked(bool checked)
 	{
 		str = "please check!";
 	}
-	m_pLabel2->setText(tr(str.toLocal8Bit().data()));
+	ui.m_pLabel2->setText(tr(str.toLocal8Bit().data()));
 }

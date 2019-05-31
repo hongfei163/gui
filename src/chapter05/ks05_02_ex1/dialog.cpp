@@ -1,4 +1,4 @@
-/*! 
+/*!
 * Copyright (C) 2018 女儿叫老白
 * 版权所有。
 * 代码仅用于课程《Qt入门与提高-GUI产品开发》的学习，请勿传播。
@@ -16,11 +16,10 @@
 
 
 CDialog::CDialog(QWidget* pParent) : QDialog(pParent) {
-	setupUi(this);
+	ui.setupUi(this);
 
-
-	connect(btnTest, &QPushButton::clicked, this, &CDialog::onTest);
-	//connect(cbFontSize, &QFontComboBox::currentIndexChanged, this, &CDialog::on_fontSizeChanged);
+	connect(ui.btnTest, &QPushButton::clicked, this, &CDialog::onTest);
+	//connect(ui.cbFontSize, &QFontComboBox::currentIndexChanged, this, &CDialog::on_fontSizeChanged);
 }
 
 CDialog::~CDialog(){
@@ -50,8 +49,7 @@ void CDialog::onTest(){
 			400,
 			Qt::KeepAspectRatio);
 
-		imageLabel->setPixmap(QPixmap::fromImage(image));
+        ui.imageLabel->setPixmap(QPixmap::fromImage(image));
 	}
-
 }
 

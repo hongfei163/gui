@@ -16,14 +16,14 @@
 
 
 CDialog::CDialog(QWidget* pParent) : QDialog(pParent) {
-	setupUi(this);
-	plainTextEdit->setPlainText("file detected:");
+    ui.setupUi(this);
+    ui.plainTextEdit->setPlainText("file detected:");
 
-	//connect(fontComboBox, SIGNAL(currentFontChanged(const QFont &)), this, SLOT(on_fontFamilyChanged(const QFont &)));
-	connect(cbFontSize, SIGNAL(currentIndexChanged(int)), this, SLOT(on_fontSizeChanged(int)));
+	//connect(ui.fontComboBox, SIGNAL(currentFontChanged(const QFont &)), this, SLOT(on_fontFamilyChanged(const QFont &)));
+	connect(ui.cbFontSize, SIGNAL(currentIndexChanged(int)), this, SLOT(on_fontSizeChanged(int)));
 
-	connect(fontComboBox, &QFontComboBox::currentFontChanged, this, &CDialog::on_fontFamilyChanged);
-	//connect(cbFontSize, &QFontComboBox::currentIndexChanged, this, &CDialog::on_fontSizeChanged);
+	connect(ui.fontComboBox, &QFontComboBox::currentFontChanged, this, &CDialog::on_fontFamilyChanged);
+	//connect(ui.cbFontSize, &QFontComboBox::currentIndexChanged, this, &CDialog::on_fontSizeChanged);
 }
 
 CDialog::~CDialog(){
@@ -32,17 +32,17 @@ CDialog::~CDialog(){
 
 
 void CDialog::on_fontFamilyChanged(const QFont &font){
-	int fontSize = cbFontSize->currentText().toInt();
+	int fontSize = ui.cbFontSize->currentText().toInt();
 	QFont ft = font;
 	ft.setPointSize(fontSize);
-	plainTextEdit->setFont(ft);
+    ui.plainTextEdit->setFont(ft);
 }
 
 void CDialog::on_fontSizeChanged(int /*idx*/){
-	int fontSize = cbFontSize->currentText().toInt();
-	QFont ft = fontComboBox->currentFont();
+	int fontSize = ui.cbFontSize->currentText().toInt();
+	QFont ft = ui.fontComboBox->currentFont();
 	ft.setPointSize(fontSize);
-	plainTextEdit->setFont(ft);
+    ui.plainTextEdit->setFont(ft);
 }
 
 void CDialog::customEvent(QEvent *event) {
@@ -52,10 +52,10 @@ void CDialog::customEvent(QEvent *event) {
 	case (QEvent::User+1): 	{
 			pEvent = dynamic_cast<CCustomEvent*>(event);
 			if (NULL != pEvent) {
-				str = plainTextEdit->toPlainText();
+				str = ui.plainTextEdit->toPlainText();
 				str += "\n";
 				str += pEvent->getFileName();
-				plainTextEdit->setPlainText(str);
+                ui.plainTextEdit->setPlainText(str);
 			}
 		}
 		break;

@@ -17,9 +17,8 @@
 #include "ui_address.h" // 头文件名称来自: address.ui  ---> ui_address.h
 
 
-// 第一个父类的名称来自ui文件中对话框的类名：对象查看器中的类名
-// 第二个父类的名称来自ui文件中对话框基类的名称(objeceName属性)： CWidgetAddressBase
-class CWidgetAddress : public QWidget, public Ui::CWidgetAddressBase
+// 父类的名称来自ui文件中对话框的类名：对象查看器中的类名
+class CWidgetAddress : public QWidget
 {
 	Q_OBJECT
 public:
@@ -31,6 +30,9 @@ Q_SIGNALS:
 
 public slots:
     void slot_btnSaveClicked();
+
+private:
+    Ui::CWidgetAddressBase ui;
 };
 
 #endif  // ADDRESS_H

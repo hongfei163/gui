@@ -14,7 +14,7 @@
 
 
 CSimpleDialog::CSimpleDialog(QWidget* pParent) : QDialog(pParent) {
-	setupUi(this);
+    ui.setupUi(this);
 	
 }
 
@@ -24,8 +24,8 @@ CSimpleDialog::~CSimpleDialog() {
 
 void CSimpleDialog::slot_AddressSaved(const QString& str)
 {
-    if (NULL != m_plainTextEdit->document()) {
-        m_plainTextEdit->document()->setPlainText(str);
+    if (NULL != ui.m_plainTextEdit->document()) {
+        ui.m_plainTextEdit->document()->setPlainText(str);
     }
 }
 

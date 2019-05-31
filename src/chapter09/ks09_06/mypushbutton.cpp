@@ -40,8 +40,8 @@ void CMyPushButton::setAction(QAction *pAction)
 
 	//监视action状态信号
 	////action的信号已经发射，但是始终就是无法触发槽函数，不知道为什么？？？
-	//connect(m_pAction, SIGNAL(toggled(bool)), this, SLOT(setChecked(bool)));
-	connect(m_pAction, SIGNAL(changed()), this, SLOT(onActionChanged()));
+	//connect(ui.m_pAction, SIGNAL(toggled(bool)), this, SLOT(setChecked(bool)));
+	connect(ui.m_pAction, SIGNAL(changed()), this, SLOT(onActionChanged()));
 }
 
 void CMyPushButton::setStateIcon(const QString& normUrl, const QString& overUrl, const QString& downUrl, const QString& disableUrl)

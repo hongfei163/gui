@@ -14,11 +14,11 @@
 
 
 CWidgetAddress::CWidgetAddress(QWidget* pParent) : QWidget(pParent) {
-	setupUi(this);
+    ui.setupUi(this);
 
-	//connect(m_btnSave, SIGNAL(clicked()), this, SLOT(on_addressSaved()));
+	//connect(ui.m_btnSave, SIGNAL(clicked()), this, SLOT(on_addressSaved()));
 
-	connect(m_btnSave, &QPushButton::clicked, this, &CWidgetAddress::on_addressSaved);
+	connect(ui.m_btnSave, &QPushButton::clicked, this, &CWidgetAddress::on_addressSaved);
 }
 
 CWidgetAddress::~CWidgetAddress(){

@@ -18,6 +18,7 @@
 #include "base/basedll/fileattribute.h"
 #include "base/basedll/filehead.h"
 #include "country.h"
+#include "fileversion.h"
 #include "province.h"
 
 /////////////////////////////////////////////////////////////////////////
@@ -87,8 +88,8 @@ ESerializeCode CCountry::serializeBinary(const QString& strFileName, QString* pE
 ESerializeCode  CCountry::serializeBinary(QDataStream& ds, QString* pError) const {
 	ns_train::SFileAttr attrs;
 	// 保存文件头信息(保存时总是保存为当前程序版本所对应的文件格式)
-	attrs.mainVer = ns_train::getMainVersion();
-	attrs.subVer = ns_train::getSubVersion();
+	attrs.mainVer = getSystemMainVersion();
+	attrs.subVer = getSystemSubVersion();
 	ds << attrs;
 
 	ds << m_strName;
@@ -226,8 +227,8 @@ ESerializeCode CCountry::serializeXML(QDomDocument& doc, QString* pError) const 
 	// 图形属性
 	ns_train::SFileAttr attrs;
 	// 保存文件头信息(保存时总是保存为当前程序版本所对应的文件格式)
-	attrs.mainVer = ns_train::getMainVersion();
-	attrs.subVer = ns_train::getSubVersion();
+	attrs.mainVer = getSystemMainVersion();
+	attrs.subVer = getSystemSubVersion();
 	rootDoc << attrs;
 
 	// 文件内容
@@ -313,7 +314,7 @@ ESerializeCode CCountry::deSerializeXML(const QDomDocument& doc, QString* pError
 	ns_train::SFileAttr attrs;
 	rootDoc >> attrs;
 	ns_train::SFileHead fileHead(attrs.mainVer, attrs.subVer);
-	if (fileHead.isLaterMainVersion(ns_train::getMainVersion())) 	{
+	if (fileHead.isLaterMainVersion(getSystemMainVersion())) 	{
 		if (NULL != pError)		{
 			*pError = QObject::tr("Unable to open higher version graphics files!");
 		}

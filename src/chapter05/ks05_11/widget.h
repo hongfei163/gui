@@ -17,21 +17,20 @@
 #include "ui_widgetbase.h" // 头文件名称来自: dialogbase.ui  ---> ui_widgetbase.h
 
 
-// 第一个父类的名称来自ui文件中对话框的类名：对象查看器中的类名
-// 第二个父类的名称来自ui文件中对话框基类的名称(objeceName属性)： CWidgetBase
-class CWidget : public QWidget, public Ui::CWidgetBase
+// 父类的名称来自ui文件中对话框的类名：对象查看器中的类名
+class CWidget : public QWidget 
 {
 	Q_OBJECT
 public:
 	CWidget(QWidget* pParent);
 	~CWidget();
 
-protected:
-
 private slots:
 	void on_fontFamilyChanged(const QFont &font);
 	void on_fontSizeChanged(int);
 
+private:
+    Ui::CWidgetBase ui;
 };
 
 #endif  // WIDGET_H

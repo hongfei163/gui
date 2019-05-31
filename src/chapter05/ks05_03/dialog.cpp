@@ -18,7 +18,7 @@
 
 
 CDialog::CDialog(QWidget* pParent) : QDialog(pParent) {
-	setupUi(this);
+    ui.setupUi(this);
 
 	initialDialog();
 }
@@ -48,10 +48,10 @@ void CDialog::initialDialog() {
 
 void CDialog::slot_onAddressSaved(const QString& str)
 {
-    if (NULL != m_plainTextEdit->document()) {
+    if (NULL != ui.m_plainTextEdit->document()) {
         QString strInfo = "The Address is:";
         strInfo += str;
-        m_plainTextEdit->document()->setPlainText(strInfo);
+        ui.m_plainTextEdit->document()->setPlainText(strInfo);
     }
 }
 

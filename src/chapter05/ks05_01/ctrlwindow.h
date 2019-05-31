@@ -26,7 +26,7 @@ class QPushButton;
 class QRadioButton;
 QT_END_NAMESPACE
 
-class CCtrlWindow : public QWidget, public Ui::CControllerWindowBase
+class CCtrlWindow : public QWidget
 {
     Q_OBJECT
 
@@ -44,6 +44,9 @@ private:
     QRadioButton *createRadioButton(const QString &text);
 
 	CPreviewWindow *m_pPreviewWindow;
+
+private:
+    Ui::CControllerWindowBase ui;
 };
 
 

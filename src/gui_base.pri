@@ -148,9 +148,7 @@ win32{
 #UNIX下编译设置
 unix{
 	DEFINES *= unix __unix
-	contains( TRAIN_QMAKESPEC, solaris.* ) {
-		DEFINES *= SOLARIS
-	}
+
 	contains( TRAIN_QMAKESPEC, hpux.* ) {
 		# HPUX下全面支持C++
 		QMAKE_CXXFLAGS *= -Aa
@@ -179,24 +177,8 @@ win32{
 
 	# 去掉 strcpy 等编译警告
 	QMAKE_CXXFLAGS *= -wd4996
-
-	# 去掉使用 protobuf 引起的 “导出的类是从未导出的类派生的” 等编译警告
-	QMAKE_CXXFLAGS *= -wd4251 -wd4275
 }
 
-#判断SUN机器的处理器是x86还是spac
-unix {
-	UNAME = $$system(uname -s)
-	contains( UNAME, SunOS ) {
-		UNAME = $$system(uname -m)
-		contains( UNAME, i86pc ) {
-			CONFIG += sunos_i86pc
-		}
-		contains( UNAME, sun4u ) {
-			CONFIG += sunos_sun4u
-		}
-	}
-}
 
 #激活 STL、RTTI、EXCEPTIONS 支持
 CONFIG *= stl exceptions rtti
@@ -204,8 +186,6 @@ CONFIG *= stl exceptions rtti
 CONFIG *= thread warn_on
 
 
-# 加载更多的第三方库
-#include ($$TRAIN_SRC_PATH/iccs_thirdlib_define.pri)
 
 # 指定不同编译版本中间文件目录
 debug_and_release {

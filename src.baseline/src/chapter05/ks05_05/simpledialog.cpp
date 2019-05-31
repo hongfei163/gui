@@ -14,13 +14,13 @@
 
 
 CSimpleDialog::CSimpleDialog(QWidget* pParent) : QDialog(pParent) {
-	setupUi(this);
+    ui.setupUi(this);
 	
-	//connect(fontComboBox, SIGNAL(currentFontChanged(const QFont &)), this, SLOT(on_fontFamilyChanged(const QFont &)));
-	//connect(cbFontSize, SIGNAL(currentIndexChanged(int)), this, SLOT(on_fontSizeChanged(int)));
+	//connect(ui.fontComboBox, SIGNAL(currentFontChanged(const QFont &)), this, SLOT(on_fontFamilyChanged(const QFont &)));
+	//connect(ui.cbFontSize, SIGNAL(currentIndexChanged(int)), this, SLOT(on_fontSizeChanged(int)));
 
-	//connect(fontComboBox, &QFontComboBox::currentFontChanged, this, &CDialog::on_fontChanged);
-	//connect(cbFontSize, &QFontComboBox::currentIndexChanged, this, &CDialog::on_fontSizeChanged);
+	//connect(ui.fontComboBox, &QFontComboBox::currentFontChanged, this, &CDialog::on_fontChanged);
+	//connect(ui.cbFontSize, &QFontComboBox::currentIndexChanged, this, &CDialog::on_fontSizeChanged);
 }
 
 CSimpleDialog::~CSimpleDialog() {
@@ -29,9 +29,9 @@ CSimpleDialog::~CSimpleDialog() {
 
 void CSimpleDialog::on_addressSaved(const QString& strAddress){
 	
-	if (NULL != m_plainTextEdit->document()) {
+	if (NULL != ui.m_plainTextEdit->document()) {
 		QString str = "The Address is:" + strAddress;
-		m_plainTextEdit->document()->setPlainText(str);
+        ui.m_plainTextEdit->document()->setPlainText(str);
 
 	}
 }

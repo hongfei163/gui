@@ -18,7 +18,7 @@
 
 
 CMainDialog::CMainDialog(QWidget* pParent) : QDialog(pParent) {
-	setupUi(this);
+    ui.setupUi(this);
 	initialDialog();
 }
 
@@ -27,6 +27,6 @@ CMainDialog::~CMainDialog(){
 }
 void CMainDialog::initialDialog() {
 	
-	CWidget* pWidget = new CWidget(widget);
-	gridLayout->addWidget(pWidget, 0, 0);
+	CWidget* pWidget = new CWidget(ui.widget);
+    ui.gridLayout->addWidget(pWidget, 0, 0);
 }

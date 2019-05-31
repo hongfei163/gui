@@ -18,27 +18,13 @@
 
 namespace ns_train {
 
-
-static const quint16 c_MainVersion= 1;		/// 当前文件的主版本号
-static const quint16 c_SubVersion = 1;		/// 当前文件的次版本号
-
-/// 获取当前文件的主版本号（使用本程序保存文件时的版本号）
-static quint16 getMainVersion() {
-	return c_MainVersion;
-}
-/// 获取当前文件的次版本号（使用本程序保存文件时的版本号）
-static quint16 getSubVersion() {
-	return c_SubVersion;
-}
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 /// 文件头类
 class SFileHead
 {
 public:
 	SFileHead()	{
-		m_nMainVersion = c_MainVersion;
-		m_nSubVersion = c_SubVersion;
+		m_nMainVersion = 0;
+		m_nSubVersion = 0;
 	}
 
 	SFileHead(quint16 nMainVersion, quint16 nSubVersion)	{

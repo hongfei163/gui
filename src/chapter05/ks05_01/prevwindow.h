@@ -21,7 +21,7 @@ class QPushButton;
 class QTextEdit;
 QT_END_NAMESPACE
 
-class CPreviewWindow : public QWidget, public Ui::CPreviewWindowBase
+class CPreviewWindow : public QWidget
 {
     Q_OBJECT
 
@@ -38,6 +38,7 @@ public:
     void setWindowFlags(Qt::WindowFlags flags);
 
 private:
+    Ui::CPreviewWindowBase ui;
 };
 
 

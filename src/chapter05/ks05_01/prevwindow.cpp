@@ -18,9 +18,9 @@
 CPreviewWindow::CPreviewWindow(QWidget *parent)
     : QWidget(parent)
 {
-    setupUi(this);
+    ui.setupUi(this);
 
-    connect(closeButton, SIGNAL(clicked()), this, SLOT(close()));
+    connect(ui.closeButton, SIGNAL(clicked()), this, SLOT(close()));
 
     setWindowTitle(QString::fromLocal8Bit("Ô¤ÀÀ"));
 }
@@ -77,5 +77,5 @@ void CPreviewWindow::setWindowFlags(Qt::WindowFlags flags)
     if (flags & Qt::CustomizeWindowHint)
         text += "\n| Qt::CustomizeWindowHint";
 
-    textEdit->setPlainText(text);
+    ui.textEdit->setPlainText(text);
 }

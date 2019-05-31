@@ -17,7 +17,8 @@ HEADERS		+=  $$TRAIN_SRC_PATH/gui_base.pri \
 				ks04_18.pro 	\
 				country.h \
 				province.h \
-				city.h
+				city.h \
+				fileversion.h
 	
 SOURCES    +=  main.cpp 	\
 				country.cpp \

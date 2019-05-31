@@ -5,7 +5,7 @@
 * 免责声明:代码不保证稳定性，请勿用作商业用途，否则后果自负。
 
 \file: main.cpp
-\brief mian()函数的实现文件
+\brief main()函数的实现文件
 
 \author 女儿叫老白  星点分享: http://xingdianketang.cn/
 \Date 2018/8

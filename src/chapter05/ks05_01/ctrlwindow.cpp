@@ -16,13 +16,13 @@
 
 CCtrlWindow::CCtrlWindow()
 {
-    setupUi(this);
+    ui.setupUi(this);
     connectHintsGroupBox();
     connectTypeGroupBox();
 
 	m_pPreviewWindow = new CPreviewWindow(this);
 
-    connect(quitButton, SIGNAL(clicked()), qApp, SLOT(quit()));
+    connect(ui.quitButton, SIGNAL(clicked()), qApp, SLOT(quit()));
 
     setWindowTitle(tr("Window Flags"));
     updatePreview();
@@ -32,51 +32,51 @@ void CCtrlWindow::updatePreview()
 {
     Qt::WindowFlags flags = 0;
 
-    if (windowRadioButton->isChecked()) {
+    if (ui.windowRadioButton->isChecked()) {
         flags = Qt::Window;
-    } else if (dialogRadioButton->isChecked()) {
+    } else if (ui.dialogRadioButton->isChecked()) {
         flags = Qt::Dialog;
-    } else if (sheetRadioButton->isChecked()) {
+    } else if (ui.sheetRadioButton->isChecked()) {
         flags = Qt::Sheet;
-    } else if (drawerRadioButton->isChecked()) {
+    } else if (ui.drawerRadioButton->isChecked()) {
         flags = Qt::Drawer;
-    } else if (popupRadioButton->isChecked()) {
+    } else if (ui.popupRadioButton->isChecked()) {
         flags = Qt::Popup;
-    } else if (toolRadioButton->isChecked()) {
+    } else if (ui.toolRadioButton->isChecked()) {
         flags = Qt::Tool;
-    } else if (toolTipRadioButton->isChecked()) {
+    } else if (ui.toolTipRadioButton->isChecked()) {
         flags = Qt::ToolTip;
-    } else if (splashScreenRadioButton->isChecked()) {
+    } else if (ui.splashScreenRadioButton->isChecked()) {
         flags = Qt::SplashScreen;
     }
 
-    if (msWindowsFixedSizeDialogCheckBox->isChecked())
+    if (ui.msWindowsFixedSizeDialogCheckBox->isChecked())
         flags |= Qt::MSWindowsFixedSizeDialogHint;
-    if (x11BypassWindowManagerCheckBox->isChecked())
+    if (ui.x11BypassWindowManagerCheckBox->isChecked())
         flags |= Qt::X11BypassWindowManagerHint;
-    if (framelessWindowCheckBox->isChecked())
+    if (ui.framelessWindowCheckBox->isChecked())
         flags |= Qt::FramelessWindowHint;
-    if (windowNoShadowCheckBox->isChecked())
+    if (ui.windowNoShadowCheckBox->isChecked())
         flags |= Qt::NoDropShadowWindowHint;
-    if (windowTitleCheckBox->isChecked())
+    if (ui.windowTitleCheckBox->isChecked())
         flags |= Qt::WindowTitleHint;
-    if (windowSystemMenuCheckBox->isChecked())
+    if (ui.windowSystemMenuCheckBox->isChecked())
         flags |= Qt::WindowSystemMenuHint;
-    if (windowMinimizeButtonCheckBox->isChecked())
+    if (ui.windowMinimizeButtonCheckBox->isChecked())
         flags |= Qt::WindowMinimizeButtonHint;
-    if (windowMaximizeButtonCheckBox->isChecked())
+    if (ui.windowMaximizeButtonCheckBox->isChecked())
         flags |= Qt::WindowMaximizeButtonHint;
-    if (windowCloseButtonCheckBox->isChecked())
+    if (ui.windowCloseButtonCheckBox->isChecked())
         flags |= Qt::WindowCloseButtonHint;
-    if (windowContextHelpButtonCheckBox->isChecked())
+    if (ui.windowContextHelpButtonCheckBox->isChecked())
         flags |= Qt::WindowContextHelpButtonHint;
-    if (windowShadeButtonCheckBox->isChecked())
+    if (ui.windowShadeButtonCheckBox->isChecked())
         flags |= Qt::WindowShadeButtonHint;
-    if (windowStaysOnTopCheckBox->isChecked())
+    if (ui.windowStaysOnTopCheckBox->isChecked())
         flags |= Qt::WindowStaysOnTopHint;
-    if (windowStaysOnBottomCheckBox->isChecked())
+    if (ui.windowStaysOnBottomCheckBox->isChecked())
         flags |= Qt::WindowStaysOnBottomHint;
-    if (customizeWindowHintCheckBox->isChecked())
+    if (ui.customizeWindowHintCheckBox->isChecked())
         flags |= Qt::CustomizeWindowHint;
 
 	m_pPreviewWindow->setWindowFlags(flags);
@@ -93,35 +93,35 @@ void CCtrlWindow::updatePreview()
 
 void CCtrlWindow::connectTypeGroupBox()
 {
-    connect(windowRadioButton, SIGNAL(clicked()), this, SLOT(updatePreview()));
-    connect(dialogRadioButton, SIGNAL(clicked()), this, SLOT(updatePreview()));
-    connect(sheetRadioButton, SIGNAL(clicked()), this, SLOT(updatePreview()));
-    connect(drawerRadioButton, SIGNAL(clicked()), this, SLOT(updatePreview()));
-    connect(popupRadioButton, SIGNAL(clicked()), this, SLOT(updatePreview()));
-    connect(toolRadioButton, SIGNAL(clicked()), this, SLOT(updatePreview()));
-    connect(toolTipRadioButton, SIGNAL(clicked()), this, SLOT(updatePreview()));
-    connect(splashScreenRadioButton, SIGNAL(clicked()), this, SLOT(updatePreview()));
+    connect(ui.windowRadioButton, SIGNAL(clicked()), this, SLOT(updatePreview()));
+    connect(ui.dialogRadioButton, SIGNAL(clicked()), this, SLOT(updatePreview()));
+    connect(ui.sheetRadioButton, SIGNAL(clicked()), this, SLOT(updatePreview()));
+    connect(ui.drawerRadioButton, SIGNAL(clicked()), this, SLOT(updatePreview()));
+    connect(ui.popupRadioButton, SIGNAL(clicked()), this, SLOT(updatePreview()));
+    connect(ui.toolRadioButton, SIGNAL(clicked()), this, SLOT(updatePreview()));
+    connect(ui.toolTipRadioButton, SIGNAL(clicked()), this, SLOT(updatePreview()));
+    connect(ui.splashScreenRadioButton, SIGNAL(clicked()), this, SLOT(updatePreview()));
 
-    windowRadioButton->setChecked(true);
+    ui.windowRadioButton->setChecked(true);
   
 }
 
 void CCtrlWindow::connectHintsGroupBox()
 {
-    connect(msWindowsFixedSizeDialogCheckBox, SIGNAL(clicked()), this, SLOT(updatePreview()));
-    connect(x11BypassWindowManagerCheckBox, SIGNAL(clicked()), this, SLOT(updatePreview()));
-    connect(framelessWindowCheckBox, SIGNAL(clicked()), this, SLOT(updatePreview()));
-    connect(windowNoShadowCheckBox, SIGNAL(clicked()), this, SLOT(updatePreview()));
-    connect(windowTitleCheckBox, SIGNAL(clicked()), this, SLOT(updatePreview()));
-    connect(windowSystemMenuCheckBox, SIGNAL(clicked()), this, SLOT(updatePreview()));
-    connect(windowMinimizeButtonCheckBox, SIGNAL(clicked()), this, SLOT(updatePreview()));
-    connect(windowMaximizeButtonCheckBox, SIGNAL(clicked()), this, SLOT(updatePreview()));
-    connect(windowCloseButtonCheckBox, SIGNAL(clicked()), this, SLOT(updatePreview()));
-    connect(windowContextHelpButtonCheckBox, SIGNAL(clicked()), this, SLOT(updatePreview()));
-    connect(windowShadeButtonCheckBox, SIGNAL(clicked()), this, SLOT(updatePreview()));
-    connect(windowStaysOnTopCheckBox, SIGNAL(clicked()), this, SLOT(updatePreview()));
-    connect(windowStaysOnBottomCheckBox, SIGNAL(clicked()), this, SLOT(updatePreview()));
-    connect(customizeWindowHintCheckBox, SIGNAL(clicked()), this, SLOT(updatePreview()));
+    connect(ui.msWindowsFixedSizeDialogCheckBox, SIGNAL(clicked()), this, SLOT(updatePreview()));
+    connect(ui.x11BypassWindowManagerCheckBox, SIGNAL(clicked()), this, SLOT(updatePreview()));
+    connect(ui.framelessWindowCheckBox, SIGNAL(clicked()), this, SLOT(updatePreview()));
+    connect(ui.windowNoShadowCheckBox, SIGNAL(clicked()), this, SLOT(updatePreview()));
+    connect(ui.windowTitleCheckBox, SIGNAL(clicked()), this, SLOT(updatePreview()));
+    connect(ui.windowSystemMenuCheckBox, SIGNAL(clicked()), this, SLOT(updatePreview()));
+    connect(ui.windowMinimizeButtonCheckBox, SIGNAL(clicked()), this, SLOT(updatePreview()));
+    connect(ui.windowMaximizeButtonCheckBox, SIGNAL(clicked()), this, SLOT(updatePreview()));
+    connect(ui.windowCloseButtonCheckBox, SIGNAL(clicked()), this, SLOT(updatePreview()));
+    connect(ui.windowContextHelpButtonCheckBox, SIGNAL(clicked()), this, SLOT(updatePreview()));
+    connect(ui.windowShadeButtonCheckBox, SIGNAL(clicked()), this, SLOT(updatePreview()));
+    connect(ui.windowStaysOnTopCheckBox, SIGNAL(clicked()), this, SLOT(updatePreview()));
+    connect(ui.windowStaysOnBottomCheckBox, SIGNAL(clicked()), this, SLOT(updatePreview()));
+    connect(ui.customizeWindowHintCheckBox, SIGNAL(clicked()), this, SLOT(updatePreview()));
 
 }
 

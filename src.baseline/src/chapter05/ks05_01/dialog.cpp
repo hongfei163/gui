@@ -14,5 +14,5 @@
 
 CDialog::CDialog(QWidget* parent) : QDialog(parent)
 {
-	setupUi(this);
+	ui.setupUi(this);
 }

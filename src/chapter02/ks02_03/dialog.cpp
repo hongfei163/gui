@@ -15,9 +15,9 @@
 
 CDialog::CDialog(QWidget* pParent) : QDialog(pParent)
 {
-	setupUi(this);
+	ui.setupUi(this);
 	//
-	label->setPixmap(QPixmap(":/images/qt.png"));
+	ui.label->setPixmap(QPixmap(":/images/qt.png"));
 
 }
 

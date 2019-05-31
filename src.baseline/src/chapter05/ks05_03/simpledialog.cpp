@@ -14,8 +14,7 @@
 
 
 CSimpleDialog::CSimpleDialog(QWidget* pParent) : QDialog(pParent) {
-	setupUi(this);
-	
+    ui.setupUi(this);	
 }
 
 CSimpleDialog::~CSimpleDialog() {

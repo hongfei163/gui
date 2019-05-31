@@ -15,12 +15,12 @@
 
 
 CWidget::CWidget(QWidget* pParent) : QWidget(pParent) {
-	setupUi(this);
-	plainTextEdit->setPlainText("file detected:");
+    ui.setupUi(this);
+    ui.plainTextEdit->setPlainText("file detected:");
 
-	connect(cbFontSize, SIGNAL(currentIndexChanged(int)), this, SLOT(on_fontSizeChanged(int)));
+	connect(ui.cbFontSize, SIGNAL(currentIndexChanged(int)), this, SLOT(on_fontSizeChanged(int)));
 
-	connect(fontComboBox, &QFontComboBox::currentFontChanged, this, &CWidget::on_fontFamilyChanged);
+	connect(ui.fontComboBox, &QFontComboBox::currentFontChanged, this, &CWidget::on_fontFamilyChanged);
 }
 
 CWidget::~CWidget(){
@@ -29,15 +29,15 @@ CWidget::~CWidget(){
 
 
 void CWidget::on_fontFamilyChanged(const QFont &font){
-	int fontSize = cbFontSize->currentText().toInt();
+	int fontSize = ui.cbFontSize->currentText().toInt();
 	QFont ft = font;
 	ft.setPointSize(fontSize);
-	plainTextEdit->setFont(ft);
+    ui.plainTextEdit->setFont(ft);
 }
 
 void CWidget::on_fontSizeChanged(int /*idx*/){
-	int fontSize = cbFontSize->currentText().toInt();
-	QFont ft = fontComboBox->currentFont();
+	int fontSize = ui.cbFontSize->currentText().toInt();
+	QFont ft = ui.fontComboBox->currentFont();
 	ft.setPointSize(fontSize);
-	plainTextEdit->setFont(ft);
+    ui.plainTextEdit->setFont(ft);
 }

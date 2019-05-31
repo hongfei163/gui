@@ -15,13 +15,14 @@
 
 #include "ui_dialogbase.h"
 
-class CDialog : public QDialog, public Ui::CDialogBase
+class CDialog : public QDialog
 {
 	Q_OBJECT
 public:
 	CDialog(QWidget* parent);
 	~CDialog(){;}
-
+private:
+    Ui::CDialogBase ui;
 };
 
 #endif 
