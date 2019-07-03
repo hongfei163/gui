@@ -31,8 +31,6 @@ void CDialog::initialDialog() {
 	// 生成自定义控件对象
 	CWidgetAddress* pWidgetAddress = new CWidgetAddress(this);
 	
-    connect(pWidgetAddress, &CWidgetAddress::sigAddressSaved,
-        this, &CDialog::slot_onAddressSaved);
     //connect(pWidgetAddress, &CWidgetAddress::sigAddressSaved,
     //    this, &CDialog::sig_AddressSaved);
     connect(pWidgetAddress, SIGNAL(sigAddressSaved(const QString&)),

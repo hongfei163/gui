@@ -14,6 +14,7 @@
 #ifndef SIMPLEDIALOG_H
 #define SIMPLEDIALOG_H
 
+#include <QDialog>
 #include "ui_simpledialogbase.h" // 头文件名称来自: simpledialogbase.ui  ---> ui_simpledialogbase.h
 
 

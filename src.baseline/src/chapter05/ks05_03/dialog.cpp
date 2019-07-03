@@ -29,8 +29,7 @@ CDialog::~CDialog(){
 void CDialog::initialDialog() {
 	
 	// 生成自定义控件对象
-	CWidgetAddress* pWidgetAddress = new CWidgetAddress(this);
-	
+	CWidgetAddress* pWidgetAddress = new CWidgetAddress(this);	
 
 
 	// 需要进行自动布局

@@ -11,8 +11,8 @@ OBJECTS_DIR = $$(TRAINDEVHOME)/obj/chapter02/ks02_02
 DESTDIR     = $$(TRAINDEVHOME)/bin
 
 
-MOC_DIR		= $$(OBJECTS_DIR)/moc
-UI_DIR		= $$(OBJECTS_DIR)/ui
+MOC_DIR		= $$OBJECTS_DIR/moc
+UI_DIR		= $$OBJECTS_DIR/ui
 
 #INCLUDEPATH *=  \
 #				$$UI_DIR

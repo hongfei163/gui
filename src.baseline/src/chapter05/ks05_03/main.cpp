@@ -50,12 +50,12 @@ int main(int argc, char * argv[])
 		QCoreApplication::installTranslator(gpTranslator.take());
 	}
 
-	CDialog dlg(NULL);
     // ¹¹Ôìsimpledialog
     CSimpleDialog* pSimpleDialog = new CSimpleDialog(NULL);
     pSimpleDialog->show();
     
 
+	CDialog dlg(NULL);
 	dlg.exec();
     delete pSimpleDialog;
 	return 0;

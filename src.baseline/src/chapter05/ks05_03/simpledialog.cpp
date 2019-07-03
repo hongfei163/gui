@@ -14,7 +14,8 @@
 
 
 CSimpleDialog::CSimpleDialog(QWidget* pParent) : QDialog(pParent) {
-    ui.setupUi(this);	
+    ui.setupUi(this);
+    setWindowTitle("CSimpleDialog");
 }
 
 CSimpleDialog::~CSimpleDialog() {

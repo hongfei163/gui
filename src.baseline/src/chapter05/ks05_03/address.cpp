@@ -17,8 +17,8 @@ CWidgetAddress::CWidgetAddress(QWidget* pParent) : QWidget(pParent) {
     ui.setupUi(this);
 
 	//connect(ui.m_btnSave, SIGNAL(clicked()), this, SLOT(on_addressSaved()));
-
-	connect(ui.m_btnSave, &QPushButton::clicked, this, &CWidgetAddress::on_addressSaved);
+	connect(ui.m_btnSave, &QPushButton::clicked,
+        this, &CWidgetAddress::slot_btnSaveClicked);
 }
 
 CWidgetAddress::~CWidgetAddress(){
@@ -26,6 +26,6 @@ CWidgetAddress::~CWidgetAddress(){
 }
 
 
-void CWidgetAddress::on_addressSaved(){
+void CWidgetAddress::slot_btnSaveClicked(){
 }
 

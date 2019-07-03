@@ -49,7 +49,7 @@ public:
 	QString getName() const { return m_strName; }
 private:
 	int m_id;
-	QString m_strName;
+	QString m_strName;   
 };
 QDebug operator<<(QDebug debug, const CMyClass &mc);
 

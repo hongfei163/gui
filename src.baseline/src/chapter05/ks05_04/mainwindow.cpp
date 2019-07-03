@@ -23,7 +23,7 @@ MainWindow::MainWindow()
     mdiArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     setCentralWidget(mdiArea);
 
-	createActions();
+    createActions();
     createStatusBar();
     updateMenus();
 

@@ -14,6 +14,7 @@
 #ifndef DIALOG_H
 #define DIALOG_H
 
+#include <QDialog>
 #include "ui_dialogbase.h" // 头文件名称来自: dialogbase.ui  ---> ui_dialogbase.h
 
 
