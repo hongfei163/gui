@@ -17,12 +17,13 @@ CStep3::CStep3(QWidget *parent)
     : QWidget(parent)
 {
     ui.setupUi(this);
+    connect(ui.btnPrevious, &QPushButton::clicked,
+        this, &CStep3::slot_previous);
 
-    connect(ui.btnPrevious, &QPushButton::clicked, this, &CStep3::slot_previous);
-    connect(ui.btnClose, &QPushButton::clicked, this, &CStep3::slot_close);
-  
+    connect(ui.btnClose, &QPushButton::clicked,
+        this, &CStep3::slot_close);
+
 }
-
 void CStep3::slot_previous()
 {
     emit showpage(1);

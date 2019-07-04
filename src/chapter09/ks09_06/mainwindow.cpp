@@ -11,34 +11,84 @@
 
 */
 #include <QtWidgets>
-#include "actionmgr.h"
+#include <QThread>
 #include "mainwindow.h"
-#include "mypushbutton.h"
-#include "mytoolbutton.h"
-#include "publicinfomgr.h"
-#include "toolbarcontainer.h"
-#include "toolbarpage.h"
-#include "toolbarpanel.h"
+#include "base/basedll/baseapi.h"
+#include "textedit.h"
+#include "splashscreen.h"
 
 
-CMainWindow::CMainWindow(QWidget* parent) : QMainWindow(parent, Qt::FramelessWindowHint | Qt::Window)
+CMainWindow::CMainWindow(QWidget* parent, CSplashScreen* pSplashScreen) : QMainWindow(parent)
 {
-	createActions();
-	createMenus();
+    connect(this,
+        &CMainWindow::progress,
+        pSplashScreen,
+        &CSplashScreen::setProgress);
 
-	m_pInfoLabel = new QLabel(tr(""
-		""));
+    // 模拟耗时操作
+    QThread::sleep(1);
+    emit progress(10);
+    
+    createActions();
+	createMenus();
+	createToolBars();
+	createStatusBar();
+
+
+	initialize();
+
+	setWindowTitle(tr("Demo"));
+	setMinimumSize(160, 160);
+	resize(480, 320);
+    
+}
+
+void CMainWindow::initialize()
+{
+
+	m_pTextEdit = new CTextEdit(this);
+	QFile file;
+	QString strFile = ns_train::getFileName("$TRAINDEVHOME/test/chapter08/ks08_01/input.txt");
+	file.setFileName(strFile);
+	if (!file.open(QFile::ReadOnly | QFile::Text)) {
+		return ;
+	}
+	QTextStream input(&file);
+	input.setCodec("GBK"); // 读者可以试试用: UTF-8。
+
+	QString str = input.readAll();
+	m_pTextEdit->setText(str);
+
+	setCentralWidget(m_pTextEdit);
+	connect(m_pTextEdit, SIGNAL(viewMouseMove(QMouseEvent*)), this, SLOT(onMouseMoveInView(QMouseEvent*)));
+
+    readData();
+
+}
+/// 鼠标位置更新
+void CMainWindow::onMouseMoveInView(QMouseEvent* event)
+{
+	const QPointF ptLocal = event->localPos();
+	QPoint pt = ptLocal.toPoint();
+	QString str;
+	str.sprintf("%d, %d", pt.x(), pt.y());
+	m_pMouseLabel->setText(str);
+}
+
+/// 创建状态栏
+void CMainWindow::createStatusBar()
+{
+	m_pInfoLabel = new QLabel(tr(""));
 	m_pInfoLabel->setFrameStyle(QFrame::StyledPanel | QFrame::Sunken);
 	m_pInfoLabel->setAlignment(Qt::AlignCenter);
 	statusBar()->addPermanentWidget(m_pInfoLabel);
 
-	setWindowTitle(tr("Menus"));
-	setMinimumSize(160, 160);
-	resize(480, 320);
+	m_pMouseLabel = new QLabel("", statusBar());
+	m_pMouseLabel->setMinimumWidth(100);
+	statusBar()->addPermanentWidget(m_pMouseLabel);
+
+	statusBar()->show();
 }
-
-
-
 void CMainWindow::open()
 {
 	m_pInfoLabel->setText(tr("Invoked <b>File|Open</b>"));
@@ -115,7 +165,7 @@ void CMainWindow::createActions()
 	m_pOpenAct->setStatusTip(tr("Open an existing file"));
 	connect(m_pOpenAct, &QAction::triggered, this, &CMainWindow::open);
 
-	m_pSaveAct = new QAction(tr("&Save"), this);
+	m_pSaveAct = new QAction(QIcon(":/images/save.png"), tr("&Save"), this);
 	m_pSaveAct->setShortcuts(QKeySequence::Save);
 	m_pSaveAct->setStatusTip(tr("Save the document to disk"));
 	connect(m_pSaveAct, &QAction::triggered, this, &CMainWindow::save);
@@ -125,19 +175,19 @@ void CMainWindow::createActions()
 	m_pExitAct->setStatusTip(tr("Exit the application"));
 	connect(m_pExitAct, &QAction::triggered, this, &QWidget::close);
 
-	m_pCutAct = new QAction(tr("Cu&t"), this);
+	m_pCutAct = new QAction(QIcon(":/images/cut.png"), tr("Cu&t"), this);
 	m_pCutAct->setShortcuts(QKeySequence::Cut);
 	m_pCutAct->setStatusTip(tr("Cut the current selection's contents to the "
 		"clipboard"));
 	connect(m_pCutAct, &QAction::triggered, this, &CMainWindow::cut);
 
-	m_pCopyAct = new QAction(tr("&Copy"), this);
+	m_pCopyAct = new QAction(QIcon(":/images/copy.png"), tr("&Copy"), this);
 	m_pCopyAct->setShortcuts(QKeySequence::Copy);
 	m_pCopyAct->setStatusTip(tr("Copy the current selection's contents to the "
 		"clipboard"));
 	connect(m_pCopyAct, &QAction::triggered, this, &CMainWindow::copy);
 
-	m_pPasteAct = new QAction(tr("&Paste"), this);
+	m_pPasteAct = new QAction(QIcon(":/images/paste.png"), tr("&Paste"), this);
 	m_pPasteAct->setShortcuts(QKeySequence::Paste);
 	m_pPasteAct->setStatusTip(tr("Paste the clipboard's contents into the current "
 		"selection"));
@@ -233,519 +283,36 @@ void CMainWindow::createMenus()
 	m_pFormatMenu->addAction(m_pSetParagraphSpacingAct);
 }
 
-void CMainWindow::initialToolbar()
+
+void CMainWindow::createToolBars()
 {
+	m_pFileToolBar = addToolBar(tr("file tool bar"));
+	m_pFileToolBar->setObjectName("file tool bar");
+
+	m_pFileToolBar->addAction(m_pOpenAct);
+	m_pFileToolBar->addAction(m_pSaveAct);
+
+
+	m_pEditToolBar = addToolBar(tr("edit tool bar"));
+	m_pEditToolBar->setObjectName("edit tool bar");
+	m_pEditToolBar->addAction(m_pCutAct);
+	m_pEditToolBar->addAction(m_pCopyAct);
+	m_pEditToolBar->addAction(m_pPasteAct);
 
 }
-void CMainWindow::createMainMenu()
+void CMainWindow::readData()
 {
 
-}
-void CMainWindow::createToolContainer()
-{
-    // 创建二级工具条
-    m_pToolBarContainer = new CToolBarContainer(NULL);
+    QThread::sleep(1);
+    emit progress(30);
 
-    //创建工具页
-    createToolPages();
-    //创建工具
-    createTools();
+    QThread::sleep(1);
+    emit progress(50);
 
-    //m_pToolBarContainer->onPageChanged(m_pUIParser->m_Toolpages.begin().value()->m_id);
-}
-void CMainWindow::createMainBar()
-{
+    QThread::sleep(1);
+    emit progress(70);
 
-}
-void CMainWindow::createToolPages()
-{
-    PDrawToolPageMap::iterator itPage = m_Toolpages.begin();
-    for (itPage; itPage != m_Toolpages.end(); itPage++)
-    {
-        PDrawToolPage pToolPage = itPage.value();
-        CToolBarPage* page = new CToolBarPage(m_pToolBarContainer, pToolPage->m_id);
-        //page->setStyleSheet(QString::fromUtf8("border:2px solid red"));
-        page->setObjectName(pToolPage->m_name);
-        page->setFixedHeight(94);
-        m_pToolBarContainer->addPage(page);//添加工具页
+    QThread::sleep(1);
+    emit progress(100);
 
-        QGridLayout* layout = new QGridLayout(page);
-        layout->setSizeConstraint(QLayout::SetFixedSize);
-        for (int i = 0; i < pToolPage->m_panels.size(); i++)
-        {
-            //createToolPanels(page, pToolPage->m_panels[i],layout);
-            PDrawToolPanelMap::iterator itPanel = m_ToolPanels.find(pToolPage->m_panels[i]);
-            if (itPanel != m_ToolPanels.end())
-            {
-                //插入面板
-                PDrawToolPanel pToolPanel = itPanel.value();
-                CToolBarPanel* pPanel = new CToolBarPanel(NULL, pToolPanel->m_id);
-                pPanel->setName(pToolPanel->m_name);
-                QGridLayout* pGridLayout = new QGridLayout();
-                pGridLayout->setContentsMargins(0, 0, 0, 0);
-                pGridLayout->setSizeConstraint(QLayout::SetFixedSize);
-                pGridLayout->setHorizontalSpacing(2);
-                pGridLayout->setVerticalSpacing(0);
-                pPanel->setLayout(pGridLayout);
-                page->addPanel(pPanel);
-                layout->addWidget(pPanel, 0, i * 2, 1, 1, Qt::AlignBottom);
-
-                //插入分隔线
-                QLabel* pLineLable = new QLabel;
-                pLineLable->setFixedSize(1, 94);
-                QString lableStyle = QString::fromLocal8Bit(
-                    " QLabel{ background: #c9c9c9}"
-                );
-                pLineLable->setStyleSheet(lableStyle);
-                layout->addWidget(pLineLable, 0, i * 2 + 1, 2, 1, Qt::AlignVCenter);
-
-                //插入面板标签
-                QLabel* pPanelLabel = new QLabel;
-                pPanelLabel->setText(pToolPanel->m_caption);
-                pPanelLabel->setFixedHeight(15);
-                layout->addWidget(pPanelLabel, 1, i * 2, 1, 1, Qt::AlignBottom | Qt::AlignHCenter);
-
-                //设置比例
-                layout->setRowStretch(0, 4);
-                layout->setRowStretch(1, 1);
-                layout->setHorizontalSpacing(5);
-            }
-        }
-        layout->setContentsMargins(5, 2, 5, 2);//设置布局与窗口间隔
-        page->setLayout(layout);
-    }
-}
-
-void CMainWindow::createTools()
-{
-    PDrawToolPageMap::iterator itPage = m_Toolpages.begin();
-    for (itPage; itPage != m_Toolpages.end(); itPage++)  {
-        PDrawToolPage pPage = itPage.value();
-        for (int i = 0; i < pPage->m_panels.size(); i++)     {
-            QString panelname = pPage->m_panels[i];
-            PDrawToolPanelMap::iterator itPanel = m_ToolPanels.find(panelname);
-            if (itPanel != m_ToolPanels.end())     {
-                PDrawToolPanel pPanel = itPanel.value();
-                for (int j = 0; j < pPanel->m_tools.size(); j++)
-                {
-                    PToolPos pToolPos = pPanel->m_tools[j];
-                    switch (pToolPos->eToolType)
-                    {
-                    case e_MultiTool:
-                    {
-                        PMultiToolMap::iterator it = m_MultiTools.find(pToolPos->m_toolName);
-                        if (it != m_MultiTools.end())
-                        {
-                            addMultiToolToPanel(pPage->m_name, pPanel->m_name, it.value(), pToolPos);
-                        }
-                    }
-                    break;
-                    case e_SingleTool:
-                    {
-                        PDrawToolMap::iterator it = m_DrawTools.find(pToolPos->m_toolName);
-                        if (it != m_DrawTools.end())
-                        {
-                            addTooltoPanel(pPage->m_name, pPanel->m_name, it.value(), pToolPos);
-                        }
-                    }
-                    break;
-                    default:
-                        break;
-                    }
-
-                }
-            }
-        }
-    }
-}
-void CMainWindow::addTooltoPanel(QString& pageName, QString& panelName, PDrawTool pTool, PToolPos pToolPos)
-{
-    switch (pTool->m_type)
-    {
-    case CUiTypeenum::EMyPushButton:
-        addToolMyPushButton(pageName, panelName, pTool, pToolPos);
-        break;
-    case CUiTypeenum::EMyCheckBox:
-     //   addToolMyCheckBox(pageName, panelName, pTool, pToolPos);
-        break;
-    case CUiTypeenum::EMyRadioButton:
-     //   addToolMyRadioButton(pageName, panelName, pTool, pToolPos);
-        break;
-    case CUiTypeenum::ELable_Qt:
-      //  addToolQtLabel(pageName, panelName, pTool, pToolPos);
-        break;
-    case  CUiTypeenum::EGPWidget:
-       // addToolGPWidget(pageName, panelName, pTool, pToolPos);
-        break;
-    case CUiTypeenum::EHSpaceItem_Qt:
-    case CUiTypeenum::EVSpaceItem_Qt:
-      //  addToolQtSpaceitem(pageName, panelName, pTool, pToolPos);
-        break;
-
-    case CUiTypeenum::ESeparator:
-       // addToolSeparator(pageName, panelName, pTool, pToolPos);
-        break;
-    default:
-        break;
-    }
-
-}
-
-void CMainWindow::addToolMyPushButton(QString& pageName, QString& panelName, PDrawTool pTool, PToolPos pToolPos)
-{
-    //创建按钮
-    CMyPushButton* pMyPushButton = new CMyPushButton(pTool->m_name, NULL);
-
-    //设置按钮的状态图片
-    pMyPushButton->setStateIcon(CPublicInfoMgr::instance()->getUiIconPathName(pTool->m_icon, eState_Normal),
-        CPublicInfoMgr::instance()->getUiIconPathName(pTool->m_icon, eState_Over),
-        CPublicInfoMgr::instance()->getUiIconPathName(pTool->m_icon, eState_Down),
-        CPublicInfoMgr::instance()->getUiIconPathName(pTool->m_icon, eState_Unable));
-
-    //重新配置快捷键
-    QAction* pAction = CActionMgr::instance()->getAction(pTool->m_Action);
-    if (pAction != NULL)
-    {
-        if (pTool->m_bChecked == "true")
-        {
-            pAction->setCheckable(true);
-            pAction->setChecked(true);
-        }
-        else if (pTool->m_bChecked == "false")
-        {
-            pAction->setCheckable(true);
-            pAction->setChecked(false);
-        }
-        else
-        {
-            pAction->setCheckable(false);
-        }
-
-        if (pTool->m_accel != QString::null)
-        {
-            pAction->setShortcut(QKeySequence(pTool->m_accel));
-
-            //将Action使用addAction方法添加到主窗口中才能够正常使用快捷键
-            addAction(pAction);
-        }
-
-        //设置按钮动作
-        pMyPushButton->setAction(pAction);
-    }
-
-    //屏蔽按钮文字，使用纯图片
-    pMyPushButton->setText(QString::null);
-
-    //配置按钮的提示状态
-    setTip(pMyPushButton, pTool->m_caption, pTool->m_desc);
-
-    m_pToolBarContainer->addTool(pageName, panelName, pMyPushButton, pToolPos);
-}
-void CMainWindow::setTip(QWidget* pWidget, const QString& caption, const QString& desc)
-{
-    // 提示状态
-    QString toolTip = QString::fromLocal8Bit("<h1><font size='4'>%1</font></h1></br><p align='justify'>%2</p>")
-        .arg(caption).arg(desc);
-    pWidget->setToolTip(toolTip);
-
-    // 状态栏显示
-    pWidget->setStatusTip(desc);
-}
-void CMainWindow::addMultiToolToPanel(QString& pageName, QString& panelName, PMultiTool pMultiTool, PToolPos pToolPos)
-{
-    switch (pMultiTool->m_type)
-    {
-    case CUiTypeenum::EGroupBar_Qt:
-        addMultiToolQtBar(pageName, panelName, pMultiTool, pToolPos);
-        break;
-    case CUiTypeenum::EGroupMenu_Qt:
-        //addMultiToolQtMenu(pageName, panelName, pMultiTool, pToolPos);
-        break;
-    case CUiTypeenum::EGroupGraUnitWidget:
-        //addMultiToolGraUnitWidget(pageName, panelName, pMultiTool, pToolPos);
-        break;
-    default:
-        break;
-    }
-}
-
-//void CMainWindow::addMultiToolQtMenu(QString& pageName, QString& panelName, PMultiTool pMultiTool, PToolPos pToolPos)
-//{
-//    CSubMenuIconStyle* pStyle = new CSubMenuIconStyle();
-//    QMenu* pMenu = new QMenu();
-//    pMenu->setStyle(pStyle);
-//    pMenu->setStyleSheet(CPublicInfoMgr::instance()->getStyleSheet("toolbarmenu"));
-//    pMenu->setToolTipsVisible(true);
-//    for (int i = 0; i < pMultiTool->m_tools.size(); i++)
-//    {
-//        PToolPos pToolPos = pMultiTool->m_tools[i];
-//        //一级菜单
-//        if (pToolPos->eToolType == e_SingleTool)
-//        {
-//            PDrawToolMap::iterator it = m_DrawTools.find(pToolPos->m_toolName);
-//            if (it != m_DrawTools.end())
-//            {
-//                PDrawTool pTool = it.value();
-//                //菜单中插入分隔符
-//                if (pTool->m_type == CUiTypeenum::ESeparator)
-//                {
-//                    pMenu->addSeparator();
-//                }
-//                //菜单中插入Action
-//                else
-//                {
-//                    QAction* pAction = CActionMgr::instance()->getAction(pTool->m_Action);
-//                    if (pAction == NULL)
-//                    {
-//                        pAction = new QAction(pMenu);
-//                    }
-//                    //配置icon
-//                    pAction->setIcon(QIcon(CPublicInfoMgr::instance()->getUiIconPathName(pTool->m_icon, eState_Normal)));
-//                    //配置显示文字
-//                    pAction->setText(pTool->m_caption);
-//                    //配置工具提示文字
-//                    QString toolTip = QString::fromLocal8Bit("<h1><font size='4'>%1</font></h1></br><p align='justify'>%2</p>")
-//                        .arg(pTool->m_caption).arg(pTool->m_desc);
-//                    pAction->setToolTip(toolTip);
-//                    //配置状态栏提示
-//                    pAction->setStatusTip(pTool->m_desc);
-//                    //配置菜单动作
-//                    pMenu->addAction(pAction);
-//                    //重新配置快捷键
-//                    if (pTool->m_accel != QString::null)
-//                    {
-//                        pAction->setShortcut(QKeySequence(pTool->m_accel));
-//
-//                        //将Action使用addAction方法添加到主窗口中才能够正常使用快捷键
-//                        m_pMainWindow->addAction(pAction);
-//                    }
-//                }
-//            }
-//        }
-//        //二级菜单
-//        else
-//        {
-//            PMultiToolMap::Iterator it = m_pUIParser->m_MultiTools.find(pToolPos->m_toolName);
-//            if (it != m_pUIParser->m_MultiTools.end())
-//            {
-//                PMultiTool pSubMultiTool = it.value();
-//                QMenu* pSubMenu = new QMenu();
-//                pSubMenu->setToolTipsVisible(true);
-//                for (int j = 0; j < pSubMultiTool->m_tools.size(); j++)
-//                {
-//                    PToolPos pSubToolPos = pSubMultiTool->m_tools[j];
-//                    PDrawToolMap::iterator itSub = m_pUIParser->m_DrawTools.find(pSubToolPos->m_toolName);
-//                    if (itSub != m_pUIParser->m_DrawTools.end())
-//                    {
-//                        PDrawTool pSubTool = itSub.value();
-//                        if (pSubTool->m_type == CUiTypeenum::ESeparator)
-//                        {
-//                            pSubMenu->addSeparator();
-//                        }
-//                        else
-//                        {
-//                            QAction* pAction = CActionMgr::instance()->getAction(pSubTool->m_Action);
-//                            if (pAction == NULL)
-//                            {
-//                                pAction = new QAction(pSubMenu);
-//                            }
-//                            //配置icon
-//                            pAction->setIcon(QIcon(CPublicInfoMgr::instance()->getUiIconPathName(pSubTool->m_icon, eState_SingleState)));
-//                            //配置显示文字
-//                            pAction->setText(pSubTool->m_caption);
-//                            //配置工具提示文字
-//                            QString toolTip = QString::fromLocal8Bit("<h1><font size='4'>%1</font></h1></br><p align='justify'>%2</p>")
-//                                .arg(pSubTool->m_caption).arg(pSubTool->m_desc);
-//                            pAction->setToolTip(toolTip);
-//                            //配置状态栏提示
-//                            pAction->setStatusTip(pSubTool->m_desc);
-//                            //配置菜单动作
-//                            pMenu->addAction(pAction);
-//                            //重新配置快捷键
-//                            if (pSubTool->m_accel != QString::null)
-//                            {
-//                                pAction->setShortcut(QKeySequence(pSubTool->m_accel));
-//
-//                                //将Action使用addAction方法添加到主窗口中才能够正常使用快捷键
-//                                m_pMainWindow->addAction(pAction);
-//                            }
-//                        }
-//                    }
-//                }
-//                pMenu->addMenu(pSubMenu);
-//            }
-//        }
-//    }
-//
-//    CMyPushButton* pMyPushButton = new CMyPushButton(pMultiTool->m_name, NULL);
-//
-//    //设置按钮的状态图片
-//    pMyPushButton->setStateIcon(CPublicInfoMgr::instance()->getUiIconPathName(pMultiTool->m_icon, eState_Normal),
-//        CPublicInfoMgr::instance()->getUiIconPathName(pMultiTool->m_icon, eState_Over),
-//        CPublicInfoMgr::instance()->getUiIconPathName(pMultiTool->m_icon, eState_Down),
-//        CPublicInfoMgr::instance()->getUiIconPathName(pMultiTool->m_icon, eState_Unable));
-//
-//    //屏蔽按钮文字，使用纯图片
-//    pMyPushButton->setText(QString::null);
-//
-//    //配置按钮的提示状态
-//    setTip(pMyPushButton, pMultiTool->m_caption, pMultiTool->m_desc);
-//
-//    pMyPushButton->setMenu(pMenu);
-//    m_pToolBarContainer->addTool(pageName, panelName, pMyPushButton, pToolPos);
-//}
-
-//void CMainWindow::addMultiToolGraUnitWidget(QString& pageName, QString& panelName, PMultiTool pMultiTool, PToolPos pToolPos)
-//{
-//    //创建基本图元窗口
-//    CGraphUnitWindow* pGrphWindow = new CGraphUnitWindow();
-//    for (int i = 0; i < pMultiTool->m_tools.size(); i++)
-//    {
-//        QString toolName = pMultiTool->m_tools[i]->m_toolName;
-//        PDrawToolMap::iterator it = m_DrawTools.find(toolName);
-//        if (it != m_DrawTools.end())
-//        {
-//            PDrawTool pTool = it.value();
-//            int row = pMultiTool->m_tools[i]->m_row;
-//            int col = pMultiTool->m_tools[i]->m_col;
-//            int rowSpan = pMultiTool->m_tools[i]->m_rowSpan;
-//            int colSpan = pMultiTool->m_tools[i]->m_colSpan;
-//            pGrphWindow->addGraphUnit(pTool, CActionMgr::instance()->getAction(pTool->m_Action), row, col, rowSpan, colSpan);
-//        }
-//    }
-//    m_pToolBarContainer->addTool(pageName, panelName, pGrphWindow, pToolPos);
-//}
-
-void CMainWindow::addMultiToolQtBar(QString& pageName, QString& panelName, PMultiTool pMultiTool, PToolPos pToolPos)
-{
-    //创建工具栏
-    QToolBar* pToolBar = new QToolBar();
-    pToolBar->setObjectName(pMultiTool->m_name);
-
-    for (int i = 0; i < pMultiTool->m_tools.size(); i++)
-    {
-        QString toolName = pMultiTool->m_tools[i]->m_toolName;
-        PDrawToolMap::iterator it = m_DrawTools.find(toolName);
-        if (it != m_DrawTools.end())
-        {
-            PDrawTool pTool = it.value();
-            //工具条上添加widget
-            if (pTool->m_type == CUiTypeenum::EGPWidget)
-            {
-                //QWidget* pWidget = CActionMgr::instance()->getWidget(pTool->m_Widget);
-                //ProcessGPWidget(pTool, pWidget);
-                //pToolBar->addWidget(pWidget);
-            }
-            //工具条上添加分隔符
-            else if (pTool->m_type == CUiTypeenum::ESeparator)
-            {
-                pToolBar->addSeparator();
-            }
-            //工具条上添加按钮
-            else if (pTool->m_type == CUiTypeenum::EMyPushButton)
-            {
-                //创建按钮
-                CMyPushButton* pMyPushButton = new CMyPushButton(pTool->m_name, NULL);
-
-                //设置按钮的状态图片
-                pMyPushButton->setStateIcon(CPublicInfoMgr::instance()->getUiIconPathName(pTool->m_icon, eState_Normal),
-                    CPublicInfoMgr::instance()->getUiIconPathName(pTool->m_icon, eState_Over),
-                    CPublicInfoMgr::instance()->getUiIconPathName(pTool->m_icon, eState_Down),
-                    CPublicInfoMgr::instance()->getUiIconPathName(pTool->m_icon, eState_Unable));
-
-                //重新配置快捷键
-                QAction* pAction = CActionMgr::instance()->getAction(pTool->m_Action);
-                if (pAction != NULL)
-                {
-                    if (pTool->m_bChecked == "true")
-                    {
-                        pAction->setCheckable(true);
-                        pAction->setChecked(true);
-                    }
-                    else if (pTool->m_bChecked == "false")
-                    {
-                        pAction->setCheckable(true);
-                        pAction->setChecked(false);
-                    }
-                    else
-                    {
-                        pAction->setCheckable(false);
-                    }
-
-                    if (pTool->m_accel != QString::null)
-                    {
-                        pAction->setShortcut(QKeySequence(pTool->m_accel));
-
-                        //将Action使用addAction方法添加到主窗口中才能够正常使用快捷键
-                        addAction(pAction);
-                    }
-                    //设置按钮动作
-                    pMyPushButton->setAction(pAction);
-                }
-
-                //屏蔽按钮文字，使用纯图片
-                pMyPushButton->setText(QString::null);
-
-                //配置按钮的提示状态
-                //setTip(pMyPushButton, pTool->m_caption, pTool->m_desc);
-
-                pToolBar->addWidget(pMyPushButton);
-            }
-            //工具条上添加checkbox
-            //else if (pTool->m_type == CUiTypeenum::EMyCheckBox)
-            //{
-            //    //创建checkbox
-            //    CMyCheckBox* pMyCheckBox = new CMyCheckBox(pTool->m_name, NULL);
-
-            //    //重新配置快捷键
-            //    QAction* pAction = CActionMgr::instance()->getAction(pTool->m_Action);
-            //    if (pAction != NULL)
-            //    {
-            //        if (pTool->m_accel != QString::null)
-            //        {
-            //            pAction->setShortcut(QKeySequence(pTool->m_accel));
-
-            //            //将Action使用addAction方法添加到主窗口中才能够正常使用快捷键
-            //            m_pMainWindow->addAction(pAction);
-            //        }
-
-            //        //设置checkbox动作
-            //        pMyCheckBox->setAction(pAction);
-            //    }
-            //    //设置checkbox显示文字
-            //    pMyCheckBox->setText(pTool->m_caption);
-
-            //    setTip(pMyCheckBox, pTool->m_caption, pTool->m_desc);
-            //    pToolBar->addWidget(pMyCheckBox);
-            //}
-            ////工具条上添加radioButton
-            //else if (pTool->m_type == CUiTypeenum::EMyRadioButton)
-            //{
-            //    //创建radioButton
-            //    CMyRadioButton* pMyRadioButton = new CMyRadioButton(pTool->m_name, NULL);
-
-            //    //重新配置快捷键
-            //    QAction* pAction = CActionMgr::instance()->getAction(pTool->m_Action);
-            //    if (pAction != NULL)
-            //    {
-            //        if (pTool->m_accel != QString::null)
-            //        {
-            //            pAction->setShortcut(QKeySequence(pTool->m_accel));
-
-            //            //将Action使用addAction方法添加到主窗口中才能够正常使用快捷键
-            //            m_pMainWindow->addAction(pAction);
-            //        }
-
-            //        //设置radioButton动作
-            //        pMyRadioButton->setAction(pAction);
-            //    }
-            //    //设置radioButton显示文字
-            //    pMyRadioButton->setText(pTool->m_caption);
-
-            //    setTip(pMyRadioButton, pTool->m_caption, pTool->m_desc);
-            //    pToolBar->addWidget(pMyRadioButton);
-            //}
-        }
-    }
-    m_pToolBarContainer->addTool(pageName, panelName, pToolBar, pToolPos);
 }

@@ -11,27 +11,71 @@
 
 */
 #include <QtWidgets>
+#include <QThread>
 #include "mainwindow.h"
+#include "base/basedll/baseapi.h"
+#include "textedit.h"
 
 
 CMainWindow::CMainWindow(QWidget* parent) : QMainWindow(parent)
 {
 	createActions();
 	createMenus();
+	createToolBars();
+	createStatusBar();
+	
+	initialize();
 
-	m_pInfoLabel = new QLabel(tr(""
-		""));
+	setWindowTitle(tr("Demo"));
+	setMinimumSize(160, 160);
+	resize(480, 320);   
+  
+
+}
+
+void CMainWindow::initialize()
+{
+	m_pTextEdit = new CTextEdit(this);
+	QFile file;
+	QString strFile = ns_train::getFileName("$TRAINDEVHOME/test/chapter08/ks08_01/input.txt");
+	file.setFileName(strFile);
+	if (!file.open(QFile::ReadOnly | QFile::Text)) {
+		return ;
+	}
+	QTextStream input(&file);
+	input.setCodec("GBK"); // 读者可以试试用: UTF-8。
+
+	QString str = input.readAll();
+	m_pTextEdit->setText(str);
+
+	setCentralWidget(m_pTextEdit);
+	connect(m_pTextEdit, SIGNAL(viewMouseMove(QMouseEvent*)), this, SLOT(onMouseMoveInView(QMouseEvent*)));
+
+}
+/// 鼠标位置更新
+void CMainWindow::onMouseMoveInView(QMouseEvent* event)
+{
+	const QPointF ptLocal = event->localPos();
+	QPoint pt = ptLocal.toPoint();
+	QString str;
+	str.sprintf("%d, %d", pt.x(), pt.y());
+	m_pMouseLabel->setText(str);
+}
+
+/// 创建状态栏
+void CMainWindow::createStatusBar()
+{
+	m_pInfoLabel = new QLabel(tr(""));
 	m_pInfoLabel->setFrameStyle(QFrame::StyledPanel | QFrame::Sunken);
 	m_pInfoLabel->setAlignment(Qt::AlignCenter);
 	statusBar()->addPermanentWidget(m_pInfoLabel);
 
-	setWindowTitle(tr("Menus"));
-	setMinimumSize(160, 160);
-	resize(480, 320);
+	m_pMouseLabel = new QLabel("", statusBar());
+	m_pMouseLabel->setMinimumWidth(100);
+	statusBar()->addPermanentWidget(m_pMouseLabel);
+
+	statusBar()->show();
 }
-
-
-
 void CMainWindow::open()
 {
 	m_pInfoLabel->setText(tr("Invoked <b>File|Open</b>"));
@@ -108,7 +152,7 @@ void CMainWindow::createActions()
 	m_pOpenAct->setStatusTip(tr("Open an existing file"));
 	connect(m_pOpenAct, &QAction::triggered, this, &CMainWindow::open);
 
-	m_pSaveAct = new QAction(tr("&Save"), this);
+	m_pSaveAct = new QAction(QIcon(":/images/save.png"), tr("&Save"), this);
 	m_pSaveAct->setShortcuts(QKeySequence::Save);
 	m_pSaveAct->setStatusTip(tr("Save the document to disk"));
 	connect(m_pSaveAct, &QAction::triggered, this, &CMainWindow::save);
@@ -118,19 +162,19 @@ void CMainWindow::createActions()
 	m_pExitAct->setStatusTip(tr("Exit the application"));
 	connect(m_pExitAct, &QAction::triggered, this, &QWidget::close);
 
-	m_pCutAct = new QAction(tr("Cu&t"), this);
+	m_pCutAct = new QAction(QIcon(":/images/cut.png"), tr("Cu&t"), this);
 	m_pCutAct->setShortcuts(QKeySequence::Cut);
 	m_pCutAct->setStatusTip(tr("Cut the current selection's contents to the "
 		"clipboard"));
 	connect(m_pCutAct, &QAction::triggered, this, &CMainWindow::cut);
 
-	m_pCopyAct = new QAction(tr("&Copy"), this);
+	m_pCopyAct = new QAction(QIcon(":/images/copy.png"), tr("&Copy"), this);
 	m_pCopyAct->setShortcuts(QKeySequence::Copy);
 	m_pCopyAct->setStatusTip(tr("Copy the current selection's contents to the "
 		"clipboard"));
 	connect(m_pCopyAct, &QAction::triggered, this, &CMainWindow::copy);
 
-	m_pPasteAct = new QAction(tr("&Paste"), this);
+	m_pPasteAct = new QAction(QIcon(":/images/paste.png"), tr("&Paste"), this);
 	m_pPasteAct->setShortcuts(QKeySequence::Paste);
 	m_pPasteAct->setStatusTip(tr("Paste the clipboard's contents into the current "
 		"selection"));
@@ -226,3 +270,20 @@ void CMainWindow::createMenus()
 	m_pFormatMenu->addAction(m_pSetParagraphSpacingAct);
 }
 
+
+void CMainWindow::createToolBars()
+{
+	m_pFileToolBar = addToolBar(tr("file tool bar"));
+	m_pFileToolBar->setObjectName("file tool bar");
+
+	m_pFileToolBar->addAction(m_pOpenAct);
+	m_pFileToolBar->addAction(m_pSaveAct);
+
+
+	m_pEditToolBar = addToolBar(tr("edit tool bar"));
+	m_pEditToolBar->setObjectName("edit tool bar");
+	m_pEditToolBar->addAction(m_pCutAct);
+	m_pEditToolBar->addAction(m_pCopyAct);
+	m_pEditToolBar->addAction(m_pPasteAct);
+
+}

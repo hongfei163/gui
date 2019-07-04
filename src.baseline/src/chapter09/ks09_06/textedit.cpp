@@ -18,6 +18,7 @@
 
 CTextEdit::CTextEdit(QWidget* parent) : QTextEdit(parent)
 {
+	setMouseTracking(true);
 }
 
 
@@ -41,3 +42,9 @@ void CTextEdit::paintEvent(QPaintEvent *event)
 
 }
 
+void CTextEdit::mouseMoveEvent(QMouseEvent *e)
+{
+	QTextEdit::mouseMoveEvent(e); // 首先，调用基类接口
+//	QTextCursor curCursor = textCursor();
+	emit(viewMouseMove(e));
+}

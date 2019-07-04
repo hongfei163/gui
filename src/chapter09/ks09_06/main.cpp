@@ -14,11 +14,12 @@
 #include <QTranslator>
 #include <QLibraryInfo>
 #include <QFile>
+#include <QPixmap>
+
 #include <QTextEdit>
 #include <QTextStream>
-#include "base/basedll/baseapi.h"
 #include "mainwindow.h"
-#include "textedit.h"
+#include "splashscreen.h"
 
 int main(int argc, char * argv[])
 {
@@ -41,22 +42,16 @@ int main(int argc, char * argv[])
 	{
 		QCoreApplication::installTranslator(gpTranslator.take());
 	}
-	CMainWindow mainWindow(NULL);
-	CTextEdit textEdit(&mainWindow);
-	QFile file;
-	QString strFile = ns_train::getFileName("$TRAINDEVHOME/test/chapter08/ks08_01/input.txt");
-	file.setFileName(strFile);
-	if (!file.open(QFile::ReadOnly | QFile::Text)) {
-		return -1;
-	}
-	QTextStream input(&file);
-	input.setCodec("GBK"); // 读者可以试试用: UTF-8。
 
-	QString str = input.readAll();
-	textEdit.setText(str);
+    QPixmap pixmap(":images/logo.png");
+    CSplashScreen splashScreen(pixmap);
+    splashScreen.show();
+    app.processEvents();                // 保证显示启动画面的同时仍可以正常响应鼠标、键盘等操作
 
-	mainWindow.setCentralWidget(&textEdit);
-	mainWindow.show();
+	CMainWindow mainWindow(NULL, &splashScreen);
+    
+    splashScreen.finish(&mainWindow);   // 等待主窗口初始化完毕，然后隐藏splashScreen
+	mainWindow.showMaximized();
 
     return app.exec();
 }

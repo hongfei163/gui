@@ -25,6 +25,7 @@ class QAction;
 class QLabel;
 QT_END_NAMESPACE
 
+class CTextEdit;
 
 class CMainWindow : public QMainWindow
 {
@@ -54,37 +55,48 @@ private slots:
 
 	void about();
 
+	void onMouseMoveInView(QMouseEvent* event);
 
 private:
-	void createActions();
-	void createMenus();
+	void createActions();		/// 构建菜单项对应的QAction。
+	void createMenus();			/// 构建菜单
+	void createToolBars();		/// 构建工具条
+	void createStatusBar();		/// 构建状态栏
+	void initialize();			/// 初始化
 
 private:
-	QMenu *m_pFileMenu;
-	QMenu *m_pEditMenu;
-	QMenu *m_pFormatMenu;
-	QMenu *m_pHelpMenu;
+	QMenu *m_pFileMenu;			/// 文件菜单
+	QMenu *m_pEditMenu;			/// 编辑菜单
+	QMenu *m_pFormatMenu;		/// 格式菜单(二级菜单)
+	QMenu *m_pHelpMenu;			/// 帮助菜单
 	
+	QToolBar *m_pFileToolBar;	/// 文件工具条
+	QToolBar *m_pEditToolBar;	/// 编辑工具条
+
 	QActionGroup *m_pAlignmentGroup;
 
-	QAction *m_pOpenAct;
-	QAction *m_pSaveAct;
-	QAction *m_pExitAct;
+	QAction *m_pOpenAct;		/// 打开
+	QAction *m_pSaveAct;		/// 保存
+	QAction *m_pExitAct;		/// 退出
 
-	QAction *m_pCutAct;
-	QAction *m_pCopyAct;
-	QAction *m_pPasteAct;
-	QAction *m_pBoldAct;
-	QAction *m_pItalicAct;
-	QAction *m_pLeftAlignAct;
-	QAction *m_pRightAlignAct;
+	QAction *m_pCutAct;			/// 剪切
+	QAction *m_pCopyAct;		/// 复制
+	QAction *m_pPasteAct;		/// 黏贴
+	QAction *m_pBoldAct;		/// 粗体 
+	QAction *m_pItalicAct;		/// 斜体
+	QAction *m_pLeftAlignAct;	/// 左对齐
+	QAction *m_pRightAlignAct;	/// 右对齐
+	QAction *m_pCenterAct;		/// 居中
+	
+	QAction *m_pSetLineSpacingAct; /// 设置行间距
+	QAction *m_pSetParagraphSpacingAct;/// 设置段间距
 
-	QAction *m_pCenterAct;
-	QAction *m_pSetLineSpacingAct;
-	QAction *m_pSetParagraphSpacingAct;
-	QAction *m_pAboutAct;
+	QAction *m_pAboutAct;	/// 关于
 
-	QLabel *m_pInfoLabel;
+	QLabel *m_pInfoLabel;	/// 信息标签
+	QLabel* m_pMouseLabel;	/// 鼠标位置显示
+
+	CTextEdit* m_pTextEdit; /// 编辑器
 };
 
 #endif // MAINWINDOW_H

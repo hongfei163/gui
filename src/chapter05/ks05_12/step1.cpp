@@ -19,7 +19,8 @@ CStep1::CStep1(QWidget *parent)
 {
     ui.setupUi(this);
 
-    connect(ui.btnNext, &QPushButton::clicked, this, &CStep1::slot_next);
+    connect(ui.btnNext, &QPushButton::clicked,
+        this, &CStep1::slot_next);
   
 }
 

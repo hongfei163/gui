@@ -14,11 +14,11 @@
 #include <QTranslator>
 #include <QLibraryInfo>
 #include <QFile>
+#include <QPixmap>
+#include <QSplashScreen>
 #include <QTextEdit>
 #include <QTextStream>
-#include "base/basedll/baseapi.h"
 #include "mainwindow.h"
-#include "textedit.h"
 
 int main(int argc, char * argv[])
 {
@@ -41,21 +41,8 @@ int main(int argc, char * argv[])
 	{
 		QCoreApplication::installTranslator(gpTranslator.take());
 	}
-	CMainWindow mainWindow(NULL);
-	CTextEdit textEdit(&mainWindow);
-	QFile file;
-	QString strFile = ns_train::getFileName("$TRAINDEVHOME/test/chapter08/ks08_01/input.txt");
-	file.setFileName(strFile);
-	if (!file.open(QFile::ReadOnly | QFile::Text)) {
-		return -1;
-	}
-	QTextStream input(&file);
-	input.setCodec("GBK"); // 读者可以试试用: UTF-8。
 
-	QString str = input.readAll();
-	textEdit.setText(str);
-
-	mainWindow.setCentralWidget(&textEdit);
+   	CMainWindow mainWindow(NULL);
 	mainWindow.show();
 
     return app.exec();

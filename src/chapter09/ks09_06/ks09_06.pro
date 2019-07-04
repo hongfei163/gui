@@ -21,30 +21,13 @@ HEADERS		+=  $$TRAIN_SRC_PATH/gui_base.pri \
 				ks09_06.pro \
 				textedit.h \
 				mainwindow.h \
-				drawgeneralbar.h	\
-				mytoolbutton.h				\
-				pagetogglebutton.h		\
-				publicinfomgr.h \
-				toolbarcontainer.h \
-				toolbarpage.h \
-				toolbarpanel.h \
-				mypushbutton.h \
-				uitypedef.h \
-				uifiledef.h \
-				actionmgr.h
+				splashscreen.h
+				   
 	
 SOURCES    +=  main.cpp \
 				textedit.cpp \
 				mainwindow.cpp \
-				drawgeneralbar.cpp	\
-				mytoolbutton.cpp				\
-				pagetogglebutton.cpp		\
-				publicinfomgr.cpp \
-				toolbarcontainer.cpp \
-				toolbarpage.cpp \
-				toolbarpanel.cpp \
-				mypushbutton.cpp \
-				actionmgr.cpp
+				splashscreen.cpp
 				
 RESOURCES	+= ks09_06.qrc
 				

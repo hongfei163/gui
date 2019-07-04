@@ -19,12 +19,17 @@
 
 class CTextEdit : public QTextEdit
 {
+	Q_OBJECT
 public:
 	CTextEdit(QWidget* parent);
 	~CTextEdit(){;}
 
 protected:
 	virtual void paintEvent(QPaintEvent *event);
+	virtual void mouseMoveEvent(QMouseEvent *e) override;
+
+Q_SIGNALS:
+	void viewMouseMove(QMouseEvent *event);
 
 private:
 };

@@ -35,6 +35,7 @@ Q_SIGNALS:
 private slots:
     void slot_previous();
     void slot_close();
+
 private:
     Ui::CStep3 ui;
 };
