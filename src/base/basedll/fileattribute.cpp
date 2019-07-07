@@ -90,7 +90,7 @@ ESerializeCode readInfoFromXML(const QString& fileName, SFileAttr& attrs)
 			{
 				rootDoc >> attrs;
 				SFileHead header(attrs.mainVer, 0);
-				if (header.isLaterMainVersion(getMainVersion()))
+				if (header.isLaterMainVersion(ns_train::getMainVersion()))
 				{
 					code = ESERIALIZECODE_VERSION_NOTRECOGNIZE;
 				}

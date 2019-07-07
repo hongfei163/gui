@@ -19,6 +19,8 @@ class QDomElement;
 
 namespace ns_train {
 	
+static const quint16 c_MainVersion = 1;		/// 图形平台当前图形的主版本号
+static const quint16 c_SubVersion = 12;		/// 图形平台当前图形的次版本号
 
 const quint16 c_MD5_Length = 16;			/// md5码的长度，单位：字节。
 /// 文件的属性
@@ -55,7 +57,9 @@ BASE_API ESerializeCode readInfoFromBinary(const QString& fileName, SFileAttr& a
 */
 BASE_API ESerializeCode readInfoFromXML(const QString& fileName, SFileAttr& attrs);
 
-
+BASE_API  quint16 getMainVersion() {
+    return c_MainVersion;
+}
 } // namespace iesgp
 
 #endif //_FILEATTR_H
