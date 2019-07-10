@@ -7,7 +7,7 @@ CONFIG		+= qt
 
 QT			+= widgets xml
 
-TEMPDIR		= $$TRAIN_OBJ_PATH/chapter05/ks09_12
+TEMPDIR		= $$TRAIN_OBJ_PATH/chapter09/ks09_12
 
 DESTDIR     = $$TRAIN_BIN_PATH
 

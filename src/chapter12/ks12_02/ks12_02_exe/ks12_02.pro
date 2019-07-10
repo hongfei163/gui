@@ -6,7 +6,7 @@ LANGUAGE	= C++
 CONFIG		+= qt
 QT			+= widgets xml
 
-TEMPDIR		= $$TRAIN_OBJ_PATH/chapter05/ks12_02
+TEMPDIR		= $$TRAIN_OBJ_PATH/chapter12/ks12_02
 
 DESTDIR     = $$TRAIN_BIN_PATH
 

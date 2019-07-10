@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ks13_03_d", "ks13_03_d.vcxproj", "{2D6B843E-FE29-329C-BA28-D24B6745690F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "basedll_d", "..\..\base\basedll\basedll_d.vcxproj", "{3952E213-4D38-35B1-B545-A428244C4DAF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2D6B843E-FE29-329C-BA28-D24B6745690F}.Debug|x64.ActiveCfg = Debug|x64
+		{2D6B843E-FE29-329C-BA28-D24B6745690F}.Debug|x64.Build.0 = Debug|x64
+		{2D6B843E-FE29-329C-BA28-D24B6745690F}.Release|x64.ActiveCfg = Release|x64
+		{2D6B843E-FE29-329C-BA28-D24B6745690F}.Release|x64.Build.0 = Release|x64
+		{3952E213-4D38-35B1-B545-A428244C4DAF}.Debug|x64.ActiveCfg = Debug|x64
+		{3952E213-4D38-35B1-B545-A428244C4DAF}.Debug|x64.Build.0 = Debug|x64
+		{3952E213-4D38-35B1-B545-A428244C4DAF}.Release|x64.ActiveCfg = Release|x64
+		{3952E213-4D38-35B1-B545-A428244C4DAF}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3D5A7066-2F91-4A2B-B33F-AA5F987DF8C6}
+	EndGlobalSection
+EndGlobal

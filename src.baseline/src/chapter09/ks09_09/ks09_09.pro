@@ -7,7 +7,7 @@ CONFIG		+= qt
 
 QT			+= widgets
 
-TEMPDIR		= $$TRAIN_OBJ_PATH/chapter05/ks09_09
+TEMPDIR		= $$TRAIN_OBJ_PATH/chapter09/ks09_09
 
 DESTDIR     = $$TRAIN_BIN_PATH
 

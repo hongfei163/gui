@@ -5,7 +5,7 @@ LANGUAGE	= C++
 
 QT			+= widgets
 
-TEMPDIR		= $$TRAIN_OBJ_PATH/chapter05/ks13_02
+TEMPDIR		= $$TRAIN_OBJ_PATH/chapter13/ks13_02
 
 DESTDIR     = $$TRAIN_BIN_PATH
 

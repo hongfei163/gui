@@ -87,7 +87,8 @@ namespace ns_train {
     /**
     * @brief 获取指定目录下的所有文件名
 
-    * @param[in] strPath 指定路径,内部会将"\\"转换为"/"
+    * @param[in] strPath 指定路径,内部会将"\\"转换为"/"；
+    *                    不支持环境变量，如果希望使用环境变量，请先使用getPath()进行转换。
     * @param[in] nameFilters 文件名过滤符,比如:"*.h"
     * @param[in] bRecursive true:递归. false:仅根目录
     * @return 文件名列表, 全路径

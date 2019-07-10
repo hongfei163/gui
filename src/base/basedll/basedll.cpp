@@ -15,6 +15,7 @@
 
 #include <QCryptographicHash>
 #include <QDir>
+#include <QDebug>
 #include <QFileInfoList>
 
 namespace ns_train {
@@ -129,7 +130,12 @@ QStringList getFileList(const QString& strPath, const QStringList& nameFilters, 
     QString strFileName;
     QDir dir;
     dir.setPath(strPath);
-    QFileInfoList fileInfoList = dir.entryInfoList(nameFilters, QDir::Dirs | QDir::Files | QDir::NoSymLinks);
+    QFileInfoList fileInfoList;
+    fileInfoList = dir.entryInfoList(nameFilters, QDir::Files | QDir::NoSymLinks);
+    if (bRecursive) {
+        QStringList strFilters;
+        fileInfoList += dir.entryInfoList(strFilters, QDir::Dirs | QDir::NoSymLinks);
+    }
     QFileInfoList::iterator iteFileInfo = fileInfoList.begin();
     QFileInfo fileInfo;
     for (iteFileInfo = fileInfoList.begin(); iteFileInfo != fileInfoList.end(); iteFileInfo++) {

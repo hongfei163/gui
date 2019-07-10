@@ -42,7 +42,7 @@ int main(int argc, char * argv[])
 
 	// 安装我们项目的翻译文件
 	QString strPath = qgetenv("TRAINDEVHOME");	// 获取环境变量所指向的路径
-	strPath += "/system/lang";					// $TRAINDEVHOME/system/lang/ks05_02.qm
+	strPath += "/system/lang";					// $TRAINDEVHOME/system/lang/xxxxx.qm
 	QScopedPointer<QTranslator> gpTranslator(new QTranslator(QCoreApplication::instance()));
 	if (gpTranslator->load("ks05_02.qm", strPath))
 	{
