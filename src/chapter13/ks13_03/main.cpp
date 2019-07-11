@@ -52,7 +52,8 @@ int main(int argc, char * argv[])
 	}
 
     QStringList strFilters;
-    strFilters << "*.h" << "*.cpp";
+ //   strFilters << "*.h" << "*.cpp";
+    strFilters << "*";
 
     // 得到待计算MD5码的文件列表.
     QString strScanPath = ns_train::getPath("$TRAINDEVHOME");
@@ -60,7 +61,7 @@ int main(int argc, char * argv[])
     QStringList files = ns_train::getFileList(strScanPath, strFilters, true);
     QStringList::iterator ite = files.begin();
    
-    int singleThreadTime = 0;
+    int singleThreadTime = 0; // 单线程计算md5码所需的时间。
     QTime time;
     time.start();
     QList<QByteArray> md5_a;
@@ -104,7 +105,7 @@ int main(int argc, char * argv[])
     // Use QtConcurrentBlocking::mapped to apply the getMd5OfFile function to all the
     // files in the list.
     QList<QByteArray> md5_b;
-    int mapTime = 0;
+    int mapTime = 0; // 使用QtConcurrent的map计算md5码所需的时间。
     {
         QTime time;
         time.start();
