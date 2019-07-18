@@ -162,9 +162,10 @@ void example02() {
     QXmlStreamReader reader(&file);
     QString strVersion;
     QString strEncoding;
+    QXmlStreamReader::TokenType nType = reader.readNext();;
     while (!reader.atEnd()) {// 遍历整个文件
         // 读取下一个元素
-        QXmlStreamReader::TokenType nType = reader.tokenType();
+        nType = reader.tokenType();
         switch (nType) {
         case QXmlStreamReader::StartDocument: { // 文档开始
             qDebug() << QString::fromLocal8Bit("============== 开始文档(XML声明) ===============");
@@ -264,7 +265,7 @@ void parseDoc(QXmlStreamReader& reader) {
 }
 
 void    parseCourses(QXmlStreamReader& reader) {
-    QXmlStreamReader::TokenType nType = reader.readNext();
+    QXmlStreamReader::TokenType nType = reader.readNext(); // 将reader指向lesson子元素.
     while (!reader.atEnd()) {
         nType = reader.tokenType();
         switch (nType) {
