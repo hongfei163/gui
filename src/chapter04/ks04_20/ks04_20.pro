@@ -11,8 +11,6 @@ TEMPDIR		= $$TRAIN_OBJ_PATH/chapter04/ks04_20
 
 DESTDIR     = $$TRAIN_BIN_PATH
 
-INCLUDEPATH += $$TRAIN_INCLUDE_PATH/ks04_11
-
 HEADERS		+=  $$TRAIN_SRC_PATH/gui_base.pri \
 				ks04_20.pro 			   
 	
@@ -24,23 +22,23 @@ UI_DIR		= $$TEMPDIR/ui
 
 debug_and_release {
 	CONFIG(debug, debug|release) {
-		LIBS	+= -lbase_dll_d		
+		LIBS	+= -lbasedll_d		
 	
 		TARGET = ks04_20_d
 	}
 	CONFIG(release, debug|release) {
-		LIBS	+= -lbase_dll				   
+		LIBS	+= -lbasedll				   
 				   
 		TARGET	= ks04_20
 	}
 } else {
 	debug {
-		LIBS	+= -lbase_dll_d	
+		LIBS	+= -lbasedll_d	
 	
 		TARGET	= ks04_20_d
 	}
 	release {
-		LIBS	+= -lbase_dll
+		LIBS	+= -lbasedll
 		
 		TARGET 	= ks04_20
 	}

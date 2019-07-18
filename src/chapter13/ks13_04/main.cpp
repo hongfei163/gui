@@ -26,7 +26,12 @@ using std::cout;
 using std::endl;
 typedef QMap<QString, QByteArray> MD5Map;
 
-// reduce函数
+/**
+* @brief  reduce函数
+* @param[in|out] result reduce函数的返回数据存放到result。
+* @param[in] w 执行完map函数得到的结果w作为输入传入reduce函数。
+* @return void
+*/
 void reduce(MD5Map &result, const MD5Map &w)
 {
     QMapIterator<QString, QByteArray> i(w);
@@ -35,7 +40,12 @@ void reduce(MD5Map &result, const MD5Map &w)
         result[i.key()] += i.value();
     }
 }
-// 利用std::function声明的函数
+
+/**
+* @brief  map函数
+* @param[in] strFileName 待计算md5码的文件名。
+* @return MD5Map 计算出的文件名到md5码的映射，该值将被用来调用reduce接口(作为接口的参数2)
+*/
 MD5Map getMd5OfFile(const QString& strFileName)
 {
     qDebug() << "get md5 in thread" << QThread::currentThread();

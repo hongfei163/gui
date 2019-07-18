@@ -1,7 +1,8 @@
-/*! \file: filehead.h
-	\brief 文件头定义类
-	\author 星点课堂
-	\Date : 2018
+/*! 
+\file: filehead.h
+\brief 文件头定义类
+\author 星点课堂
+\Date : 2018
 * please import basedll.dll
 */
 #ifndef _FILEHEAD_H
