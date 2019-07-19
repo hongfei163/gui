@@ -16,11 +16,8 @@
 #include <QFont>
 #include <QPointF>
 #include <QVariant>
-#include <QString>
 
 #include <iostream>
-
-//#include "myclass.h"
 
 void example01();
 void example02();
@@ -44,7 +41,7 @@ int main(int argc, char * argv[])
 	}
 
 	// example02 
-	if (1) {
+	if (0) {
 		example02();
 	}
 
@@ -53,8 +50,8 @@ int main(int argc, char * argv[])
         example03();
     }
 
-    // example03 
-    if (0) {
+    // example04
+    if (1) {
         example04();
     }
 
@@ -69,43 +66,58 @@ int main(int argc, char * argv[])
 * @return 无
 */
 void example01(){
-	
-	QVariant var1(1); // 整数
-	cout << "this is an integer:" << var1.toInt();
-	
-	uint uVal = 599;
-	QVariant var2(uVal); // 无符号整数
-	cout << "this is a unsigned integer:" << var2.toUInt();
+	// 整数
+    QVariant var1(1);
+    cout << "this is an integer:" << var1.toInt() << endl;
 
-	double dVal = 100.23456;
-	QVariant var3(dVal); // 双精度浮点数
-	cout << "this is a double:" << var3.toDouble();
+    // 无符号整数
+    uint uVal = 599;
+    QVariant var2(uVal);
+    cout << "this is an unsigned integer:" << var2.toUInt() << endl;
 
-	QString str("I am string");
-	QVariant var4 = str; // 用字符串
-	cout << "this is a string:" << var4.toString().toLocal8Bit().data();
+    // 双精度浮点数
+    qreal dVal = 100.23456;
+    QVariant var3(dVal);
+    cout << "this is a double:" << var3.toDouble() << endl;
+    cout << "this is a double:" << var3.toString().toLocal8Bit().data() << endl;
+
+    // 字符串
+    QString str("I'm a string!");
+    QVariant var4(str);
+    cout << "this is a string:" << var4.toString().toLocal8Bit().data() << endl;
+    //qDebug() << var4;
 	
-	QPointF pt(102.35, 200.1);
-	QVariant var5(pt);
-	cout << "this is a pointf:" << var5.toPointF().x() << ", "<< var5.toPointF().y();
-
+    // QPointF
+    QPointF pt(100.34, 200.1);
+    QVariant var5(pt);
+    cout << "this is a QPointF:" << var5.toPointF().x() << ", " << var5.toPointF().y() << endl;
 }
 /**
 * @brief  QVariant::value<>()的使用
 * @return 无
 */
 void example02(){
-	QColor clr1(Qt::darkMagenta);
-	QVariant var1(clr1);
 
-	QColor clr2 = var1.value<QColor>();
-	cout << "clr : " << clr2.redF() << " , " << clr2.greenF() << clr2.blueF() << endl;
+    // QVariant 与 QColor 互相转换
+    QColor clr1(Qt::darkMagenta);
+    QVariant var1(clr1);
+    cout << "clr1:" << clr1.redF() << ", " << clr1.greenF() << ", " << clr1.blueF() << endl;
+
+    // 将var1还原为QColor
+    QColor clr2 = var1.value<QColor>();
+    cout << "clr2:" << clr2.redF() << ", " << clr2.greenF() << ", " << clr2.blueF() << endl;
 
 
-	QFont ft1("宋体", 12.6);
-	QVariant var2(ft1);
-	QFont ft2 = var2.value<QFont>();
-	cout << "font family:" << ft2.family().toLocal8Bit().data() << ", point size=" << ft2.pointSizeF() << endl;
+    // QVariant 与 QFont 互相转换
+    QFont ft1(QString::fromLocal8Bit("宋体"));
+    ft1.setPointSizeF(12.6);
+    QVariant var2(ft1);
+    QFont ft2 = var2.value<QFont>();
+    cout << "font, family:"
+        << ft2.family().toLocal8Bit().data()
+        << ", point size = "
+        << ft2.pointSizeF()
+        << endl;
 }
 
 /**
@@ -113,48 +125,54 @@ void example02(){
 * @return 无
 */
 void example03() {
+    // 整数
+    QVariant var1(1);
 
-	QVariant var1(1); // 整数
+    // 无符号整数
+    uint uVal = 599;
+    QVariant var2(uVal);
 
-	uint uVal = 599;
-	QVariant var2(uVal); // 无符号整数
+    // 双精度浮点数
+    qreal dVal = 100.23456;
+    QVariant var3(dVal);
 
-	double dVal = 100.23456;
-	QVariant var3(dVal); // 双精度浮点数
+    // 字符串
+    QString str("I'm a string!");
+    QVariant var4(str);
 
-	QString str("I am string");
-	QVariant var4 = str; // 用字符串
+    // QPointF
+    QPointF pt(100.34, 200.1);
+    QVariant var5(pt);
 
-	QPointF pt(102.35, 200.1);
+    QVariantList lst;
+    lst << var1 << var2 << var3 << var4 << var5;
 
-
-	QVariantList lst;
-	lst << var1 << var2 << var3 << var4;
-
-	QVariant var;
-	QVariantList::iterator iteLst = lst.begin();
-	for (iteLst = lst.begin(); iteLst != lst.end(); iteLst++)
-	{
-		var = *iteLst;
-		cout << "type is " << var.typeName() << ", value is ";
-		switch (var.type())
-		{
-		case QVariant::Int:
-			cout << var.toInt() << endl;
-			break;
-		case QVariant::String:
-			cout << var.toString().toLocal8Bit().data() << endl;
-			break;
-		case QVariant::Double:
-			cout << var.toDouble();
-			break;
-		case QVariant::RectF:
-			cout << "x:" << var.toPointF().x() << ", y:"<<var.toPointF().y();
-			break;
-		default:
-			break;
-		}
-	}
+    QVariant var;
+    QVariantList::iterator iteLst = lst.begin();
+    for (; iteLst != lst.end(); iteLst++) {
+        var = *iteLst;
+        cout << "type is " << var.typeName() << ", value is ";
+        switch (var.type()) {
+        case QVariant::Int:
+            cout << var.toInt() << endl;
+            break;
+        case QVariant::UInt:
+             cout << var.toUInt() << endl;
+            break;
+        case QVariant::Double:
+            cout << var.toDouble() << endl;
+            break;
+        case QVariant::String:
+            cout << var.toString().toLocal8Bit().data() << endl;
+            break;
+        case QVariant::PointF:
+            cout << "x = " << var.toPointF().x() << ", y = " << var.toPointF().y() << endl;
+            break;
+       default:
+            cout << "default"<< endl;
+            break;
+        }
+    }
 }
 
 /**
@@ -163,11 +181,11 @@ void example03() {
 */
 void example04() {
 
-	cout << QVariant::typeToName(QVariant::Int);
-	cout << QVariant::typeToName(QVariant::Double);
+    cout << QVariant::typeToName(QVariant::Int) << endl;   // "int"
+    cout << QVariant::typeToName(QVariant::PointF) << endl; // "QPointF"
 
-	double dVal = 100.23456;
-	QVariant var3(dVal); // 双精度浮点数
-	cout << QVariant::nameToType(var3.typeName());
+    qreal dVal = 100.23456;
+    QVariant var3(dVal);
+    cout << QVariant::nameToType(var3.typeName()) << endl; // 6
 
 }

@@ -162,7 +162,7 @@ void example02() {
     QXmlStreamReader reader(&file);
     QString strVersion;
     QString strEncoding;
-    QXmlStreamReader::TokenType nType = reader.readNext();;
+    QXmlStreamReader::TokenType nType = reader.readNext();
     while (!reader.atEnd()) {// 遍历整个文件
         // 读取下一个元素
         nType = reader.tokenType();

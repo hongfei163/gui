@@ -7,14 +7,14 @@ CONFIG += console
 # 需要用到QApplication
 QT += widgets
 
-TEMPDIR		= $$TRAIN_OBJ_PATH/chapter04/ks04_08/
+TEMPDIR		= $$TRAIN_OBJ_PATH/chapter04/ks04_09/
 
 DESTDIR     = $$TRAIN_BIN_PATH
 
-INCLUDEPATH += $$TRAIN_INCLUDE_PATH/ks04_08/
+INCLUDEPATH += $$TRAIN_INCLUDE_PATH/ks04_09/
 
 HEADERS		+=  $$TRAIN_SRC_PATH/gui_base.pri \
-				ks04_08.pro
+				ks04_09.pro 
 	
 SOURCES    +=  main.cpp 
 
@@ -25,19 +25,19 @@ UI_DIR		= $$TEMPDIR/ui
 debug_and_release {
 	CONFIG(debug, debug|release) {	
 	
-		TARGET = ks04_08_d
+		TARGET = ks04_09_d
 	}
 	CONFIG(release, debug|release) {			   
 				   
-		TARGET	= ks04_08
+		TARGET	= ks04_09
 	}
 } else {
 	debug {
 	
-		TARGET	= ks04_08_d
+		TARGET	= ks04_09_d
 	}
 	release {
 		
-		TARGET 	= ks04_08
+		TARGET 	= ks04_09
 	}
 }
