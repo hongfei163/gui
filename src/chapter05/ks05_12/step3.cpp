@@ -17,6 +17,7 @@ CStep3::CStep3(QWidget *parent)
     : QWidget(parent)
 {
     ui.setupUi(this);
+
     connect(ui.btnPrevious, &QPushButton::clicked,
         this, &CStep3::slot_previous);
 
@@ -24,11 +25,11 @@ CStep3::CStep3(QWidget *parent)
         this, &CStep3::slot_close);
 
 }
-void CStep3::slot_previous()
-{
-    emit showpage(1);
+
+void CStep3::slot_previous() {
+    emit sig_showPage(1); // 序号从0开始, step3界面是第2个，所以上一步要显示第1个。
 }
-void CStep3::slot_close()
-{
-    emit closeWindow();
+
+void CStep3::slot_close() {
+    emit sig_closeWindow();
 }

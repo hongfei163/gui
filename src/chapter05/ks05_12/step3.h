@@ -29,8 +29,8 @@ public:
     CStep3(QWidget *parent = 0);
 
 Q_SIGNALS:
-    void showpage(int page_index);
-    void closeWindow();
+    void sig_showPage(int page_index);// 用来通知QStackedLayout，显示哪一步骤。
+    void sig_closeWindow();         // 用来通知关闭主窗口
 
 private slots:
     void slot_previous();

@@ -18,15 +18,15 @@
 
 class CMyObject : public QObject
 {
-	Q_OBJECT
+    Q_OBJECT
+
 public:
 	CMyObject();
 	~CMyObject();
 
-public:
-	void saveLog(const QString&);
-private slots:
-	void slot_addressChanged(const QString&);
+public slots:
+    void slot_addressSaved(const QString&);
+
 private:
 };
 

@@ -12,9 +12,25 @@
 */
 #include "dialog.h"
 #include <QGridLayout>
-
+#include <QDialogButtonBox>
+#include "infodialog.h"
 
 CDialog::CDialog(QWidget* parent) : QDialog(parent)
 {
 	ui.setupUi(this);
+
+    ui.lePassword->setEchoMode(QLineEdit::Password);
+    ui.lePassword->setPlaceholderText("please input password.");
+
+    connect(ui.buttonBox, &QDialogButtonBox::accepted,
+              this, &CDialog::slot_accepted);
+    connect(ui.buttonBox, &QDialogButtonBox::rejected,
+            this, &CInfoDialog::reject);
+}
+
+void CDialog::slot_accepted(){
+    CInfoDialog dlg;
+    dlg.exec();
+
+    accept();
 }

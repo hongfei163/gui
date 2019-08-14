@@ -26,7 +26,8 @@ CWidgetAddress::~CWidgetAddress(){
 }
 
 
-void CWidgetAddress::slot_btnSaveClicked()
-{
-    emit sigAddressSaved(ui.m_lineEdit->text());
+void CWidgetAddress::slot_btnSaveClicked(){
+    QString str = ui.m_lineEdit->text();
+    emit sig_addressSaved(str);
 }
+

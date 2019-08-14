@@ -14,7 +14,7 @@
 #include "maindialog.h"
 #include <QGridLayout>
 
-#include "widget.h"
+#include "widget.h" // 包含子控件头文件
 
 
 CMainDialog::CMainDialog(QWidget* pParent) : QDialog(pParent) {
@@ -26,7 +26,16 @@ CMainDialog::~CMainDialog(){
 	
 }
 void CMainDialog::initialDialog() {
-	
-	CWidget* pWidget = new CWidget(ui.widget);
-    ui.gridLayout->addWidget(pWidget, 0, 0);
+    // 构造子控件
+    CWidget* subWidget = new CWidget(ui.widget); // 占位控件作为parent
+
+    // 构建占位控件内部的布局对象，否则拉伸时子控件无法跟随拉伸
+    QGridLayout* gridLayout = new QGridLayout(this);
+    gridLayout->setObjectName(QStringLiteral("gridLayout"));
+
+    // 将子控件添加到布局
+    gridLayout->addWidget(subWidget,  0, 0);
+
+    // 为占位控件设置布局
+    ui.widget->setLayout(gridLayout);
 }

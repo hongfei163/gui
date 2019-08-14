@@ -31,7 +31,7 @@ public:
 	~CMainDialog();
 
 protected:
-	virtual void timerEvent(QTimerEvent *event);
+    virtual void timerEvent(QTimerEvent *event);
 
 private slots:
 	void onStartStop();
@@ -40,11 +40,11 @@ private:
 	void initialDialog();
 private:
 	bool	m_bStart;
-	int		m_timerId;
 	Ui::CMainDialogBase ui;
 	QPixmap	m_png[4];
 	QMovie* m_movie;
 	int		m_idx;
+    int     m_timerId; /// ¶¨Ê±Æ÷id
 };
 
 #endif

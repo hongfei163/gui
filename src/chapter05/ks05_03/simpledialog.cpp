@@ -15,17 +15,16 @@
 
 CSimpleDialog::CSimpleDialog(QWidget* pParent) : QDialog(pParent) {
     ui.setupUi(this);
-	
+    setWindowTitle("CSimpleDialog");
 }
 
 CSimpleDialog::~CSimpleDialog() {
 
 }
 
-void CSimpleDialog::slot_AddressSaved(const QString& str)
-{
-    if (NULL != ui.m_plainTextEdit->document()) {
-        ui.m_plainTextEdit->document()->setPlainText(str);
+void CSimpleDialog::slot_updateAddress(const QString& strAddress) {
+   if (NULL != ui.m_plainTextEdit->document()) {
+        ui.m_plainTextEdit->document()->setPlainText(strAddress);
     }
 }
 

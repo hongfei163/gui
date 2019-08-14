@@ -13,20 +13,12 @@ INCLUDEPATH += $$TRAIN_INCLUDE_PATH/ks05_05
 
 HEADERS		+=  $$TRAIN_SRC_PATH/gui_base.pri \
 				ks05_05.pro \
-				address.h	 \		
-				dialog.h \
-				simpledialog.h
-
+				dialog.h
 	
 SOURCES    +=  main.cpp \
-				address.cpp	 \		
-				dialog.cpp \
-				simpledialog.cpp
-
+				dialog.cpp
 				
-FORMS		+= address.ui \
-				dialogbase.ui \
-				simpledialogbase.ui
+FORMS		+= dialogbase.ui
 
 OBJECTS_DIR = $$TEMPDIR
 MOC_DIR		= $$TEMPDIR/moc

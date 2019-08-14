@@ -30,6 +30,8 @@ private slots:
 	void on_fontSizeChanged(int);
 
 private:
+    void initialStyleSheet();
+private:
     Ui::CWidgetBase ui;
 };
 

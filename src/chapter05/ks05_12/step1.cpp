@@ -18,13 +18,11 @@ CStep1::CStep1(QWidget *parent)
     : QWidget(parent)
 {
     ui.setupUi(this);
-
+ 
     connect(ui.btnNext, &QPushButton::clicked,
         this, &CStep1::slot_next);
-  
 }
 
-void CStep1::slot_next()
-{
-    emit showpage(1);
+void CStep1::slot_next() {
+    emit sig_showPage(1); // 序号从0开始, step1界面是第0个，所以下一步要显示第1个。
 }

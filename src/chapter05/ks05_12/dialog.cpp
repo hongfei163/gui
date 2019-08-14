@@ -10,9 +10,7 @@
 \Date 2019/7
 
 */
-
 #include <QStackedLayout>
-
 #include "dialog.h"
 #include "step1.h"
 #include "step2.h"
@@ -22,30 +20,30 @@ CDialog::CDialog(QWidget* parent) : QDialog(parent)
 {
 	ui.setupUi(this);  
 
-    // 构建QStackedLayout对象和3个子界面对象
-    QStackedLayout* pStackLayout = new QStackedLayout(this);
+    // 构建QStackedLayout布局对象、3个子向导界面对象
+    QStackedLayout* pStackedLayout = new QStackedLayout(this);
+
     CStep1* pWidgetStep1 = new CStep1(this);
     CStep2* pWidgetStep2 = new CStep2(this);
     CStep3* pWidgetStep3 = new CStep3(this);
 
-    // 将3个子界面对象添加到堆栈布局pStackLayout
-    pStackLayout->addWidget(pWidgetStep1);
-    pStackLayout->addWidget(pWidgetStep2);
-    pStackLayout->addWidget(pWidgetStep3);
+    // 将3个子向导界面对象添加到堆栈布局
+    pStackedLayout->addWidget(pWidgetStep1);
+    pStackedLayout->addWidget(pWidgetStep2);
+    pStackedLayout->addWidget(pWidgetStep3);
 
     // 设置默认页
-    pStackLayout->setCurrentIndex(0);
-    // 将堆栈布局对象添加到父窗口的对应布局。
-    ui.horizontalLayout->addLayout(pStackLayout);
+    pStackedLayout->setCurrentIndex(0);
 
-    connect(pWidgetStep1, &CStep1::showpage, 
-            pStackLayout, &QStackedLayout::setCurrentIndex);
-    connect(pWidgetStep2, &CStep2::showpage,
-        pStackLayout, &QStackedLayout::setCurrentIndex);
-    connect(pWidgetStep3, &CStep3::showpage,
-        pStackLayout, &QStackedLayout::setCurrentIndex);
+    // 将堆栈布局添加到父窗口的布局中
+    ui.horizontalLayout->addLayout(pStackedLayout);
 
-    connect(pWidgetStep3, &CStep3::closeWindow,
-        this, &CDialog::close);
+    // 绑定信号槽:将子向导界面的信号绑定到堆栈布局对象的槽函数
+    connect(pWidgetStep1, &CStep1::sig_showPage, pStackedLayout, &QStackedLayout::setCurrentIndex);
+    connect(pWidgetStep2, &CStep2::sig_showPage, pStackedLayout, &QStackedLayout::setCurrentIndex);
+    connect(pWidgetStep3, &CStep3::sig_showPage, pStackedLayout, &QStackedLayout::setCurrentIndex);
+
+    connect(pWidgetStep3, &CStep3::sig_closeWindow, this, &CDialog::close);
+
 
 }

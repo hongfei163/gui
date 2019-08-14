@@ -11,10 +11,9 @@
 \Date 2018/8 
 */
 
-#ifndef DIALOG_H
-#define DIALOG_H
+#pragma once
 
-#include "ui_dialogbase.h"
+#include "ui_dialog.h"
 #include <QDialog>
 
 class CCustomWidget;
@@ -27,8 +26,8 @@ public:
 	~CDialog(){;}
 
 private:
-	Ui::CDialogBase ui;
+    Ui::CDialog ui;
 	CCustomWidget* m_pWidget;
 };
 
-#endif 
+

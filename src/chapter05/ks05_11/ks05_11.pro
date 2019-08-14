@@ -23,6 +23,8 @@ SOURCES    +=  main.cpp \
 FORMS		+= widgetbase.ui \
 			   maindialogbase.ui
 
+RESOURCES  +=  ks05_11.qrc
+
 OBJECTS_DIR = $$TEMPDIR
 MOC_DIR		= $$TEMPDIR/moc
 UI_DIR		= $$TEMPDIR/ui

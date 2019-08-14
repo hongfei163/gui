@@ -1,13 +1,13 @@
 /*! 
-* Copyright (C) 2018 å¥³å„¿å«è€ç™½
-* ç‰ˆæƒæ‰€æœ‰ã€‚
-* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
-* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
+* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
+* °æÈ¨ËùÓĞ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
+* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file: mdichild.h
-\brief  MdiChild ç±»çš„å®šä¹‰æ–‡ä»¶
+\brief  MdiChild ÀàµÄ¶¨ÒåÎÄ¼ş
 
-\author å¥³å„¿å«è€ç™½  æ˜Ÿç‚¹åˆ†äº«: http://xingdianketang.cn/
+\author Å®¶ù½ĞÀÏ°×  ĞÇµã·ÖÏí: http://xingdianketang.cn/
 \Date 2018/9
 */
 
@@ -33,11 +33,11 @@ public:
     QString currentFile() { return curFile; }
 
 Q_SIGNALS:
-	void textSelected(const QString&); // xingdianketang
+    void textSelected(const QString&); /// Ñ¡ÖĞÎÄ±¾ºóÒª·¢ËÍµÄĞÅºÅ
 
 protected:
     void closeEvent(QCloseEvent *event) override;
-	virtual void mouseReleaseEvent(QMouseEvent *e) override; // xingdianketang
+    virtual void mouseReleaseEvent(QMouseEvent *e) override;
 
 private slots:
     void documentWasModified();

@@ -19,13 +19,14 @@ CDialog::CDialog(QWidget* parent) : QDialog(parent)
 {
 	ui.setupUi(this);
 
-	QGridLayout* gridLayout = new QGridLayout(ui.widget);
-	gridLayout->setObjectName(QStringLiteral("gridLayout"));
+    // 构建占位widget内部的布局对象，以便嵌入子控件
+    QGridLayout* gridLayout = new QGridLayout(this);
+    gridLayout->setObjectName(QStringLiteral("gridLayout"));
 
-	m_pWidget = new CCustomWidget(this);
-	gridLayout->addWidget(m_pWidget, 0, 0);
-	
-	ui.labelMiddle->setPixmap(QPixmap(":/images/pic1.png").scaled(300, 300));
+    CCustomWidget* pCustomWidget = new CCustomWidget(this);
+    gridLayout->addWidget(pCustomWidget); // 把子控件添加到布局
 
-	ui.labelRight->setPixmap(QPixmap(":/images/pic1.png").scaled(300, 300));
+    ui.widget->setLayout(gridLayout); // 为占位widget设置布局
+
+    ui.labelRight->setPixmap(QPixmap(":/images/pic1.png").scaled(300, 300));
 }

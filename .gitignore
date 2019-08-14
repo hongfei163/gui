@@ -6,4 +6,5 @@ release
 obj
 .qmake.stash
 *.vcxproj*
+*.pro.user
 

@@ -50,13 +50,15 @@ int main(int argc, char * argv[])
 		QCoreApplication::installTranslator(gpTranslator.take());
 	}
 
-	CDialog dlg(NULL);
     // 构造simpledialog
     CSimpleDialog* pSimpleDialog = new CSimpleDialog(NULL);
     pSimpleDialog->show();
-    // 绑定信号、槽
-    QObject::connect(&dlg, &CDialog::sig_AddressSaved, 
-        pSimpleDialog, &CSimpleDialog::slot_AddressSaved);
+    
+
+	CDialog dlg(NULL);
+
+    QObject::connect(&dlg, &CDialog::sig_addressUpdated,
+        pSimpleDialog, &CSimpleDialog::slot_updateAddress);
 
 	dlg.exec();
     delete pSimpleDialog;

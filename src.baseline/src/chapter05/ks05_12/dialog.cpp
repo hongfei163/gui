@@ -11,8 +11,6 @@
 
 */
 
-#include <QStackedLayout>
-
 #include "dialog.h"
 #include "step1.h"
 #include "step2.h"

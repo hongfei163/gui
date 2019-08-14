@@ -1,63 +1,98 @@
 /*! 
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file: dialog.cpp
-\brief  CDialog ÀàµÄÊµÏÖÎÄ¼ş
+\brief  CDialog
 
-\author Å®¶ù½ĞÀÏ°×  ĞÇµã·ÖÏí: http://xingdianketang.cn/
+\author å¥³å„¿å«è€ç™½  æ˜Ÿç‚¹åˆ†äº«: http://xingdianketang.cn/
 \Date 2018/9
 */
 
+#include <QDebug>
+#include <QLabel>
+#include <QLineEdit>
+#include <QPushButton>
+
 #include "dialog.h"
 
-#include "address.h"
-#include "simpledialog.h"
 
+CDialog::CDialog(QWidget* pParent) : QDialog(pParent), m_pCurrentLabel(NULL){
+	ui.setupUi(this);
 
-CDialog::CDialog(QWidget* pParent) : QDialog(pParent) {
-    ui.setupUi(this);
+	connect(ui.btnDefault, &QPushButton::clicked, this, &CDialog::on_setDefaultFont);
 
-	initialDialog();
+	connect(ui.fontComboBox, SIGNAL(currentFontChanged(const QFont &)), this, SLOT(on_fontFamilyChanged(const QFont &)));
+	connect(ui.cbFontSize, SIGNAL(currentIndexChanged(int)), this, SLOT(on_fontSizeChanged(int)));
+
+	connect(ui.lineEdit, &QLineEdit::selectionChanged, this, &CDialog::slot_selectionChanged);
+	connect(ui.lineEdit_2, &QLineEdit::selectionChanged, this, &CDialog::slot_selectionChanged2);
 }
 
 CDialog::~CDialog(){
-	if (NULL != m_pSimpleDialog) {
-		delete m_pSimpleDialog;
-		m_pSimpleDialog = NULL;
+	
+}
+
+
+void CDialog::on_fontFamilyChanged(const QFont &font){
+	if (NULL == m_pCurrentLabel) {
+		return;
+	}
+
+	int fontSize = ui.cbFontSize->currentText().toInt();
+	QFont ft = font;
+	ft.setPointSize(fontSize);
+
+	setTextFont(m_pCurrentLabel, ft);
+}
+
+void CDialog::on_fontSizeChanged(int /*idx*/){
+	if (NULL == m_pCurrentLabel) {
+		return;
+	}	
+	
+	int fontSize = ui.cbFontSize->currentText().toInt();
+	QFont ft = ui.fontComboBox->currentFont();
+	ft.setPointSize(fontSize);
+
+	setTextFont(m_pCurrentLabel, ft);
+}
+
+void CDialog::setTextFont(QLineEdit* pLabel, const QFont& newFont)
+{
+	qDebug() << "setTextFont: " << pLabel;
+	if (NULL != pLabel) {
+		pLabel->setFont(newFont);
+		updateFontWidget();
 	}
 }
-void CDialog::initialDialog() {
-	
-	// Éú³É×Ô¶¨Òå¿Ø¼ş¶ÔÏó
-	CWidgetAddress* pWidgetAddress = new CWidgetAddress(this);
-	
 
-	connect(pWidgetAddress, SIGNAL(addressSaved(const QString &)), this, SLOT(on_slot_addressSaved(const QString &)));
-	connect(pWidgetAddress, SIGNAL(addressSaved(const QString &)), this, SIGNAL(sig_addressSaved(const QString &)));
-
-	//connect(pWidgetAddress, &CWidgetAddress::addressSaved, this, &CDialog::on_slot_addressSaved);
-
-	// ĞèÒª½øĞĞ×Ô¶¯²¼¾Ö
-	QGridLayout *gridLayout_2;
-	gridLayout_2 = new QGridLayout(this);
-	gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
-	gridLayout_2->addWidget(pWidgetAddress, 0, 0, 1, 1);
-
-	// ¹¹Ôìsimpledialog
-	m_pSimpleDialog = new CSimpleDialog(this);
-	m_pSimpleDialog->show();
-	connect(this, &CDialog::sig_addressSaved, m_pSimpleDialog, &CSimpleDialog::on_addressSaved);
+void CDialog::slot_selectionChanged(){
+	m_pCurrentLabel = ui.lineEdit;
+	updateFontWidget();
 }
 
-
-void CDialog::on_slot_addressSaved(const QString& strAddress){
-	
-	if (NULL != ui.m_plainTextEdit->document()) {
-		QString str = "The Address is:" + strAddress;
-        ui.m_plainTextEdit->document()->setPlainText(str);
+void CDialog::slot_selectionChanged2() {
+	m_pCurrentLabel = ui.lineEdit_2;
+	updateFontWidget();
+}
+void CDialog::updateFontWidget(){
+	if (NULL == m_pCurrentLabel) {
+		return;
 	}
+
+	QFont ft = m_pCurrentLabel->font();
+	QString str;
+	str.sprintf("%d", ft.pointSize());
+    ui.cbFontSize->setCurrentText(str);
+    ui.fontComboBox->setCurrentFont(ft);
+
 }
 
+void CDialog::on_setDefaultFont() {
+	QFont defaultFont("songti", 12);
+	setTextFont(ui.lineEdit, defaultFont);
+	setTextFont(ui.lineEdit_2, defaultFont);
+}

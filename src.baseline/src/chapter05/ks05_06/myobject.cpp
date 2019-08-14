@@ -21,13 +21,5 @@ CMyObject::CMyObject() {
 CMyObject::~CMyObject() {
 
 }
-void CMyObject::slot_addressChanged(const QString& strAddress) {
-	saveLog(strAddress);
-}
 
-void CMyObject::saveLog(const QString& strAddress) {
-	QString strLog = "Address changed to: ";
-	strLog += strAddress;
-	qDebug() << strLog;
-}
 

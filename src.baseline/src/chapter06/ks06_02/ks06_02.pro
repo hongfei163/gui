@@ -5,24 +5,25 @@ LANGUAGE	= C++
 
 CONFIG		+= qt
 
-QT			+= widgets
+QT		+= widgets
 
 TEMPDIR		= $$TRAIN_OBJ_PATH/chapter06/ks06_02
 
-DESTDIR     = $$TRAIN_BIN_PATH
+DESTDIR         = $$TRAIN_BIN_PATH
 
 INCLUDEPATH += $$TRAIN_INCLUDE_PATH/ks06_02
 
-FORMS 		+= dialogbase.ui
+FORMS 		+= \
+                dialog.ui
 
 				
-HEADERS		+=  $$TRAIN_SRC_PATH/gui_base.pri \
-				ks06_02.pro \
-			    dialog.h 
+HEADERS     +=  $$TRAIN_SRC_PATH/gui_base.pri \
+                    ks06_02.pro \
+                    dialog.h
 				   
 	
 SOURCES    +=  main.cpp  \
-			   dialog.cpp
+                 dialog.cpp
 				
 RESOURCES	+= ks06_02.qrc
 				

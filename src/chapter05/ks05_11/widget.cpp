@@ -18,6 +18,11 @@ CWidget::CWidget(QWidget* pParent) : QWidget(pParent) {
     ui.setupUi(this);
     ui.plainTextEdit->setPlainText("file detected:");
 
+    //ui.buttonBox->setStyleSheet("color: rgb(0, 255, 255);   \
+    //    background-color: rgb(0, 170, 0); ");
+
+    initialStyleSheet();
+
 	connect(ui.cbFontSize, SIGNAL(currentIndexChanged(int)), this, SLOT(on_fontSizeChanged(int)));
 
 	connect(ui.fontComboBox, &QFontComboBox::currentFontChanged, this, &CWidget::on_fontFamilyChanged);
@@ -40,4 +45,14 @@ void CWidget::on_fontSizeChanged(int /*idx*/){
 	QFont ft = ui.fontComboBox->currentFont();
 	ft.setPointSize(fontSize);
     ui.plainTextEdit->setFont(ft);
+}
+
+void CWidget::initialStyleSheet() {
+    QFile file(":/qss/coffee.qss");
+    if (!file.open(QFile::ReadOnly | QFile::Text)) {
+        return;
+    }
+
+    QString strStyleSheet = file.readAll();
+    setStyleSheet(strStyleSheet);
 }

@@ -17,33 +17,36 @@
 #include <QPaintEvent>
 
 
-CCustomWidget::CCustomWidget(QWidget* parent) : QWidget(parent)
+CCustomWidget::CCustomWidget(QWidget* parent) 
+    : QWidget(parent), m_movie(NULL), m_transparentLabel(NULL)
 {
 	ui.setupUi(this);
-	initialize();
+    initialize();
+
 }
 void CCustomWidget::initialize() {
+    // 构建QMovie对象
+    QString imgStr = QString(":/images/rainman.gif");
+    m_movie = new QMovie(imgStr);
+    m_movie->setScaledSize(QSize(ui.label_gif->geometry().size()));
+    m_movie->start();
+    ui.label_gif->setMovie(m_movie); // 为文本标签设置movie。就能显示动画了。
 
-	QString imgStr(":/images/rainman.gif");
-	m_movie = new QMovie(imgStr);
-	m_movie->setScaledSize(QSize(ui.label_gif->geometry().size()));
-	ui.label_gif->setMovie(m_movie);
-	//ui.label_gif ->lower();
-	m_movie->start();
-	m_transparentLabel = new QLabel(this);
-	m_transparentLabel->setText("Can You See Me?");
-	m_transparentLabel->setGeometry(100, 250, 100, 30);
-	m_transparentLabel->setStyleSheet("color: rgb(255, 48, 190);border:none");
+    // 显示透明文本
+    m_transparentLabel = new QLabel(this);
+    m_transparentLabel->setText("Can you see me?");
+    m_transparentLabel->setGeometry(100, 250, 100, 20);
+    m_transparentLabel->setStyleSheet("color:rgb(255, 48, 190);border:none"); // 设置标签为透明,border:none
 }
 
 
-void CCustomWidget::resizeEvent(QResizeEvent *event)
-{
-	QWidget::resizeEvent(event);
-	m_movie->setScaledSize(QSize(ui.label_gif->geometry().size()));
-	QRectF rctGif = ui.label_gif->geometry();
-	qreal x = rctGif.x()+rctGif.width()/3.f;
-	qreal y = rctGif.y() + rctGif.height() / 6;
-	m_transparentLabel->setGeometry(x, y, 100, 30);
-}
+void CCustomWidget::resizeEvent(QResizeEvent *event) {
+    QWidget::resizeEvent(event);
 
+    m_movie->setScaledSize(QSize(ui.label_gif->geometry().size()));
+
+    QRect rctGif = ui.label_gif->geometry();
+    int x = rctGif.x() ;    // 调整x，y保证透明文本标签可以覆盖到gif
+    int y = rctGif.y() + rctGif.height() / 6;
+    m_transparentLabel->setGeometry(x, y, 100, 20);
+}

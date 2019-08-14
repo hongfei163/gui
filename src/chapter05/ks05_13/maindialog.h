@@ -20,6 +20,7 @@
 
 QT_BEGIN_NAMESPACE
 class QMovie;
+class QTimer;
 QT_END_NAMESPACE
 
 // 父类的名称来自ui文件中对话框的类名：对象查看器中的类名
@@ -33,18 +34,19 @@ public:
 protected:
 
 private slots:
-	void onTimeOut();
+    void slot_timeOut();
 	void onStartStop();
 private:
 	
 	void initialDialog();
 private:
 	bool	m_bStart;
-	QTimer* m_pTimer;
 	Ui::CMainDialogBase ui;
 	QPixmap	m_png[4];
 	QMovie* m_movie;
 	int		m_idx;
+
+    QTimer  * m_pTimer;
 };
 
 #endif

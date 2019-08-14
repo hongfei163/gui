@@ -32,8 +32,8 @@ public:
 private slots:
 	void on_fontFamilyChanged(const QFont &font);
 	void on_fontSizeChanged(int);
-	void labelClicked();
-	void label2Clicked();
+	void slot_selectionChanged();
+	void slot_selectionChanged2();
 	void on_setDefaultFont();
 private:
 	void updateFontWidget();

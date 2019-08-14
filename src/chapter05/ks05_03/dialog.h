@@ -26,12 +26,9 @@ public:
 	CDialog(QWidget* pParent);
 	~CDialog();
 
+
 Q_SIGNALS:
-    void sig_AddressSaved(const QString& strAddress);
-
-private slots:
-    void slot_onAddressSaved(const QString&);
-
+    void sig_addressUpdated(const QString&);
 private:
 	void initialDialog();
 

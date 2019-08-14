@@ -18,7 +18,7 @@
 
 
 CDialog::CDialog(QWidget* pParent) : QDialog(pParent) {
-    ui.setupUi(this);
+	ui.setupUi(this);
 
 	initialDialog();
 }
@@ -29,12 +29,9 @@ CDialog::~CDialog(){
 void CDialog::initialDialog() {
 	
 	// 生成自定义控件对象
-	CWidgetAddress* pWidgetAddress = new CWidgetAddress(this);
-	
-    //connect(pWidgetAddress, &CWidgetAddress::sigAddressSaved,
-    //    this, &CDialog::sig_AddressSaved);
-    connect(pWidgetAddress, SIGNAL(sigAddressSaved(const QString&)),
-        this, SIGNAL(sig_AddressSaved(const QString&)));
+	CWidgetAddress* pWidgetAddress = new CWidgetAddress(this);	
+    connect(pWidgetAddress, &CWidgetAddress::sig_addressSaved,
+        this, &CDialog::sig_addressUpdated);
 
 	// 需要进行自动布局
 	QGridLayout *gridLayout_2;
@@ -44,14 +41,6 @@ void CDialog::initialDialog() {
 
 }
 
-void CDialog::slot_onAddressSaved(const QString& str)
-{
-    if (NULL != ui.m_plainTextEdit->document()) {
-        QString strInfo = "The Address is:";
-        strInfo += str;
-        ui.m_plainTextEdit->document()->setPlainText(strInfo);
-    }
-}
 
 
 

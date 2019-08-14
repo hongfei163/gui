@@ -14,7 +14,13 @@ class CInfoDialog : public QDialog
 public:
     explicit CInfoDialog(QWidget *parent = nullptr);
     ~CInfoDialog();
-
+private slots:
+    /*
+    * @brief ÔÊÐí±à¼­±»µ¥»÷
+    * @param[in] b true:ÔÊÐí±à¼­,false:½ûÖ¹±à¼­
+    * @return void
+    */
+    void slot_editEnabled(bool b);
 private:
     Ui::CInfoDialog *ui;
 };

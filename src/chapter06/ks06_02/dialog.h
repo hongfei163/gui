@@ -11,13 +11,11 @@
 \Date 2018/8 
 */
 
-#ifndef DIALOG_H
-#define DIALOG_H
+#pragma once
 
-#include "ui_dialogbase.h"
+#include "ui_dialog.h"
 #include <QDialog>
 
-class CCustomWidget;
 
 class CDialog : public QDialog
 {
@@ -25,9 +23,14 @@ class CDialog : public QDialog
 public:
 	CDialog(QWidget* parent);
 	~CDialog(){;}
-
+private slots:
+    /*
+    * @brief 确认按钮对应的槽函数，需要弹出信息界面
+    * @return void
+    */
+    void slot_accepted();
 private:
-	Ui::CDialogBase ui;
+    Ui::CDialog ui;
 };
 
-#endif 
+

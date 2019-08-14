@@ -5,7 +5,7 @@
 * 免责声明:代码不保证稳定性，请勿用作商业用途，否则后果自负。
 
 \file: dialog.h
-\brief  CDialog 类的定义文件
+\brief  CDialog类定义头文件
 
 \author 女儿叫老白  星点分享: http://xingdianketang.cn/
 \Date 2018/9
@@ -16,7 +16,10 @@
 
 #include "ui_dialogbase.h" // 头文件名称来自: dialogbase.ui  ---> ui_dialogbase.h
 
-class CSimpleDialog;
+QT_BEGIN_NAMESPACE
+class QLineEdit;
+QT_END_NAMESPACE
+
 
 // 父类的名称来自ui文件中对话框的类名：对象查看器中的类名
 class CDialog : public QDialog
@@ -26,17 +29,18 @@ public:
 	CDialog(QWidget* pParent);
 	~CDialog();
 
-Q_SIGNALS:
-	void sig_addressSaved(const QString&);
-
 private slots:
-	void on_slot_addressSaved(const QString&);
+	void on_fontFamilyChanged(const QFont &font);
+	void on_fontSizeChanged(int);
+	void slot_selectionChanged();
+	void slot_selectionChanged2();
+	void on_setDefaultFont();
 private:
-	void initialDialog();
-
+	void updateFontWidget();
+	void setTextFont(QLineEdit* pText, const QFont& newFont);
 private:
-	CSimpleDialog * m_pSimpleDialog;
+	QLineEdit * m_pCurrentLabel;
     Ui::CDialogBase ui;
 };
 
-#endif // DIALOG_H
+#endif

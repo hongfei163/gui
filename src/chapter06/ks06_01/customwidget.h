@@ -10,13 +10,11 @@
 \author 女儿叫老白  星点分享: http://xingdianketang.cn/
 \Date 2018/8 
 */
-
-#ifndef CUSTOMWIDGET_H
-#define CUSTOMWIDGET_H
+#pragma once
 
 #include <QWidget>
 
-#include "ui_customwidgetbase.h"
+#include "ui_customwidget.h"
 
 class CCustomWidget : public QWidget
 {
@@ -25,14 +23,14 @@ public:
 	~CCustomWidget(){;}
 
 protected:
-	virtual void resizeEvent(QResizeEvent *event);
+    virtual void resizeEvent(QResizeEvent *event);
+
 private:
 	void initialize();
 
 private:
-	Ui::CCustomWidgetBase ui;
+    Ui::CCustomWidget ui;
 	QMovie*	m_movie;
 	QLabel* m_transparentLabel;
 };
 
-#endif // CUSTOMWIDGET_H

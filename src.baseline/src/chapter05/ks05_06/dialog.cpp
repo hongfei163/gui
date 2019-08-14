@@ -11,9 +11,9 @@
 \Date 2018/9
 */
 
+#include "address.h"
 #include "dialog.h"
 
-#include "address.h"
 #include "myobject.h"
 
 
@@ -32,10 +32,7 @@ void CDialog::initialDialog() {
 	CWidgetAddress* pWidgetAddress = new CWidgetAddress(this);
 	
 
-	connect(pWidgetAddress, SIGNAL(addressSaved(const QString &)), this, SLOT(on_slot_addressSaved(const QString &)));
-	connect(pWidgetAddress, SIGNAL(addressSaved(const QString &)), this, SIGNAL(sig_addressSaved(const QString &)));
-
-	//connect(pWidgetAddress, &CWidgetAddress::addressSaved, this, &CDialog::on_slot_addressSaved);
+	connect(pWidgetAddress, &CWidgetAddress::sig_addressSaved, this, &CDialog::slot_addressSaved);
 
 	// 需要进行自动布局
 	QGridLayout *gridLayout_2;
@@ -46,7 +43,7 @@ void CDialog::initialDialog() {
 }
 
 
-void CDialog::on_slot_addressSaved(const QString& strAddress){
+void CDialog::slot_addressSaved(const QString& strAddress){
 	
 	if (NULL != ui.m_plainTextEdit->document()) {
 		QString str = "The Address is:" + strAddress;

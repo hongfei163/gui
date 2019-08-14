@@ -23,7 +23,7 @@ MainWindow::MainWindow()
     mdiArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     setCentralWidget(mdiArea);
     connect(mdiArea, &QMdiArea::subWindowActivated,
-            this, &MainWindow::onSubWindowActivated);
+        this, &MainWindow::slot_SubWindowActivated);
 
     createActions();
     createStatusBar();
@@ -35,21 +35,6 @@ MainWindow::MainWindow()
     setUnifiedTitleAndToolBarOnMac(true);
 }
 
-// xingdianketang
-void MainWindow::onSubWindowActivated()
-{
-	// xingdianketang
-	if (NULL != m_pLastChild) {
-		if (activeMdiChild() != m_pLastChild) { // 过滤掉最小化后的还原事项或者其他类似事项
-			disconnect(m_pLastChild, &MdiChild::textSelected, this, &MainWindow::onTextSelected); 
-			connect(activeMdiChild(), &MdiChild::textSelected, this, &MainWindow::onTextSelected);
-		}
-	}	
-	m_pLastChild = activeMdiChild();
-
-
-    updateMenus();
-}
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
@@ -65,7 +50,9 @@ void MainWindow::closeEvent(QCloseEvent *event)
 void MainWindow::newFile()
 {
     MdiChild *child = createMdiChild();
-	connect(child, &MdiChild::textSelected, this, &MainWindow::onTextSelected); // xingdianketang
+    connect(child, &MdiChild::textSelected,
+        this, &MainWindow::slot_textSelected);
+
     child->newFile();
     child->show();
 }
@@ -75,10 +62,6 @@ void MainWindow::open()
     const QString fileName = QFileDialog::getOpenFileName(this);
     if (!fileName.isEmpty())
         openFile(fileName);
-}
-void MainWindow::onTextSelected(const QString& strTextSelected) {
-	statusBar()->showMessage(strTextSelected);
-
 }
 
 bool MainWindow::openFile(const QString &fileName)
@@ -488,4 +471,29 @@ void MainWindow::switchLayoutDirection()
         QGuiApplication::setLayoutDirection(Qt::RightToLeft);
     else
         QGuiApplication::setLayoutDirection(Qt::LeftToRight);
+}
+
+void MainWindow::slot_textSelected(const QString& strTextSelected) {
+    statusBar()->showMessage(strTextSelected);
+}
+
+void MainWindow::slot_SubWindowActivated() {
+   
+    if (NULL != m_pLastChild) {
+        if (activeMdiChild() != m_pLastChild) {
+            // 解除旧视图的绑定
+            disconnect(m_pLastChild, &MdiChild::textSelected,
+                this, &MainWindow::slot_textSelected);
+
+            if (activeMdiChild() != NULL) {
+                // 绑定新视图
+                connect(activeMdiChild(), &MdiChild::textSelected,
+                    this, &MainWindow::slot_textSelected);
+            }
+        }
+    }
+
+    m_pLastChild = activeMdiChild();
+
+    updateMenus();
 }

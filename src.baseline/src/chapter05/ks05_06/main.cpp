@@ -53,8 +53,6 @@ int main(int argc, char * argv[])
 	CDialog dlg(NULL);
 	CMyObject * pMyObject = new CMyObject();
 
-//	QObject::connect(&dlg, &CDialog::sig_addressSaved, pMyObject, &CMyObject::slot_addressChanged);
-	QObject::connect(&dlg, &CDialog::sig_addressSaved, pMyObject, &CMyObject::saveLog);
 
 	dlg.exec();
 

@@ -12,14 +12,14 @@ DESTDIR     = $$TRAIN_BIN_PATH
 INCLUDEPATH += $$TRAIN_INCLUDE_PATH/ks05_06
 
 HEADERS		+=  $$TRAIN_SRC_PATH/gui_base.pri \
-				ks05_06.pro \
-				address.h	 \		
+				ks05_06.pro \		
+				address.h \
 				dialog.h \
 				myobject.h
 
 	
-SOURCES    +=  main.cpp \
-				address.cpp	 \		
+SOURCES    +=  main.cpp \	
+				address.cpp \
 				dialog.cpp \
 				myobject.cpp
 

@@ -19,7 +19,7 @@
 #include <QTime>
 #include <QTimer>
 
-CMainDialog::CMainDialog(QWidget* pParent) : QDialog(pParent) {
+CMainDialog::CMainDialog(QWidget* pParent) : QDialog(pParent), m_timerId(0){
 	ui.setupUi(this);
 	initialDialog();
 }
@@ -32,8 +32,6 @@ void CMainDialog::initialDialog()
 	m_idx = 0;
 	m_bStart = true;
 	
-	//	启动定时器，保持定时器id
-	m_timerId = startTimer(300, Qt::PreciseTimer);
 
 	connect(ui.pushButton, &QPushButton::toggled, this, &CMainDialog::onStartStop);
 
@@ -49,33 +47,41 @@ void CMainDialog::initialDialog()
 	m_png[2] = QPixmap(":/images/pic3.png").scaled(400, 500);
 	m_png[3] = QPixmap(":/images/pic4.png").scaled(400, 500);
 	ui.label_png->setPixmap(m_png[0]);
+
+    m_timerId = startTimer(300, Qt::PreciseTimer);// 启动定时器，单位:毫秒
+
+    ui.pushButton->setText("stop");
+
 }
 
-void CMainDialog::timerEvent(QTimerEvent *event)
-{
-	if (m_timerId == event->timerId()){
-		QTime tm = QTime::currentTime();
-		QString str;
-		str.sprintf("%02d:%02d:%02d", tm.hour(),tm.minute(), tm.second());
-		ui.label->setText(str);
-
-		ui.label_png->setPixmap(m_png[m_idx++]);
-		if (m_idx > 3)
-			m_idx = 0;
-	}
-}
 
 void CMainDialog::onStartStop() 
 {
 	m_bStart = !m_bStart;
 	if (m_bStart) {
-		m_timerId = startTimer(300, Qt::PreciseTimer);
-		m_movie->start();
 		ui.pushButton->setText("stop");
+        m_timerId = startTimer(300, Qt::PreciseTimer);// 启动定时器，单位:毫秒
+ 	    m_movie->start(); // 启动gif的动画
 	}
-	else {
-		killTimer(m_timerId);
-		m_movie->stop();
+	else {		
 		ui.pushButton->setText("start");
+        // 关闭定时器
+        killTimer(m_timerId);
+        m_movie->stop(); // 停止gif的动画
 	}
+}
+
+void CMainDialog::timerEvent(QTimerEvent *event){
+    if (m_timerId == event->timerId()) { // 判断是否是我们需要的定时器，这点很重要!
+        QTime tm = QTime::currentTime();
+        QString str;
+        str.sprintf("%02d:%02d:%02d", tm.hour(), tm.minute(), tm.second());
+        ui.label->setText(str);
+
+        // 更新图片
+        ui.label_png->setPixmap(m_png[m_idx++]);
+        if (m_idx > 3) {
+            m_idx = 0;
+        }
+    }
 }

@@ -20,16 +20,17 @@ CStep2::CStep2(QWidget *parent)
 
     connect(ui.btnPrevious, &QPushButton::clicked,
         this, &CStep2::slot_previous);
+
     connect(ui.btnNext, &QPushButton::clicked,
         this, &CStep2::slot_next);
 
 }
 
-void CStep2::slot_previous()
-{
-    emit showpage(0);
+void CStep2::slot_previous() {
+    emit sig_showPage(0); // 序号从0开始, step2界面是第1个，所以上一步要显示第0个。
 }
-void CStep2::slot_next()
-{
-    emit showpage(2);
+
+void CStep2::slot_next() {
+    emit sig_showPage(2); // 序号从0开始, step2界面是第1个，所以下一步要显示第2个。
+
 }

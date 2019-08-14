@@ -20,13 +20,13 @@
 // 父类的名称来自ui文件中对话框的类名：对象查看器中的类名
 class CWidgetAddress : public QWidget
 {
-	Q_OBJECT
+    Q_OBJECT
 public:
-	CWidgetAddress(QWidget* pParent);
-	~CWidgetAddress();
+    CWidgetAddress(QWidget* pParent);
+    ~CWidgetAddress();
 
 Q_SIGNALS:
-    void sigAddressSaved(const QString& strAddress);
+    void sig_addressSaved(const QString& strAddress);
 
 public slots:
     void slot_btnSaveClicked();
@@ -34,5 +34,4 @@ public slots:
 private:
     Ui::CWidgetAddressBase ui;
 };
-
 #endif  // ADDRESS_H

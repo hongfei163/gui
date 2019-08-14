@@ -29,7 +29,7 @@ public:
     CStep2(QWidget *parent = 0);
 
 Q_SIGNALS:
-    void showpage(int page_index);
+    void sig_showPage(int page_index);// 用来通知QStackedLayout，显示哪一步骤。
 
 private slots:
     void slot_previous();

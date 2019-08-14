@@ -19,7 +19,7 @@
 #include <QTime>
 #include <QTimer>
 
-CMainDialog::CMainDialog(QWidget* pParent) : QDialog(pParent) {
+CMainDialog::CMainDialog(QWidget* pParent) : QDialog(pParent), m_pTimer(NULL){
 	ui.setupUi(this);
 	initialDialog();
 }
@@ -31,10 +31,6 @@ void CMainDialog::initialDialog() {
 	
 	m_idx = 0;
 	m_bStart = true;
-	m_pTimer = new QTimer();
-	connect(m_pTimer, &QTimer::timeout, this, &CMainDialog::onTimeOut);
-	m_pTimer->setInterval(300);
-	m_pTimer->start();
 
 	connect(ui.pushButton, &QPushButton::toggled, this, &CMainDialog::onStartStop);
 
@@ -49,22 +45,27 @@ void CMainDialog::initialDialog() {
 	m_png[2] = QPixmap(":/images/pic3.png").scaled(400, 500);
 	m_png[3] = QPixmap(":/images/pic4.png").scaled(400, 500);
 	ui.label_png->setPixmap(m_png[0]);
+
+    m_pTimer = new QTimer(this);
+    m_pTimer->setInterval(300); // 设置定时器周期。单位:毫秒
+    connect(m_pTimer, &QTimer::timeout, this, &CMainDialog::slot_timeOut); // 绑定槽函数
+    m_pTimer->start(); // 启动定时器
 }
 
-void CMainDialog::onTimeOut() {
-	QTime tm = QTime::currentTime();
-	QString str;
-	str.sprintf("%02d:%02d:%02d", tm.hour(),tm.minute(), tm.second());
-	ui.label->setText(str);
-
-	ui.label_png->setPixmap(m_png[m_idx++]);
-	if (m_idx > 3)
-		m_idx = 0;
-}
 
 void CMainDialog::onStartStop() {
 	m_bStart = !m_bStart;
-	m_bStart ? 
-			(m_pTimer->start(), m_movie->start(),ui.pushButton->setText("stop")) :
-			(m_pTimer->stop(), m_movie->stop(),ui.pushButton->setText("start"));
+}
+
+void CMainDialog::slot_timeOut() {
+    QTime tm = QTime::currentTime();
+    QString str;
+    str.sprintf("%02d:%02d:%02d", tm.hour(), tm.minute(), tm.second());
+    ui.label->setText(str);
+
+    // 更新图片
+    ui.label_png->setPixmap(m_png[m_idx++]);
+    if (m_idx > 3) {
+        m_idx = 0;
+    }
 }

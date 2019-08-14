@@ -1,13 +1,13 @@
 /*! 
-* Copyright (C) 2018 å¥³å„¿å«è€ç™½
-* ç‰ˆæƒæ‰€æœ‰ã€‚
-* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
-* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
+* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
+* °æÈ¨ËùÓĞ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
+* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file: mainwindow.h
-\brief  MainWindow ç±»çš„å®šä¹‰æ–‡ä»¶
+\brief  MainWindow ÀàµÄ¶¨ÒåÎÄ¼ş
 
-\author å¥³å„¿å«è€ç™½  æ˜Ÿç‚¹åˆ†äº«: http://xingdianketang.cn/
+\author Å®¶ù½ĞÀÏ°×  ĞÇµã·ÖÏí: http://xingdianketang.cn/
 \Date 2018/9
 */
 
@@ -37,6 +37,8 @@ protected:
     void closeEvent(QCloseEvent *event) override;
 
 private slots:
+    void slot_textSelected(const QString&);
+    void slot_SubWindowActivated();
     void newFile();
     void open();
     void save();
@@ -53,8 +55,6 @@ private slots:
     void updateWindowMenu();
     MdiChild *createMdiChild();
     void switchLayoutDirection();
-	void onTextSelected(const QString&); // xingdianketang
-	void onSubWindowActivated(); // xingdianketang
 
 private:
     enum { MaxRecentFiles = 5 };
@@ -90,7 +90,8 @@ private:
     QAction *nextAct;
     QAction *previousAct;
     QAction *windowMenuSeparatorAct;
-	MdiChild *m_pLastChild; // xingdianketang
+
+    MdiChild*   m_pLastChild;
 };
 
 #endif

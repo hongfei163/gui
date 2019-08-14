@@ -1,13 +1,13 @@
 /*! 
-* Copyright (C) 2018 å¥³å„¿å«è€ç™½
-* ç‰ˆæƒæ‰€æœ‰ã€‚
-* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
-* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
+* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
+* °æÈ¨ËùÓĞ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
+* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file: address.cpp
-\brief  CWidgetAddressç±»çš„å®ç°æ–‡ä»¶
+\brief  CWidgetAddressÀàµÄÊµÏÖÎÄ¼ş
 
-\author å¥³å„¿å«è€ç™½  æ˜Ÿç‚¹åˆ†äº«: http://xingdianketang.cn/
+\author Å®¶ù½ĞÀÏ°×  ĞÇµã·ÖÏí: http://xingdianketang.cn/
 \Date 2018/9
 */
 #include "address.h"
@@ -17,8 +17,8 @@ CWidgetAddress::CWidgetAddress(QWidget* pParent) : QWidget(pParent) {
     ui.setupUi(this);
 
 	//connect(ui.m_btnSave, SIGNAL(clicked()), this, SLOT(on_addressSaved()));
-
-	connect(ui.m_btnSave, &QPushButton::clicked, this, &CWidgetAddress::on_addressSaved);
+	connect(ui.m_btnSave, &QPushButton::clicked,
+        this, &CWidgetAddress::slot_btnSaveClicked);
 }
 
 CWidgetAddress::~CWidgetAddress(){
@@ -26,7 +26,8 @@ CWidgetAddress::~CWidgetAddress(){
 }
 
 
-void CWidgetAddress::on_addressSaved(){
-	emit addressSaved(ui.m_lineEdit->text());
+void CWidgetAddress::slot_btnSaveClicked(){
+    QString str = ui.m_lineEdit->text();
+    emit sig_addressSaved(str);
 }
 

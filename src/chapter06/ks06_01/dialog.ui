@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>CDialogBase</class>
- <widget class="QDialog" name="CDialogBase">
+ <class>CDialog</class>
+ <widget class="QDialog" name="CDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>673</width>
-    <height>305</height>
+    <height>329</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -85,7 +85,7 @@ color: rgb(255, 255, 0);</string>
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>CDialogBase</receiver>
+   <receiver>CDialog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -101,7 +101,7 @@ color: rgb(255, 255, 0);</string>
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>CDialogBase</receiver>
+   <receiver>CDialog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

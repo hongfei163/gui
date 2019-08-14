@@ -21,14 +21,15 @@
 // 父类的名称来自ui文件中对话框的类名：对象查看器中的类名
 class CSimpleDialog : public QDialog
 {
-    Q_OBJECT
+	Q_OBJECT
 public:
-    CSimpleDialog(QWidget* pParent);
-    ~CSimpleDialog();
+	CSimpleDialog(QWidget* pParent);
+	~CSimpleDialog();
 
-public slots:
-    void slot_AddressSaved(const QString&);
+public Q_SLOTS:
+    void slot_updateAddress(const QString&);
 private:
     Ui::CSimpleDialogBase ui;
 };
+
 #endif // SIMPLEDIALOG_H

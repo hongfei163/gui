@@ -1,19 +1,18 @@
 /*! 
-* Copyright (C) 2018 å¥³å„¿å«è€ç™½
-* ç‰ˆæƒæ‰€æœ‰ã€‚
-* ä»£ç ä»…ç”¨äºŽè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸Žæé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
-* å…è´£å£°æ˜Ž:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åŽæžœè‡ªè´Ÿã€‚
+* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
+* °æÈ¨ËùÓÐ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
+* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file: mdichild.cpp
-\brief  MdiChild ç±»çš„å®žçŽ°æ–‡ä»¶
+\brief  MdiChild ÀàµÄÊµÏÖÎÄ¼þ
 
-\author å¥³å„¿å«è€ç™½  æ˜Ÿç‚¹åˆ†äº«: http://xingdianketang.cn/
+\author Å®¶ù½ÐÀÏ°×  ÐÇµã·ÖÏí: http://xingdianketang.cn/
 \Date 2018/9
 */
 
 
 #include <QtWidgets>
-#include <QDebug>	// xingdianketang
 
 #include "mdichild.h"
 
@@ -152,15 +151,10 @@ QString MdiChild::strippedName(const QString &fullFileName)
     return QFileInfo(fullFileName).fileName();
 }
 
-// xingdianketang
 void MdiChild::mouseReleaseEvent(QMouseEvent *e) {
+    QTextCursor tTextCursor = textCursor();
+    QString strSelectedText = tTextCursor.selectedText().trimmed();
+    emit textSelected(strSelectedText); // µ±Êó±êÌ§ÆðÊ±·¢ËÍÐÅºÅ
 
-	QTextCursor tc = textCursor();
-	QString strSelectedText = tc.selectedText().trimmed();
-	//if (strSelectedText.length() > 0) {
-		qDebug() << strSelectedText;
-		emit textSelected(strSelectedText);
-	//}
-
-	QTextEdit::mouseReleaseEvent(e);
+    QTextEdit::mouseReleaseEvent(e);
 }

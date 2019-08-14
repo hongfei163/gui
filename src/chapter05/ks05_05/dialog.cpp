@@ -27,8 +27,8 @@ CDialog::CDialog(QWidget* pParent) : QDialog(pParent), m_pCurrentLabel(NULL){
 	connect(ui.fontComboBox, SIGNAL(currentFontChanged(const QFont &)), this, SLOT(on_fontFamilyChanged(const QFont &)));
 	connect(ui.cbFontSize, SIGNAL(currentIndexChanged(int)), this, SLOT(on_fontSizeChanged(int)));
 
-	connect(ui.lineEdit, &QLineEdit::selectionChanged, this, &CDialog::labelClicked);
-	connect(ui.lineEdit_2, &QLineEdit::selectionChanged, this, &CDialog::label2Clicked);
+	connect(ui.lineEdit, &QLineEdit::selectionChanged, this, &CDialog::slot_selectionChanged);
+	connect(ui.lineEdit_2, &QLineEdit::selectionChanged, this, &CDialog::slot_selectionChanged2);
 }
 
 CDialog::~CDialog(){
@@ -69,19 +69,23 @@ void CDialog::setTextFont(QLineEdit* pLabel, const QFont& newFont)
 	}
 }
 
-void CDialog::labelClicked(){
+void CDialog::slot_selectionChanged(){
 	m_pCurrentLabel = ui.lineEdit;
 	updateFontWidget();
 }
 
-void CDialog::label2Clicked() {
+void CDialog::slot_selectionChanged2() {
 	m_pCurrentLabel = ui.lineEdit_2;
 	updateFontWidget();
 }
+
+/// 用来反显，也就是取得文本标签的字体家族、字号并反显到字体、字号的控件中。
 void CDialog::updateFontWidget(){
+
 	if (NULL == m_pCurrentLabel) {
 		return;
 	}
+    // 阻塞信号, 防止信号触发槽函数
     ui.cbFontSize->blockSignals(true);
     ui.fontComboBox->blockSignals(true);
 
@@ -91,8 +95,10 @@ void CDialog::updateFontWidget(){
     ui.cbFontSize->setCurrentText(str);
     ui.fontComboBox->setCurrentFont(ft);
 
-    ui.cbFontSize->blockSignals(false);
+    // 解除阻塞。解除时顺序要跟阻塞时相反。
     ui.fontComboBox->blockSignals(false);
+    ui.cbFontSize->blockSignals(false);
+
 }
 
 void CDialog::on_setDefaultFont() {
