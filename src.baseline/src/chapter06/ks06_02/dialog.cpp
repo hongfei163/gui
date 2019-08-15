@@ -12,7 +12,7 @@
 */
 #include "dialog.h"
 #include <QGridLayout>
-
+#include <QDialogButtonBox>
 
 CDialog::CDialog(QWidget* parent) : QDialog(parent)
 {

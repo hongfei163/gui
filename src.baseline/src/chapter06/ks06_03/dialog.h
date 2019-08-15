@@ -14,7 +14,7 @@
 #ifndef DIALOG_H
 #define DIALOG_H
 
-#include "ui_dialogbase.h"
+#include "ui_dialog.h"
 #include <QDialog>
 
 class CCustomWidget;
@@ -27,7 +27,7 @@ public:
 	~CDialog(){;}
 
 private:
-	Ui::CDialogBase ui;
+	Ui::CDialog ui;
 };
 
 #endif 

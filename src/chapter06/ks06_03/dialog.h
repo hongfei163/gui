@@ -14,7 +14,7 @@
 #ifndef DIALOG_H
 #define DIALOG_H
 
-#include "ui_dialogbase.h"
+#include "ui_dialog.h"
 #include <QDialog>
 
 class CCustomWidget;
@@ -30,7 +30,7 @@ private Q_SLOTS:
 	void slot_roleChanged(int);
 	void slot_popup();
 private:
-	Ui::CDialogBase ui;
+	Ui::CDialog ui;
 };
 
 #endif 

@@ -9,7 +9,7 @@ QT		+= widgets core
 
 TEMPDIR		= $$TRAIN_OBJ_PATH/chapter06/ks06_02
 
-DESTDIR     = $$TRAIN_BIN_PATH
+DESTDIR         = $$TRAIN_BIN_PATH
 
 INCLUDEPATH += $$TRAIN_INCLUDE_PATH/ks06_02
 
@@ -18,8 +18,8 @@ FORMS 		+= \
     infodialog.ui
 
 				
-HEADERS		+=  $$TRAIN_SRC_PATH/gui_base.pri \
-				ks06_02.pro \
+HEADERS     +=  $$TRAIN_SRC_PATH/gui_base.pri \
+                    ks06_02.pro \
 			    dialog.h \ 
     infodialog.h
 				   

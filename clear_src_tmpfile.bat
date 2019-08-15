@@ -17,14 +17,14 @@ del /S *.qmake.stash
 del /S *.user
 
 for /R %%s in (.) do ( 
-echo %%s
-cd %%s
-rd /s /q debug
-rd /s /q release
-rd /s /q X64
-rd /s /q .vs
-rd /s /q bin
-rd /s /q obj
+	echo %%s
+	cd %%s
+	rd /s /q debug
+	rd /s /q release
+	rd /s /q X64
+	rd /s /q .vs
+	rd /s /q bin
+	rd /s /q obj
 ) 
 
-cd ../..
+cd %TRAINDEVHOME%

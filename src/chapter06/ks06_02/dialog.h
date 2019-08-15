@@ -22,11 +22,11 @@ class CDialog : public QDialog
 	Q_OBJECT
 public:
 	CDialog(QWidget* parent);
-	~CDialog(){;}
+    ~CDialog(){}
 private slots:
     /*
-    * @brief 确认按钮对应的槽函数，需要弹出信息界面
-    * @return void
+     *  @brief 单击OK按钮时对应的槽函数
+     *  @return void
     */
     void slot_accepted();
 private:

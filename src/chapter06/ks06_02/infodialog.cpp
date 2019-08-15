@@ -9,26 +9,26 @@ CInfoDialog::CInfoDialog(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    connect(ui->buttonBox, &QDialogButtonBox::rejected,
-            this, &CInfoDialog::reject);
-    connect(ui->buttonBox, &QDialogButtonBox::accepted,
-            this, &CInfoDialog::accept);
-
     connect(ui->ckEditable, &QCheckBox::stateChanged,
             this, &CInfoDialog::slot_editEnabled);
+ 
+    connect(ui->buttonBox, &QDialogButtonBox::accepted,
+            this, &CInfoDialog::accept);
+    connect(ui->buttonBox, &QDialogButtonBox::rejected,
+            this, &CInfoDialog::reject);
 
-    // setValidator
-    ui->leStature->setValidator(new QIntValidator(ui->leStature));
+    // setValidator for leStature
+    ui->leStature->setValidator(new QIntValidator(0, 300, ui->leStature)); // min:0cm, max:300cm
 
-    // setInputMask
+    // setMask for leBirthday, 年年年年-月月-日日
     ui->leBirthday->setInputMask("0000-00-00");
     ui->leBirthday->setText("00000000");
     ui->leBirthday->setCursorPosition(0);
 
-    // validator和inputmask
+    // mask & validator,单纯使用mask无法约束数值的范围
     QRegExp regExp("^1[3|4|5|8][0-9][0-9]{8}");
     ui->lePhone->setValidator(new QRegExpValidator(regExp, ui->lePhone));
-    ui->lePhone->setInputMask("#00-000-00000000");
+    ui->lePhone->setInputMask("#00-000-00000000"); // eg. +86-135-87989898
     ui->lePhone->setText("+00-000-00000000");
 }
 
@@ -36,6 +36,7 @@ CInfoDialog::~CInfoDialog()
 {
     delete ui;
 }
+
 
 void CInfoDialog::slot_editEnabled(bool b){
     ui->leName->setEnabled(b);

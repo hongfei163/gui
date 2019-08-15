@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>CDialogBase</class>
+ <class>CDialog</class>
  <widget class="QDialog" name="CDialogBase">
   <property name="geometry">
    <rect>

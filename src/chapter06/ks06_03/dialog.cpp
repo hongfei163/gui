@@ -22,7 +22,7 @@ enum EUserType {
 	EUserType_Admin,	// 管理员
 	EUserType_User,		// 普通用户
 	EUserType_Guest,	// guest用户
-	EUserType_Other,	// guest用户
+	EUserType_Other,	// 其他用户
 
 	EUserType_Max,		// 枚举最大值
 };

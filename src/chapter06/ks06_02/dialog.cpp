@@ -13,24 +13,27 @@
 #include "dialog.h"
 #include <QGridLayout>
 #include <QDialogButtonBox>
+
 #include "infodialog.h"
 
-CDialog::CDialog(QWidget* parent) : QDialog(parent)
+CDialog::CDialog(QWidget* parent)
+    : QDialog(parent)
 {
 	ui.setupUi(this);
 
+    connect(ui.buttonBox, &QDialogButtonBox::accepted,
+            this, &CDialog::slot_accepted);
+    connect(ui.buttonBox, &QDialogButtonBox::rejected,
+            this, &CDialog::reject);
+
+    // 设置密码的echoMode
     ui.lePassword->setEchoMode(QLineEdit::Password);
     ui.lePassword->setPlaceholderText("please input password.");
-
-    connect(ui.buttonBox, &QDialogButtonBox::accepted,
-              this, &CDialog::slot_accepted);
-    connect(ui.buttonBox, &QDialogButtonBox::rejected,
-            this, &CInfoDialog::reject);
 }
 
 void CDialog::slot_accepted(){
-    CInfoDialog dlg;
+    CInfoDialog dlg(nullptr);
     dlg.exec();
 
-    accept();
+    accept(); // 关闭对话框
 }
