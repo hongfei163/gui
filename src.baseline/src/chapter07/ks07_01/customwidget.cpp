@@ -28,7 +28,6 @@ void CCustomWidget::initialize() {
 	m_movie = new QMovie(imgStr);
 	m_movie->setScaledSize(QSize(ui.label_gif->geometry().size()));
 	ui.label_gif->setMovie(m_movie);
-	//ui.label_gif ->lower();
 	m_movie->start();
 	m_transparentLabel = new QLabel(this);
 	m_transparentLabel->setText("Can You See Me?");

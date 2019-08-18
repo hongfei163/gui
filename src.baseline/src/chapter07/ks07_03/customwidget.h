@@ -27,15 +27,23 @@ public:
 	~CCustomWidget(){;}
 
 protected:
-	virtual void resizeEvent(QResizeEvent *event);
-	virtual void paintEvent(QPaintEvent *event);
+    /*
+     *  @brief 重写父类的 resizeEvent()
+     *  @param[in] event QResizeEvent对象指针
+    */
+    virtual void resizeEvent(QResizeEvent *event);
+    /*
+     *  @brief 重写父类的 paintEvent()
+     *  @param[in] event 刷新事件对象指针
+    */
+    virtual void paintEvent(QPaintEvent *event);
 private:
 	void initialize();
 
 private:
 	Ui::CCustomWidgetBase ui;
 	QLabel* m_transparentLabel;
-	QImage m_img;
+    QImage  m_img;
 };
 
 #endif // CUSTOMWIDGET_H

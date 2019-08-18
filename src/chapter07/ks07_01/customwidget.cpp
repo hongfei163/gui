@@ -46,16 +46,19 @@ void CCustomWidget::resizeEvent(QResizeEvent *event)
 	m_transparentLabel->setGeometry(x, y, 100, 30);
 }
 
-void CCustomWidget::paintEvent(QPaintEvent *event)
-{	
-	QWidget::paintEvent(event);
-	QPainter painter;
-	painter.begin(this);
-	painter.setPen(Qt::red);
-	QFont ft("宋体", 26);
-	painter.setFont(ft);
-	painter.drawText(QPointF(ui.label_gif->geometry().bottomLeft()+QPointF(10, 12)), "Painted Text in CustomWidget");
-	painter.end();
-	//update();
-}
+void CCustomWidget::paintEvent (QPaintEvent *event) {
+    QWidget::paintEvent(event); // 调用父类接口
 
+    QPainter painter;
+    painter.begin(this);
+    painter.setPen(Qt::red);
+    QFont ft;
+    ft.setPointSizeF(30);
+    painter.setFont(ft);
+    QPointF pt = ui.label_gif->geometry().bottomLeft() +
+                    QPointF(10, 20);
+    // 下面代码绘制的文本始终显示在本控件的底层
+    painter.drawText(pt, "Draw Text In CustomWidget.");
+
+    painter.end();
+}

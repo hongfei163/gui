@@ -11,13 +11,11 @@
 \Date 2018/8 
 */
 
-#ifndef DIALOG_H
-#define DIALOG_H
+#pragma once
 
 #include "ui_dialog.h"
 #include <QDialog>
 
-class CCustomWidget;
 
 class CDialog : public QDialog
 {
@@ -25,12 +23,21 @@ class CDialog : public QDialog
 public:
 	CDialog(QWidget* parent);
 	~CDialog(){;}
+private slots:
+    /*
+     * @brief 单击弹出按钮时对应的槽函数
+     * @param[in] b true:toogled(按钮为按下状态), false:not toogled(按钮为抬起状态)
+    */
+    void slot_popup(bool b);
 
-private Q_SLOTS:
-	void slot_roleChanged(int);
-	void slot_popup();
+    /*
+     * @brief 组合框的值改变时对应的槽函数
+     * @param[in] idx 当前新选中的项的下标
+    */
+    void slot_cbRoleChanged(int idx);
+
 private:
 	Ui::CDialog ui;
 };
 
-#endif 
+

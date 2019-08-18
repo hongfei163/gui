@@ -11,64 +11,91 @@
 
 */
 #include "dialog.h"
+#include <QGridLayout>
 #include <QComboBox>
-#include <iostream>
+#include <QMessageBox>
 
-using std::cout;
-using std::endl;
-
+// 用户角色枚举
 enum EUserType {
-	EUserType_Invalid=0,// 无效
-	EUserType_Admin,	// 管理员
-	EUserType_User,		// 普通用户
-	EUserType_Guest,	// guest用户
-	EUserType_Other,	// 其他用户
+    EUserType_Invalid=0,    // 无效
+    EUserType_Admin,        // 管理员
+    EUserType_User,         // 普通用户
+    EUserType_Guest,        // guest用户
+    EUserType_Other,        // 其他
 
-	EUserType_Max,		// 枚举最大值
+    EUserType_Max
 };
+
 CDialog::CDialog(QWidget* parent) : QDialog(parent)
 {
 	ui.setupUi(this);
+    connect(ui.btnPopup, &QPushButton::clicked,
+            this, &CDialog::slot_popup);
 
-	ui.cbRole->addItem("user", static_cast<int>(EUserType_User));
+    connect(ui.cbRole, SIGNAL(currentIndexChanged(int)),
+            this, SLOT(slot_cbRoleChanged(int)));
 
-	ui.cbRole->addItem("guest");
-	ui.cbRole->setItemData(1, static_cast<int>(EUserType_Guest));
+    connect(ui.buttonBox, &QDialogButtonBox::accepted,
+            this, &CDialog::accept);
+    connect(ui.buttonBox, &QDialogButtonBox::rejected,
+            this, &CDialog::reject);
 
-	ui.cbRole->addItem(QIcon(":/images/user.png"), "other", static_cast<int>(EUserType_Other));
-	
-	QStringList strList;
-	strList << "maintain" << "security" << "owner";
-	ui.cbRole->addItems(strList);
-	
-	ui.cbRole->insertSeparator(2);
 
-	ui.cbRole->insertItem(0, "admin", static_cast<int>(EUserType_Admin));
+    // addItem, 当前第0条
+    ui.cbRole->addItem("user", QVariant(static_cast<int>(EUserType_User)));
 
-	connect(ui.cbRole, SIGNAL(currentIndexChanged(int)), 
-		this, SLOT(slot_roleChanged(int)));
-	connect(ui.btnPopup, SIGNAL(clicked()),
-		this, SLOT(slot_popup()));
+    // 当前第1条
+    ui.cbRole->addItem("guest");
+    ui.cbRole->setItemData(1, static_cast<int>(EUserType_Guest));
+
+    ui.cbRole->addItem(QIcon(":/images/user.png"),
+                       "other",
+                       static_cast<int>(EUserType_Other));
+
+    QStringList strList;
+    strList<<"maintain" << "security" << "owner";
+    ui.cbRole->addItems(strList);
+
+    // 在user之前插入一条记录
+    ui.cbRole->insertItem(0,        // 将在第0条之前插入
+                          "admin",  // "admin"将变为第0条
+                          static_cast<int>(EUserType_Admin));
+
 }
 
-void CDialog::slot_popup()
-{
-	ui.cbRole->showPopup();
+void CDialog::slot_popup(bool b){
+    Q_UNUSED(b);
+    ui.cbRole->showPopup();
 }
 
-void CDialog::slot_roleChanged(int)
-{
-	int idx = ui.cbRole->currentIndex();
-	QString str = ui.cbRole->currentText();
-	int nUserType = ui.cbRole->itemData(idx).toInt();
-	//int nData = ui.cbRole->currentData(Qt::EditRole).toInt();
-	EUserType userType = static_cast<EUserType>(nUserType);
-	switch (userType) {
-	case EUserType_Admin:
-		cout << "admin" << endl;
-		cout << "current user:" << str.toLocal8Bit().data()<<endl;
-		break;
-	default:
-		break;
-	}
+
+void CDialog::slot_cbRoleChanged(int idx) {
+    QString str = ui.cbRole->currentText();
+    int nUserType = ui.cbRole->itemData(idx).toInt();
+    EUserType eUserType = static_cast<EUserType>(nUserType);
+
+    QString strInfo;
+    strInfo = str;
+    strInfo += ",";
+    strInfo += QString("idx=%1,usertype enum value=%2")
+                        .arg(idx)
+                        .arg(nUserType);
+
+    switch (eUserType){
+    case EUserType_Admin:
+        QMessageBox::information(this,
+                                 "combobox selection change",
+                                 strInfo);
+        break;
+    default:
+        break;
+    }
+
+
+
+
 }
+
+
+
+

@@ -15,7 +15,7 @@ DESTDIR     = $$(TRAINDEVHOME)/bin
 MOC_DIR		= $$(OBJECTS_DIR)/moc
 UI_DIR		= $$(OBJECTS_DIR)/ui
 
-				
+RC_ICONS        = images/my.ico
 FORMS		+= dialogbase.ui
 
 RESOURCES 	+= ks02_03.qrc

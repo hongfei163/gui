@@ -11,13 +11,11 @@
 \Date 2018/8 
 */
 
-#ifndef DIALOG_H
-#define DIALOG_H
+#pragma once
 
-#include "ui_dialogbase.h"
+#include "ui_dialog.h"
 #include <QDialog>
 
-class CCustomWidget;
 
 class CDialog : public QDialog
 {
@@ -25,9 +23,42 @@ class CDialog : public QDialog
 public:
 	CDialog(QWidget* parent);
 	~CDialog(){;}
+	void openFile(const QString &fileName);
 
+protected:
+    /*
+     * @brief 初始化界面
+    */
+	void initialDialog();
 private:
-	Ui::CDialogBase ui;
+    /*
+     * @brief 初始化各个子控件
+    */
+	void initialControls();
+    /*
+     * @brief 连接信号槽
+    */
+	void connectSignalsAndSlots();
+
+
+private slots:
+    /*
+     * @brief 打开gif文件槽函数
+    */
+	void slot_open();
+    /*
+     * @brief 暂停槽函数
+     * @param[in] b true:暂停, false:播放
+    */
+    void slot_pause(bool b);
+    /*
+     * @brief 更新按钮的状态。比如按钮的使能状态(enable/disable)
+    */
+	void slot_updateButtons();
+private:
+	Ui::CDialog ui;
+	QString m_currentDirectory;
+	QMovie* m_movie;
 };
 
-#endif 
+

@@ -14,7 +14,7 @@
 #ifndef DIALOG_H
 #define DIALOG_H
 
-#include "ui_dialogbase.h"
+#include "ui_dialog.h"
 #include <QDialog>
 
 class CCustomWidget;
@@ -25,11 +25,15 @@ class CDialog : public QDialog
 public:
 	CDialog(QWidget* parent);
 	~CDialog(){;}
-protected:
-	virtual void paintEvent(QPaintEvent *event);
 
+protected:
+    /*
+     *  @brief 重写父类的 paintEvent()
+     *  @param[in] event 刷新事件对象指针
+    */
+    virtual void paintEvent(QPaintEvent *event);
 private:
-	Ui::CDialogBase ui;
+	Ui::CDialog ui;
 	CCustomWidget* m_pWidget;
 };
 

@@ -25,7 +25,7 @@ CCustomWidget::CCustomWidget(QWidget* parent) : QWidget(parent)
 	initialize();
 }
 void CCustomWidget::initialize() {
-	m_img = QImage(":/images/rainman.gif");
+    m_img = QImage(":/images/rainman.gif");
 }
 
 
@@ -34,129 +34,145 @@ void CCustomWidget::resizeEvent(QResizeEvent *event)
 	QWidget::resizeEvent(event);
 }
 
-void CCustomWidget::paintEvent(QPaintEvent *event)
-{	
-	QWidget::paintEvent(event);
-	QPainter painter;
-	painter.begin(this);
-	painter.setRenderHint(QPainter::Antialiasing, true);
-	
-	// 画笔
-	QPen pn;
-	pn.setColor(Qt::blue);		// 蓝色画笔
-	pn.setStyle(Qt::DashLine);	// 线型-划线
-	pn.setWidthF(10);			// 宽度-10
-	pn.setCapStyle(Qt::RoundCap);// 顶端-圆形
-	pn.setJoinStyle(Qt::RoundJoin);// 拐点-圆形
-	painter.setPen(pn);
+void CCustomWidget::paintEvent(QPaintEvent *event){
+    QWidget::paintEvent(event);
 
-	// 帽子-直线
-	QLineF line(QPointF(100, 20), QPointF(400, 20));
-	painter.drawLine(line);
+    QPainter painter;
+    painter.begin(this);
 
-	QBrush brsh(Qt::yellow, Qt::CrossPattern);
-	
-	pn.setStyle(Qt::SolidLine);
-	painter.setPen(pn);
-	QLinearGradient linearGradient(QPointF(120, 50), QPointF(120, 170));
-	if (0)
-	{
-		painter.setBrush(brsh);
-	}
-	else
-	{
-		linearGradient.setSpread(QLinearGradient::PadSpread);
-		linearGradient.setColorAt(0, QColor(Qt::red));
-		linearGradient.setColorAt(1, QColor(Qt::yellow));
-		painter.setBrush(linearGradient);
-	}
-	pn.setColor(Qt::black);
-	pn.setWidthF(3);
-	painter.setPen(pn);
-	// 脸-矩形
-	QRectF rct(120, 50, 260, 120);
-	painter.drawRect(rct);
+    // 画笔
+    QPen pn;
+    pn.setColor(Qt::darkGray);  // 颜色
+    pn.setStyle(Qt::DashLine);  // 画笔样式
+    pn.setWidthF(10);           // 画笔宽度
+    pn.setCapStyle(Qt::RoundCap);// 画笔顶端样式
+    pn.setJoinStyle(Qt::RoundJoin); // 拐点样式
+    painter.setPen(pn);
 
-	brsh.setColor(Qt::gray);
-	brsh.setStyle(Qt::SolidPattern);
-	painter.setBrush(brsh);
-	// 耳朵-封闭折线
-	QPolygonF polygonLeft;
-	polygonLeft << QPointF(84,70) << QPointF(64,100) << QPointF(84,130) << QPointF(104,100);
-	painter.drawPolygon(polygonLeft);
 
-	QPolygonF polygonRight;
-	polygonRight << QPointF(422,66) << QPointF(402,96) << QPointF(422,126) << QPointF(442,96);
-	painter.drawPolygon(polygonRight);
+    // 头顶的帽子
+    QLineF linef(QPointF(100, 20), QPointF(400, 20));
+    painter.drawLine(linef);
 
-	// 嘴-开放折线
-	QPolygonF polyline;
-	polyline << QPointF(154,146) << QPointF(172,156) << QPointF(325,154) << QPointF(344,135);
-	painter.drawPolyline(polyline);
 
-	brsh.setColor(Qt::white);
-	painter.setBrush(brsh);
-	// 左眼-椭圆
-	painter.drawEllipse(154, 79, 32, 33);
-		// 小试牛刀，体验一下坐标转换
-		painter.save();
-		brsh.setColor(Qt::black);
-		brsh.setStyle(Qt::SolidPattern);
-		painter.setBrush(brsh);
-	
-		pn.setStyle(Qt::SolidLine);
-		pn.setWidthF(2);
-		painter.setPen(pn); 
+    QLinearGradient linearGradient(QPointF(120, 50),
+                                   QPointF(120, 170));
 
-		painter.translate(170, 95); // 把瞳孔画在眼睛(椭圆)的中心位置。抱歉，把眼睛画成铜钱啦。
-		painter.rotate(45);
-		painter.drawRect(-5, -5, 10, 10);
-		painter.restore();
+    linearGradient.setSpread(QGradient::PadSpread);
+    linearGradient.setColorAt(0, Qt::yellow);
+    linearGradient.setColorAt(1, Qt::red);
+    painter.setBrush(linearGradient);
 
-	// 右眼-椭圆
-	painter.drawEllipse(300, 79, 32, 33);
-		// 右边也来一下
-		painter.save();
-		brsh.setColor(Qt::black);
-		brsh.setStyle(Qt::SolidPattern);
-		painter.setBrush(brsh);
+    pn.setStyle(Qt::SolidLine);
+    pn.setColor(Qt::black);
+    pn.setWidthF(3);
+    painter.setPen(pn);
 
-		pn.setWidthF(2);
-		pn.setStyle(Qt::SolidLine);
-		painter.setPen(pn);
+    // 脸
+    QRectF rctf(120, 50, 260, 120);
+    painter.drawRect(rctf);
 
-		painter.translate(316, 95); // 把瞳孔画在眼睛(椭圆)的中心位置
-		painter.rotate(45);
-		painter.drawRect(-5, -5, 10, 10);
-		painter.restore();	
+    QBrush brsh(Qt::blue, Qt::CrossPattern);
+    brsh.setColor(Qt::gray);
+    brsh.setStyle(Qt::SolidPattern);
+    painter.setBrush(brsh);
 
-	// 字体
-	QFont ft(QString::fromLocal8Bit("宋体"));
-	ft.setPointSizeF(12);
-	painter.setFont(ft);
-	painter.setPen(Qt::red);
-	// 文本
-	painter.drawText(QPointF(202,266), "Hi! I'm ROBO!");
-	//painter.drawText(QPointF(182,206), "Hi! I'm ROBO!");
+    // 左侧耳朵
+    QPolygonF polygonLeft;
+    polygonLeft << QPointF(84, 70)
+                << QPointF(64, 100)
+                << QPointF(84, 130)
+                << QPointF(104, 100);
+    painter.drawPolygon(polygonLeft);
 
-	// 鼻子-弦
-	QRectF rctChord(219,110,45,60);
-	painter.drawChord(rctChord, 40 * 16, 103 * 16); // 需要将角度转换为弧度
+    // 右侧耳朵
+    QPolygonF polygonRight;
+    polygonRight << QPointF(422, 66)
+                << QPointF(402, 96)
+                << QPointF(422, 126)
+                << QPointF(442, 96);
+    painter.drawPolygon(polygonRight);
 
-	brsh.setColor(Qt::darkMagenta);
-	painter.setBrush(brsh);
-	// 左脚-扇形
-	QRectF rctPieLeft(20.5,200.5,269,85);
-	painter.drawPie(rctPieLeft, 90 * 16, 90 * 16); // 需要将角度转换为弧度
-	
-	// 右脚-扇形
-	QRectF rctPieRight(221,200.5,269,85);
-	painter.drawPie(rctPieRight, 0 * 16, 90 * 16); // 需要将角度转换为弧度
+    // 嘴巴
+    QPolygonF polyline;
+    polyline<< QPointF(154, 146)
+            << QPointF(172, 156)
+            << QPointF(325, 154)
+            << QPointF(344, 135);
+    painter.drawPolyline(polyline);
 
-	QRectF rctImage(51,300.5,300,300);
-	painter.drawImage(rctImage, m_img); 
+    brsh.setColor(Qt::blue);
+    painter.setBrush(brsh);
 
-	painter.end();
-	//update();
+    // 眼睛
+    painter.drawEllipse(154, 79, 32, 33); // 左眼
+        // 小试牛刀，体验一下坐标变换
+        painter.save(); // 保存当前配置，包括画笔、画刷、字体、矩阵等。
+
+        brsh.setColor(Qt::black);
+        painter.setBrush(brsh);
+
+        pn.setColor(Qt::green);
+        pn.setWidthF(2);
+        painter.setPen(pn);
+
+        painter.translate(170, 95); // 把瞳孔画在眼睛(椭圆)的中心位置
+        painter.rotate(45);
+        painter.drawRect(-5, -5, 10, 10);
+
+        painter.restore();// 恢复(这次save)之前的配置
+
+    painter.drawEllipse(300, 79, 32, 33); // 右眼
+        // 右边也来一下
+        painter.save();
+
+        brsh.setColor(Qt::black);
+        painter.setBrush(brsh);
+
+        pn.setColor(Qt::green);
+        pn.setWidthF(2);
+        painter.setPen(pn);
+
+        painter.translate(316, 95); // 把瞳孔画在眼睛(椭圆)的中心位置
+        painter.rotate(45);
+        painter.drawRect(-5, -5, 10, 10);
+        painter.restore();
+
+    QFont ft(QString::fromLocal8Bit("宋体"));
+    //ft.setFamily(QString::fromLocal8Bit("宋体"));
+    ft.setPointSizeF(26);
+    painter.setFont(ft);
+    painter.setPen(Qt::red);
+
+    // 打招呼
+    painter.drawText(QPointF(202, 266), "Hi, I'm ROBO!");
+
+    // 鼻子
+    QRectF rctChord(219,110,45,60);
+    painter.drawChord(rctChord,
+                      40*16,    // 起始角度，需要把角度(40)转换为弧度
+                      103*16);  // 跨度
+
+    brsh.setColor(Qt::darkMagenta);
+    painter.setBrush(brsh);
+
+    // 左脚
+    QRectF rctPieLeft(20.5,200.5,269,85);
+    painter.drawPie(rctPieLeft,
+                    90*16,  // 起始弧度
+                    90*16); // 跨度
+
+    // 右脚
+    QRectF rctPieRight(221,200.5,269,85);
+    painter.drawPie(rctPieRight,
+                    0*16,
+                    90*16);
+
+
+    // 来张动图? 其实显示的是张静态图片
+    QRectF rctImage(51,300.5,300,300);
+    painter.drawImage(rctImage, m_img);
+
+    painter.end();
 }
 

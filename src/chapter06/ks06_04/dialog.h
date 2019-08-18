@@ -14,10 +14,9 @@
 #ifndef DIALOG_H
 #define DIALOG_H
 
-#include "ui_dialogbase.h"
+#include "ui_dialog.h"
 #include <QDialog>
 
-class CCustomWidget;
 
 class CDialog : public QDialog
 {
@@ -25,21 +24,56 @@ class CDialog : public QDialog
 public:
 	CDialog(QWidget* parent);
 	~CDialog(){;}
-
 private:
-	void initialize();
+    /*
+     * @brief 初始化
+     * @return void
+    */
+    void initialize();
 
-private Q_SLOTS:
-	void slot_move2Left();
-	void slot_move2Right();
-	void slot_leftItemClicked(QListWidgetItem *item);
-	void slot_leftItemDoubleClicked(QListWidgetItem *item);
-	void slot_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous);
-	void slot_Ascending();
-	void slot_Descending();
-
+private slots:
+    /*
+     * @brief 将选中的项目移动到右侧列表
+     * @return void
+    */
+    void slot_move2Right();
+    /*
+     * @brief 将选中的项目移动到左侧列表
+     * @return void
+    */
+    void slot_move2Left();
+    /*
+     * @brief 将右侧列表升序排列
+     * @return void
+    */
+    void slot_ascending();
+    /*
+     * @brief 将右侧列表降序排列
+     * @return void
+    */
+    void slot_descending();
+    /*
+     * @brief 左侧的项被单击
+     * @param[in] pItem 被单击的项
+     * @return void
+    */
+    void slot_leftItemClicked(QListWidgetItem* pItem);
+    /*
+     * @brief 左侧的项被双击
+     * @param[in] pItem 被双击的项
+     * @return void
+    */
+    void slot_leftItemDoubleClicked(QListWidgetItem *pItem);
+    /*
+     * @brief 左侧选中的项发生变化
+     * @param[in] current 新选中的项
+     * @param[in] previous 之前选中的项
+     * @return void
+    */
+    void slot_leftCurrentItemChanged(QListWidgetItem *current,
+                                     QListWidgetItem *previous);
 private:
-	Ui::CDialogBase ui;
+	Ui::CDialog ui;
 };
 
 #endif 

@@ -13,15 +13,15 @@ DESTDIR     = $$TRAIN_BIN_PATH
 
 INCLUDEPATH += $$TRAIN_INCLUDE_PATH/ks07_01
 
-FORMS 		+= dialogbase.ui \
-				customwidgetbase.ui
+FORMS 		+= dialog.ui \
+				customwidget.ui
 
 				
 HEADERS		+=  $$TRAIN_SRC_PATH/gui_base.pri \
 				ks07_01.pro \
 			    dialog.h \
 				customwidget.h
-				   
+
 	
 SOURCES    +=  main.cpp  \
 			   dialog.cpp \

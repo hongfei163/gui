@@ -9,7 +9,7 @@ QT			+= widgets
 
 TEMPDIR		= $$TRAIN_OBJ_PATH/chapter06/ks06_03
 
-DESTDIR     = $$TRAIN_BIN_PATH
+DESTDIR         = $$TRAIN_BIN_PATH
 
 INCLUDEPATH += $$TRAIN_INCLUDE_PATH/ks06_03
 
@@ -21,7 +21,7 @@ HEADERS		+=  $$TRAIN_SRC_PATH/gui_base.pri \
 			    dialog.h 
 				   
 	
-SOURCES    +=  main.cpp  \
+SOURCES         +=  main.cpp  \
 			   dialog.cpp
 				
 RESOURCES	+= ks06_03.qrc

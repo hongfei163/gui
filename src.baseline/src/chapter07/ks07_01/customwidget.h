@@ -16,7 +16,7 @@
 
 #include <QWidget>
 
-#include "ui_customwidgetbase.h"
+#include "ui_customwidget.h"
 
 class CCustomWidget : public QWidget
 {
@@ -30,7 +30,7 @@ private:
 	void initialize();
 
 private:
-	Ui::CCustomWidgetBase ui;
+	Ui::CCustomWidget ui;
 	QMovie*	m_movie;
 	QLabel* m_transparentLabel;
 };

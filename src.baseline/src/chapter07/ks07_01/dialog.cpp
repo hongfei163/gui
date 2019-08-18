@@ -25,7 +25,8 @@ CDialog::CDialog(QWidget* parent) : QDialog(parent)
 	m_pWidget = new CCustomWidget(this);
 	gridLayout->addWidget(m_pWidget, 0, 0);
 	
-	ui.labelMiddle->setPixmap(QPixmap(":/images/pic1.png").scaled(300, 300));
-
-	ui.labelRight->setPixmap(QPixmap(":/images/pic1.png").scaled(300, 300));
+    connect(ui.buttonBox, &QDialogButtonBox::accepted,
+            this, &CDialog::accept);
+    connect(ui.buttonBox, &QDialogButtonBox::rejected,
+            this, &CDialog::reject);	
 }

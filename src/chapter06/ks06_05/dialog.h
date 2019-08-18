@@ -11,12 +11,10 @@
 \Date 2018/8 
 */
 
-#ifndef DIALOG_H
-#define DIALOG_H
+#pragma once
 
-#include "ui_dialogbase.h"
+#include "ui_dialog.h"
 #include <QDialog>
-
 
 class CDialog : public QDialog
 {
@@ -27,22 +25,51 @@ public:
 	void openFile(const QString &fileName);
 
 protected:
+    /*
+     * @brief 初始化界面
+    */
 	void initialDialog();
 private:
-	void initialControls();
+    /*
+     * @brief 初始化各个子控件
+    */
+    void initialControls();
+    /*
+     * @brief 连接信号槽
+    */
 	void connectSignalsAndSlots();
-	void changeFrameSliderMaxMin();
+    /*
+     * @brief 根据movie(gif)设置滑动条的范围
+    */
+    void changeFrameSliderMaxMin();
 
 private slots:
+    /*
+     * @brief 打开gif文件槽函数
+    */
 	void slot_open();
-	//void slot_pause(bool);
-	void slot_goToTheFrame(int frame);
+    /*
+     * @brief 暂停槽函数
+     * @param[in] b true:暂停, false:播放
+    */
+    void slot_pause(bool b);
+    /*
+     * @brief 更新按钮的状态。比如按钮的使能状态(enable/disable)
+    */
 	void slot_updateButtons();
-	void slot_updateFrameSlider();
+    /*
+     * @brief 根据动画播放速度，更新滑动条的滑块位置
+    */
+    void slot_updateFrameSlider();
+    /*
+     * @brief 根据滑动条的滑块位置更新动画的播放进度
+     * @param[in] value 当前话框进度
+    */
+    void slot_gotoFrame(int value);
 private:
-	Ui::CDialogBase ui;
+	Ui::CDialog ui;
 	QString m_currentDirectory;
 	QMovie* m_movie;
 };
 
-#endif 
+
