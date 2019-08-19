@@ -11,7 +11,6 @@
 \Date 2018/9
 */
 
-#include <QList>
 
 #include <iostream>
 #include "base/basedll/baseapi.h"
@@ -21,38 +20,29 @@
 #include "province.h"
 #include "city.h"
 
-using std::cout;
-using std::endl;
-using std::cin;
 
-void example01(void);
-void print(CCountry* pCountry);
-void serialize(QList<CCountry*>& lstCountries);
+CCountry* createCountry(void);
 
 int main(int argc, char * argv[])
 {
 	Q_UNUSED(argc);
 	Q_UNUSED(argv);
 
-	if (true) {
-		example01();
-	}
-	char ch='\0';
-	cin >> ch;
+
 	return 0;
 }
 
 
 /**
-* @brief 初始化数据并序列化.
-* @return void
+* @brief构建CCountry对象.
+* @return CCountry对象指针
 */
-void example01(void) {
+CCountry* createCountry(void) {
 	CProvince* pProvince = NULL;
 	CCity* pCity = NULL;
 	CCountry* pCountry = new CCountry(QString::fromLocal8Bit("中国"));
 	if (NULL == pCountry) {
-		return;
+		return NULL;
 	}
 	// add province
 	{
@@ -89,44 +79,15 @@ void example01(void) {
 		pCity->setName(QString::fromLocal8Bit("张家口"));
 		pCity->setProvince(pProvince);
 		pProvince->addCity(pCity);
+
+		// add city
+		pCity = new CCity();
+		pCity->setName(QString::fromLocal8Bit("保定"));
+		pCity->setProvince(pProvince);
+		pProvince->addCity(pCity);
 	}
 
-	// 打印输出
-	print(pCountry);
-
-	// 序列化
-	QString strFileName = ns_train::getPath("$TRAINDEVHOME/test/chapter04/ks04_15/country.dat");
-	pCountry->serializeBinary(strFileName, NULL);
-	// 释放内存
-	delete pCountry;
+	// 返回构建的CCountry对象
+	return pCountry;
 	
-}
-
-
-void print(CCountry* pCountry) {
-	QList<CProvince*> lstProvinces;
-	QList<CProvince*>::iterator iteProvince;
-	QList<CCity*> lstCities;
-	QList<CCity*>::iterator iteCity;
-	if (NULL == pCountry) {
-		return;
-	}
-	cout << pCountry->getName().toLocal8Bit().data() << endl;
-	pCountry->getProvinces(lstProvinces);
-	iteProvince = lstProvinces.begin();
-	while (iteProvince != lstProvinces.end()) {
-		cout << "\t省(州):" << (*iteProvince)->getName().toLocal8Bit().data() << endl;
-		(*iteProvince)->getCities(lstCities);
-		iteCity = lstCities.begin();
-		while (iteCity != lstCities.end()) {
-			cout << "\t\t城市:" << (*iteCity)->getName().toLocal8Bit().data() << endl;
-			iteCity++;
-		}
-		iteProvince++;
-	}
-
-}
-
-void serialize(QList<CCountry*>& /*lstCountries*/) {
-
 }

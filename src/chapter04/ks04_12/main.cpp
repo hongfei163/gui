@@ -47,7 +47,7 @@ int main(int argc, char * argv[])
 
 
     // 文本文件读取
-    if (0) {
+    if (1) {
         example01();
     }
 
@@ -139,7 +139,7 @@ void example01()
     // 按行打印
     qDebug("\n\n=====================================\n");
     qDebug("All the lines:\n");
-	if (false) {
+    if (true) {
 		const int c_maxNumber = 10240;
 		char buf[c_maxNumber];
 		qint64 nRead = 0;

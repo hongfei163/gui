@@ -3,8 +3,7 @@ include ($$(TRAINDEVHOME)/src/gui_base.pri)
 TEMPLATE	= app
 LANGUAGE	= C++
 
-QT += widgets
-
+QT      += widgets core
 #CONFIG += console
 
 TEMPDIR		= $$TRAIN_OBJ_PATH/chapter04/ks08_02

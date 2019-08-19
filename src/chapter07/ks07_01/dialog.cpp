@@ -21,12 +21,12 @@ CDialog::CDialog(QWidget* parent)
     : QDialog(parent) {
 	ui.setupUi(this);
 
-	QGridLayout* gridLayout = new QGridLayout(ui.widget);
-	gridLayout->setObjectName(QStringLiteral("gridLayout"));
+    QGridLayout* gridLayout = new QGridLayout(ui.widget);
+    gridLayout->setObjectName(QStringLiteral("gridLayout"));
 
-	m_pWidget = new CCustomWidget(this);
-	gridLayout->addWidget(m_pWidget, 0, 0);
-	
+    m_pWidget = new CCustomWidget(this);
+    gridLayout->addWidget(m_pWidget, 0, 0);
+
     // 下面代码构造的QLabel对象将覆盖在 m_pWidget 的上方。
     QLabel* pLabel = new QLabel(this);
     pLabel->setStyleSheet("color:rgb(0, 255,0)");
@@ -52,6 +52,5 @@ void CDialog::paintEvent(QPaintEvent *event){
     // 下面代码绘制的文本始终显示在本控件的底层,在m_pWidget的下层。
     painter.drawText(QPointF(0, m_pWidget->geometry().bottom()+5), "draw text in cdialog.");
     painter.end();
-
 
 }
