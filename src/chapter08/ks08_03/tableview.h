@@ -10,29 +10,21 @@
 \Date 2019/1
 */
 
-#ifndef CTABLEVIEW_H
-#define CTABLEVIEW_H
+#pragma once
 
 #include <QTableView>
 
-QT_BEGIN_NAMESPACE
-class QWidget;
-QT_END_NAMESPACE
 
-class CTableView : public QTableView
-{
-    Q_OBJECT
-
+class CTableView :public QTableView {
 public:
-	explicit CTableView(QWidget *parent = nullptr):QTableView(parent) {}
-
-signals:
-
+    explicit CTableView(QWidget* parent) : QTableView(parent){}
+    virtual ~CTableView(){}
 protected:
-	virtual void mousePressEvent(QMouseEvent *event) override;
-
+    /*
+     * @brief 重写父类的鼠标按下事件
+     * @param[in] event 鼠标按下事件对象
+    */
+    virtual void mousePressEvent(QMouseEvent* event) override;
 private:
-	QModelIndex m_indexLast;
+    QModelIndex m_indexLast;
 };
-
-#endif

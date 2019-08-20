@@ -14,69 +14,70 @@
 #include <QApplication>
 #include <QHeaderView>
 
-#include "delegate.h"
 #include "tablemodel.h"
+#include "delegate.h"
 #include "tableview.h"
 
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
-    CTableModel model(CTableModel::Eattr_Max, 2);
-	CTableView tableView;
-	tableView.setAlternatingRowColors(true);
-	tableView.setModel(&model); // 将模型视图建立关联
-	tableView.horizontalHeader()->setStretchLastSection(true);
+    CTableModel model(CTableModel::Eattr_Max, 2, nullptr);
+    CTableView tableView(nullptr);
+
+    tableView.setAlternatingRowColors(true);//
+    tableView.horizontalHeader()->setStretchLastSection(true);
+    tableView.setModel(&model);
 
     CDelegate delegate;
-    tableView.setItemDelegate(&delegate); // 为视图设置代理
-	QModelIndex index;
+    tableView.setItemDelegate(&delegate);
 
-    for (int row = 0; row < CTableModel::Eattr_Max; ++row) {
-		// 先填写第0列
-        index = model.index(row, 0, QModelIndex());
-		if (CTableModel::EAttr_Id == row) {
-			model.setData(index, "Id");
-		}
-		else if (CTableModel::EAttr_Descrition == row)	{
-			model.setData(index, QString::fromLocal8Bit("描述"));
-		}
-		else if (CTableModel::EAttr_Checked == row)	{
-			model.setData(index, QString::fromLocal8Bit("验证标志"));
-		}
-		else if (CTableModel::EAttr_LastOneFlag == row)	{
-			model.setData(index, QString::fromLocal8Bit("是否最后一个"));
-		}
-		else if (CTableModel::Eattr_AnimateSpeed == row)	{
-			model.setData(index, QString::fromLocal8Bit("动画速度"));		
-		}
-		
-		// 再填写第1列
-		index = model.index(row, 1, QModelIndex());
-		if (CTableModel::EAttr_Id == row) {
-			model.setData(index,0);
-		}
-		else if (CTableModel::EAttr_Descrition == row) {
-			model.setData(index, QString::fromLocal8Bit("备注"));
-		}
-		else if (CTableModel::EAttr_Checked == row) {
-			model.setData(index, false);
-		}
-		else if (CTableModel::EAttr_LastOneFlag == row) {
-			model.setData(index, QVariant(static_cast<int>(Qt::Checked)));
-		}
-		else if (CTableModel::Eattr_AnimateSpeed == row) {
-			model.setData(index, QVariant(static_cast<int>(CTableModel::EAnimateSpeed_Normal)));
-		}
+    // 为模型设置数据
+    QModelIndex index;
+    QModelIndex indexRoot = model.invisibleRootItem()->index();
+    for (int row=0; row<CTableModel::Eattr_Max; row++){
+        // 先设置第0列
+        index = model.index(row, 0, indexRoot);
+        if (CTableModel::EAttr_Id == row){
+            model.setData(index, "id");
+        }
+        else if (CTableModel::EAttr_Descrition == row ){
+            model.setData(index, QString::fromLocal8Bit("描述"));
+        }
+        else if (CTableModel::EAttr_Checked == row ){
+            model.setData(index, QString::fromLocal8Bit("验证"));
+        }
+        else if (CTableModel::EAttr_LastOneFlag == row ){
+            model.setData(index, QString::fromLocal8Bit("是最后一个"));
+        }
+        else if (CTableModel::Eattr_AnimateSpeed == row ){
+            model.setData(index, QString::fromLocal8Bit("动画速度"));
+        }
+        // 再设置第1列
+        index = model.index(row, 1, indexRoot);
+        if (CTableModel::EAttr_Id == row){
+            model.setData(index, 0);
+        }
+        else if (CTableModel::EAttr_Descrition == row ){
+            model.setData(index, QString::fromLocal8Bit("备注"));
+        }
+        else if (CTableModel::EAttr_Checked == row ){
+            model.setData(index, 0);// 0:yes, 1:no
+        }
+        else if (CTableModel::EAttr_LastOneFlag == row ){
+            model.setData(index, true);
+        }
+        else if (CTableModel::Eattr_AnimateSpeed == row ){
+            model.setData(index, static_cast<int>(CTableModel::EAnimateSpeed_Slow));
+        }
     }
-	// tmp
-	//for (int row = 0; row < CTableModel::Eattr_Max; ++row) {
-	//	index = model.index(row, 1);
-	//	tableView.openPersistentEditor(index);
-	//}
-	tableView.setWindowTitle(QObject::tr("Delegate Example"));
+
+    tableView.setWindowTitle("Delegate Example");
     tableView.show();
     return app.exec(); // 将app运行起来
 }
+
+
+
 
 

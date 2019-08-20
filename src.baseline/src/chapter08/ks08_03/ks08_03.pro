@@ -13,19 +13,10 @@ DESTDIR     = $$TRAIN_BIN_PATH
 
 INCLUDEPATH += $$TRAIN_INCLUDE_PATH/ks08_03
 
-HEADERS	    +=  $$TRAIN_SRC_PATH/gui_base.pri \
-                ks08_03.pro \
-                delegate.h \
-                tablemodel.h \
-                tableview.h \
-                editor.h
-
+HEADERS		+=  $$TRAIN_SRC_PATH/gui_base.pri \
+				ks08_03.pro 	
 				
-SOURCES     +=  main.cpp \
-                delegate.cpp \
-                tablemodel.cpp \
-                tableview.cpp \
-                editor.cpp
+SOURCES    +=  main.cpp 	
 
 RESOURCES += ks08_03.qrc
 

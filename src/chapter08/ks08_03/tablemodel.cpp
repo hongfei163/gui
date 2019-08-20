@@ -9,105 +9,96 @@
 \author 女儿叫老白  星点分享: http://xingdianketang.cn/
 \Date 2019/1
 */
+
 #include "tablemodel.h"
 
-CTableModel::CTableModel(QObject *parent):QStandardItemModel(parent)
-{
+CTableModel::CTableModel(QObject *parent):
+    QStandardItemModel(parent) {
 
 }
 
-CTableModel::CTableModel(int rows, int columns, QObject *parent)
-	:QStandardItemModel(rows, columns, parent)
-{
-}
+CTableModel::CTableModel(int rows, int columns, QObject *parent):
+                        QStandardItemModel(rows, columns, parent){
 
-int CTableModel::rowCount(const QModelIndex &parent) const 
-{
-	return QStandardItemModel::rowCount(parent);
-}
-
-int CTableModel::columnCount(const QModelIndex &parent) const
-{
-	return QStandardItemModel::columnCount(parent);
-}
-
-QVariant CTableModel::headerData(int section, 
-								Qt::Orientation orientation, 
-								int role) const {
-	return QStandardItemModel::headerData(section, orientation, role);
-}
-
-bool CTableModel::setHeaderData(int section, 
-								Qt::Orientation orientation, 
-								const QVariant &value,
-								int role)
-{
-	return QStandardItemModel::setHeaderData(section, orientation, value, role);
 }
 
 
-Qt::ItemFlags CTableModel::flags(const QModelIndex &index) const
-{
-	Qt::ItemFlags itemFlags;
-	if (0 == index.column()) {
-		itemFlags &= (~Qt::ItemIsEditable);// Qt::ItemIsEditable表示可编辑
-		return itemFlags;
-	}
-	else {
-		return QStandardItemModel::flags(index);
-	}
+Qt::ItemFlags CTableModel::flags(const QModelIndex &index) const {
+    // 只有第1列允许被编辑
+    Qt::ItemFlags itemFlags;
+    if (1 != index.column()){
+        itemFlags &= (~Qt::ItemIsEditable); // Qt::ItemIsEditable表示可编辑，
+                                            // ~Qt::ItemIsEditable表示取反，即不可编辑。
+        return itemFlags;
+    }
+    else {
+        return QStandardItemModel::flags(index);
+    }
 }
 
-QVariant CTableModel::data(const QModelIndex &index, int role) const
-{
-	QVariant var;
-	if (Qt::EditRole == role) {
-		var = QStandardItemModel::data(index, role);
-	}
-	else if (Qt::DisplayRole == role) {
-		var = QStandardItemModel::data(index, Qt::EditRole);
-		if (index.column() == 0) { // 第0列无需特殊处理
-			return var;
-		}
-		switch (index.row())
-		{
-		case EAttr_Checked:
-			var = (var.toBool() ? "yes" : "no");
-			break;
-		case EAttr_LastOneFlag:
-			var = (var.toInt() ? "Y" : "N");
-			break;
-		case Eattr_AnimateSpeed:
-		{
-			CTableModel::EAnimateSpeed animateSpeed = 
-				static_cast<CTableModel::EAnimateSpeed>(var.toInt());
-			switch (animateSpeed)
-			{
-			case EAnimateSpeed_Slow:
-				var = QString::fromLocal8Bit("慢速");
-				break;
-			case EAnimateSpeed_Normal:
-				var = QString::fromLocal8Bit("中速");
-				break;
-			case EAnimateSpeed_Fast:
-				var = QString::fromLocal8Bit("快速");
-				break;
-			}
-		}
-			break;
-		default:
-			break;
-		}
-	}
-	return var;
+
+QVariant CTableModel::data(const QModelIndex &index,
+                            int role) const {
+
+    QVariant var;
+    if (Qt::EditRole == role)
+    {
+        return QStandardItemModel::data(index, role);
+    }
+    else if (Qt::DisplayRole != role) {
+        return QStandardItemModel::data(index, role);
+    }
+
+    var = data(index, Qt::EditRole);
+    if (0 == index.column()){
+        return var;
+    }
+
+    switch (index.row()){
+
+    case CTableModel::EAttr_Checked:
+        var = (var.toBool() ? "no" : "yes"); // 0:yes, 1:no
+        break;
+    case CTableModel::EAttr_LastOneFlag:
+        var = (var.toInt() ? true : false);
+        break;
+    case CTableModel::Eattr_AnimateSpeed:
+    {
+        CTableModel::EAnimateSpeed eSpeed =
+                static_cast<CTableModel::EAnimateSpeed>(var.toInt());
+        switch (eSpeed) {
+        case CTableModel::EAnimateSpeed_Slow:
+            var = QString::fromLocal8Bit("慢速");
+            break;
+        case CTableModel::EAnimateSpeed_Normal:
+            var = QString::fromLocal8Bit("中速");
+            break;
+        case CTableModel::EAnimateSpeed_Fast:
+            var = QString::fromLocal8Bit("快速");
+            break;
+        default:
+            break;
+        }
+    }
+        break;
+    default:
+        break;
+    }
+
+    return var;
 }
 
-bool CTableModel::setData(const QModelIndex &index, const QVariant &value, int role)
-{
-	if (Qt::EditRole == role) {
-		QStandardItemModel::setData(index,value, role);
 
-		return true;
-	}	
-	return false;
+bool CTableModel::setData(const QModelIndex &index,
+             const QVariant &value,
+             int role) {
+    if (Qt::EditRole == role) {
+        return QStandardItemModel::setData(index, value, role);
+    }
+    else {
+        return false;
+    }
 }
+
+
+

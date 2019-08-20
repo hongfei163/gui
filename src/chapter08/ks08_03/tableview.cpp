@@ -10,22 +10,24 @@
 \Date 2019/1
 */
 
+#include "tableview.h"
 #include <QtWidgets>
 
-#include "tableview.h"
+void CTableView::mousePressEvent(QMouseEvent* event) {
 
-void CTableView::mousePressEvent(QMouseEvent *event)
-{
-	QPoint pos = event->pos();
-	QPersistentModelIndex index = indexAt(pos);
-	// 如果本次选择和上次不一样，则需要关闭上次的编辑器
-	if ((index != m_indexLast) && m_indexLast.isValid()) {
-		closePersistentEditor(m_indexLast);
-	}
-	m_indexLast = index;
-	if (index.isValid() && (1==index.column())) {
-		// 打开编辑器进入编辑状态
-		openPersistentEditor(index);
-	}
-	QTableView::mousePressEvent(event);
+    QPoint pt = event->pos();
+    QPersistentModelIndex index =  indexAt(pt);
+    // 如果本次选择和上次不一样，需要关闭上次的编辑器
+    if ((index != m_indexLast) && m_indexLast.isValid()) {
+        closePersistentEditor(m_indexLast);
+    }
+
+    m_indexLast = index;
+    // 新的序号有效，且是允许编辑的列
+    if (index.isValid() && (1== index.column())){
+        openPersistentEditor(index);
+    }
+    QTableView::mousePressEvent(event);
 }
+
+
