@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>CDialog</class>
- <widget class="QDialog" name="CDialogBase">
+ <widget class="QDialog" name="CDialog">
   <property name="geometry">
    <rect>
     <x>0</x>

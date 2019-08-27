@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>CSimpleDialogBase</class>
- <widget class="QDialog" name="CSimpleDialogBase">
+ <class>CSimpleDialog</class>
+ <widget class="QDialog" name="CSimpleDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -61,7 +61,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>CSimpleDialogBase</receiver>
+   <receiver>CSimpleDialog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -77,7 +77,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>CSimpleDialogBase</receiver>
+   <receiver>CSimpleDialog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
