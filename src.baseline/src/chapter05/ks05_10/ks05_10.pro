@@ -20,8 +20,8 @@ SOURCES    +=  main.cpp \
 				widget.cpp \
 				maindialog.cpp
 				
-FORMS		+= widgetbase.ui \
-			   maindialogbase.ui
+FORMS		+= widget.ui \
+			   maindialog.ui
 
 OBJECTS_DIR = $$TEMPDIR
 MOC_DIR		= $$TEMPDIR/moc

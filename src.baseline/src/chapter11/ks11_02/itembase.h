@@ -1,13 +1,13 @@
-ï»¿/*!
-* Copyright (C) 2018 Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
-* ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ð¡ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Î³Ì¡ï¿½Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ð´«²ï¿½ï¿½ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Ö¤ï¿½È¶ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+/*!
+* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
+* °æÈ¨ËùÓÐ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
+* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file: itembase.h
-\brief ï¿½ï¿½Ê¾ï¿½ï¿½Í·ï¿½Ä¼ï¿½
+\brief ÑÝÊ¾ÓÃÍ·ÎÄ¼þ
 
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½   http://xingdianketang.cn/
+\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
 \Date 2018/8
 */
 
@@ -23,39 +23,39 @@ public:
     virtual int type() const { return QGraphicsItem::UserType; }
 
     /**
-    * @brief ï¿½ï¿½È¡ï¿½ï¿½ï¿½Î¾ï¿½ï¿½ï¿½(Í¼Ôªï¿½ï¿½ï¿½ï¿½Ïµ)
-    * @return ï¿½ï¿½ï¿½Î¾ï¿½ï¿½ï¿½
+    * @brief »ñÈ¡¼¸ºÎ¾ØÐÎ(Í¼Ôª×ø±êÏµ)
+    * @return ¼¸ºÎ¾ØÐÎ
     */
     virtual QRectF  getItemRect() const =0 ;
     
     /**
-    * @brief setWidthï¿½ï¿½ï¿½ï¿½ï¿½Ã¾ï¿½ï¿½Î¿ï¿½
+    * @brief setWidthÖØÉèÖÃ¾ØÐÎ¿í
     *
-    * @param[in] dW  ï¿½ï¿½
+    * @param[in] dW  ¿í
     */
     void setWidth(qreal dW) { m_width = dW; }
     /**
-    * @brief getWidth() ï¿½ï¿½È¡ï¿½ï¿½ï¿½Î¿ï¿½
+    * @brief getWidth() »ñÈ¡¾ØÐÎ¿í
     *
-    * @return ï¿½ï¿½
+    * @return ¿í
     */
     qreal getWidth() const { return m_width; }
 
     /**
-    * @brief setHeightï¿½ï¿½ï¿½ï¿½ï¿½Ã¾ï¿½ï¿½Î¸ï¿½
+    * @brief setHeightÖØÉèÖÃ¾ØÐÎ¸ß
     *
-    * @param dH  ï¿½ï¿½
+    * @param dH  ¸ß
     */
     void setHeight(qreal dH) { m_height = dH; }
     /**
-    * @brief getHeight() ï¿½ï¿½È¡ï¿½ï¿½ï¿½Î¸ï¿½
+    * @brief getHeight() »ñÈ¡¾ØÐÎ¸ß
     *
-    * @return ï¿½ï¿½
+    * @return ¸ß
     */
     qreal getHeight() const { return m_height; }
 
 protected:
-	/// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	/// Îö¹¹º¯Êý
     virtual ~CGraphItemBase() { ; }
 private:
     qreal m_width;

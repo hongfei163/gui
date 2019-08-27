@@ -1,12 +1,12 @@
-ï»¿/*!
-* Copyright (C) 2018 Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
-* ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ð¡ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Î³Ì¡ï¿½Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ð´«²ï¿½ï¿½ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Ö¤ï¿½È¶ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+/*!
+* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
+* °æÈ¨ËùÓÐ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
+* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file delegate.cpp
-\brief delegateÊµï¿½ï¿½ï¿½Ä¼ï¿½
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½   http://xingdianketang.cn/
+\brief delegateÊµÏÖÎÄ¼þ
+\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
 \Date 2019/1
 */
 
@@ -21,16 +21,16 @@
 CDelegate::CDelegate(QObject* parent):
     QStyledItemDelegate (parent){
 
-    m_strListYesNo << "yes" << "no"; // 0ï¿½ï¿½yes, 1:no
-    m_strListSpeed << QString::fromLocal8Bit("ï¿½ï¿½ï¿½ï¿½") // tr("")
-                   << QString::fromLocal8Bit("ï¿½ï¿½ï¿½ï¿½")
-                   << QString::fromLocal8Bit("ï¿½ï¿½ï¿½ï¿½");
+    m_strListYesNo << "yes" << "no"; // 0£ºyes, 1:no
+    m_strListSpeed << QString::fromLocal8Bit("ÂýËÙ") // tr("")
+                   << QString::fromLocal8Bit("ÖÐËÙ")
+                   << QString::fromLocal8Bit("¿ìËÙ");
 }
 
 QWidget *CDelegate::createEditor(QWidget *parent,
                       const QStyleOptionViewItem &option,
                       const QModelIndex &index) const {
-    // Ö»ï¿½Ðµï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½à¼­
+    // Ö»ÓÐµÚ1ÁÐÔÊÐí±à¼­
     if (1 != index.column()){
         return QStyledItemDelegate::createEditor(parent,
                                                  option,
@@ -47,8 +47,8 @@ QWidget *CDelegate::createEditor(QWidget *parent,
     else if (CTableModel::EAttr_Checked == index.row()) {
         QComboBox* pEditor = new QComboBox(parent);
         pEditor->addItems(m_strListYesNo);
-        pEditor->setItemData(0, 0); // 0:yes,ï¿½ï¿½ï¿½ï¿½=0ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½Öµ=0
-        pEditor->setItemData(1, 1); // 1:no,ï¿½ï¿½ï¿½ï¿½=1ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½Öµ=1
+        pEditor->setItemData(0, 0); // 0:yes,ÐòºÅ=0£¬¶ÔÓ¦µÄÖµ=0
+        pEditor->setItemData(1, 1); // 1:no,ÐòºÅ=1£¬¶ÔÓ¦µÄÖµ=1
         return pEditor;
     }
     else if(CTableModel::EAttr_LastOneFlag == index.row()) {
@@ -95,10 +95,10 @@ void CDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const{
         QVariant var = index.model()->data(index, Qt::EditRole);
         Qt::CheckState checkState = static_cast<Qt::CheckState>(var.toInt());
         if (checkState) {
-            pEditor->setText(QString::fromLocal8Bit("ï¿½ï¿½"));
+            pEditor->setText(QString::fromLocal8Bit("ÊÇ"));
         }
         else {
-            pEditor->setText(QString::fromLocal8Bit("ï¿½ï¿½"));
+            pEditor->setText(QString::fromLocal8Bit("·ñ"));
         }
     }
     else if (CTableModel::Eattr_AnimateSpeed == index.row()){
@@ -133,7 +133,7 @@ void CDelegate::setModelData(QWidget *editor,
     }
     else if (CTableModel::EAttr_LastOneFlag == index.row()) {
         CEditor* pEditor = qobject_cast<CEditor*>(editor);
-        var.setValue((pEditor->text()==QString::fromLocal8Bit("ï¿½ï¿½")) ? true : false);
+        var.setValue((pEditor->text()==QString::fromLocal8Bit("ÊÇ")) ? true : false);
         model->setData(index, var);
     }
     else if (CTableModel::Eattr_AnimateSpeed == index.row()){
@@ -159,8 +159,8 @@ void CDelegate::slot_commitAndCloseEditor() {
 
     CEditor* pEditor = dynamic_cast<CEditor*>(sender());
 
-    emit commitData(pEditor); // ï¿½á½»ï¿½ï¿½ï¿½ï¿½
-    emit closeEditor(pEditor);// ï¿½Ø±Õ±à¼­ï¿½ï¿½ï¿½Ø¼ï¿½
+    emit commitData(pEditor); // Ìá½»Êý¾Ý
+    emit closeEditor(pEditor);// ¹Ø±Õ±à¼­Æ÷¿Ø¼þ
 
 }
 
@@ -171,8 +171,8 @@ QString CDelegate::displayText(const QVariant &value,
     case QMetaType::Bool:
         {
             QString str = (value.toBool() ?
-                               QString::fromLocal8Bit("ï¿½ï¿½") :
-                               QString::fromLocal8Bit("ï¿½ï¿½"));
+                               QString::fromLocal8Bit("ÊÇ") :
+                               QString::fromLocal8Bit("·ñ"));
             return str;
         }
         break;

@@ -1,13 +1,13 @@
-ï»¿/*! 
-* Copyright (C) 2018 Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
-* ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ğ¡ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Î³Ì¡ï¿½Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ğ´«²ï¿½ï¿½ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Ö¤ï¿½È¶ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+/*! 
+* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
+* °æÈ¨ËùÓĞ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
+* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file: main.cpp
-\brief      QVariantï¿½ï¿½Ê¹ï¿½ï¿½
+\brief      QVariantµÄÊ¹ÓÃ
             
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½   http://xingdianketang.cn/
+\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
 \Date 2018/9
 */
 
@@ -58,24 +58,24 @@ int main(int argc, char * argv[])
 }
 
 /**
-* @brief  ï¿½ï¿½ï¿½ï¿½Qtï¿½ï¿½ï¿½ï¿½QVariantï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½
-* @return ï¿½ï¿½
+* @brief  ³£¼ûQtÀàÓëQVariant»¥Ïà×ª»»
+* @return ÎŞ
 */
 void example01(){
 	
 	
 }
 /**
-* @brief  QVariant::value<>()ï¿½ï¿½Ê¹ï¿½ï¿½
-* @return ï¿½ï¿½
+* @brief  QVariant::value<>()µÄÊ¹ÓÃ
+* @return ÎŞ
 */
 void example02(){
 	
 }
 
 /**
-* @brief  QVariantListï¿½ï¿½Ê¹ï¿½ï¿½
-* @return ï¿½ï¿½
+* @brief  QVariantListµÄÊ¹ÓÃ
+* @return ÎŞ
 */
 void example03() {
 
@@ -84,7 +84,7 @@ void example03() {
 
 /**
 * @brief  QVariant::nameToType(), QVariant::typeToName()
-* @return ï¿½ï¿½
+* @return ÎŞ
 */
 void example04() {
 

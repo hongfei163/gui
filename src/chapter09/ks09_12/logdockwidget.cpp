@@ -1,13 +1,13 @@
-ï»¿/*!
-* Copyright (C) 2018 Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
-* ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ð¡ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Î³Ì¡ï¿½Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ð´«²ï¿½ï¿½ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Ö¤ï¿½È¶ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+/*!
+* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
+* °æÈ¨ËùÓÐ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
+* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file: logdockwidget.cpp
-\brief ï¿½ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½Ä¼ï¿½
+\brief ÈÕÖ¾´°¿ÚÀàÊµÏÖÎÄ¼þ
 
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½   http://xingdianketang.cn/
+\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
 \Date 2019/01
 */
 
@@ -19,13 +19,13 @@
 #include "logevt.h"
 
 
-const int maxLogNum = 1000;	// ï¿½ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾ï¿½ï¿½Ä¿
+const int maxLogNum = 1000;	// ÈÕÖ¾´°¿ÚÏÔÊ¾µÄ×î´óÈÕÖ¾ÊýÄ¿
 
 /**
-* @brief ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½
-* @param[in] title	ï¿½ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½
-* @param[in] parent ï¿½ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½
-* @param[in] flags	ï¿½ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½Ö¾
+* @brief ¹¹Ôìº¯Êý
+* @param[in] title	ÈÕÖ¾Ðü¸¡´°µÄ±êÌâ
+* @param[in] parent ÈÕÖ¾Ðü¸¡´°µÄ¸¸¶ÔÏó
+* @param[in] flags	ÈÕÖ¾Ðü¸¡´°µÄ±êÖ¾
 */
 CLogDockWidget::CLogDockWidget(const QString &title, QWidget *parent/* = 0*/, Qt::WindowFlags flags/* = 0*/) : QDockWidget(title, parent, flags), m_pTableWidget(NULL)
 {
@@ -34,30 +34,30 @@ CLogDockWidget::CLogDockWidget(const QString &title, QWidget *parent/* = 0*/, Qt
 	Q_UNUSED(flags);
 	m_pTableWidget = new QTableWidget(this);
 	m_pTableWidget->setColumnCount(3);
-	QFont font = m_pTableWidget->horizontalHeader()->font();	// ï¿½ï¿½ï¿½Ã±ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½Ó´ï¿½
+	QFont font = m_pTableWidget->horizontalHeader()->font();	// ÉèÖÃ±íÍ·×ÖÌå¼Ó´Ö
 	font.setBold(true);
 	m_pTableWidget->horizontalHeader()->setFont(font);
-	m_pTableWidget->horizontalHeader()->setFixedHeight(25); //ï¿½ï¿½ï¿½Ã±ï¿½Í·ï¿½Ä¸ß¶ï¿½
+	m_pTableWidget->horizontalHeader()->setFixedHeight(25); //ÉèÖÃ±íÍ·µÄ¸ß¶È
 	m_pTableWidget->horizontalHeader()->setDefaultAlignment(Qt::AlignLeft);
-	m_pTableWidget->setHorizontalHeaderLabels(QStringList() << QString::fromLocal8Bit("ï¿½ï¿½ï¿½ï¿½") << QString::fromLocal8Bit("Ê±ï¿½ï¿½") << QString::fromLocal8Bit("ï¿½ï¿½ï¿½ï¿½"));
+	m_pTableWidget->setHorizontalHeaderLabels(QStringList() << QString::fromLocal8Bit("¼¶±ð") << QString::fromLocal8Bit("Ê±¼ä") << QString::fromLocal8Bit("ÄÚÈÝ"));
 	m_pTableWidget->setColumnWidth(0, 100);
 	m_pTableWidget->setColumnWidth(1, 100);
 	m_pTableWidget->horizontalHeader()->setStretchLastSection(true);
-	m_pTableWidget->setShowGrid(false); //ï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	m_pTableWidget->verticalHeader()->setHidden(true);	// ï¿½ï¿½ï¿½Ã´ï¿½Ö±ï¿½ï¿½Í·ï¿½ï¿½ï¿½É¼ï¿½
-	m_pTableWidget->horizontalHeader()->setStyleSheet("QHeaderView::section{background:skyblue;}"); //ï¿½ï¿½ï¿½Ã±ï¿½Í·ï¿½ï¿½ï¿½ï¿½É«
+	m_pTableWidget->setShowGrid(false); //ÉèÖÃ²»ÏÔÊ¾¸ñ×ÓÏß
+	m_pTableWidget->verticalHeader()->setHidden(true);	// ÉèÖÃ´¹Ö±±íÍ·²»¿É¼û
+	m_pTableWidget->horizontalHeader()->setStyleSheet("QHeaderView::section{background:skyblue;}"); //ÉèÖÃ±íÍ·±³¾°É«
 	setWidget(m_pTableWidget);
 }
 
-//! ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//! Îö¹¹º¯Êý
 CLogDockWidget::~CLogDockWidget()
 {
 
 }
 
 /**
-* @brief ï¿½ï¿½ï¿½ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½Ö¾
-* @param[in] QEvent	ï¿½ï¿½Ö¾ï¿½Â¼ï¿½
+* @brief ÔÚÈÕÖ¾Ðü¸¡´°ÖÐÏÔÊ¾ÈÕÖ¾
+* @param[in] QEvent	ÈÕÖ¾ÊÂ¼þ
 */
 void CLogDockWidget::customEvent(QEvent* e)
 {
@@ -69,11 +69,11 @@ void CLogDockWidget::customEvent(QEvent* e)
 
 		int rowIndex = m_pTableWidget->rowCount();
 		while (rowIndex >= maxLogNum)
-		{//É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		{//É¾³ý×îºóµÄ
 			m_pTableWidget->removeRow(rowIndex - 1);
 			rowIndex--;
 		}		
-		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½Óµï¿½ï¿½ï¿½Ç°ï¿½ï¿½
+		//ÐÂÔöµÄÓÀÔ¶¼Óµ½×îÇ°Ãæ
 		m_pTableWidget->insertRow(0);
 		m_pTableWidget->setItem(0, 0, new QTableWidgetItem(SLog::translateLevel(log.level)));
 		m_pTableWidget->setItem(0, 1, new QTableWidgetItem(log.time.toString()));

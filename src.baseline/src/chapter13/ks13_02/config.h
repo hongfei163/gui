@@ -1,12 +1,12 @@
-ï»¿/*! 
-* Copyright (C) 2018 Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
-* ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ð¡ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Î³Ì¡ï¿½Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ð´«²ï¿½ï¿½ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Ö¤ï¿½È¶ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+/*! 
+* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
+* °æÈ¨ËùÓÐ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
+* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file: config.h
-\brief exe+dllï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½Í·ï¿½Ä¼ï¿½
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½   http://xingdianketang.cn/
+\brief exe+dll±à³ÌÊ¾Àý£¬µ¥ÌåÀàµÄ¶¨ÒåÍ·ÎÄ¼þ
+\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
 \Date 2019/3
 * 
 */
@@ -20,57 +20,57 @@
 class CConfig {
 public:
     /**
-    * @brief  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½Ó¿ï¿½
-    * @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    * @brief  µ¥Ìå¶ÔÏó·ÃÎÊ½Ó¿Ú
+    * @return µ¥Ìå¶ÔÏóµÄÒýÓÃ
     */
     static CConfig& instance();
     /**
-    * @brief  ï¿½ï¿½ï¿½Ã½ï¿½Ê¦ï¿½ï¿½ï¿½ï¿½
-    * @param[in] n  ï¿½ï¿½Ê¦ï¿½ï¿½ï¿½ï¿½
+    * @brief  ÉèÖÃ½ÌÊ¦ÈËÊý
+    * @param[in] n  ½ÌÊ¦ÈËÊý
     */
     void setTeacherNumber(quint16 n);
     /**
-    * @brief  ï¿½ï¿½È¡ï¿½ï¿½Ê¦ï¿½ï¿½ï¿½ï¿½
-    * @return ï¿½ï¿½Ê¦ï¿½ï¿½ï¿½ï¿½
+    * @brief  »ñÈ¡½ÌÊ¦ÈËÊý
+    * @return ½ÌÊ¦ÈËÊý
     */
     quint16 getTeacherNumber();
 
     /**
-    * @brief  ï¿½ï¿½ï¿½ï¿½Ñ§Ô±ï¿½ï¿½ï¿½ï¿½
-    * @param[in] n  Ñ§Ô±ï¿½ï¿½ï¿½ï¿½
+    * @brief  ÉèÖÃÑ§Ô±ÈËÊý
+    * @param[in] n  Ñ§Ô±ÈËÊý
     */
     void setStudentNumber(quint16 n);
     /**
-    * @brief  ï¿½ï¿½È¡Ñ§Ô±ï¿½ï¿½ï¿½ï¿½
-    * @return Ñ§Ô±ï¿½ï¿½ï¿½ï¿½
+    * @brief  »ñÈ¡Ñ§Ô±ÈËÊý
+    * @return Ñ§Ô±ÈËÊý
     */
     quint16 getStudentNumber();
 private:    
     /**
-    * @brief  ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªË½ï¿½Ðµï¿½Ä¿ï¿½ï¿½ï¿½Ç·ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ã¸ï¿½ï¿½à¹¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-    * @return ï¿½ï¿½
+    * @brief  ¹¹Ôìº¯Êý£¬¶¨ÒåÎªË½ÓÐµÄÄ¿µÄÊÇ·ÀÖ¹ËûÈËÊ¹ÓÃ¸ÃÀà¹¹Ôì¶ÔÏó¡£
+    * @return ÎÞ
     */
     CConfig():m_nTeacherNumber(0), m_nStudentNumber(0){}
 
     /**
-    * @brief  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªË½ï¿½Ðµï¿½Ä¿ï¿½ï¿½ï¿½Ç·ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¬ï¿½ÏµÄ¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-    *         ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½
-    * @return ï¿½ï¿½
+    * @brief  ¿½±´¹¹Ôìº¯Êý£¬¶¨ÒåÎªË½ÓÐµÄÄ¿µÄÊÇ·ÀÖ¹±àÒëÆ÷µ÷ÓÃÄ¬ÈÏµÄ¿½±´¹¹Ôì
+    *         º¯ÊýÒþÊ½¹¹Ôì¸ÃÀàµÄ¶ÔÏó¡£
+    * @return ÎÞ
     */
     CConfig(const CConfig&);
     
     /**
-    * @brief  ï¿½ï¿½ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªË½ï¿½Ðµï¿½Ä¿ï¿½ï¿½ï¿½Ç·ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½deleteï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-    * @return ï¿½ï¿½
+    * @brief  Îö¹¹Ôìº¯Êý£¬¶¨ÒåÎªË½ÓÐµÄÄ¿µÄÊÇ·ÀÖ¹ËûÈËÓÃdeleteÓï¾äÉ¾³ýµ¥Ìå¶ÔÏó¡£
+    * @return ÎÞ
     */
     ~CConfig() {}
 
 
  private:
-   static CConfig m_config;     /// ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½
-   qint16 m_nTeacherNumber;     /// ï¿½ï¿½Ê¦ï¿½ï¿½ï¿½ï¿½
-   qint16 m_nStudentNumber;     /// Ñ§Ô±ï¿½ï¿½ï¿½ï¿½
-   QMutex m_mtx;                /// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+   static CConfig m_config;     /// ¾²Ì¬¶ÔÏó
+   qint16 m_nTeacherNumber;     /// ½ÌÊ¦ÈËÊý
+   qint16 m_nStudentNumber;     /// Ñ§Ô±ÈËÊý
+   QMutex m_mtx;                /// ±£»¤Ëø
 
 };
 

@@ -1,13 +1,13 @@
-ï»¿/*! 
-* Copyright (C) 2018 Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
-* ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ğ¡ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Î³Ì¡ï¿½Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ğ´«²ï¿½ï¿½ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Ö¤ï¿½È¶ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+/*! 
+* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
+* °æÈ¨ËùÓĞ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
+* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file: listwidget.h
-\brief ï¿½ï¿½Ê¾ï¿½ï¿½Í·ï¿½Ä¼ï¿½
+\brief ÑİÊ¾ÓÃÍ·ÎÄ¼ş
   
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½   http://xingdianketang.cn/
+\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
 \Date 2018/8 
 */
 
@@ -22,8 +22,8 @@ class CListWidget : public QListWidget
 //	Q_OBJECT
 public:
 	/**
-	* @brief ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½
-	* @param[in] parent ï¿½ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @brief ¹¹Ôìº¯Êı
+	* @param[in] parent ÈÕÖ¾Ğü¸¡´°µÄ¸¸¶ÔÏó
 	*/
 	CListWidget(QWidget* parent);
 	~CListWidget();
@@ -33,26 +33,26 @@ public:
 
 protected:
 	/**
-	* @brief ï¿½ï¿½×§ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ó¦
-	* @param[in] event ï¿½ï¿½×§ï¿½Â¼ï¿½
+	* @brief ÍÏ×§½øÈëÊÂ¼şÏìÓ¦
+	* @param[in] event ÍÏ×§ÊÂ¼ş
 	*/
 	void dragEnterEvent(QDragEnterEvent* event);
 
 	/**
-	* @brief ï¿½ï¿½×§ï¿½Æ¶ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ó¦
-	* @param[in] event ï¿½ï¿½×§ï¿½Â¼ï¿½
+	* @brief ÍÏ×§ÒÆ¶¯ÊÂ¼şÏìÓ¦
+	* @param[in] event ÍÏ×§ÊÂ¼ş
 	*/
 	void dragMoveEvent(QDragMoveEvent* event);
 
 	/**
-	* @brief ï¿½ï¿½×§ï¿½ë¿ªï¿½Â¼ï¿½ï¿½ï¿½Ó¦
-	* @param[in] event ï¿½ï¿½×§ï¿½Â¼ï¿½
+	* @brief ÍÏ×§Àë¿ªÊÂ¼şÏìÓ¦
+	* @param[in] event ÍÏ×§ÊÂ¼ş
 	*/
 	void dragLeaveEvent(QDragLeaveEvent *event);
 
 	/**
-	* @brief ï¿½ï¿½×§ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ó¦
-	* @param[in] event ï¿½ï¿½×§ï¿½Â¼ï¿½
+	* @brief ÍÏ×§·ÅÏÂÊÂ¼şÏìÓ¦
+	* @param[in] event ÍÏ×§ÊÂ¼ş
 	*/
 	void dropEvent(QDropEvent *event);
 

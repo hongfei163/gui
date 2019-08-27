@@ -1,11 +1,11 @@
-ï»¿/*! \file: sync.h
-* Copyright (C) 2018 Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
-* ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ð¡ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Î³Ì¡ï¿½Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ð´«²ï¿½ï¿½ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Ö¤ï¿½È¶ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+/*! \file: sync.h
+* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
+* °æÈ¨ËùÓÐ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
+* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
-\brief ï¿½Ä¼ï¿½Í¬ï¿½ï¿½ï¿½à¶¨ï¿½ï¿½Í·ï¿½Ä¼ï¿½
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½   http://xingdianketang.cn/
+\brief ÎÄ¼þÍ¬²½Àà¶¨ÒåÍ·ÎÄ¼þ
+\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
 \Date 2018/9
 */
 
@@ -24,66 +24,66 @@ public:
 	CSyncConfig& operator=(const CSyncConfig& right);
 
 	/**
-	* @brief ï¿½ï¿½ï¿½ï¿½Ô´Â·ï¿½ï¿½
-	* @param[in] strSrc Ô´Â·ï¿½ï¿½
+	* @brief ÉèÖÃÔ´Â·¾¶
+	* @param[in] strSrc Ô´Â·¾¶
 	* @return void
 	*/
 	void setSourceDirectory(const QString& strSrc) { m_strSrcDir = strSrc; }
 	/**
-	* @brief ï¿½ï¿½È¡Ô´Â·ï¿½ï¿½, ï¿½Ñ¾ï¿½×ªï¿½ï¿½Îªunixï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/xx/xx/xx.txtï¿½ï¿½ï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½"/"
-	* @return Ô´Â·ï¿½ï¿½
+	* @brief »ñÈ¡Ô´Â·¾¶, ÒÑ¾­×ª»»Îªunix·ç¸ñ£¨/xx/xx/xx.txt£©£¬ÇÒ²»´ø×îºóµÄÐ±¸Ü"/"
+	* @return Ô´Â·¾¶
 	*/	
 	QString getSourceDirectory() const { return m_strSrcDir; }
 
 	/**
-	* @brief ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½Â·ï¿½ï¿½
-	* @param[in] strDst Ä¿ï¿½ï¿½Â·ï¿½ï¿½
+	* @brief ÉèÖÃÄ¿±êÂ·¾¶
+	* @param[in] strDst Ä¿±êÂ·¾¶
 	* @return void
 	*/
 	void setDestDirectory(const QString& strDst) { m_strDstDir = strDst; }
 	/**
-	* @brief ï¿½ï¿½È¡Ô´Â·ï¿½ï¿½, ï¿½Ñ¾ï¿½×ªï¿½ï¿½Îªunixï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/xx/xx/xx.txtï¿½ï¿½ï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½"/"
-	* @return Ä¿ï¿½ï¿½Â·ï¿½ï¿½
+	* @brief »ñÈ¡Ô´Â·¾¶, ÒÑ¾­×ª»»Îªunix·ç¸ñ£¨/xx/xx/xx.txt£©£¬ÇÒ²»´ø×îºóµÄÐ±¸Ü"/"
+	* @return Ä¿±êÂ·¾¶
 	*/
 	QString getDestDirectory() const { return m_strDstDir; }
 
 	/**
-	* @brief ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
-	* @param[in] lstDirFilter Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
+	* @brief ÉèÖÃÂ·¾¶¹ýÂËÁÐ±í
+	* @param[in] lstDirFilter Â·¾¶¹ýÂËÁÐ±í
 	* @return void
 	*/
 	void setDirectoryFilters(const QStringList& lstDirFilter) { m_lstDirFilter = lstDirFilter; }
 	/**
-	* @brief ï¿½ï¿½È¡Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
-	* @return Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
+	* @brief »ñÈ¡Â·¾¶¹ýÂËÁÐ±í
+	* @return Â·¾¶¹ýÂËÁÐ±í
 	*/
 	QStringList getDirectoryFilters()  const { return m_lstDirFilter; }
 
 	/**
-	* @brief ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
-	* @param[in] lstFileFilter ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
+	* @brief ÉèÖÃÎÄ¼þ¹ýÂËÁÐ±í
+	* @param[in] lstFileFilter ÎÄ¼þ¹ýÂËÁÐ±í
 	* @return void
 	*/
 	void setFileFilters(const QStringList& lstFileFilter) { m_lstFileFilter = lstFileFilter; }
 
 	/**
-	* @brief ï¿½ï¿½È¡ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
-	* @return ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
+	* @brief »ñÈ¡ÎÄ¼þ¹ýÂËÁÐ±í
+	* @return ÎÄ¼þ¹ýÂËÁÐ±í
 	*/
 	QStringList getFileFilters() const { return m_lstFileFilter; }
 
 	/**
-	* @brief Ö¸ï¿½ï¿½Â·ï¿½ï¿½ï¿½Ç·ñ±»¹ï¿½ï¿½ï¿½
-	* @param[in] strDirectory Ö¸ï¿½ï¿½Â·ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½)
-	* @param[in] bSource true:Ô´Â·ï¿½ï¿½ï¿½Ðµï¿½Â·ï¿½ï¿½ï¿½ï¿½false:Ä¿ï¿½ï¿½Â·ï¿½ï¿½ï¿½Ðµï¿½Â·ï¿½ï¿½
-	* @return true:Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë¡ï¿½ false:Â·ï¿½ï¿½Î´ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @brief Ö¸¶¨Â·¾¶ÊÇ·ñ±»¹ýÂË
+	* @param[in] strDirectory Ö¸¶¨Â·¾¶(¾ø¶ÔÂ·¾¶)
+	* @param[in] bSource true:Ô´Â·¾¶ÖÐµÄÂ·¾¶£¬false:Ä¿±êÂ·¾¶ÖÐµÄÂ·¾¶
+	* @return true:Â·¾¶±»¹ýÂË¡£ false:Â·¾¶Î´¹ýÂË£¬ÐèÒªÕý³£´¦Àí
 	*/	
 	bool isFilteredDirectory(const QString& strDirectory, bool bSource) const;
 	/**
-	* @brief Ö¸ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ç·ñ±»¹ï¿½ï¿½ï¿½
-	* @param[in] strFileName Ö¸ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½
-	* @param[in] bSource true:Ô´Â·ï¿½ï¿½ï¿½Ðµï¿½ï¿½Ä¼ï¿½ï¿½ï¿½false:Ä¿ï¿½ï¿½Â·ï¿½ï¿½ï¿½Ðµï¿½ï¿½Ä¼ï¿½
-	* @return true:ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë¡ï¿½ false:ï¿½Ä¼ï¿½Î´ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @brief Ö¸¶¨ÎÄ¼þÊÇ·ñ±»¹ýÂË
+	* @param[in] strFileName Ö¸¶¨ÎÄ¼þ£¨´ø¾ø¶ÔÂ·¾¶£©
+	* @param[in] bSource true:Ô´Â·¾¶ÖÐµÄÎÄ¼þ£¬false:Ä¿±êÂ·¾¶ÖÐµÄÎÄ¼þ
+	* @return true:ÎÄ¼þ±»¹ýÂË¡£ false:ÎÄ¼þÎ´¹ýÂË£¬ÐèÒªÕý³£´¦Àí
 	*/		
 	bool isFilteredFile(const QString& strFileName, bool bSource) const;
 private:
@@ -100,30 +100,30 @@ public:
 
 public:
 	/**
-	* @brief Ö´ï¿½ï¿½Í¬ï¿½ï¿½
-	* @return true:ï¿½É¹ï¿½ï¿½ï¿½false:Ê§ï¿½ï¿½
+	* @brief Ö´ÐÐÍ¬²½
+	* @return true:³É¹¦£¬false:Ê§°Ü
 	*/
 	bool exec();
 
 private:
 	/**
-	* @brief ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½
+	* @brief ¶ÁÈ¡ÅäÖÃ
 	* @return void
 	*/
 	void readConfig();
 	
 	/**
-	* @brief ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @brief Çå¿ÕÅäÖÃ
 	* @return void
 	*/	
 	void clear();
 
 	/**
-	* @brief ï¿½ï¿½È¡Ö¸ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Å³ï¿½ï¿½ï¿½ï¿½â¡£
-	* @param[in] strDirectory Ö¸ï¿½ï¿½Â·ï¿½ï¿½
-	* @param[in]  syncConfig Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	* @param[in] bSource true:Ö¸ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½Ô´Â·ï¿½ï¿½ï¿½ï¿½false:Ö¸ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½Â·ï¿½ï¿½
-	* @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ð±ï¿½
+	* @brief »ñÈ¡Ö¸¶¨¸ùÄ¿Â¼µÄ´ý´«ÊäÎÄ¼þÁÐ±í£¬¸ÃÁÐ±íÒÑ¾­¾­¹ý¹ýÂË£¬°ÑÌø¹ýµÄÄ¿Â¼ºÍÎÄ¼þÅÅ³ýÔÚÍâ¡£
+	* @param[in] strDirectory Ö¸¶¨Â·¾¶
+	* @param[in]  syncConfig Í¬²½ÅäÖÃÏî
+	* @param[in] bSource true:Ö¸¶¨Â·¾¶ÊÇÔ´Â·¾¶£¬false:Ö¸¶¨Â·¾¶ÊÇÄ¿±êÂ·¾¶
+	* @return ´ý´«ÊäÎÄ¼þÁÐ±í
 	*/	
 	QStringList getSyncFileList(const QString& strDirectory, const CSyncConfig& syncConfig, bool bSource);
 

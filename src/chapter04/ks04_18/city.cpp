@@ -1,23 +1,23 @@
-ï»¿/*! 
-* Copyright (C) 2018 Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
-* ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ğ¡ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Î³Ì¡ï¿½Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ğ´«²ï¿½ï¿½ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Ö¤ï¿½È¶ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+/*! 
+* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
+* °æÈ¨ËùÓĞ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
+* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file: city.cpp
-\brief ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½Ä¼ï¿½
+\brief ³ÇÊĞÀàÊµÏÖÎÄ¼ş
 
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½   http://xingdianketang.cn/
+\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
 \Date 2018/10
 */
 
 #include "city.h"
 #include "base/basedll/filehead.h"
 
-// domÔªï¿½Ø±ï¿½Ç©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// domÔªËØ±êÇ©¶¨ÒåÇø
 static const char* c_tag_card = "card";
 
-// domÔªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// domÔªËØÊôĞÔÃû¶¨ÒåÇø
 static const char* c_attribute_name = "name";
 static const char* c_attribute_string = "string";
 
@@ -45,10 +45,10 @@ ESerializeCode CCard::serializeXML(QDomDocument& /*doc*/, QDomElement& eleCard, 
 }
 
 /**
-* @brief ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½Ğ»ï¿½ï¿½Äºï¿½ï¿½ï¿½ï¿½ï¿½
-* @param[in] eleCity ï¿½ï¿½ï¿½ï¿½Ôªï¿½Ø¶ï¿½ï¿½ï¿½
-* @param[in] pError ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½
-* @return ESerializeCodeÃ¶ï¿½ï¿½Öµï¿½ï¿½
+* @brief ÓÃÀ´°ÑÀà¶ÔÏó½øĞĞÎÄ±¾·½Ê½ĞòÁĞ»¯µÄº¯Êı¡£
+* @param[in] eleCity ³ÇÊĞÔªËØ¶ÔÏó
+* @param[in] pError ´íÎóĞÅÏ¢¡£
+* @return ESerializeCodeÃ¶¾ÙÖµ¡£
 */
 ESerializeCode CCard::deSerializeXML(const QDomElement& eleCard, const  ns_train::SFileHead* /*pFileHead*/, QString* /*pError*/) {
 	m_str = eleCard.attribute(c_attribute_name);

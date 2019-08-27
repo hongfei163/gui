@@ -1,13 +1,13 @@
-ï»¿/*! 
-* Copyright (C) 2018 Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
-* ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ð¡ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Î³Ì¡ï¿½Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ð´«²ï¿½ï¿½ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Ö¤ï¿½È¶ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+/*! 
+* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
+* °æÈ¨ËùÓÐ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
+* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file: main.cpp
-\brief QInputDialogï¿½ï¿½Ê¹ï¿½ï¿½
+\brief QInputDialogµÄÊ¹ÓÃ
             
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½   http://xingdianketang.cn/
+\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
 \Date 2018/9
 */
 
@@ -62,40 +62,40 @@ int main(int argc, char * argv[])
 }
 
 /**
-* @brief  ï¿½ï¿½È¡ï¿½Ä±ï¿½
-* @return ï¿½ï¿½
+* @brief  »ñÈ¡ÎÄ±¾
+* @return ÎÞ
 */
 void example01(){
 	
  
 }
 /**
-* @brief  ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½
-* @return ï¿½ï¿½
+* @brief  »ñÈ¡¶àÐÐÎÄ±¾
+* @return ÎÞ
 */
 void example02(){
  
 }
 
 /**
-* @brief  ï¿½ï¿½È¡ï¿½ï¿½Ä¿
-* @return ï¿½ï¿½
+* @brief  »ñÈ¡ÌõÄ¿
+* @return ÎÞ
 */
 void example03() {
    
 }
 
 /**
-* @brief  ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½
-* @return ï¿½ï¿½
+* @brief  »ñÈ¡ÕûÊý
+* @return ÎÞ
 */
 void example04() {
   
 }
 
 /**
-* @brief  ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-* @return ï¿½ï¿½
+* @brief  »ñÈ¡¸¡µãÊý
+* @return ÎÞ
 */
 void example05() {
    

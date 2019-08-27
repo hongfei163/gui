@@ -1,13 +1,13 @@
-ï»¿/*! 
-* Copyright (C) 2018 Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
-* ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ð¡ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Î³Ì¡ï¿½Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ð´«²ï¿½ï¿½ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Ö¤ï¿½È¶ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+/*! 
+* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
+* °æÈ¨ËùÓÐ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
+* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file: main.cpp
-\brief main()ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½Ä¼ï¿½
+\brief main()º¯ÊýµÄÊµÏÖÎÄ¼þ
 
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½   http://xingdianketang.cn/
+\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
 \Date 2018/9
 */
 
@@ -38,8 +38,8 @@ int main(int argc, char * argv[])
 	Q_UNUSED(argv);
 	QApplication app(argc, argv);
 
-	// ï¿½ï¿½ï¿½Ê»ï¿½
-	// ï¿½ï¿½×°qtï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½
+	// ¹ú¼Ê»¯
+	// °²×°qt×Ô´øµÄÖÐÎÄ·­Òë
 	const QString localSysName = QLocale::system().name();
 	QScopedPointer<QTranslator> qtTranslator(new QTranslator(QCoreApplication::instance()));
 	if (qtTranslator->load(QStringLiteral("qt_") + localSysName,
@@ -48,8 +48,8 @@ int main(int argc, char * argv[])
 		QCoreApplication::installTranslator(qtTranslator.take());
 	}
 
-	// ï¿½ï¿½×°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½Ä·ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
-	QString strPath = qgetenv("TRAINDEVHOME");	// ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
+	// °²×°ÎÒÃÇÏîÄ¿µÄ·­ÒëÎÄ¼þ
+	QString strPath = qgetenv("TRAINDEVHOME");	// »ñÈ¡»·¾³±äÁ¿ËùÖ¸ÏòµÄÂ·¾¶
 	strPath += "/system/lang";					// $TRAINDEVHOME/system/lang/ks03_01.qm
 	QScopedPointer<QTranslator> gpTranslator(new QTranslator(QCoreApplication::instance()));
 	if (gpTranslator->load("ks04_03.qm", strPath))
@@ -57,7 +57,7 @@ int main(int argc, char * argv[])
 		QCoreApplication::installTranslator(gpTranslator.take());
 	}
 
-	// example01, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ï¿½Ð»ï¿½È¡Ä¿Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
+	// example01, ´ÓÊäÈëÄ¿Â¼ÖÐ»ñÈ¡Ä¿Â¼Ãû¡¢ÎÄ¼þÃû
 	if (false) {
 		QString strInput = "d:\\project\\gui\\src\\chapter01\\ks01_01\\ks01_01.pro";
 		bool bok;
@@ -66,29 +66,29 @@ int main(int argc, char * argv[])
 		bok = example01(strInput, strDir, strFileName);
 	}
 
-	// example02, ï¿½ï¿½Ö¯ï¿½ï¿½Ö¾ï¿½ï¿½Ï¢
+	// example02, ×éÖ¯ÈÕÖ¾ÐÅÏ¢
 	if (false) {
 		QString strWholeInfo = example02(3, "Lisa", "adm01", "modified data at 12:00PM.");
 	}
 
-	// example03, Ê¹ï¿½ï¿½arg()ï¿½Ó¿Ú¶ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Ê½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îµï¿½ï¿½ï¿½ï¿½ê¡¢ï¿½ï¿½ï¿½ï¿½
+	// example03, Ê¹ÓÃarg()½Ó¿Ú¶ÔÐÅÏ¢¸ñÊ½»¯, Êä³ö¾ØÐÎµÄ×ø±ê¡¢¿í¸ß
 	if (false) {
 		QRectF rct(20.f, 30.f, 50.f, 60.f);
 		example03(rct);
 	}
 
-	// example04, Ê¹ï¿½ï¿½arg()ï¿½Ó¿Ú¶ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Ê½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// example04, Ê¹ÓÃarg()½Ó¿Ú¶ÔÐÅÏ¢¸ñÊ½»¯, ´ø·­Òë
 	if (false) {
-		example04(QString::fromLocal8Bit("ï¿½ï¿½ï¿½Ï¶ï¿½Â·ï¿½ï¿½"), 2);
+		example04(QString::fromLocal8Bit("ÖùÉÏ¶ÏÂ·Æ÷"), 2);
 	}
 
 
-	// example05, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¶ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éµï¿½ï¿½Ö·ï¿½ï¿½ï¿½
+	// example05, ½âÎöÓÃÌØ¶¨·Ö¸ô·û×é³ÉµÄ×Ö·û´®
 	if (false) {
 		example05();
 	}
 
-	// example06, ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½à»¥×ªï¿½ï¿½
+	// example06, ×Ö·û´®ÓëÊýÖµµÄÏà»¥×ª»»
 	if (true) {
 		example06();
 	}
@@ -101,11 +101,11 @@ int main(int argc, char * argv[])
 }
 
 /**
-* @brief  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ï¿½Ð»ï¿½È¡Ä¿Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
-* @param[in] strInput  ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½
-* @param[out] strDir	ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Â¼
-* @param[out] strFileName  ï¿½Ä¼ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½Ä¿Â¼)
-* @return true:ï¿½É¹ï¿½, false:Ê§ï¿½ï¿½
+* @brief  ´ÓÊäÈëÄ¿Â¼ÖÐ»ñÈ¡Ä¿Â¼Ãû¡¢ÎÄ¼þÃû
+* @param[in] strInput  ÎÄ¼þÈ«Â·¾¶
+* @param[out] strDir	ÎÄ¼þËùÔÚÄ¿Â¼
+* @param[out] strFileName  ÎÄ¼þÃû(²»º¬Ä¿Â¼)
+* @return true:³É¹¦, false:Ê§°Ü
 */
 bool example01(const QString& strInput, QString& strDir, QString& strFileName){
 	
@@ -114,26 +114,26 @@ bool example01(const QString& strInput, QString& strDir, QString& strFileName){
 
 	QString str = strInput;		// str = "d:\\project\\gui\\src\\chapter01\\ks01_01\\ks01_01.pro";
 
-	// ï¿½ï¿½ï¿½È½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Í³Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í³Ò»ï¿½ï¿½ï¿½ï¿½windowsï¿½ï¿½linuxï¿½ï¿½Ä¿Â¼
+	// Ê×ÏÈ½«·Ö¸ô·ûÍ³Ò»£¬±ãÓÚÍ³Ò»´¦Àíwindows¼°linuxµÄÄ¿Â¼
 	str.replace("\\", "/");		// str=d:/project/gui/src/chapter01/ks01_01/ks01_01.pro
 	
 	int idx = str.lastIndexOf("/");
 	strDir = str.left(idx);		// strDir=d:/project/gui/src/chapter01/ks01_01
 
 
-	strFileName = str.right(str.length()-(idx+1));	// ï¿½ï¿½idx+1ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½Çºï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½"/"
+	strFileName = str.right(str.length()-(idx+1));	// ÓÃidx+1µÄÄ¿µÄÊÇºöÂÔÎÄ¼þÃûÇ°ÃæµÄ"/"
 								// strFileName = ks01_01.pro
 
 	return true;
 }
 
 /**
-* @brief  ï¿½ï¿½Ö¯ï¿½ï¿½Ö¾ï¿½ï¿½Ï¢
-* @param[in] level  ï¿½ï¿½Ö¾ï¿½È¼ï¿½
-* @param[in] strPerson	ï¿½ï¿½Ô±ï¿½ï¿½Ï¢
-* @param[in] strComputer  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
-* @param[in] strInfo  ï¿½ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½
-* @return Æ´ï¿½Óºï¿½ï¿½ï¿½ï¿½ï¿½Ö¾
+* @brief  ×éÖ¯ÈÕÖ¾ÐÅÏ¢
+* @param[in] level  ÈÕÖ¾µÈ¼¶
+* @param[in] strPerson	ÈËÔ±ÐÅÏ¢
+* @param[in] strComputer  »úÆ÷ÐÅÏ¢
+* @param[in] strInfo  ÈÕÖ¾ÏêÇé
+* @return Æ´½ÓºóµÄÈÕÖ¾
 */
 QString example02(int level, const QString& strPerson, const QString& strComputer, const QString& strInfo){
 	QString str;
@@ -148,19 +148,19 @@ QString example02(int level, const QString& strPerson, const QString& strCompute
 
 
 /**
-* @brief  Ê¹ï¿½ï¿½arg()ï¿½Ó¿Ú¶ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Ê½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îµï¿½ï¿½ï¿½ï¿½ê¡¢ï¿½ï¿½ï¿½ï¿½
-* @param[in] rect  ï¿½ï¿½ï¿½ï¿½
-* @return ï¿½ï¿½ï¿½Îµï¿½ï¿½ï¿½ï¿½ê¡¢ï¿½ï¿½ï¿½ï¿½
+* @brief  Ê¹ÓÃarg()½Ó¿Ú¶ÔÐÅÏ¢¸ñÊ½»¯,Êä³ö¾ØÐÎµÄ×ø±ê¡¢¿í¸ß
+* @param[in] rect  ¾ØÐÎ
+* @return ¾ØÐÎµÄ×ø±ê¡¢¿í¸ß
 */
 QString example03(const QRectF& rect){
 	QString strRect = QString("%1,%2,%3,%4").arg(rect.x()).arg(rect.y()).arg(rect.width()).arg(rect.height());
 	return strRect;
 }
 /**
-* @brief  Ê¹ï¿½ï¿½arg()ï¿½Ó¿Ú¶ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Ê½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-* @param[in] strTemplateName  Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-* @param[in] nTerminalCount  ï¿½ï¿½ï¿½Ó¸ï¿½ï¿½ï¿½
-* @return ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+* @brief  Ê¹ÓÃarg()½Ó¿Ú¶ÔÐÅÏ¢¸ñÊ½»¯,´ø·­Òë
+* @param[in] strTemplateName  Ä£°åÃû³Æ
+* @param[in] nTerminalCount  ¶Ë×Ó¸öÊý
+* @return ¸ñÊ½»¯ºóµÄÐÅÏ¢
 */
 QString example04(const QString& strTemplateName, int nTerminalCount){
 	QString strInfo = QObject::tr("template name:%1 already has terminal count=%2.").arg(strTemplateName).arg(nTerminalCount);
@@ -169,35 +169,35 @@ QString example04(const QString& strTemplateName, int nTerminalCount){
 }
 
 /**
-* @brief  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¶ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éµï¿½ï¿½Ö·ï¿½ï¿½ï¿½
-* @return ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+* @brief  ½âÎöÓÃÌØ¶¨·Ö¸ô·û×é³ÉµÄ×Ö·û´®
+* @return ¸ñÊ½»¯ºóµÄÐÅÏ¢
 */
 void example05(){
-	QString str = QString::fromLocal8Bit("ï¿½ï¿½ï¿½ï¿½ï¿½Ø¹ï¿½ï¿½ï¿½, Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½, C++|Qt");
+	QString str = QString::fromLocal8Bit("Èí¼þÌØ¹¥¶Ó, Å®¶ù½ÐÀÏ°×, C++|Qt");
 	
-	// É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Õ¸ï¿½
+	// É¾³ý¶àÓàµÄ¿Õ¸ñ
 	str = str.trimmed();	
 
-	QStringList strList = str.split(",");	// strList[0] : "ï¿½ï¿½ï¿½ï¿½ï¿½Ø¹ï¿½ï¿½ï¿½"
-											// strList[1] : "Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½"
+	QStringList strList = str.split(",");	// strList[0] : "Èí¼þÌØ¹¥¶Ó"
+											// strList[1] : "Å®¶ù½ÐÀÏ°×"
 											// strList[2] : "C++|Qt"
 
-	cout << "ï¿½ï¿½ï¿½ï¿½:" << strList[0].toLocal8Bit().data() << endl;
-	cout << "ï¿½ï¿½ï¿½ï¿½:" << strList[1].toLocal8Bit().data() << endl;
+	cout << "»ú¹¹:" << strList[0].toLocal8Bit().data() << endl;
+	cout << "ÐÕÃû:" << strList[1].toLocal8Bit().data() << endl;
 
-	// ï¿½ï¿½"|"ï¿½ï¿½ï¿½ï¿½","
+	// °Ñ"|"»»³É","
 	QString strCategory = strList[2];		// strCategory : "C++|Qt"
 	strCategory.replace("|", ",");			// strCategory : "C++,Qt"
-	cout << "ï¿½ï¿½ï¿½ï¿½:" << strCategory.toLocal8Bit().data() << endl;
+	cout << "ÁìÓò:" << strCategory.toLocal8Bit().data() << endl;
 }
 
 /**
-* @brief  ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½×ªï¿½ï¿½
-* @return ï¿½ï¿½
+* @brief  ×Ö·û´®ÓëÊý×Ö»¥Ïà×ª»»
+* @return ÎÞ
 */
 void example06(){
 
-	QString str1 = "2147483648"; // int32ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½2147483647
+	QString str1 = "2147483648"; // int32×î´óÖµ£º2147483647
 	int nInt32 = str1.toInt();
 	uint uInt32 = str1.toUInt();
 	cout << "int32 data = " << nInt32 << endl;
@@ -230,7 +230,7 @@ void example06(){
 	QString strData;
 	strData = QString::number(d);
 	cout << "double data = " << strData.toLocal8Bit().data() << endl;
-	strData = QString::number(d, 'g', 16); // ï¿½ï¿½Òªï¿½ï¿½È·Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ï¿½ï¿½ï¿½Ä¬ï¿½ï¿½Ö»ï¿½ï¿½6Î»Ð¡ï¿½ï¿½ï¿½ï¿½
+	strData = QString::number(d, 'g', 16); // ÐèÒªÃ÷È·Ö¸Ã÷¾«¶È£¬·ñÔòÄ¬ÈÏÖ»ÓÐ6Î»Ð¡Êý¡£
 	cout << "double data = " << strData.toLocal8Bit().data() << endl;
 
 }

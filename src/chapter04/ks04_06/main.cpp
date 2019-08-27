@@ -1,13 +1,13 @@
-ï»¿/*! 
-* Copyright (C) 2018 Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
-* ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ğ¡ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Î³Ì¡ï¿½Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ğ´«²ï¿½ï¿½ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Ö¤ï¿½È¶ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+/*! 
+* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
+* °æÈ¨ËùÓĞ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
+* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file: main.cpp
-\brief QListï¿½ï¿½Ê¹ï¿½ï¿½
+\brief QListµÄÊ¹ÓÃ
 
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½   http://xingdianketang.cn/
+\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
 \Date 2018/9
 */
 
@@ -61,12 +61,12 @@ int main(int argc, char * argv[])
 }
 
 /**
-* @brief  ï¿½ï¿½QListï¿½ï¿½ï¿½Ó³ï¿½Ô±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-* @return ï¿½ï¿½
+* @brief  ÏòQListÌí¼Ó³ÉÔ±²¢±éÀú¡£
+* @return ÎŞ
 */
 void example01(){
 	
-	// ï¿½ï¿½ï¿½Ó³ï¿½Ô±
+	// Ìí¼Ó³ÉÔ±
 	QList<quint16> lstObj;
 	lstObj.push_back(2011);
 	lstObj.push_back(2033);
@@ -77,16 +77,16 @@ void example01(){
 	lstObj.push_front(2046);
 
 
-	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±-Ê¹ï¿½ï¿½ï¿½Â±ï¿½
+	// ±éÀú³ÉÔ±-Ê¹ÓÃÏÂ±ê
 	printByIndex(lstObj);
 
-	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±-Ê¹ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½)
+	// ±éÀú³ÉÔ±-Ê¹ÓÃµü´úÆ÷(ÕıĞò)
 	printByIterator(lstObj);
 
-	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±-Ê¹ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½)
+	// ±éÀú³ÉÔ±-Ê¹ÓÃµü´úÆ÷(µ¹Ğò)
 	printByIteratorReverse(lstObj);
 
-	// ï¿½ï¿½ï¿½ï¿½&ï¿½ï¿½ï¿½ï¿½
+	// ²éÕÒ&²åÈë
 	QList<quint16>::iterator iteList;
 	iteList = std::find(lstObj.begin(), lstObj.end(), 2042);
 	if (iteList != lstObj.end())	{
@@ -94,7 +94,7 @@ void example01(){
 		cout << endl << "-------------- QList ---------------" << endl;
 		cout << "insert 10000 before 2042 in list." << endl;
 	}
-	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±
+	// ±éÀú³ÉÔ±
 	int idxList = 0;
 	cout << endl << "-------------- QList ---------------" << endl;
 	cout << "print members using idx......" << endl;
@@ -102,13 +102,13 @@ void example01(){
 		cout << "    lstObj[" << idxList << "] =" << lstObj[idxList] << endl;
 	}
 
-	// ï¿½ï¿½ï¿½ï¿½&É¾ï¿½ï¿½
+	// ²éÕÒ&É¾³ı
 	iteList = std::find(lstObj.begin(), lstObj.end(), 2042);
 	if (iteList != lstObj.end())	{
 		cout << "erase 2042 from list." << endl;
 		lstObj.erase(iteList);
 	}
-	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±
+	// ±éÀú³ÉÔ±
 	cout << endl << "-------------- QList ---------------" << endl;
 	cout << "print members using idx......" << endl;
 	for (idxList = 0; idxList < lstObj.size(); idxList++) {
@@ -116,26 +116,26 @@ void example01(){
 	}
 
 
-	// ï¿½ï¿½ï¿½ï¿½&É¾ï¿½ï¿½
+	// ²éÕÒ&É¾³ı
 	for (iteList=lstObj.begin(); iteList != lstObj.end(); )
 	{
 		if ((*iteList) == 2033)	{
 			cout << "find 2033 in list.erasing..." << endl;
-			iteList = lstObj.erase(iteList); // erase()ï¿½Ó¿Ú»á·µï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
+			iteList = lstObj.erase(iteList); // erase()½Ó¿Ú»á·µ»ØÉ¾³ıºóµÄÏÂÒ»¸öµü´úÎ»ÖÃ
 		} else {
 			iteList++;
 		}
 	}
-	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±
+	// ±éÀú³ÉÔ±
 	printByIndex(lstObj);
 	printByIterator(lstObj);
 }
 /**
-* @brief  Ê¹ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-* @return ï¿½ï¿½
+* @brief  Ê¹ÓÃ×Ô¶¨ÒåÀà¶ÔÏó
+* @return ÎŞ
 */
 void example02(){
-	// ï¿½ï¿½ï¿½Ó³ï¿½Ô±
+	// Ìí¼Ó³ÉÔ±
 	QList<CMyClass> lstObj;
 	CMyClass myclass1(2011, "lisa");
 	CMyClass myclass2(2012, "mike");
@@ -144,7 +144,7 @@ void example02(){
 	CMyClass myclass5(2013, "ping");
 	CMyClass myclass6(2025, "ping");
 
-	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½Ò°ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½Ö´ï¿½Ğ£ï¿½ï¿½ï¿½ÒªÎªCMyClassï¿½ï¿½ï¿½á¹©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½
+	// Èç¹ûÏëÈÃÏÂÃæµÄÓï¾ä±àÒëÍ¨¹ı²¢ÇÒ°´ÕÕÔ¤ÆÚÖ´ĞĞ£¬ĞèÒªÎªCMyClassÀàÌá¹©¿½±´¹¹Ôìº¯Êı
 	lstObj.push_back(myclass1);
 	lstObj.push_back(myclass2);
 	lstObj.push_back(myclass3);
@@ -152,7 +152,7 @@ void example02(){
 	lstObj.push_back(myclass5);
 	lstObj.push_back(myclass6);
 
-	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±
+	// ±éÀú³ÉÔ±
 	cout << endl << "-------------- QList ---------------" << endl;
 	cout << "print members using idx......" << endl;
 	int idxList = 0;
@@ -160,7 +160,7 @@ void example02(){
 		cout << "    lstObj[" << idxList << "] : id = " << lstObj[idxList].getId() << ", name = " << lstObj[idxList].getName().toLocal8Bit().data() << endl;
 	}
 
-	// ï¿½ï¿½ï¿½ï¿½
+	// ²éÕÒ
 	cout << endl << "-------------- QList ---------------" << endl;
 	cout << "begin find member in QList......" << endl;
 	CMyClass myclassx(2013, "john");
@@ -174,11 +174,11 @@ void example02(){
 }
 
 /**
-* @brief  Ê¹ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
-* @return ï¿½ï¿½
+* @brief  Ê¹ÓÃ×Ô¶¨ÒåÀàÖ¸Õë
+* @return ÎŞ
 */
 void example03() {
-	// ï¿½ï¿½ï¿½Ó³ï¿½Ô±
+	// Ìí¼Ó³ÉÔ±
 	QList<CMyClass*> lstObj;
 	CMyClass* pMyclass1 = new CMyClass(2011, "lisa");
 	CMyClass* pMyclass2 = new CMyClass(2012, "mike");
@@ -187,7 +187,7 @@ void example03() {
 	CMyClass* pMyclass5 = new CMyClass(2013, "ping");
 	CMyClass* pMyclass6 = new CMyClass(2025, "ping");
 
-	// ï¿½ï¿½ï¿½ï¿½ÎªCMyClassï¿½ï¿½ï¿½á¹©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½
+	// ÎŞĞèÎªCMyClassÀàÌá¹©¿½±´¹¹Ôìº¯Êı
 	lstObj.push_back(pMyclass1);
 	lstObj.push_back(pMyclass2);
 	lstObj.push_back(pMyclass3);
@@ -195,7 +195,7 @@ void example03() {
 	lstObj.push_back(pMyclass5);
 	lstObj.push_back(pMyclass6);
 
-	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±
+	// ±éÀú³ÉÔ±
 	cout << endl << "-------------- QList ---------------" << endl;
 	cout << "print members in custom defined class using idx......" << endl;
 	int idxList = 0;
@@ -203,8 +203,8 @@ void example03() {
 		cout << "    lstObj[" << idxList << "] : id = " << lstObj[idxList]->getId() << ", name = " << lstObj[idxList]->getName().toLocal8Bit().data() << endl;
 	}
 
-	// ï¿½Ë³ï¿½Ç°Òªï¿½Í·ï¿½ï¿½Ú´ï¿½
-	// ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½Â±ï¿½ï¿½ï¿½ï¿½ï¿½
+	// ÍË³öÇ°ÒªÊÍ·ÅÄÚ´æ
+	// ·½·¨1£¬Ê¹ÓÃÏÂ±ê±éÀú
 	cout << endl << "-------------- QList ---------------" << endl;
 	cout << "desctruct members before exit......" << endl;
 	idxList = 0;
@@ -216,7 +216,7 @@ void example03() {
 	}
 	else
 	{
-		// ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½Ê¹ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		// ·½·¨2£¬Ê¹ÓÃµü´úÆ÷±éÀú
 		QList<CMyClass*>::iterator iteList = lstObj.begin();
 		for (iteList = lstObj.begin(); iteList != lstObj.end(); iteList++, idxList++) {
 			if (NULL != *iteList) {

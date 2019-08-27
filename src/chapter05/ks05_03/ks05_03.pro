@@ -25,8 +25,8 @@ SOURCES    +=  main.cpp \
 
 				
 FORMS		+= address.ui \
-				dialogbase.ui \
-				simpledialogbase.ui
+				dialog.ui \
+				simpledialog.ui
 
 OBJECTS_DIR = $$TEMPDIR
 MOC_DIR		= $$TEMPDIR/moc

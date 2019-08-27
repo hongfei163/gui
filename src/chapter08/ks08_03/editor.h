@@ -1,12 +1,12 @@
-ï»¿/*!
-* Copyright (C) 2018 Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
-* ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ğ¡ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Î³Ì¡ï¿½Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ğ´«²ï¿½ï¿½ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Ö¤ï¿½È¶ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+/*!
+* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
+* °æÈ¨ËùÓĞ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
+* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file editor.h
-\brief CEditorÍ·ï¿½Ä¼ï¿½
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½   http://xingdianketang.cn/
+\brief CEditorÍ·ÎÄ¼ş
+\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
 \Date 2019/1
 */
 
@@ -22,15 +22,15 @@ signals:
     void sig_editFinished();
 protected:
     /*
-     * @brief ï¿½ï¿½Ğ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ paintEvent()
-     * @param[in] event ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
+     * @brief ÖØĞ´¸¸ÀàµÄ paintEvent()
+     * @param[in] event »æÖÆÊÂ¼ş
      * @return void
     */
     virtual void paintEvent(QPaintEvent* event) override;
 
     /*
-     * @brief ï¿½ï¿½Ğ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ mousePressEvent()
-     * @param[in] event ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
+     * @brief ÖØĞ´¸¸ÀàµÄ mousePressEvent()
+     * @param[in] event Êó±êÊÂ¼ş
      * @return void
     */
     virtual void mousePressEvent(QMouseEvent* event) override;

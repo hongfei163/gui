@@ -1,13 +1,13 @@
-ï»¿/*!
-* Copyright (C) 2018 Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
-* ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ð¡ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Î³Ì¡ï¿½Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ð´«²ï¿½ï¿½ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Ö¤ï¿½È¶ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+/*!
+* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
+* °æÈ¨ËùÓÐ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
+* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file: mdiarea.cpp
-\brief ï¿½ï¿½Ê¾ï¿½ï¿½Í·ï¿½Ä¼ï¿½
+\brief ÑÝÊ¾ÓÃÍ·ÎÄ¼þ
 
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½   http://xingdianketang.cn/
+\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
 \Date 2018/8
 */
 #include <QAction>
@@ -75,7 +75,7 @@ void CEditMdiArea::onSubWindowActivate(QMdiSubWindow *pMdiChild)
             if (m_pLastActivatedMdiChild != NULL)  {
                 CGraphView* pView = getActiveEditView(m_pLastActivatedMdiChild);
                 if (NULL != pView)   {
-                    // ï¿½ï¿½Òªï¿½Ñ²Ûºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ó£¬·ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ÅºÅ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ûºï¿½ï¿½ï¿½
+                    // ÐèÒª°Ñ²Ûº¯Êý¸ú¾ÉÊÓÍ¼½â°ó£¬·ÀÖ¹¾ÉÊÓÍ¼ÐÅºÅ¼ÌÐø´¥·¢²Ûº¯Êý
                     disconnectEditViewWithSlot_whenInActivate(pView);
                 }
             }
@@ -83,9 +83,9 @@ void CEditMdiArea::onSubWindowActivate(QMdiSubWindow *pMdiChild)
             if (NULL != pView)   {
                 QWidget* pWidget = pView;
                 
-                emit editViewChanged(pWidget); // ï¿½ï¿½ï¿½ï¿½ï¿½Åºï¿½
+                emit editViewChanged(pWidget); // ·¢³öÐÅºÅ
          
-                // ï¿½ï¿½ï¿½à¼­ï¿½ï¿½Í¼ï¿½Ò½Óµï¿½ï¿½à´°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä²Ûºï¿½ï¿½ï¿½
+                // ½«±à¼­ÊÓÍ¼¹Ò½Óµ½¶à´°¿ÚÇøÓòµÄ²Ûº¯Êý
                 connectEditViewWithSlot(pView);
             }
             m_pLastActivatedMdiChild = pMdiChild;
@@ -188,12 +188,12 @@ void CEditMdiArea::onViewClose(QWidget* pChild)
 
     CGraphView* pView = dynamic_cast<CGraphView*>(pChild);
     if (NULL != pView)   {
-        disconnectEditViewWithSlot(pView); // ï¿½ï¿½ï¿½à¼­ï¿½ï¿½Í¼ï¿½ï¿½ï¿½à´°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä²Ûºï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½ï¿½
+        disconnectEditViewWithSlot(pView); // ½«±à¼­ÊÓÍ¼Óë¶à´°¿ÚÇøÓòµÄ²Ûº¯Êý¶Ï¿ªÁ¬½Ó
     }
     m_pLastActivatedMdiChild = NULL;
 
     emit editViewClose(pChild);
-    m_pLastActivatedMdiChild = NULL; // ï¿½ï¿½Ö¹Ó¦ï¿½Ã²ï¿½ï¿½ï¿½ï¿½ï¿½ editViewClose ï¿½ÅºÅµÄ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½ï¿½ï¿½activeSubWindowï¿½Ó¶ï¿½Ê¹m_pLastActivatedMdiChildï¿½ï¿½ï¿½Â±ï¿½ï¿½ï¿½Öµï¿½ï¿½Îªï¿½Ñ¹Ø±ÕµÄ´ï¿½ï¿½Ú£ï¿½
+    m_pLastActivatedMdiChild = NULL; // ·ÀÖ¹Ó¦ÓÃ²ã¶ÔÓÚ editViewClose ÐÅºÅµÄ´¦Àíµ¼ÖÂ´¥·¢activeSubWindow´Ó¶øÊ¹m_pLastActivatedMdiChildÖØÐÂ±»¸³Öµ£¨ÎªÒÑ¹Ø±ÕµÄ´°¿Ú£©
 
 }
 

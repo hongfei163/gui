@@ -1,13 +1,13 @@
-ï»¿/*! 
-* Copyright (C) 2018 Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
-* ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ð¡ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Î³Ì¡ï¿½Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ð´«²ï¿½ï¿½ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Ö¤ï¿½È¶ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+/*! 
+* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
+* °æÈ¨ËùÓÐ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
+* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file: main.cpp
-\brief main()ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½Ä¼ï¿½
+\brief main()º¯ÊýµÄÊµÏÖÎÄ¼þ
 
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½   http://xingdianketang.cn/
+\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
 \Date 2018/9
 */
 
@@ -47,17 +47,17 @@ int main(int argc, char * argv[])
 }
 
 /**
-* @brief ï¿½ï¿½ï¿½ï¿½xmlï¿½ï¿½Ê½ï¿½Ä¼ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-*        xmlï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
+* @brief ±£´æxml¸ñÊ½ÎÄ¼þÊ¾Àý´úÂë
+*        xmlÎÄ¼þÄÚÈÝ
 *       --------------------------------------------------------------------
 *       <?xml version="1.0" encoding="GB2312" standalone="yes"?>
-*       <!--ï¿½ï¿½ï¿½ï¿½ï¿½Ø¹ï¿½ï¿½ï¿½-->
+*       <!--Èí¼þÌØ¹¥¶Ó-->
 *       <doc>
-*           <courses count="4" institution="ï¿½ï¿½ï¿½ï¿½ï¿½Ø¹ï¿½ï¿½ï¿½" teacher="Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½">
-*               <lesson url="https://study.163.com/instructor/1143174933.htm" id="1" fee="ï¿½ï¿½ï¿½ï¿½">C++ï¿½ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½</lesson>
-*               <lesson url="https://study.163.com/instructor/1143174933.htm" id="2" fee="ï¿½ï¿½ï¿½ï¿½">C++ï¿½ï¿½Æ½Ì¨ï¿½ï¿½ï¿½ï¿½ï¿½ÐµÄ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</lesson>
-*               <lesson url="https://study.163.com/instructor/1143174933.htm" id="3">Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½</lesson>
-*               <lesson url="sorry, not ready" id="4">C++ï¿½ï¿½Æ½Ì¨ï¿½ï¿½ï¿½ï¿½Ä£ï¿½é¿ªï¿½ï¿½</lesson>
+*           <courses count="4" institution="Èí¼þÌØ¹¥¶Ó" teacher="Å®¶ù½ÐÀÏ°×">
+*               <lesson url="https://study.163.com/instructor/1143174933.htm" id="1" fee="Ãâ·Ñ">C++ÀÏÄñÈÕ¼Ç</lesson>
+*               <lesson url="https://study.163.com/instructor/1143174933.htm" id="2" fee="Ãâ·Ñ">C++¿çÆ½Ì¨¿ª·¢ÖÐµÄ±àÒë´íÎó</lesson>
+*               <lesson url="https://study.163.com/instructor/1143174933.htm" id="3">QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢</lesson>
+*               <lesson url="sorry, not ready" id="4">C++¿çÆ½Ì¨·þÎñÄ£¿é¿ª·¢</lesson>
 *           </courses>
 *       </doc>
 *
@@ -67,7 +67,7 @@ void example01() {
 }
 
 /**
-* @brief ï¿½ï¿½È¡xmlï¿½ï¿½Ê½ï¿½Ä¼ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+* @brief ¶ÁÈ¡xml¸ñÊ½ÎÄ¼þÊ¾Àý´úÂë
 */
 void example02() {
 

@@ -1,7 +1,7 @@
-ï»¿/*! 
+/*! 
 \file: filehead.h
-\brief ï¿½Ä¼ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Ø¹ï¿½ï¿½ï¿½
+\brief ÎÄ¼þÍ·¶¨ÒåÀà
+\author Å®¶ù½ÐÀÏ°×@Èí¼þÌØ¹¥¶Ó
 \Date : 2018
 * please import basedll.dll
 */
@@ -11,15 +11,15 @@
 #include "qglobal.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// ï¿½æ±¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼
-// 1.0 ï¿½ï¿½Ê¼ï¿½æ±¾
-// 1.1 CCardï¿½ï¿½ï¿½ï¿½ï¿½ï¿½idÖµï¿½ï¿½ï¿½ï¿½ï¿½Ð»ï¿½
+// °æ±¾±ä¸ü¼ÇÂ¼
+// 1.0 ³õÊ¼°æ±¾
+// 1.1 CCardÔö¼ÓÁËidÖµµÄÐòÁÐ»¯
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 namespace ns_train {
 
-/// ï¿½Ä¼ï¿½Í·ï¿½ï¿½
+/// ÎÄ¼þÍ·Àà
 class SFileHead
 {
 public:
@@ -33,12 +33,12 @@ public:
 		m_nSubVersion = nSubVersion;
 	}
 
-	/// ï¿½Ç·ï¿½ï¿½ï¿½Ð§
+	/// ÊÇ·ñÓÐÐ§
 	bool isValid() const	{
 		return (0 != m_nMainVersion) && (0 != m_nSubVersion);
 	}
 
-	/// ï¿½ï¿½Ç°ï¿½Ä¼ï¿½(ï¿½ï¿½ï¿½ï¿½)ï¿½æ±¾ï¿½ï¿½ï¿½Ç·ï¿½ï¿½È´ï¿½ï¿½ï¿½ï¿½Ä°æ±¾ï¿½Å¾ï¿½
+	/// µ±Ç°ÎÄ¼þ(³ÌÐò)°æ±¾ºÅÊÇ·ñ±È´«ÈëµÄ°æ±¾ºÅ¾É
 	bool isEarlierVersion(quint16 nMainVersion, quint16 nSubVersion) const	{
 		if ((m_nMainVersion < nMainVersion)
 			|| (m_nMainVersion == nMainVersion && m_nSubVersion < nSubVersion))	{
@@ -48,7 +48,7 @@ public:
 			return false;
 		}
 	}
-	/// ï¿½ï¿½Ç°ï¿½Ä¼ï¿½ï¿½æ±¾ï¿½ï¿½ï¿½Ç·ï¿½ï¿½È´ï¿½ï¿½ï¿½ï¿½Ä°æ±¾ï¿½ï¿½ï¿½ï¿½
+	/// µ±Ç°ÎÄ¼þ°æ±¾ºÅÊÇ·ñ±È´«ÈëµÄ°æ±¾ºÅÐÂ
 	bool isLaterVersion(quint16 nMainVersion, quint16 nSubVersion) const	{
 		if ((m_nMainVersion > nMainVersion)
 			|| (m_nMainVersion == nMainVersion && m_nSubVersion >= nSubVersion))	{
@@ -58,7 +58,7 @@ public:
 			return false;
 		}
 	}
-	/// ï¿½ï¿½Ç°ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½æ±¾ï¿½ï¿½ï¿½Ç·ï¿½ï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ±¾ï¿½ï¿½ï¿½ï¿½
+	/// µ±Ç°ÎÄ¼þÖ÷°æ±¾ºÅÊÇ·ñ±È´«ÈëµÄÖ÷°æ±¾ºÅÐÂ
 	bool isLaterMainVersion(quint16 nMainVersion) const	{
 		if (m_nMainVersion > nMainVersion)	{
 			return true;
@@ -67,7 +67,7 @@ public:
 			return false;
 		}
 	}
-	/// ï¿½ï¿½Ç°ï¿½Ä¼ï¿½ï¿½æ±¾ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ë´«ï¿½ï¿½ï¿½Ä°æ±¾ï¿½ï¿½ï¿½ï¿½Í¬
+	/// µ±Ç°ÎÄ¼þ°æ±¾ºÅÊÇ·ñÓë´«ÈëµÄ°æ±¾ºÅÏàÍ¬
 	bool isSameVersion(quint16 nMainVersion, quint16 nSubVersion) const	{
 		if ((m_nMainVersion == nMainVersion)
 			&& (m_nSubVersion == nSubVersion))
@@ -79,13 +79,13 @@ public:
 		}
 	}
 
-	/// ï¿½ï¿½ï¿½æ±¾ï¿½ï¿½×ªï¿½ï¿½ÎªQStringï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ±¾1.0ï¿½ï¿½×ªï¿½ï¿½Îª"1.0"
+	/// ½«°æ±¾ºÅ×ª»¯ÎªQStringÀàÐÍ×Ö·û´®£¬Èç°æ±¾1.0£¬×ªºóÎª"1.0"
 	QString toQString() const	{
 		QString str = QString::number(m_nMainVersion).append(".").append(QString::number(m_nSubVersion));
 		return str;
 	}
 
-	/// ï¿½ï¿½QStringï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½×ªï¿½ï¿½Îªï¿½æ±¾ï¿½Å£ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½"1.0"ï¿½ï¿½×ªï¿½ï¿½Îªï¿½æ±¾1.0
+	/// ½«QStringÀàÐÍ×Ö·û´®×ª»¯Îª°æ±¾ºÅ£¬Èç×Ö·û´®"1.0"£¬×ªºóÎª°æ±¾1.0
 	static SFileHead fromQString(QString str)	{
 		SFileHead FileHead;
 		if (str.contains('.'))	{
@@ -100,7 +100,7 @@ public:
 		return FileHead;
 	}
 
-	/// ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½
+	/// ¸³Öµ¹¹Ôì
 	SFileHead& operator = (const SFileHead& fileHead)	{
 		if (this != &fileHead)	{
 			this->m_nMainVersion = fileHead.m_nMainVersion;
@@ -108,7 +108,7 @@ public:
 		}
 		return *this;
 	}
-	/// ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½
+	/// ÅÐ¶ÏÁ½ÕßÊÇ·ñÏàµÈ
 	bool operator == (const SFileHead& r)	{
 		if ((this->m_nMainVersion == r.m_nMainVersion) && (this->m_nSubVersion == r.m_nSubVersion))		{
 			return true;
@@ -117,19 +117,19 @@ public:
 			return false;
 		}
 	}
-	/// ï¿½ï¿½È¡ï¿½ï¿½ï¿½æ±¾ï¿½ï¿½
+	/// »ñÈ¡Ö÷°æ±¾ºÅ
 	quint16 getMainVersion() const	{
 		return m_nMainVersion;
 	}
 
-	/// ï¿½ï¿½È¡ï¿½Ó°æ±¾ï¿½ï¿½
+	/// »ñÈ¡×Ó°æ±¾ºÅ
 	quint16 getSubVersion() const	{
 		return m_nSubVersion;
 	}
 
 private:
-	quint16	m_nMainVersion;		/// ï¿½ï¿½ï¿½æ±¾ï¿½ï¿½
-	quint16	m_nSubVersion;		/// ï¿½Î°æ±¾ï¿½ï¿½
+	quint16	m_nMainVersion;		/// Ö÷°æ±¾ºÅ
+	quint16	m_nSubVersion;		/// ´Î°æ±¾ºÅ
 };
 
 } // namespace ns_train

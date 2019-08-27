@@ -5,7 +5,7 @@ QT         += widgets
 
 TARGET     	= ks05_01
 
-FORMS 		+= dialogbase.ui
+FORMS 		+= dialog.ui
 
 HEADERS		+= ks.pro \
 			   dialog.h 

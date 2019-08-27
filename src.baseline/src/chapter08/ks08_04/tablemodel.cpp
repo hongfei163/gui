@@ -1,12 +1,12 @@
-ï»¿/*!
-* Copyright (C) 2018 Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
-* ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ð¡ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Î³Ì¡ï¿½Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ð´«²ï¿½ï¿½ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Ö¤ï¿½È¶ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+/*!
+* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
+* °æÈ¨ËùÓÐ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
+* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file tablemodel.cpp
-\brief  TableÄ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½Ä¼ï¿½
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½   http://xingdianketang.cn/
+\brief  TableÄ£ÐÍÀàµÄÊµÏÖÎÄ¼þ
+\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
 \Date 2019/1
 */
 #include "tablemodel.h"
@@ -50,7 +50,7 @@ Qt::ItemFlags CTableModel::flags(const QModelIndex &index) const
 {
 	Qt::ItemFlags itemFlags;
 	if (0 == index.column()) {
-		itemFlags &= (~Qt::ItemIsEditable);// Qt::ItemIsEditableï¿½ï¿½Ê¾ï¿½É±à¼­
+		itemFlags &= (~Qt::ItemIsEditable);// Qt::ItemIsEditable±íÊ¾¿É±à¼­
 		return itemFlags;
 	}
 	else {
@@ -66,7 +66,7 @@ QVariant CTableModel::data(const QModelIndex &index, int role) const
 	}
 	else if (Qt::DisplayRole == role) {
 		var = QStandardItemModel::data(index, Qt::EditRole);
-		if (index.column() == 0) { // ï¿½ï¿½0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½â´¦ï¿½ï¿½
+		if (index.column() == 0) { // µÚ0ÁÐÎÞÐèÌØÊâ´¦Àí
 			return var;
 		}
 		switch (index.row())
@@ -84,13 +84,13 @@ QVariant CTableModel::data(const QModelIndex &index, int role) const
 			switch (animateSpeed)
 			{
 			case EAnimateSpeed_Slow:
-				var = QString::fromLocal8Bit("ï¿½ï¿½ï¿½ï¿½");
+				var = QString::fromLocal8Bit("ÂýËÙ");
 				break;
 			case EAnimateSpeed_Normal:
-				var = QString::fromLocal8Bit("ï¿½ï¿½ï¿½ï¿½");
+				var = QString::fromLocal8Bit("ÖÐËÙ");
 				break;
 			case EAnimateSpeed_Fast:
-				var = QString::fromLocal8Bit("ï¿½ï¿½ï¿½ï¿½");
+				var = QString::fromLocal8Bit("¿ìËÙ");
 				break;
 			}
 		}

@@ -1,13 +1,13 @@
-ï»¿/*! 
-* Copyright (C) 2018 Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
-* ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ð¡ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Î³Ì¡ï¿½Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ð´«²ï¿½ï¿½ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Ö¤ï¿½È¶ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+/*! 
+* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
+* °æÈ¨ËùÓÐ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
+* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file: main.cpp
-\brief main()ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½Ä¼ï¿½
+\brief main()º¯ÊýµÄÊµÏÖÎÄ¼þ
 
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½   http://xingdianketang.cn/
+\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
 \Date 2018/9
 */
 
@@ -34,13 +34,13 @@ int main(int argc, char * argv[])
 
 
 /**
-* @briefï¿½ï¿½ï¿½ï¿½CCountryï¿½ï¿½ï¿½ï¿½.
-* @return CCountryï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
+* @brief¹¹½¨CCountry¶ÔÏó.
+* @return CCountry¶ÔÏóÖ¸Õë
 */
 CCountry* createCountry(void) {
 	CProvince* pProvince = NULL;
 	CCity* pCity = NULL;
-	CCountry* pCountry = new CCountry(QString::fromLocal8Bit("ï¿½Ð¹ï¿½"));
+	CCountry* pCountry = new CCountry(QString::fromLocal8Bit("ÖÐ¹ú"));
 	if (NULL == pCountry) {
 		return NULL;
 	}
@@ -49,16 +49,16 @@ CCountry* createCountry(void) {
 		pProvince = new CProvince();
 		pCountry->addProvince(pProvince);
 		pProvince->setCountry(pCountry);
-		pProvince->setName(QString::fromLocal8Bit("É½ï¿½ï¿½"));
+		pProvince->setName(QString::fromLocal8Bit("É½¶«"));
 		// add city
 		pCity = new CCity();
-		pCity->setName(QString::fromLocal8Bit("ï¿½ï¿½ï¿½ï¿½"));
+		pCity->setName(QString::fromLocal8Bit("¼ÃÄÏ"));
 		pCity->setProvince(pProvince);
 		pProvince->addCity(pCity);
 
 		// add city
 		pCity = new CCity();
-		pCity->setName(QString::fromLocal8Bit("ï¿½àµº"));
+		pCity->setName(QString::fromLocal8Bit("Çàµº"));
 		pCity->setProvince(pProvince);
 		pProvince->addCity(pCity);
 	}
@@ -67,27 +67,27 @@ CCountry* createCountry(void) {
 		pProvince = new CProvince();
 		pCountry->addProvince(pProvince);
 		pProvince->setCountry(pCountry);
-		pProvince->setName(QString::fromLocal8Bit("ï¿½Ó±ï¿½"));
+		pProvince->setName(QString::fromLocal8Bit("ºÓ±±"));
 		// add city
 		pCity = new CCity();
-		pCity->setName(QString::fromLocal8Bit("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"));
+		pCity->setName(QString::fromLocal8Bit("±±´÷ºÓ"));
 		pCity->setProvince(pProvince);
 		pProvince->addCity(pCity);
 
 		// add city
 		pCity = new CCity();
-		pCity->setName(QString::fromLocal8Bit("ï¿½Å¼Ò¿ï¿½"));
+		pCity->setName(QString::fromLocal8Bit("ÕÅ¼Ò¿Ú"));
 		pCity->setProvince(pProvince);
 		pProvince->addCity(pCity);
 
 		// add city
 		pCity = new CCity();
-		pCity->setName(QString::fromLocal8Bit("ï¿½ï¿½ï¿½ï¿½"));
+		pCity->setName(QString::fromLocal8Bit("±£¶¨"));
 		pCity->setProvince(pProvince);
 		pProvince->addCity(pCity);
 	}
 
-	// ï¿½ï¿½ï¿½Ø¹ï¿½ï¿½ï¿½ï¿½ï¿½CCountryï¿½ï¿½ï¿½ï¿½
+	// ·µ»Ø¹¹½¨µÄCCountry¶ÔÏó
 	return pCountry;
 	
 }

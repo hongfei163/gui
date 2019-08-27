@@ -25,7 +25,7 @@ SOURCES    +=  main.cpp \
 				recvthread.cpp \
 				sendthread.cpp
 				
-FORMS		+= dialogbase.ui
+FORMS		+= dialog.ui
 
 OBJECTS_DIR = $$TEMPDIR
 MOC_DIR		= $$TEMPDIR/moc

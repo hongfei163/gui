@@ -16,7 +16,7 @@ MOC_DIR		= $$TEMPDIR/moc
 UI_DIR		= $$TEMPDIR/ui
 
 				
-FORMS		+= dialogbase.ui
+FORMS		+= dialog.ui
 
 HEADERS		+= ks02_04.pro \
 				dialog.h

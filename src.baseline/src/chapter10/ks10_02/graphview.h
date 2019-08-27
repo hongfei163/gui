@@ -1,13 +1,13 @@
-ï»¿/*! 
-* Copyright (C) 2018 Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
-* ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ð¡ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Î³Ì¡ï¿½Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ð´«²ï¿½ï¿½ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Ö¤ï¿½È¶ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+/*! 
+* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
+* °æÈ¨ËùÓÐ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
+* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file: graphview.h
-\brief ï¿½ï¿½Ê¾ï¿½ï¿½Í·ï¿½Ä¼ï¿½
+\brief ÑÝÊ¾ÓÃÍ·ÎÄ¼þ
   
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½   http://xingdianketang.cn/
+\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
 \Date 2018/8 
 */
 
@@ -28,7 +28,7 @@ public:
     ~CGraphView();
 
 public:
-    QPointF getMousePressPoint() { return m_ptView; }///ï¿½ï¿½È¡ï¿½ï¿½ï¿½êµ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    QPointF getMousePressPoint() { return m_ptView; }///»ñÈ¡Êó±êµ¥»÷µãµÄ×ø±ê
     void addEllipse();
     void addRect();
     bool isValid();
@@ -36,21 +36,21 @@ public:
 
 public slots:
  #ifndef QT_NO_CLIPBOARD
-    void cut();     /// ï¿½ï¿½ï¿½ï¿½
-    void copy();    /// ï¿½ï¿½ï¿½ï¿½
-    void paste();   /// ï¿½ï¿½ï¿½ï¿½
+    void cut();     /// ¼ôÇÐ
+    void copy();    /// ¿½±´
+    void paste();   /// ð¤Ìù
 #endif
 
 Q_SIGNALS:
     void viewMouseMove(const QPointF&);
-    void viewClose(QWidget*);		/// ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½ï¿½ï¿½ï¿½ÅºÅºó£¬µï¿½ï¿½ï¿½disconnectï¿½ï¿½ï¿½Øµï¿½signalï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    void viewClose(QWidget*);		/// ÇëÔÚÊÕµ½±¾ÐÅºÅºó£¬µ÷ÓÃdisconnectÏà¹ØµÄsignal½â³ý¡£
 protected:
     void mousePressEvent(QMouseEvent *event) override;
     virtual void mouseMoveEvent(QMouseEvent *e) override;
     /**
-    * @brief ï¿½ï¿½Í¼ï¿½Ø±ï¿½ï¿½ï¿½ï¿½î´¦ï¿½ï¿½ï¿½ï¿½
-    * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ØµÄ¸ï¿½ï¿½àº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¨Öªï¿½ï¿½ï¿½Ô´ï¿½ï¿½È½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-    * @param event ï¿½ï¿½Í¼ï¿½Ø±ï¿½ï¿½ï¿½ï¿½î¡£
+    * @brief ÊÓÍ¼¹Ø±ÕÊÂÏî´¦Àí¡£
+    * ÕâÊÇÖØÔØµÄ¸¸Ààº¯Êý¡£ÓÃÓÚÍ¨ÖªÊôÐÔ´°µÈ½øÐÐÏàÓ¦´¦Àí¡£
+    * @param event ÊÓÍ¼¹Ø±ÕÊÂÏî¡£
     */
     virtual void closeEvent(QCloseEvent *event) Q_DECL_OVERRIDE;
     virtual void drawBackground(QPainter *painter, const QRectF &rect);
@@ -63,12 +63,12 @@ protected:
 Q_SIGNALS:
 
 private:
-    void copyItems(QList<QGraphicsItem*>&);    /// ï¿½ï¿½ï¿½ï¿½Í¼Ôª
+    void copyItems(QList<QGraphicsItem*>&);    /// ¿½±´Í¼Ôª
 private:
 #ifndef QT_NO_CLIPBOARD
-    QAction *m_pCutAct;         /// ï¿½ï¿½ï¿½ï¿½
-    QAction *m_pCopyAct;		/// ï¿½ï¿½ï¿½ï¿½
-    QAction *m_pPasteAct;		/// ï¿½ï¿½ï¿½ï¿½
+    QAction *m_pCutAct;         /// ¼ôÇÐ
+    QAction *m_pCopyAct;		/// ¸´ÖÆ
+    QAction *m_pPasteAct;		/// ð¤Ìù
 #endif
     QPointF m_ptView;
     QPointF m_ptScene;

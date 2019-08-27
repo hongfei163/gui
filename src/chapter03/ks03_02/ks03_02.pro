@@ -19,7 +19,7 @@ MOC_DIR	= $$TEMPDIR/moc
 UI_DIR		= $$TEMPDIR/ui
 
 				
-FORMS		+= dialogbase.ui
+FORMS		+= dialog.ui
 
 HEADERS		+=  $$(TRAINDEVHOME)/src/gui_base.pri \
 				ks03_02.pro \

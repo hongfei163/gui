@@ -13,7 +13,7 @@ DESTDIR     = $$TRAIN_BIN_PATH
 
 INCLUDEPATH += $$TRAIN_INCLUDE_PATH/
 
-#FORMS 		+= dialogbase.ui
+#FORMS 		+= dialog.ui
 				
 HEADERS		+=  $$TRAIN_SRC_PATH/gui_base.pri \
 				ks09_15.pro 

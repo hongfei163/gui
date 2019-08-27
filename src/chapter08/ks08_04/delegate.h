@@ -1,12 +1,12 @@
-ï»¿/*!
-* Copyright (C) 2018 Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
-* ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ð¡ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Î³Ì¡ï¿½Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ð´«²ï¿½ï¿½ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Ö¤ï¿½È¶ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+/*!
+* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
+* °æÈ¨ËùÓÐ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
+* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file delegate.h
-\brief delegateÍ·ï¿½Ä¼ï¿½
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½   http://xingdianketang.cn/
+\brief delegateÍ·ÎÄ¼þ
+\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
 \Date 2019/1
 */
 #ifndef DELEGATE_H
@@ -22,61 +22,61 @@ public:
 	CDelegate(QObject *parent = 0);
 
 	/**
-	* @brief ÎªÖ¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î´´ï¿½ï¿½ï¿½à¼­ï¿½ï¿½
+	* @brief ÎªÖ¸¶¨Êý¾ÝÏî´´½¨±à¼­Æ÷
 	*
-	* @param[in|out] parent ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½à¼­ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½
-	* @param[in] option ï¿½ï¿½Ê½Ñ¡ï¿½ï¿½
-	* @param[in] index ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	* @return ï¿½ï¿½ï¿½ï¿½ï¿½ÃµÄ±à¼­ï¿½ï¿½
+	* @param[in|out] parent ´ý´´½¨±à¼­Æ÷µÄ¸¸´°¿Ú
+	* @param[in] option ÑùÊ½Ñ¡Ïî
+	* @param[in] index Êý¾ÝÏîÐòºÅ
+	* @return ´´½¨ºÃµÄ±à¼­Æ÷
 	*/
 	QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option,
                           const QModelIndex &index) const override;
 
 	/**
-	* @brief ÎªÖ¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±à¼­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+	* @brief ÎªÖ¸¶¨Êý¾ÝÏîµÄ±à¼­Æ÷ÉèÖÃÖµ
 	*
-	* @param[in|out] editor Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±à¼­ï¿½ï¿½
-	* @param[in] index ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	* @return ï¿½ï¿½
+	* @param[in|out] editor Ö¸¶¨Êý¾ÝÏîµÄ±à¼­Æ÷
+	* @param[in] index Êý¾ÝÏîÐòºÅ
+	* @return ÎÞ
 	*/
 	void setEditorData(QWidget *editor, const QModelIndex &index) const override;
 	
 	/**
-	* @brief ï¿½Ó±à¼­ï¿½ï¿½ï¿½ï¿½È¡Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½Ä£ï¿½ï¿½
+	* @brief ´Ó±à¼­Æ÷¶ÁÈ¡Ö¸¶¨Êý¾ÝÏîµÄÖµ²¢ÉèÖÃµ½Ä£ÐÍ
 	*
-	* @param[in|out] editor Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±à¼­ï¿½ï¿½
-	* @param[in|out] model Ä£ï¿½ï¿½
-	* @param[in] index ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	* @return ï¿½ï¿½
+	* @param[in|out] editor Ö¸¶¨Êý¾ÝÏîµÄ±à¼­Æ÷
+	* @param[in|out] model Ä£ÐÍ
+	* @param[in] index Êý¾ÝÏîÐòºÅ
+	* @return ÎÞ
 	*/
 	void setModelData(QWidget *editor, QAbstractItemModel *model,
                       const QModelIndex &index) const override;
 
 	/**
-	* @brief ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±à¼­ï¿½ï¿½ï¿½ß´ï¿½
+	* @brief ¸üÐÂÖ¸¶¨Êý¾ÝÏîµÄ±à¼­Æ÷³ß´ç
 	*
-	* @param[in|out] editor Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±à¼­ï¿½ï¿½
-	* @param[in] option ï¿½ï¿½Ê½Ñ¡ï¿½ï¿½
-	* @param[in] index ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	* @return ï¿½ï¿½
+	* @param[in|out] editor Ö¸¶¨Êý¾ÝÏîµÄ±à¼­Æ÷
+	* @param[in] option ÑùÊ½Ñ¡Ïî
+	* @param[in] index Êý¾ÝÏîÐòºÅ
+	* @return ÎÞ
 	*/
 	void updateEditorGeometry(QWidget *editor,
         const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 	/**
-	*	@brief	ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½Ã½Ó¿Ú£ï¿½Êµï¿½ï¿½boolï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Ê¾ï¿½Ç»ï¿½ï¿½ß·ï¿½ï¿½ï¿½
-	*	@param[in] value	ï¿½Â¼ï¿½
-	*	@param[in] locale	ï¿½ï¿½ï¿½Ø¶ï¿½ï¿½ï¿½
-	*	return ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½
+	*	@brief	ÖØÐ´¸¸Àà¸Ã½Ó¿Ú£¬ÊµÏÖboolÀàÐÍÊ±ÏÔÊ¾ÊÇ»òÕß·ñ¡£
+	*	@param[in] value	ÊÂ¼þ
+	*	@param[in] locale	±¾µØ¶ÔÏó
+	*	return ÏÔÊ¾µÄ×Ö·û´®
 	*/
 	virtual QString displayText(const QVariant &value, const QLocale &locale) const;
 
 	///**
-	//*	@brief	ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½à¼­ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Ó¿ï¿½
-	//*	@param[in] event	ï¿½Â¼ï¿½
-	//*	@param[in] model    Ä£ï¿½ï¿½
-	//*	@param[in] option	ï¿½ï¿½Ê½Ñ¡ï¿½ï¿½
-	//*	@param[in] index	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	//*	@return		true:ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½, false:Ê§ï¿½ï¿½
+	//*	@brief	ÖØÐ´¸¸Àà±à¼­Æ÷ÊÂ¼þ½Ó¿Ú
+	//*	@param[in] event	ÊÂ¼þ
+	//*	@param[in] model    Ä£ÐÍ
+	//*	@param[in] option	ÑùÊ½Ñ¡Ïî
+	//*	@param[in] index	Êý¾ÝÏîÐòºÅ
+	//*	@return		true:´¦Àí³É¹¦, false:Ê§°Ü
 	//*/
 	//virtual bool editorEvent(QEvent *event,
 	//	QAbstractItemModel *model,
@@ -87,8 +87,8 @@ private slots:
 	void commitAndCloseEditor();
 
 private:
-	QStringList m_strListYesNo;/// ï¿½ï¿½ï¿½ï¿½ï¿½æ´¢yesï¿½ï¿½noï¿½Ö·ï¿½ï¿½ï¿½
-	QStringList m_strListSpeed;/// ï¿½ï¿½ï¿½ï¿½ï¿½æ´¢ï¿½Ù¶ï¿½ï¿½Ö·ï¿½ï¿½ï¿½
+	QStringList m_strListYesNo;/// ÓÃÀ´´æ´¢yes¡¢no×Ö·û´®
+	QStringList m_strListSpeed;/// ÓÃÀ´´æ´¢ËÙ¶È×Ö·û´®
 };
 
 #endif

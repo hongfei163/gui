@@ -1,12 +1,12 @@
-ï»¿/*! * Copyright (C) 2018 Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
-* ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ð¡ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Î³Ì¡ï¿½Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ð´«²ï¿½ï¿½ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Ö¤ï¿½È¶ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+/*! * Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
+* °æÈ¨ËùÓÐ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
+* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file: myclass.h
-\brief exe+dllï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½Í·ï¿½Ä¼ï¿½
+\brief exe+dll±à³ÌÊ¾Àý£¬Òý³öÀàµÄ¶¨ÒåÍ·ÎÄ¼þ
    
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½   http://xingdianketang.cn/
+\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
 \Date 2018/9 
 */
 
@@ -18,43 +18,43 @@
 class CMyClass
 {
 public:
-	// ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½
+	// ¹¹Ôìº¯Êý
 	CMyClass(): m_id(0), m_pStrName(NULL){}
-	// ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½
+	// ¹¹Ôìº¯Êý
 	CMyClass(int id, const QString& name): m_id(id), m_pStrName(new QString(name)){}
 
-	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½
+	// ¿½±´¹¹Ôìº¯Êý
 	CMyClass(const CMyClass& right);
 
-	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// Îö¹¹º¯Êý
 	~CMyClass();
 
-	// ï¿½ï¿½ï¿½Ø²ï¿½ï¿½ï¿½ï¿½ï¿½operator==
+	// ÖØÔØ²Ù×÷·ûoperator==
 	bool operator==(const CMyClass& right);
 
 	/**
-	* @brief  ï¿½ï¿½ï¿½ï¿½id
+	* @brief  ÉèÖÃid
 	* @param[in] id id
 	*/
 	void setId(int id) { m_id = id; }
 	/**
-	* @brief  ï¿½ï¿½È¡id
+	* @brief  »ñÈ¡id
 	* @return id
 	*/
 	int getId() const { return m_id; }
 
 	/**
-	* @brief  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	* @param[in] name ï¿½ï¿½ï¿½ï¿½
+	* @brief  ÉèÖÃÃû×Ö
+	* @param[in] name Ãû×Ö
 	*/
 	void setName(const QString& str);
 	/**
-	* @brief  ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½
-	* @return ï¿½ï¿½ï¿½ï¿½
+	* @brief  »ñÈ¡Ãû×Ö
+	* @return Ãû×Ö
 	*/
 	QString getName() const;
 private:
-	/// ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	/// ³õÊ¼»¯Êý¾ÝÇø
 	void 	initial();
 
 	int m_id;

@@ -1,13 +1,13 @@
-О╩©/*! 
-* Copyright (C) 2018 е╝О©╫О©╫О©╫О©╫О©╫о╟О©╫
-* О©╫О©╫х╗О©╫О©╫О©╫п║О©╫
-* О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫з©нЁл║О©╫QtО©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫-GUIО©╫О©╫ф╥О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫я╖о╟О©╫О©╫О©╫О©╫О©╫П╢╚╡О©╫О©╫О©╫
-* О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫:О©╫О©╫О©╫К╡╩О©╫О©╫ж╓О©╫х╤О©╫О©╫тёО©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫р╣О©╫О©╫м╬О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫т╦О©╫О©╫О©╫
+/*! 
+* Copyright (C) 2018 е╝╤Ы╫пюо╟в
+* ╟Фх╗кЫсп║ё
+* ╢ЗбК╫Жсцсз©нЁл║╤QtхКцесКлА╦ъ-GUI╡Зф╥©╙╥╒║╥╣дя╖о╟ё╛гКнП╢╚╡╔║ё
+* цБтПиЫцВ:╢ЗбК╡╩╠ёж╓нх╤╗птё╛гКнПсцвВилр╣сцм╬ё╛╥ЯтР╨С╧Швт╦╨║ё
 
 \file: main.cpp
-\brief main()О©╫О©╫О©╫О©╫О©╫О©╫й╣О©╫О©╫О©╫д╪О©╫
+\brief main()╨╞йЩ╣дй╣ожнд╪Ч
 
-\author е╝О©╫О©╫О©╫О©╫О©╫о╟О©╫   http://xingdianketang.cn/
+\author е╝╤Ы╫пюо╟в   http://xingdianketang.cn/
 \Date 2018/9
 */
 
@@ -34,8 +34,8 @@ int main(int argc, char * argv[])
 	Q_UNUSED(argv);
 	QApplication app(argc, argv);
 
-	// О©╫О©╫О©╫й╩О©╫
-	// О©╫О©╫в╟qtО©╫т╢О©╫О©╫О©╫О©╫О©╫О©╫д╥О©╫О©╫О©╫
+	// ╧З╪й╩╞
+	// ╟╡в╟qtвт╢Ь╣джпнд╥╜рК
 	const QString localSysName = QLocale::system().name();
 	QScopedPointer<QTranslator> qtTranslator(new QTranslator(QCoreApplication::instance()));
 	if (qtTranslator->load(QStringLiteral("qt_") + localSysName,
@@ -44,8 +44,8 @@ int main(int argc, char * argv[])
 		QCoreApplication::installTranslator(qtTranslator.take());
 	}
 
-	// О©╫О©╫в╟О©╫О©╫О©╫О©╫О©╫О©╫д©О©╫д╥О©╫О©╫О©╫О©╫д╪О©╫
-	QString strPath = qgetenv("TRAINDEVHOME");	// О©╫О©╫х║О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫ж╦О©╫О©╫О©╫О©╫б╥О©╫О©╫
+	// ╟╡в╟нрцгоНд©╣д╥╜рКнд╪Ч
+	QString strPath = qgetenv("TRAINDEVHOME");	// ╩Ях║╩╥╬Ё╠Да©кЫж╦оР╣дб╥╬╤
 	strPath += "/system/lang";					// $TRAINDEVHOME/system/lang/ks03_01.qm
 	QScopedPointer<QTranslator> gpTranslator(new QTranslator(QCoreApplication::instance()));
 	if (gpTranslator->load("ks04_02.qm", strPath))
@@ -75,9 +75,9 @@ int main(int argc, char * argv[])
 }
 
 /**
-* @brief  qDebug()<< О©╫О©╫й╫О©╫О©╫О©╫О©╫О©╫О©╫о╒
-*		  О©╫О©╫О©╫О©╫ж╠О©╫О©╫О©╫О©╫<<О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫р╙О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫о╒О©╫О©╫О©╫О©╫О©╫О©╫qDebug()О©╫О©╫
-* @return О©╫О©╫
+* @brief  qDebug()<< ╥╫й╫йДЁЖпео╒
+*		  ©иртж╠╫ссц<<╡ывВ╥Ш╫╚пХр╙йДЁЖ╣дпео╒йДЁЖ╣╫qDebug()║ё
+* @return нч
 */
 void example01(){
 	
@@ -86,8 +86,8 @@ void example01(){
 }
 
 /**
-* @brief  й╧О©╫О©╫qDebug("%")О©╫О©╫й╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫о╒
-* @return О©╫О©╫
+* @brief  й╧сцqDebug("%")╦Яй╫╩╞йДЁЖпео╒
+* @return нч
 */
 void example02(){
 	
@@ -96,8 +96,8 @@ void example02(){
 
 
 /**
-* @brief  О©╫О©╫О©╫т╤О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫qDebug
-* @param[in] mc О©╫т╤О©╫О©╫О©╫О©╫О©╫
+* @brief  ╫╚вт╤╗рЕюЮйДЁЖ╣╫qDebug
+* @param[in] mc вт╤╗рЕюЮ
 * @return 
 */
 void example03(){

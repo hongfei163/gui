@@ -1,18 +1,18 @@
-ï»¿/*! 
-* Copyright (C) 2018 Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
-* ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ð¡ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Î³Ì¡ï¿½Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ð´«²ï¿½ï¿½ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Ö¤ï¿½È¶ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+/*! 
+* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
+* °æÈ¨ËùÓÐ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
+* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file: main.cpp
-\brief main()ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½Ä¼ï¿½
+\brief main()º¯ÊýµÄÊµÏÖÎÄ¼þ
 
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½   http://xingdianketang.cn/ 
+\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/ 
 \Date 2018/8
 */
 #include <QApplication>
-#include <QTranslator>		// ï¿½ï¿½ï¿½Ê»ï¿½
-#include <QLibraryInfo> 	// ï¿½ï¿½ï¿½Ê»ï¿½
+#include <QTranslator>		// ¹ú¼Ê»¯
+#include <QLibraryInfo> 	// ¹ú¼Ê»¯
 
 #include <iostream>
 #include <QDebug>
@@ -39,15 +39,15 @@ int main(int argc, char * argv[])
 	Q_UNUSED(argv);
 
 	QApplication app(argc, argv);
-	// ï¿½ï¿½×°qtï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½
-	const QString localSysName = QLocale::system().name();  // ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ÏµÍ³ï¿½ï¿½ï¿½ï¿½ï¿½Ô»ï¿½ï¿½ï¿½
+	// °²×°qt×Ô´øµÄÖÐÎÄ·­Òë
+	const QString localSysName = QLocale::system().name();  // »ñÈ¡±¾»úÏµÍ³µÄÓïÑÔ»·¾³
 	QScopedPointer<QTranslator> qtTranslator(new QTranslator(QCoreApplication::instance()));
 	if (qtTranslator->load(QStringLiteral("qt_") + localSysName,
 		QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
 	{
 		QCoreApplication::installTranslator(qtTranslator.take());
 	}
-	QString strPath = qgetenv("TRAINDEVHOME");  // ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
+	QString strPath = qgetenv("TRAINDEVHOME");  // »ñÈ¡»·¾³±äÁ¿ËùÖ¸ÏòµÄÂ·¾¶
 	strPath += "/system/lang";       // $TRAINDEVHOME/system/lang/ks03_01.qm
 	QScopedPointer<QTranslator> gpTranslator(new QTranslator(QCoreApplication::instance()));
 	if (gpTranslator->load("ks03_02.qm", strPath))
@@ -60,6 +60,6 @@ int main(int argc, char * argv[])
 
 	CDialog dlg(NULL);
 	dlg.exec();
-	//cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¶Ò²Ã»ï¿½ï¿½." << endl;
+	//cout << "ÎÒÕæµÄÉ¶Ò²Ã»¸É." << endl;
 	return 0;
 }

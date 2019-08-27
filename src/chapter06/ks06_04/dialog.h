@@ -1,13 +1,13 @@
-ï»¿/*! 
-* Copyright (C) 2018 Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
-* ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ð¡ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Î³Ì¡ï¿½Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ð´«²ï¿½ï¿½ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Ö¤ï¿½È¶ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+/*! 
+* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
+* °æÈ¨ËùÓÐ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
+* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file: dialog.h
-\brief ï¿½ï¿½Ê¾ï¿½ï¿½Í·ï¿½Ä¼ï¿½
+\brief ÑÝÊ¾ÓÃÍ·ÎÄ¼þ
   
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½   http://xingdianketang.cn/
+\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
 \Date 2018/8 
 */
 
@@ -26,48 +26,48 @@ public:
 	~CDialog(){;}
 private:
     /*
-     * @brief ï¿½ï¿½Ê¼ï¿½ï¿½
+     * @brief ³õÊ¼»¯
      * @return void
     */
     void initialize();
 
 private slots:
     /*
-     * @brief ï¿½ï¿½Ñ¡ï¿½Ðµï¿½ï¿½ï¿½Ä¿ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½Ò²ï¿½ï¿½Ð±ï¿½
+     * @brief ½«Ñ¡ÖÐµÄÏîÄ¿ÒÆ¶¯µ½ÓÒ²àÁÐ±í
      * @return void
     */
     void slot_move2Right();
     /*
-     * @brief ï¿½ï¿½Ñ¡ï¿½Ðµï¿½ï¿½ï¿½Ä¿ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
+     * @brief ½«Ñ¡ÖÐµÄÏîÄ¿ÒÆ¶¯µ½×ó²àÁÐ±í
      * @return void
     */
     void slot_move2Left();
     /*
-     * @brief ï¿½ï¿½ï¿½Ò²ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @brief ½«ÓÒ²àÁÐ±íÉýÐòÅÅÁÐ
      * @return void
     */
     void slot_ascending();
     /*
-     * @brief ï¿½ï¿½ï¿½Ò²ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @brief ½«ÓÒ²àÁÐ±í½µÐòÅÅÁÐ
      * @return void
     */
     void slot_descending();
     /*
-     * @brief ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î±»ï¿½ï¿½ï¿½ï¿½
-     * @param[in] pItem ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @brief ×ó²àµÄÏî±»µ¥»÷
+     * @param[in] pItem ±»µ¥»÷µÄÏî
      * @return void
     */
     void slot_leftItemClicked(QListWidgetItem* pItem);
     /*
-     * @brief ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î±»Ë«ï¿½ï¿½
-     * @param[in] pItem ï¿½ï¿½Ë«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @brief ×ó²àµÄÏî±»Ë«»÷
+     * @param[in] pItem ±»Ë«»÷µÄÏî
      * @return void
     */
     void slot_leftItemDoubleClicked(QListWidgetItem *pItem);
     /*
-     * @brief ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½Ðµï¿½ï¿½î·¢ï¿½ï¿½ï¿½ä»¯
-     * @param[in] current ï¿½ï¿½Ñ¡ï¿½Ðµï¿½ï¿½ï¿½
-     * @param[in] previous Ö®Ç°Ñ¡ï¿½Ðµï¿½ï¿½ï¿½
+     * @brief ×ó²àÑ¡ÖÐµÄÏî·¢Éú±ä»¯
+     * @param[in] current ÐÂÑ¡ÖÐµÄÏî
+     * @param[in] previous Ö®Ç°Ñ¡ÖÐµÄÏî
      * @return void
     */
     void slot_leftCurrentItemChanged(QListWidgetItem *current,

@@ -1,13 +1,13 @@
-ï»¿/*!
-* Copyright (C) 2018 Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
-* ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ð¡ï¿½ 
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Î³Ì¡ï¿½Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ð´«²ï¿½ï¿½ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Ö¤ï¿½È¶ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+/*!
+* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
+* °æÈ¨ËùÓÐ¡£ 
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
+* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file: iniconfig.h
-\brief iniï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½Ä¼ï¿½, ï¿½ï¿½×¢ï¿½â£ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½GB2312ï¿½ï¿½ï¿½ë¡£
+\brief ini¸ñÊ½ÅäÖÃÎÄ¼þ¶¨ÒåÍ·ÎÄ¼þ, Çë×¢Òâ£º±£´æµÄÅäÖÃÎÄ¼þ²ÉÓÃGB2312±àÂë¡£
        
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½   http://xingdianketang.cn/ï¿½ï¿½
+\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/¡£
 \Date 2018/9
 */
 
@@ -21,7 +21,7 @@
 
 namespace ns_train {
 
-// iniï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// ini¸ñÊ½ÅäÖÃÎÄ¼þ´¦ÀíÀà
 //-----------------------------------------
 
 
@@ -32,131 +32,131 @@ public:
 	~CIniConfig();
 
     /**
-    * @brief ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½È«Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö§ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
-    * @param[in] strFileName ï¿½Ä¼ï¿½ï¿½ï¿½
-    * @return true:ï¿½É¹ï¿½,false:Ê§ï¿½ï¿½
+    * @brief ÉèÖÃÅäÖÃÎÄ¼þµÄÎÄ¼þÃû£¬Ê¹ÓÃÈ«Â·¾¶£¬²»Ö§³Ö»·¾³±äÁ¿.
+    * @param[in] strFileName ÎÄ¼þÃû
+    * @return true:³É¹¦,false:Ê§°Ü
     */
 	bool  setFileName(const QString& strFileName);
 
 	/**
-	* @brief ï¿½ï¿½È¡boolï¿½ï¿½ï¿½ÍµÄ¼ï¿½Öµ
-	* @param[in] strKey ï¿½ï¿½ï¿½ï¿½
-	* @param[in] strSubKey ï¿½Ó¼ï¿½
-	* @param[in] i_nDefault Ä¬ï¿½ï¿½Öµ
-	* @param[out] o_bRet true:ï¿½É¹ï¿½, false:Ê§ï¿½ï¿½
-	* @return ï¿½ï¿½ï¿½ï¿½
+	* @brief ¶ÁÈ¡boolÀàÐÍµÄ¼üÖµ
+	* @param[in] strKey Ö÷¼ü
+	* @param[in] strSubKey ×Ó¼ü
+	* @param[in] i_nDefault Ä¬ÈÏÖµ
+	* @param[out] o_bRet true:³É¹¦, false:Ê§°Ü
+	* @return Êý¾Ý
 	*/
 	bool  getBoolean(const QString& strKey, const QString& strSubKey, bool i_nDefault, bool* o_bRet = NULL);
 	/**
-	* @brief ï¿½ï¿½È¡intï¿½ï¿½ï¿½ÍµÄ¼ï¿½Öµ
-	* @param[in] strKey ï¿½ï¿½ï¿½ï¿½
-	* @param[in] strSubKey ï¿½Ó¼ï¿½
-	* @param[in] i_nDefault Ä¬ï¿½ï¿½Öµ
-	* @param[out] o_bRet true:ï¿½É¹ï¿½, false:Ê§ï¿½ï¿½
-	* @return ï¿½ï¿½ï¿½ï¿½
+	* @brief ¶ÁÈ¡intÀàÐÍµÄ¼üÖµ
+	* @param[in] strKey Ö÷¼ü
+	* @param[in] strSubKey ×Ó¼ü
+	* @param[in] i_nDefault Ä¬ÈÏÖµ
+	* @param[out] o_bRet true:³É¹¦, false:Ê§°Ü
+	* @return Êý¾Ý
 	*/
 	int  getInteger(const QString& strKey, const QString& strSubKey, int i_nDefault, bool* o_bRet = NULL);
 	/**
-	* @brief ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÍµÄ¼ï¿½Öµ
-	* @param[in] strKey ï¿½ï¿½ï¿½ï¿½
-	* @param[in] strSubKey ï¿½Ó¼ï¿½
-	* @param[in] i_fDefault Ä¬ï¿½ï¿½Öµ
-	* @param[out] o_bRet true:ï¿½É¹ï¿½, false:Ê§ï¿½ï¿½
-	* @return ï¿½ï¿½ï¿½ï¿½
+	* @brief ¶ÁÈ¡¸¡µãÀàÐÍµÄ¼üÖµ
+	* @param[in] strKey Ö÷¼ü
+	* @param[in] strSubKey ×Ó¼ü
+	* @param[in] i_fDefault Ä¬ÈÏÖµ
+	* @param[out] o_bRet true:³É¹¦, false:Ê§°Ü
+	* @return Êý¾Ý
 	*/
 	double  getDouble(const QString& strKey, const QString& strSubKey, double i_fDefault, bool* o_bRet = NULL);
 	/**
-	* @brief ï¿½ï¿½È¡stringï¿½ï¿½ï¿½ÍµÄ¼ï¿½Öµ
-	* @param[in] strKey ï¿½ï¿½ï¿½ï¿½
-	* @param[in] strSubKey ï¿½Ó¼ï¿½
-	* @param[in] strDefault Ä¬ï¿½ï¿½Öµ
-	* @param[out] o_bRet true:ï¿½É¹ï¿½, false:Ê§ï¿½ï¿½
-	* @return ï¿½ï¿½ï¿½ï¿½
+	* @brief ¶ÁÈ¡stringÀàÐÍµÄ¼üÖµ
+	* @param[in] strKey Ö÷¼ü
+	* @param[in] strSubKey ×Ó¼ü
+	* @param[in] strDefault Ä¬ÈÏÖµ
+	* @param[out] o_bRet true:³É¹¦, false:Ê§°Ü
+	* @return Êý¾Ý
 	*/
 	QString getString(const QString& strKey, const QString& strSubKey, const QString& strDefault, bool* o_bRet = NULL);
 	/**
-	* @brief ï¿½ï¿½È¡stringï¿½ï¿½ï¿½ÍµÄ¼ï¿½Öµ(ï¿½ï¿½Õ¹ï¿½Ó¿ï¿½),Ö§ï¿½Ö¶ï¿½ï¿½Ð¶ï¿½È¡
-	* @param[in] strKey ï¿½ï¿½ï¿½ï¿½
-	* @param[in] strSubKey ï¿½Ó¼ï¿½
-	* @param[in] strDefault Ä¬ï¿½ï¿½Öµ
-	* @param[out] o_bRet true:ï¿½É¹ï¿½, false:Ê§ï¿½ï¿½
-	* @return ï¿½ï¿½ï¿½ï¿½
+	* @brief ¶ÁÈ¡stringÀàÐÍµÄ¼üÖµ(À©Õ¹½Ó¿Ú),Ö§³Ö¶àÐÐ¶ÁÈ¡
+	* @param[in] strKey Ö÷¼ü
+	* @param[in] strSubKey ×Ó¼ü
+	* @param[in] strDefault Ä¬ÈÏÖµ
+	* @param[out] o_bRet true:³É¹¦, false:Ê§°Ü
+	* @return Êý¾Ý
 	*/
 	QString getStringMultiline(const QString& strKey, const QString& strSubKey, const QString& strDefault, bool* o_bRet = NULL);
 	/**
-	* @brief ï¿½ï¿½ï¿½ï¿½boolï¿½ï¿½ï¿½ÍµÄ¼ï¿½Öµ
-	* @param[in] strKey ï¿½ï¿½ï¿½ï¿½
-	* @param[in] strSubKey ï¿½Ó¼ï¿½
-	* @param[in] i_nValue ï¿½Ó¼ï¿½ï¿½ï¿½Öµ
-	* @return true:ï¿½É¹ï¿½, false:Ê§ï¿½ï¿½
+	* @brief ÉèÖÃboolÀàÐÍµÄ¼üÖµ
+	* @param[in] strKey Ö÷¼ü
+	* @param[in] strSubKey ×Ó¼ü
+	* @param[in] i_nValue ×Ó¼üµÄÖµ
+	* @return true:³É¹¦, false:Ê§°Ü
 	*/
 	bool  setBoolean(const QString& strKey, const QString& strSubKey, bool i_nValue);
 	/**
-	* @brief ï¿½ï¿½ï¿½ï¿½intï¿½ï¿½ï¿½ÍµÄ¼ï¿½Öµ
-	* @param[in] strKey ï¿½ï¿½ï¿½ï¿½
-	* @param[in] strSubKey ï¿½Ó¼ï¿½
-	* @param[in] i_nValue ï¿½Ó¼ï¿½ï¿½ï¿½Öµ
-	* @return true:ï¿½É¹ï¿½, false:Ê§ï¿½ï¿½
+	* @brief ÉèÖÃintÀàÐÍµÄ¼üÖµ
+	* @param[in] strKey Ö÷¼ü
+	* @param[in] strSubKey ×Ó¼ü
+	* @param[in] i_nValue ×Ó¼üµÄÖµ
+	* @return true:³É¹¦, false:Ê§°Ü
 	*/
 	bool  setInteger(const QString& strKey, const QString& strSubKey, int i_nValue);
 	/**
-	* @brief ï¿½ï¿½ï¿½Ã¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÍµÄ¼ï¿½Öµ
-	* @param[in] strKey ï¿½ï¿½ï¿½ï¿½
-	* @param[in] strSubKey ï¿½Ó¼ï¿½
-	* @param[in] i_fValue ï¿½Ó¼ï¿½ï¿½ï¿½Öµ
-	* @return true:ï¿½É¹ï¿½, false:Ê§ï¿½ï¿½
+	* @brief ÉèÖÃ¸¡µãÀàÐÍµÄ¼üÖµ
+	* @param[in] strKey Ö÷¼ü
+	* @param[in] strSubKey ×Ó¼ü
+	* @param[in] i_fValue ×Ó¼üµÄÖµ
+	* @return true:³É¹¦, false:Ê§°Ü
 	*/
 	bool  setDouble(const QString& strKey, const QString& strSubKey, double i_fValue);
 	/**
-	* @brief ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÍµÄ¼ï¿½Öµ, ï¿½ï¿½ï¿½ç£¬ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
+	* @brief ÉèÖÃ×Ö·û´®ÀàÐÍµÄ¼üÖµ, ±ÈÈç£¬ÅäÖÃÎÄ¼þÄÚÈÝÈçÏÂ:
 	*           [config]
 	*           x=xx
 	*           y=yy
 	*           z=zz
-	* @param[in] strKey ï¿½ï¿½ï¿½ï¿½=config
-	* @param[in] strSubKey ï¿½Ó¼ï¿½=x
-	* @param[in] strValue ï¿½Ó¼ï¿½ï¿½ï¿½Öµ, Îª""ï¿½ï¿½Ê¾É¾ï¿½ï¿½ï¿½ï¿½ï¿½Ó½ï¿½ï¿½ï¿½
-	* @return true:ï¿½É¹ï¿½, false:Ê§ï¿½ï¿½
+	* @param[in] strKey Ö÷¼ü=config
+	* @param[in] strSubKey ×Ó¼ü=x
+	* @param[in] strValue ×Ó¼üµÄÖµ, Îª""±íÊ¾É¾³ý¸Ã×Ó½¡¡£
+	* @return true:³É¹¦, false:Ê§°Ü
 	*/
 	bool  setString(const QString& strKey, const QString& strSubKey, const QString& strValue);
     /**
-    * @brief É¾ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½Öµ
-    * @return true:ï¿½É¹ï¿½,false:Ê§ï¿½ï¿½
+    * @brief É¾³ýÈ«²¿¼üÖµ
+    * @return true:³É¹¦,false:Ê§°Ü
     */
 	bool  deleteAllKeys();
     /**
-    * @brief É¾ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-    * @param[in] strKey ï¿½ï¿½ï¿½ï¿½
-    * @return true:ï¿½É¹ï¿½,false:Ê§ï¿½ï¿½
+    * @brief É¾³ýÖ¸¶¨Ö÷¼ü
+    * @param[in] strKey Ö÷¼ü
+    * @return true:³É¹¦,false:Ê§°Ü
     */
 	bool  removeKey(const QString& strKey);	
 	/**
-    * @brief É¾ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ó¼ï¿½
-    * @param[in] strKey ï¿½ï¿½ï¿½ï¿½
-    * @param[in] strSubKey ï¿½Ó¼ï¿½
-    * @return true:ï¿½É¹ï¿½,false:Ê§ï¿½ï¿½
+    * @brief É¾³ýÖ¸¶¨×Ó¼ü
+    * @param[in] strKey Ö÷¼ü
+    * @param[in] strSubKey ×Ó¼ü
+    * @return true:³É¹¦,false:Ê§°Ü
     */
 	bool  removeSubKey(const QString& strKey, const QString& strSubKey);
 
 
  
     /**
-    * @brief ï¿½ï¿½È¡ï¿½ï¿½Öµï¿½Ð±ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ç´«ï¿½ï¿½("config"")ï¿½ï¿½ï¿½Ãµï¿½, "x=xx\ny=yy\nz=zz"
-    * @param[in] strKey ï¿½ï¿½ï¿½ï¿½
-    * @return ï¿½ï¿½Öµï¿½Ð±ï¿½
+    * @brief ¶ÁÈ¡¼üÖµÁÐ±í, £¬±ÈÈç´«Èë("config"")£¬µÃµ½, "x=xx\ny=yy\nz=zz"
+    * @param[in] strKey Ö÷¼ü
+    * @return ¼üÖµÁÐ±í
     */
     QString getAllKeys(const QString& strKey);
 
     /**
-    * @brief ï¿½ï¿½ï¿½Ã¼ï¿½Öµï¿½Ð±ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ç´«ï¿½ï¿½("config", "x=xx\ny=yy\nz=zz")
-    *           Ö´ï¿½Ðºï¿½ï¿½Ä½ï¿½ï¿½ï¿½:
+    * @brief ÉèÖÃ¼üÖµÁÐ±í, £¬±ÈÈç´«Èë("config", "x=xx\ny=yy\nz=zz")
+    *           Ö´ÐÐºóµÄ½á¹û:
     *           [config]
     *           x=xx
     *           y=yy
     *           z=zz
-    * @param[in] strKey ï¿½ï¿½ï¿½ï¿½
-    * @param[in] str ï¿½Ó¼ï¿½ÖµÖµï¿½Ð±ï¿½,\nï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: "x=xx\ny=yy\nz=zz"  
-    * @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½true:ï¿½É¹ï¿½, false:Ê§ï¿½ï¿½
+    * @param[in] strKey Ö÷¼ü
+    * @param[in] str ×Ó¼üÖµÖµÁÐ±í,\n·Ö¸ô¡£±ÈÈç: "x=xx\ny=yy\nz=zz"  
+    * @return ½á¹û£¬true:³É¹¦, false:Ê§°Ü
     */	
     bool setAllKeys(const QString& strKey, const QString& Str);
 
@@ -168,9 +168,9 @@ private:
 	bool setValue(int i_nIndex, const QString& strValue);
 	void addValue(const QString& strKey, const QString& strSubKey, const QString& strValue, int i_nRet);
 
-	QFile				m_file;    // ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
+	QFile				m_file;    // ÎÄ¼þ¶ÔÏó
 	QVector<QString>	m_vecString;
-	bool				m_bOpened;  // ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ç·ï¿½ï¿½Ñ´ï¿½ï¿½ï¿½
+	bool				m_bOpened;  // ÅäÖÃÎÄ¼þÊÇ·ñÒÑ´ò¿ª
 };
 
 }

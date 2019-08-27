@@ -1,13 +1,13 @@
-ï»¿/*!
-* Copyright (C) 2018 Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
-* ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ð¡ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Î³Ì¡ï¿½Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ð´«²ï¿½ï¿½ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Ö¤ï¿½È¶ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+/*!
+* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
+* °æÈ¨ËùÓÐ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
+* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file: mdiarea.h
-\brief ï¿½ï¿½Ê¾ï¿½ï¿½Í·ï¿½Ä¼ï¿½
+\brief ÑÝÊ¾ÓÃÍ·ÎÄ¼þ
 
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½   http://xingdianketang.cn/
+\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
 \Date 2018/8
 */
 
@@ -32,62 +32,62 @@ class CEditMdiArea : public QMdiArea
 
 public:
 /**
-	* @brief			ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½
-	* @param[in] pMainWindow	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @brief			¹¹Ôìº¯Êý
+	* @param[in] pMainWindow	¸¸´°¿Ú
 	*/
     CEditMdiArea(QMainWindow* pMainWindow);
-	/// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	/// Îö¹¹º¯Êý
     virtual ~CEditMdiArea();
 
 public:
 	/**
-	* @brief ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	* @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @brief »ñÈ¡Ö÷´°¿Ú
+	* @return Ö÷´°¿Ú
 	*/
     QMainWindow* getMainWindow();
 	/**
-	* @brief ï¿½ï¿½È¡ï¿½ï¿½Ç°ï¿½î¶¯ï¿½ï¿½Í¼
-	* @return ï¿½ï¿½Ç°ï¿½î¶¯ï¿½ï¿½Í¼
+	* @brief »ñÈ¡µ±Ç°»î¶¯ÊÓÍ¼
+	* @return µ±Ç°»î¶¯ÊÓÍ¼
 	*/
     CGraphView *activeMdiChild();
     /**
-    * @brief ï¿½ï¿½È¡ï¿½ï¿½Ç°ï¿½î¶¯ï¿½à¼­ï¿½ï¿½Í¼
-    * @param[in] pMdiChild subwindowï¿½ï¿½ï¿½ï¿½
-    * @return ï¿½ï¿½Ç°ï¿½î¶¯ï¿½à¼­ï¿½ï¿½Í¼
+    * @brief »ñÈ¡µ±Ç°»î¶¯±à¼­ÊÓÍ¼
+    * @param[in] pMdiChild subwindow¶ÔÏó
+    * @return µ±Ç°»î¶¯±à¼­ÊÓÍ¼
     */
     CGraphView* getActiveEditView(QMdiSubWindow* pMdiChild);
 
 	/**
-	* @brief ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼
-	* @param[in] fileName ï¿½Ä¼ï¿½ï¿½ï¿½
-	* @param[in] pError ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	* @return ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½Í²ï¿½ï¿½ï¿½È·ï¿½ò·µ»ï¿½NULL
+	* @brief ¸ù¾ÝÎÄ¼þ´´½¨ÊÓÍ¼
+	* @param[in] fileName ÎÄ¼þÃû
+	* @param[in] pError ´íÎóÂë
+	* @return ÊÓÍ¼¶ÔÏó£¬Èç¹û´´½¨µÄÄ£°åÀàÐÍ²»ÕýÈ·Ôò·µ»ØNULL
 	*/
 	virtual CGraphView* createMdiChild(const QString& fileName, QString* pError = NULL);
     /**
-    * @brief ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªfilenameï¿½ï¿½ï¿½Ó´ï¿½ï¿½Ú¶ï¿½ï¿½ï¿½
-    * @param[in] fileName ï¿½Ä¼ï¿½ï¿½ï¿½
-    * return ï¿½Ó´ï¿½ï¿½Ú¶ï¿½ï¿½ï¿½
+    * @brief ²éÕÒÃû×ÖÎªfilenameµÄ×Ó´°¿Ú¶ÔÏó
+    * @param[in] fileName ÎÄ¼þÃû
+    * return ×Ó´°¿Ú¶ÔÏó
     */
     virtual QMdiSubWindow *findMdiChild(const QString &fileName);
     
     /**
-    * @brief ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½QAction
+    * @brief ¹¹½¨²Ëµ¥Ïî¶ÔÓ¦µÄQAction
     * return void
     */
     void createActions();		
     
     /**
-    * @brief ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    * @brief ¹¹½¨¹¤¾ßÌõ
     * return void
     */
    void createToolBars();		
 	/**
-	* @brief ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ä¼ï¿½
-	* @param[in] fileName ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½
-	* @param[in] pError ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	* @retval true ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½É¹ï¿½
-	* @retval true ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Ê§ï¿½ï¿½
+	* @brief ´ò¿ªÖ¸¶¨ÎÄ¼þ
+	* @param[in] fileName ÎÄ¼þËùÔÚÂ·¾¶Ãû
+	* @param[in] pError ´íÎóÂë
+	* @retval true ´ò¿ªÎÄ¼þ³É¹¦
+	* @retval true ´ò¿ªÎÄ¼þÊ§°Ü
 	*/
 	bool openFile(const QString &fileName, QString* pError = NULL);
    
@@ -99,22 +99,22 @@ private slots:
     void slot_addEllipse(); 
 
 #ifndef QT_NO_CLIPBOARD
-	/// ï¿½ï¿½ï¿½ï¿½
+	/// ¼ôÇÐ
     void slot_cut();
-	/// ï¿½ï¿½ï¿½ï¿½
+	/// ¿½±´
     void slot_copy();
- 	/// ï¿½ï¿½ï¿½ï¿½
+ 	/// ð¤Ìù
    void slot_paste();
 #endif
     /**
-	*	@brief				ï¿½ï¿½Í¼ï¿½Ø±ÕµÄ²Ûºï¿½ï¿½ï¿½
-	*	@param[in] pView	ï¿½ï¿½Í¼Ö¸ï¿½ï¿½
+	*	@brief				ÊÓÍ¼¹Ø±ÕµÄ²Ûº¯Êý
+	*	@param[in] pView	ÊÓÍ¼Ö¸Õë
 	*/
 	virtual void onViewClose(QWidget*);
 
     /**
-    * @brief ï¿½ï¿½ï¿½Ú¼ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½
-    * @param[in] pMdiChild ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
+    * @brief ´°¿Ú¼¤»îÏûÏ¢´¦Àí
+    * @param[in] pMdiChild ´°¿ÚÖ¸Õë
     */
     virtual void onSubWindowActivate(QMdiSubWindow *pMdiChild);
 
@@ -124,34 +124,34 @@ Q_SIGNALS:
     void editViewClose(QWidget*);
 private:
     /**
-    * @brief ï¿½ï¿½ï¿½à¼­ï¿½ï¿½Í¼ï¿½Ò½Óµï¿½ï¿½à´°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä²Ûºï¿½ï¿½ï¿½
-    * @param[in] pView ï¿½à¼­ï¿½ï¿½Í¼
+    * @brief ½«±à¼­ÊÓÍ¼¹Ò½Óµ½¶à´°¿ÚÇøÓòµÄ²Ûº¯Êý
+    * @param[in] pView ±à¼­ÊÓÍ¼
     */
     void connectEditViewWithSlot(CGraphView* pView);
     /**
-    * @brief ï¿½ï¿½ï¿½à¼­ï¿½ï¿½Í¼ï¿½ï¿½Îªï¿½Ç¼ï¿½ï¿½ï¿½×´Ì¬Ê±,ï¿½ï¿½ï¿½à¼­ï¿½ï¿½Í¼ï¿½ï¿½ï¿½à´°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä²Ûºï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½ï¿½
-    * @param[in] pView ï¿½à¼­ï¿½ï¿½Í¼
+    * @brief µ±±à¼­ÊÓÍ¼±äÎª·Ç¼¤»î×´Ì¬Ê±,½«±à¼­ÊÓÍ¼Óë¶à´°¿ÚÇøÓòµÄ²Ûº¯Êý¶Ï¿ªÁ¬½Ó
+    * @param[in] pView ±à¼­ÊÓÍ¼
     */
     void disconnectEditViewWithSlot_whenInActivate(CGraphView* pView);
     /**
-    * @brief ï¿½ï¿½ï¿½à¼­ï¿½ï¿½Í¼ï¿½ï¿½ï¿½à´°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä²Ûºï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½ï¿½
-    * @param[in] pView ï¿½à¼­ï¿½ï¿½Í¼
+    * @brief ½«±à¼­ÊÓÍ¼Óë¶à´°¿ÚÇøÓòµÄ²Ûº¯Êý¶Ï¿ªÁ¬½Ó
+    * @param[in] pView ±à¼­ÊÓÍ¼
     */
     void disconnectEditViewWithSlot(CGraphView* pView);
 private:
-	QMdiSubWindow *m_pLastActivatedMdiChild; /// ï¿½Ï¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ã´°ï¿½ï¿½)
-	QMainWindow* m_pMainWindow;	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
-    QToolBar *m_pEditToolBar;	/// ï¿½à¼­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-    QAction *m_pNewAct;			/// ï¿½Â½ï¿½
-    QAction *m_pOpenAct;		/// ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
+	QMdiSubWindow *m_pLastActivatedMdiChild; /// ÉÏ¸ö¼¤»îµÄ´°¿Ú(½¹µã´°¿Ú)
+	QMainWindow* m_pMainWindow;	// Ö÷´°¿ÚÖ¸Õë
+    QToolBar *m_pEditToolBar;	/// ±à¼­¹¤¾ßÌõ
+    QAction *m_pNewAct;			/// ÐÂ½¨
+    QAction *m_pOpenAct;		/// ´ò¿ªÎÄ¼þ
 
 #ifndef QT_NO_CLIPBOARD
-    QAction *m_pCutAct;			/// ï¿½ï¿½ï¿½ï¿½
-    QAction *m_pCopyAct;		/// ï¿½ï¿½ï¿½ï¿½
-    QAction *m_pPasteAct;		/// ï¿½ï¿½ï¿½ï¿½
+    QAction *m_pCutAct;			/// ¼ôÇÐ
+    QAction *m_pCopyAct;		/// ¸´ÖÆ
+    QAction *m_pPasteAct;		/// ð¤Ìù
 #endif
-    QAction *m_pRectAct;        /// ï¿½ï¿½ï¿½Ó¾ï¿½ï¿½ï¿½
-    QAction *m_pEllipseAct;     /// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô²
+    QAction *m_pRectAct;        /// Ìí¼Ó¾ØÐÎ
+    QAction *m_pEllipseAct;     /// Ìí¼ÓÍÖÔ²
 };
 
 #endif // MDIAREA_H

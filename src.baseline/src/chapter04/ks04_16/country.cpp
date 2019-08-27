@@ -1,13 +1,13 @@
-ï»¿/*! 
-* Copyright (C) 2018 Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
-* ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ð¡ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Î³Ì¡ï¿½Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ð´«²ï¿½ï¿½ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Ö¤ï¿½È¶ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+/*! 
+* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
+* °æÈ¨ËùÓÐ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
+* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file: country.cpp
-\brief ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½Ä¼ï¿½
+\brief ¹ú¼ÒÀàÊµÏÖÎÄ¼þ
 
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½   http://xingdianketang.cn/
+\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
 \Date 2018/10
 */
 
@@ -42,7 +42,7 @@ int CCountry::addProvince(CProvince* pProvince) {
 ESerializeCode CCountry::serializeBinary(const QString& strFileName, QString* pError) const {
 	if (0 == strFileName.length()) {
 		if (NULL != pError) {
-			pError->append(QString::fromLocal8Bit("\nï¿½Ä¼ï¿½ï¿½ï¿½Îªï¿½ï¿½"));
+			pError->append(QString::fromLocal8Bit("\nÎÄ¼þÃûÎª¿Õ"));
 		}
 		return ESERIALIZECODE_FILENOTFOND;
 	}
@@ -63,9 +63,9 @@ ESerializeCode CCountry::serializeBinary(const QString& strFileName, QString* pE
 ESerializeCode  CCountry::serializeBinary(QDataStream& ds, QString* pError) const {
 	ds << m_strName;
 	ds << m_strContinent;
-	quint16 nCount = m_lstProvinces.size(); // ï¿½ï¿½Òªï¿½ï¿½È·Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ½Ì¨Ê±ï¿½ï¿½ï¿½Ü³ï¿½ï¿½ï¿½ï¿½â¡£ï¿½ï¿½ï¿½ï¿½intï¿½Ú¸ï¿½ï¿½ï¿½Æ½Ì¨ï¿½Ï¿ï¿½ï¿½Ü³ï¿½ï¿½È²ï¿½Ò»ï¿½ï¿½ï¿½ï¿½
+	quint16 nCount = m_lstProvinces.size(); // ÐèÒªÃ÷È·Ö¸¶¨Êý¾ÝÀàÐÍ£¬·ñÔò¿çÆ½Ì¨Ê±¿ÉÄÜ³öÎÊÌâ¡£±ÈÈçintÔÚ¸÷¸öÆ½Ì¨ÉÏ¿ÉÄÜ³¤¶È²»Ò»Ñù¡£
 	ds << nCount; 
-	QList<CProvince*>::ConstIterator iteLst = m_lstProvinces.constBegin(); // ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªconstï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½constï¿½ï¿½ï¿½ÍµÄ½Ó¿ï¿½
+	QList<CProvince*>::ConstIterator iteLst = m_lstProvinces.constBegin(); // ÒòÎª±¾º¯ÊýÎªconst£¬ËùÒÔÐèÒªµ÷ÓÃconstÀàÐÍµÄ½Ó¿Ú
 	ESerializeCode ret = ESERIALIZECODE_OK;
 	while (iteLst != m_lstProvinces.end()) {
 		ESerializeCode retcode = (*iteLst)->serializeBinary(ds, pError);

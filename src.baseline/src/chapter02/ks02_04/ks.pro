@@ -14,7 +14,7 @@ MOC_DIR		= $$(OBJECTS_DIR)/moc
 UI_DIR		= $$(OBJECTS_DIR)/ui
 
 				
-FORMS		+= dialogbase.ui
+FORMS		+= dialog.ui
 
 HEADERS		+= ks.pro \
 				dialog.h

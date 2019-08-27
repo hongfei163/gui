@@ -1,13 +1,13 @@
-ï»¿/*! 
-* Copyright (C) 2018 Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
-* ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ð¡ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Î³Ì¡ï¿½Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ð´«²ï¿½ï¿½ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Ö¤ï¿½È¶ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+/*! 
+* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
+* °æÈ¨ËùÓÐ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
+* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file: sync.cpp
-\brief ï¿½Ä¼ï¿½Í¬ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½Ä¼ï¿½
+\brief ÎÄ¼þÍ¬²½ÀàÊµÏÖÎÄ¼þ
 
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½   http://xingdianketang.cn/
+\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
 \Date 2018/9 
 */
 #include <QCoreApplication>
@@ -198,12 +198,12 @@ bool CSync::exec() {
 		QStringList lstFiles = getSyncFileList(strSourcePath, *iteLst, true);
 		QStringList::iterator iteFile = lstFiles.begin();
 		for (; iteFile != lstFiles.end(); iteFile++) {
-			// ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
+			// »ñÈ¡Ïà¶ÔÂ·¾¶
 			strSrcFilePath = *iteFile;
 			strReleativePath = ns_train::getReleativePath(strSrcFilePath, strSourcePath);
-			// ï¿½Ãµï¿½Ä¿ï¿½ï¿½Â·ï¿½ï¿½
+			// µÃµ½Ä¿±êÂ·¾¶
 			strDstFilePath = strDestPath + strReleativePath;
-			// ï¿½ï¿½È¡source md5ï¿½ï¿½
+			// »ñÈ¡source md5Âë
 			srcMd5 = ns_train::getMd5(strSrcFilePath);
 			dstMd5 = ns_train::getMd5(strDstFilePath);
 			if (srcMd5 != dstMd5) {
@@ -238,7 +238,7 @@ QStringList CSync::getSyncFileList(const QString& strDirectory, const CSyncConfi
 	for (iteFileInfo = fileInfoList.begin(); iteFileInfo != fileInfoList.end(); iteFileInfo++) {
 		fileInfo = *iteFileInfo;
 		strFileName = fileInfo.fileName();
-		if ((strFileName == ".") || (strFileName == "..")) { // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ï¿½ï¿½ï¿½Ï¼ï¿½Ä¿Â¼Ö¸Ê¾ï¿½ï¿½ï¿½ï¿½
+		if ((strFileName == ".") || (strFileName == "..")) { // Ìø¹ý±¾Ä¿Â¼ºÍÉÏ¼¶Ä¿Â¼Ö¸Ê¾·û¡£
 			continue;
 		}
 		if (fileInfo.isDir()) {

@@ -1,13 +1,13 @@
-ï»¿/*! 
-* Copyright (C) 2018 Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
-* ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ğ¡ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Î³Ì¡ï¿½Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ğ´«²ï¿½ï¿½ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Ö¤ï¿½È¶ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+/*! 
+* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
+* °æÈ¨ËùÓĞ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
+* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file: country.cpp
-\brief Ê¡ï¿½ï¿½Êµï¿½ï¿½ï¿½Ä¼ï¿½
+\brief Ê¡ÀàÊµÏÖÎÄ¼ş
 
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½   http://xingdianketang.cn/
+\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
 \Date 2018/10
 */
 
@@ -15,10 +15,10 @@
 #include "province.h"
 
 
-// domÔªï¿½Ø±ï¿½Ç©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// domÔªËØ±êÇ©¶¨ÒåÇø
 static const char* c_tag_city = "city";
 
-// domÔªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// domÔªËØÊôĞÔÃû¶¨ÒåÇø
 static const char* c_attribute_name = "name";
 
 
@@ -49,9 +49,9 @@ int CProvince::addCity(CCity* pCity) {
 
 ESerializeCode  CProvince::serializeBinary(QDataStream& ds, QString* pError) const {
 	ds << m_strName;
-	quint16 nCount = m_lstCities.size(); // ï¿½ï¿½Òªï¿½ï¿½È·Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ½Ì¨Ê±ï¿½ï¿½ï¿½Ü³ï¿½ï¿½ï¿½ï¿½â¡£ï¿½ï¿½ï¿½ï¿½intï¿½Ú¸ï¿½ï¿½ï¿½Æ½Ì¨ï¿½Ï¿ï¿½ï¿½Ü³ï¿½ï¿½È²ï¿½Ò»ï¿½ï¿½ï¿½ï¿½
+	quint16 nCount = m_lstCities.size(); // ĞèÒªÃ÷È·Ö¸¶¨Êı¾İÀàĞÍ£¬·ñÔò¿çÆ½Ì¨Ê±¿ÉÄÜ³öÎÊÌâ¡£±ÈÈçintÔÚ¸÷¸öÆ½Ì¨ÉÏ¿ÉÄÜ³¤¶È²»Ò»Ñù¡£
 	ds << nCount;
-	QList<CCity*>::ConstIterator iteLst = m_lstCities.constBegin(); // ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªconstï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½constï¿½ï¿½ï¿½ÍµÄ½Ó¿ï¿½
+	QList<CCity*>::ConstIterator iteLst = m_lstCities.constBegin(); // ÒòÎª±¾º¯ÊıÎªconst£¬ËùÒÔĞèÒªµ÷ÓÃconstÀàĞÍµÄ½Ó¿Ú
 	while (iteLst != m_lstCities.end()) {
 		(*iteLst)->serializeBinary(ds, pError);
 		iteLst++;
@@ -65,7 +65,7 @@ ESerializeCode CProvince::deSerializeBinary(QDataStream& ds, QString* pError) {
 	ds.setByteOrder(QDataStream::LittleEndian);
 	ESerializeCode retcode = ESERIALIZECODE_OK;
 	ds >> m_strName;
-	quint16 nCount = 0; // ï¿½ï¿½Òªï¿½ï¿½È·Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ½Ì¨Ê±ï¿½ï¿½ï¿½Ü³ï¿½ï¿½ï¿½ï¿½â¡£ï¿½ï¿½ï¿½ï¿½intï¿½Ú¸ï¿½ï¿½ï¿½Æ½Ì¨ï¿½Ï¿ï¿½ï¿½Ü³ï¿½ï¿½È²ï¿½Ò»ï¿½ï¿½ï¿½ï¿½
+	quint16 nCount = 0; // ĞèÒªÃ÷È·Ö¸¶¨Êı¾İÀàĞÍ£¬·ñÔò¿çÆ½Ì¨Ê±¿ÉÄÜ³öÎÊÌâ¡£±ÈÈçintÔÚ¸÷¸öÆ½Ì¨ÉÏ¿ÉÄÜ³¤¶È²»Ò»Ñù¡£
 	ds >> nCount;
 	quint16 idx = 0;
 	CCity* pCity = NULL;
@@ -84,7 +84,7 @@ ESerializeCode CProvince::serializeXML(QDomDocument& doc, QDomElement& eleProvin
 
 	eleProvince.setAttribute(c_attribute_name, m_strName);
 
-	QList<CCity*>::ConstIterator iteLst = m_lstCities.constBegin(); // ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªconstï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½constï¿½ï¿½ï¿½ÍµÄ½Ó¿ï¿½
+	QList<CCity*>::ConstIterator iteLst = m_lstCities.constBegin(); // ÒòÎª±¾º¯ÊıÎªconst£¬ËùÒÔĞèÒªµ÷ÓÃconstÀàĞÍµÄ½Ó¿Ú
 	ESerializeCode ret = ESERIALIZECODE_OK;
 	while (iteLst != m_lstCities.end()) {
 		QDomElement eleCity = doc.createElement(c_tag_city);

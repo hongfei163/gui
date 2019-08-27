@@ -20,8 +20,8 @@ SOURCES    +=  main.cpp \
 				widget.cpp \
 				maindialog.cpp
 				
-FORMS		+= widgetbase.ui \
-			   maindialogbase.ui
+FORMS		+= widget.ui \
+			   maindialog.ui
 
 RESOURCES  +=  ks05_11.qrc
 

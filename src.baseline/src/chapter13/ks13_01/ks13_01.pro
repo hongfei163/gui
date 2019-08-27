@@ -18,7 +18,7 @@ HEADERS		+=  $$TRAIN_SRC_PATH/gui_base.pri \
 SOURCES    +=  main.cpp \
 				dialog.cpp 
 				
-FORMS		+= dialogbase.ui
+FORMS		+= dialog.ui
 
 OBJECTS_DIR = $$TEMPDIR
 MOC_DIR		= $$TEMPDIR/moc

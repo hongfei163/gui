@@ -1,19 +1,19 @@
-ï»¿/*! 
-* Copyright (C) 2018 Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
-* ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ð¡ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Î³Ì¡ï¿½Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ð´«²ï¿½ï¿½ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Ö¤ï¿½È¶ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+/*! 
+* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
+* °æÈ¨ËùÓÐ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
+* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file: main.cpp
-\brief main()ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½Ä¼ï¿½
+\brief main()º¯ÊýµÄÊµÏÖÎÄ¼þ
 
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½   http://xingdianketang.cn/
+\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
 \Date 2018/8
 */
 #include <QApplication>
-#include <QTranslator>	// ï¿½ï¿½ï¿½Ê»ï¿½
+#include <QTranslator>	// ¹ú¼Ê»¯
 #include "qglobal.h"
-#include <QLibraryInfo> // ï¿½ï¿½ï¿½Ê»ï¿½
+#include <QLibraryInfo> // ¹ú¼Ê»¯
 
 #include <QDir> 
 #include <QFile> 
@@ -27,9 +27,9 @@ using std::endl;
 typedef QMap<QString, QByteArray> MD5Map;
 
 /**
-* @brief  reduceï¿½ï¿½ï¿½ï¿½
-* @param[in|out] result reduceï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý´ï¿½ï¿½Åµï¿½resultï¿½ï¿½
-* @param[in] w Ö´ï¿½ï¿½ï¿½ï¿½mapï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½ï¿½Ä½ï¿½ï¿½ï¿½wï¿½ï¿½Îªï¿½ï¿½ï¿½ë´«ï¿½ï¿½reduceï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+* @brief  reduceº¯Êý
+* @param[in|out] result reduceº¯ÊýµÄ·µ»ØÊý¾Ý´æ·Åµ½result¡£
+* @param[in] w Ö´ÐÐÍêmapº¯ÊýµÃµ½µÄ½á¹ûw×÷ÎªÊäÈë´«Èëreduceº¯Êý¡£
 * @return void
 */
 void reduce(MD5Map &result, const MD5Map &w)
@@ -42,9 +42,9 @@ void reduce(MD5Map &result, const MD5Map &w)
 }
 
 /**
-* @brief  mapï¿½ï¿½ï¿½ï¿½
-* @param[in] strFileName ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½md5ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
-* @return MD5Map ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½md5ï¿½ï¿½ï¿½ï¿½Ó³ï¿½ä£¬ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½reduceï¿½Ó¿ï¿½(ï¿½ï¿½Îªï¿½Ó¿ÚµÄ²ï¿½ï¿½ï¿½2)
+* @brief  mapº¯Êý
+* @param[in] strFileName ´ý¼ÆËãmd5ÂëµÄÎÄ¼þÃû¡£
+* @return MD5Map ¼ÆËã³öµÄÎÄ¼þÃûµ½md5ÂëµÄÓ³Éä£¬¸ÃÖµ½«±»ÓÃÀ´µ÷ÓÃreduce½Ó¿Ú(×÷Îª½Ó¿ÚµÄ²ÎÊý2)
 */
 MD5Map getMd5OfFile(const QString& strFileName)
 {
@@ -59,8 +59,8 @@ int main(int argc, char * argv[])
 	Q_UNUSED(argv);
 	QApplication app(argc, argv);
 
-	// ï¿½ï¿½ï¿½Ê»ï¿½
-	// ï¿½ï¿½×°qtï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½
+	// ¹ú¼Ê»¯
+	// °²×°qt×Ô´øµÄÖÐÎÄ·­Òë
 	const QString localSysName = QLocale::system().name();
 	QScopedPointer<QTranslator> qtTranslator(new QTranslator(QCoreApplication::instance()));
 	if (qtTranslator->load(QStringLiteral("qt_") + localSysName,
@@ -69,8 +69,8 @@ int main(int argc, char * argv[])
 		QCoreApplication::installTranslator(qtTranslator.take());
 	}
 
-	// ï¿½ï¿½×°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½Ä·ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
-	QString strPath = qgetenv("TRAINDEVHOME");	// ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
+	// °²×°ÎÒÃÇÏîÄ¿µÄ·­ÒëÎÄ¼þ
+	QString strPath = qgetenv("TRAINDEVHOME");	// »ñÈ¡»·¾³±äÁ¿ËùÖ¸ÏòµÄÂ·¾¶
 	strPath += "/system/lang";					// $TRAINDEVHOME/system/lang/xxxxx.qm
 	QScopedPointer<QTranslator> gpTranslator(new QTranslator(QCoreApplication::instance()));
 	if (gpTranslator->load("ks13_03.qm", strPath))
@@ -79,19 +79,19 @@ int main(int argc, char * argv[])
 	}
 
     QStringList strFilters;
-    strFilters << "*.h" << "*.cpp"; // ï¿½ï¿½Òª×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ±ï¿½demoï¿½ï¿½ï¿½ï¿½ï¿½ï¿½md5_a.txtï¿½ï¿½md5_b.txtÍ³ï¿½ï¿½ï¿½ï¿½ï¿½Ú¡ï¿½
+    strFilters << "*.h" << "*.cpp"; // ÐèÒª×¢Òâ±ÜÃâ°Ñ±¾demo²úÉúµÄmd5_a.txt¡¢md5_b.txtÍ³¼ÆÔÚÄÚ¡£
 
-    // ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½MD5ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ð±ï¿½.
+    // µÃµ½´ý¼ÆËãMD5ÂëµÄÎÄ¼þÁÐ±í.
     QString strScanPath = ns_train::getPath("$TRAINDEVHOME");
     qDebug() << strScanPath;
     QStringList files = ns_train::getFileList(strScanPath, strFilters, true);
     QStringList::iterator ite = files.begin();
    
-    int singleThreadTime = 0; // ï¿½ï¿½ï¿½ß³Ì¼ï¿½ï¿½ï¿½md5ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ä¡£
+    int singleThreadTime = 0; // µ¥Ïß³Ì¼ÆËãmd5ÂëËùÐèµÄÊ±¼ä¡£
     QTime time;
     time.start();
     MD5Map md5_a;
-    { // ï¿½ï¿½ï¿½Ð²ï¿½ï¿½ï¿½
+    { // ´®ÐÐ²Ù×÷
         QString strFileName;
         for (; ite != files.end(); ite++) {
             md5_a[*ite] = ns_train::getMd5(*ite);
@@ -100,7 +100,7 @@ int main(int argc, char * argv[])
         qDebug() << "single thread" << singleThreadTime;
     }
     
-    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½aÐ´ï¿½ï¿½ï¿½Ä¼ï¿½
+    // ½«½á¹ûaÐ´ÈëÎÄ¼þ
     {
         QString strFileName;
         strFileName = ns_train::getPath("$TRAINDEVHOME/test/chapter13/ks13_04/md5_a.txt");
@@ -109,7 +109,7 @@ int main(int argc, char * argv[])
         dir.mkpath(strDir);
 
         QFile file(strFileName);
-        // ï¿½ò¿ª·ï¿½Ê½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½Ê½
+        // ´ò¿ª·½Ê½£ºÖ»¶Á¡¢ÎÄ±¾·½Ê½
         if (!file.open(QFile::Truncate | QFile::WriteOnly | QFile::Text)) {
             qDebug("open failed! file name is:%s", strFileName.toLocal8Bit().data());
         }
@@ -136,7 +136,7 @@ int main(int argc, char * argv[])
 
     qDebug() << "Map speedup x" << ((double)singleThreadTime - (double)mapReduceTime) / (double)mapReduceTime + 1;
 
-    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½bÐ´ï¿½ï¿½ï¿½Ä¼ï¿½
+    // ½«½á¹ûbÐ´ÈëÎÄ¼þ
     {
         QString strFileName;
         strFileName = ns_train::getPath("$TRAINDEVHOME/test/chapter13/ks13_04/md5_b.txt");
@@ -145,7 +145,7 @@ int main(int argc, char * argv[])
         dir.mkpath(strDir);
 
         QFile file(strFileName);
-        // ï¿½ò¿ª·ï¿½Ê½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½Ê½
+        // ´ò¿ª·½Ê½£ºÖ»¶Á¡¢ÎÄ±¾·½Ê½
         if (!file.open(QFile::Truncate | QFile::WriteOnly | QFile::Text)) {
             qDebug("open failed! file name is:%s", strFileName.toLocal8Bit().data());
         }

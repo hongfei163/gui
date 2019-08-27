@@ -1,13 +1,13 @@
-ï»¿/*! 
-* Copyright (C) 2018 Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
-* ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ð¡ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Î³Ì¡ï¿½Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ð´«²ï¿½ï¿½ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Ö¤ï¿½È¶ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+/*! 
+* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
+* °æÈ¨ËùÓÐ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
+* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file: main.cpp
-\brief qDebugï¿½ï¿½Ê¹ï¿½ï¿½Ê¾ï¿½ï¿½
+\brief qDebugµÄÊ¹ÓÃÊ¾Àý
 
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½   http://xingdianketang.cn/
+\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
 \Date 2018/9
 */
 
@@ -34,12 +34,12 @@ void example02();
 void example03();
 
 QString getPath(const QString& strInputPath);
-QMutex g_mutex; // Îªï¿½ï¿½Ö§ï¿½Ö¶ï¿½ï¿½ß³Ì¹ï¿½ï¿½Ü£ï¿½ï¿½ï¿½ÒªÊ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾ï¿½Ä¼ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½
+QMutex g_mutex; // ÎªÁËÖ§³Ö¶àÏß³Ì¹¦ÄÜ£¬ÐèÒªÊ¹ÓÃËøÀ´±£»¤¶ÔÈÕÖ¾ÎÄ¼þµÄ²Ù×÷¡£
 void customMessageHandler(QtMsgType type, const QMessageLogContext& context, const QString& info)
 {
-	// ï¿½ï¿½ï¿½ï¿½
+	// ¼ÓËø
 	QMutexLocker locker(&g_mutex);
-	// ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Ê½ï¿½ï¿½
+	// °ÑÐÅÏ¢¸ñÊ½»¯
 	QString log = QString::fromLocal8Bit("msg-[%1], file-[%2], func-[%3], category-[%4]\n").arg(info).arg(context.file)
 		.arg(context.function).arg(context.category);
 	
@@ -86,11 +86,11 @@ int main(int argc, char * argv[])
 	Q_UNUSED(argv);
 	QApplication app(argc, argv);
 	
-	// ï¿½ï¿½ï¿½ï¿½ï¿½Ø¶ï¿½ï¿½ï¿½
+	// Êä³öÖØ¶¨Ïò
 	//qInstallMessageHandler(customMessageHandler);
 
-	// ï¿½ï¿½ï¿½Ê»ï¿½
-	// ï¿½ï¿½×°qtï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½
+	// ¹ú¼Ê»¯
+	// °²×°qt×Ô´øµÄÖÐÎÄ·­Òë
 	const QString localSysName = QLocale::system().name();
 	QScopedPointer<QTranslator> qtTranslator(new QTranslator(QCoreApplication::instance()));
 	if (qtTranslator->load(QStringLiteral("qt_") + localSysName,
@@ -99,8 +99,8 @@ int main(int argc, char * argv[])
 		QCoreApplication::installTranslator(qtTranslator.take());
 	}
 
-	// ï¿½ï¿½×°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½Ä·ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
-	QString strPath = qgetenv("TRAINDEVHOME");	// ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
+	// °²×°ÎÒÃÇÏîÄ¿µÄ·­ÒëÎÄ¼þ
+	QString strPath = qgetenv("TRAINDEVHOME");	// »ñÈ¡»·¾³±äÁ¿ËùÖ¸ÏòµÄÂ·¾¶
 	strPath += "/system/lang";					// $TRAINDEVHOME/system/lang/ks03_01.qm
 	QScopedPointer<QTranslator> gpTranslator(new QTranslator(QCoreApplication::instance()));
 	if (gpTranslator->load("ks04_04.qm", strPath))
@@ -129,15 +129,15 @@ int main(int argc, char * argv[])
 
 	cout << "please input any key to exit......";
 	char ch = '\0';
-	cin >> ch; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½Ë³ï¿½
+	cin >> ch; // ¼üÈëÈÎÒâ×Ö·ûÍË³ö
 
 	return 0;
 }
 
 /**
-* @brief  qDebug()<< ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
-*		  ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½<<ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½qDebug()ï¿½ï¿½
-* @return ï¿½ï¿½
+* @brief  qDebug()<< ·½Ê½Êä³öÐÅÏ¢
+*		  ¿ÉÒÔÖ±½ÓÓÃ<<²Ù×÷·û½«ÐèÒªÊä³öµÄÐÅÏ¢Êä³öµ½qDebug()¡£
+* @return ÎÞ
 */
 void example01(){
 	
@@ -151,8 +151,8 @@ void example01(){
 }
 
 /**
-* @brief  Ê¹ï¿½ï¿½qDebug("%")ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
-* @return ï¿½ï¿½
+* @brief  Ê¹ÓÃqDebug("%")¸ñÊ½»¯Êä³öÐÅÏ¢
+* @return ÎÞ
 */
 void example02(){
 	
@@ -167,21 +167,21 @@ void example02(){
 		dt.date().year(), dt.date().month(), dt.date().day());
 	qCritical("I live in %s. Today is %04d-%02d-%02d", str.toLocal8Bit().data(),
 		dt.date().year(), dt.date().month(), dt.date().day());
-	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½â£¬ï¿½ä¹¦ï¿½ï¿½ï¿½Çµï¿½ï¿½ï¿½ï¿½ì³£ï¿½ï¿½ï¿½æ£¬ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì³£ï¿½ï¿½Ï¢ï¿½ï¿½
+	// ÏÂÃæÁ½ÐÐ´úÂëÈç¹û½â·â£¬Æä¹¦ÄÜÊÇµ¯³öÒì³£½çÃæ£¬²¢ÏÔÊ¾ÎÒÃÇ¸ø³öµÄÒì³£ÐÅÏ¢¡£
 	//qFatal("I live in %s. Today is %04d-%02d-%02d", str.toLocal8Bit().data(),
 	//	dt.date().year(), dt.date().month(), dt.date().day());
 }
 
 
 /**
-* @brief  ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½qDebug
-* @param[in] mc ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½
+* @brief  ½«×Ô¶¨ÒåÀàÊä³öµ½qDebug
+* @param[in] mc ×Ô¶¨ÒåÀà
 * @return 
 */
 void example03(){
 	CMyClass mc;
 	mc.setId(10000);
-	mc.setName(QString::fromLocal8Bit("ï¿½ï¿½Ê¼ï¿½ï¿½"));
+	mc.setName(QString::fromLocal8Bit("ÇØÊ¼»Ê"));
 	qDebug() << mc;
 }
 
@@ -201,7 +201,7 @@ QString getPath(const QString& strInputPath) {
 	QString str = qEnvironmentVariable(strEnvironmentVariable.toLocal8Bit().data());
 	if (str.length() > 0) {
 		str.replace("\\", "/");
-		if (str.right(1) == "/") { // É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"/"
+		if (str.right(1) == "/") { // É¾³ý»·¾³±äÁ¿ÖÐ×îºóµÄ"/"
 			str = str.left(str.length() - 1);
 		}
 		strPath.insert(0, str);

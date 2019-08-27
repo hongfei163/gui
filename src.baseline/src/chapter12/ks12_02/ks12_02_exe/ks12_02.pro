@@ -14,7 +14,7 @@ INCLUDEPATH += $$TRAIN_INCLUDE_PATH/
 
 TRANSLATIONS += $$TRAIN_SRC_PATH/translations/ks12_02.ts
 
-#FORMS 		+= dialogbase.ui
+#FORMS 		+= dialog.ui
 				
 HEADERS		+=  $$TRAIN_SRC_PATH/gui_base.pri \
 				ks12_02.pro \

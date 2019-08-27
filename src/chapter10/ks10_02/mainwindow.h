@@ -1,13 +1,13 @@
-ï»¿/*! 
-* Copyright (C) 2018 Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
-* ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ð¡ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Î³Ì¡ï¿½Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ð´«²ï¿½ï¿½ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Ö¤ï¿½È¶ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+/*! 
+* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
+* °æÈ¨ËùÓÐ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
+* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file: mainwindow.h
-\brief ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½Ä¼ï¿½
+\brief Ö÷´°ÌåÍ·ÎÄ¼þ
   
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½   http://xingdianketang.cn/
+\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
 \Date 2018/12 
 */
 
@@ -47,19 +47,19 @@ private slots:
 
 
 private:
-	void createActions();		/// ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½QActionï¿½ï¿½
-	void createMenus();		    /// ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½
-	void createStatusBar();		/// ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½
-	void initialize();			/// ï¿½ï¿½Ê¼ï¿½ï¿½	
-	void connectSignalAndSlot();/// ï¿½ï¿½ï¿½ï¿½ï¿½ÅºÅ²ï¿½
+	void createActions();		/// ¹¹½¨²Ëµ¥Ïî¶ÔÓ¦µÄQAction¡£
+	void createMenus();		    /// ¹¹½¨²Ëµ¥
+	void createStatusBar();		/// ¹¹½¨×´Ì¬À¸
+	void initialize();			/// ³õÊ¼»¯	
+	void connectSignalAndSlot();/// °ó¶¨ÐÅºÅ²Û
 	
 private:
-	QMenu *m_pHelpMenu;			/// ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½
+	QMenu *m_pHelpMenu;			/// °ïÖú²Ëµ¥
 	
-	QAction *m_pAboutAct;	/// ï¿½ï¿½ï¿½ï¿½
+	QAction *m_pAboutAct;	/// ¹ØÓÚ
 
-	QLabel *m_pInfoLabel;	/// ï¿½ï¿½Ï¢ï¿½ï¿½Ç©
-	QLabel* m_pMouseLabel;	/// ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½Ê¾
+	QLabel *m_pInfoLabel;	/// ÐÅÏ¢±êÇ©
+	QLabel* m_pMouseLabel;	/// Êó±êÎ»ÖÃÏÔÊ¾
 
     CEditMdiArea* 	m_pMdiArea;
 };

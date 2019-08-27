@@ -1,12 +1,12 @@
-ï»¿/*! 
-* Copyright (C) 2018 Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
-* ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ð¡ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Î³Ì¡ï¿½Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ð´«²ï¿½ï¿½ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Ö¤ï¿½È¶ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+/*! 
+* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
+* °æÈ¨ËùÓÐ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
+* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file: config.h
-\brief exe+dllï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½Í·ï¿½Ä¼ï¿½
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½   http://xingdianketang.cn/
+\brief exe+dll±à³ÌÊ¾Àý£¬µ¥ÌåÀàµÄ¶¨ÒåÍ·ÎÄ¼þ
+\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
 \Date 2018/9 
 * please import ks04_19_dll.dll
 */
@@ -15,7 +15,7 @@
 #define _KS19_CONFIG_DLL_H
 
 
-// ï¿½ï¿½Ì¬ï¿½âµ¼ï¿½ï¿½ï¿½ê¶¨ï¿½ï¿½
+// ¶¯Ì¬¿âµ¼³öºê¶¨Òå
 #ifdef WIN32		// windows platform
 #	if defined __KS04_19_CONFIG_DLL_SOURCE__
 #		define KS04_19_CONFIG_Export __declspec(dllexport)
@@ -32,45 +32,45 @@
 class KS04_19_CONFIG_Export CConfig {
 public:
     /**
-    * @brief  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½Ó¿ï¿½
-    * @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    * @brief  µ¥Ìå¶ÔÏó·ÃÎÊ½Ó¿Ú
+    * @return µ¥Ìå¶ÔÏóµÄÒýÓÃ
     */
     static CConfig& instance();
 
     /**
-    * @brief  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡Í¼ÔªÊ±ï¿½ï¿½ï¿½ï¿½×²ï¿½ë¾¶
-    * @param[in] dR  ï¿½ë¾¶
+    * @brief  ÉèÖÃÊó±êµãÑ¡Í¼ÔªÊ±µÄÅö×²°ë¾¶
+    * @param[in] dR  °ë¾¶
     */
     void setSelectRadius(qreal dR) { m_dSelectRadius = dR; }
     /**
-    * @brief  ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡Í¼ÔªÊ±ï¿½ï¿½ï¿½ï¿½×²ï¿½ë¾¶
-    * @return ï¿½ë¾¶
+    * @brief  »ñÈ¡Êó±êµãÑ¡Í¼ÔªÊ±µÄÅö×²°ë¾¶
+    * @return °ë¾¶
     */
     qreal getSelectRadius() const { return m_dSelectRadius; }
 private:    
     /**
-    * @brief  ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªË½ï¿½Ðµï¿½Ä¿ï¿½ï¿½ï¿½Ç·ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ã¸ï¿½ï¿½à¹¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-    * @return ï¿½ï¿½
+    * @brief  ¹¹Ôìº¯Êý£¬¶¨ÒåÎªË½ÓÐµÄÄ¿µÄÊÇ·ÀÖ¹ËûÈËÊ¹ÓÃ¸ÃÀà¹¹Ôì¶ÔÏó¡£
+    * @return ÎÞ
     */
     CConfig():m_dSelectRadius(1.f){}
 
     /**
-    * @brief  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªË½ï¿½Ðµï¿½Ä¿ï¿½ï¿½ï¿½Ç·ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¬ï¿½ÏµÄ¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-    *         ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½
-    * @return ï¿½ï¿½
+    * @brief  ¿½±´¹¹Ôìº¯Êý£¬¶¨ÒåÎªË½ÓÐµÄÄ¿µÄÊÇ·ÀÖ¹±àÒëÆ÷µ÷ÓÃÄ¬ÈÏµÄ¿½±´¹¹Ôì
+    *         º¯ÊýÒþÊ½¹¹Ôì¸ÃÀàµÄ¶ÔÏó¡£
+    * @return ÎÞ
     */
     CConfig(const CConfig&);
     
     /**
-    * @brief  ï¿½ï¿½ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªË½ï¿½Ðµï¿½Ä¿ï¿½ï¿½ï¿½Ç·ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½deleteï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-    * @return ï¿½ï¿½
+    * @brief  Îö¹¹Ôìº¯Êý£¬¶¨ÒåÎªË½ÓÐµÄÄ¿µÄÊÇ·ÀÖ¹ËûÈËÓÃdeleteÓï¾äÉ¾³ýµ¥Ìå¶ÔÏó¡£
+    * @return ÎÞ
     */
     ~CConfig() {}
 
 
  private:
-   static CConfig m_config;   /// ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½
-   qreal m_dSelectRadius;       /// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë¾¶
+   static CConfig m_config;   /// ¾²Ì¬¶ÔÏó
+   qreal m_dSelectRadius;       /// Êó±ê¼à²â°ë¾¶
 
 };
 

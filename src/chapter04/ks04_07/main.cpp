@@ -1,17 +1,17 @@
-ï»¿/*! 
-* Copyright (C) 2018 Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
-* ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ð¡ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Î³Ì¡ï¿½Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ð´«²ï¿½ï¿½ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Ö¤ï¿½È¶ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+/*! 
+* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
+* °æÈ¨ËùÓÐ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
+* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file: main.cpp
-\brief      QMapï¿½ï¿½Ê¹ï¿½ï¿½
-            --ï¿½ï¿½ï¿½Ó³ï¿½Ô±
-            --ï¿½ï¿½ï¿½ï¿½
-            --ï¿½ï¿½ï¿½ï¿½
-            --É¾ï¿½ï¿½
+\brief      QMapµÄÊ¹ÓÃ
+            --Ìí¼Ó³ÉÔ±
+            --±éÀú
+            --²éÕÒ
+            --É¾³ý
 
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½   http://xingdianketang.cn/
+\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
 \Date 2018/9
 */
 
@@ -63,12 +63,12 @@ int main(int argc, char * argv[])
 }
 
 /**
-* @brief  ï¿½ï¿½QMapï¿½ï¿½ï¿½Ó³ï¿½Ô±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-* @return ï¿½ï¿½
+* @brief  ÏòQMapÌí¼Ó³ÉÔ±²¢±éÀú¡£
+* @return ÎÞ
 */
 void example01(){
 	
-	// ï¿½ï¿½ï¿½Ó³ï¿½Ô±
+	// Ìí¼Ó³ÉÔ±
 	QMap<uint, QString> mapObj;
 	mapObj[1] = "BeiJing";
 	mapObj[2] = "ShangHia";
@@ -77,7 +77,7 @@ void example01(){
 
     mapObj.insert(5, "XiaMen");
     	
-	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±-Ê¹ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½)
+	// ±éÀú³ÉÔ±-Ê¹ÓÃµü´úÆ÷(ÕýÐò)
 	//printByIterator(mapObj);
 	cout << endl << "-------------- QMap ---------------" << endl;
 	cout << "print members using iterator......" << endl;
@@ -86,36 +86,36 @@ void example01(){
 		cout << "-- key = " << iteMap.key() << ", value = " << iteMap.value().toLocal8Bit().data() << endl;
 	}
 
-	// ï¿½ï¿½ï¿½ï¿½
+	// ²éÕÒ
 	//QMap<uint, QString>::iterator iteMap;
-	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ = mapï¿½ï¿½ï¿½ï¿½.find(key);
+	// µü´úÆ÷ = map¶ÔÏó.find(key);
 	iteMap = mapObj.find(5);
 	if (iteMap != mapObj.end())	{
 		cout << endl << "-------------- QMap ---------------" << endl;
-		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.key()ï¿½ï¿½Ê¾ï¿½ï¿½; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.value()ï¿½ï¿½Ê¾ï¿½ï¿½Ó¦ï¿½ï¿½Öµ
+		// µü´úÆ÷.key()±íÊ¾¼ü; µü´úÆ÷.value()±íÊ¾¶ÔÓ¦µÄÖµ
 		cout << "find member where key = 5, and value = " << iteMap.value().toLocal8Bit().data() << endl;
 	} else {
 		cout << "cannot find member from map where key = 5." << endl;
     }
 
-	// É¾ï¿½ï¿½
+	// É¾³ý
 	cout << endl << "-------------- QMap ---------------" << endl;
 	if (iteMap != mapObj.end())	{
 		cout << "erase it from map." << endl;
 		mapObj.erase(iteMap);
 	} 
 
-	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±-Ê¹ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½)
+	// ±éÀú³ÉÔ±-Ê¹ÓÃµü´úÆ÷(ÕýÐò)
 	printByIterator(mapObj);    
 
 
 }
 /**
-* @brief  Ê¹ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-* @return ï¿½ï¿½
+* @brief  Ê¹ÓÃ×Ô¶¨ÒåÀà¶ÔÏó
+* @return ÎÞ
 */
 void example02(){
-	// ï¿½ï¿½ï¿½Ó³ï¿½Ô±
+	// Ìí¼Ó³ÉÔ±
 	QMap<CMyClass, uint> mapObj;
 	CMyClass myclass1(2011, "lisa");
 	CMyClass myclass2(2012, "mike");
@@ -123,7 +123,7 @@ void example02(){
 	CMyClass myclass4(2013, "john");
 	CMyClass myclass5(2013, "ping");
 	CMyClass myclass6(2025, "ping");
-	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½Ò°ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½Ö´ï¿½Ð£ï¿½ï¿½ï¿½ÒªÎªCMyClassï¿½ï¿½ï¿½á¹©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½operator<ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// Èç¹ûÏëÈÃÏÂÃæµÄÓï¾ä±àÒëÍ¨¹ý²¢ÇÒ°´ÕÕÔ¤ÆÚÖ´ÐÐ£¬ÐèÒªÎªCMyClassÀàÌá¹©¿½±´¹¹Ôìº¯Êý£¬²¢ÖØÔØoperator<²Ù×÷·û¡£
     mapObj[myclass1] = 1;
     mapObj[myclass2] = 2;
     mapObj[myclass3] = 3;
@@ -131,21 +131,21 @@ void example02(){
     mapObj[myclass5] = 5;
     mapObj[myclass6] = 6;
     
-	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±
+	// ±éÀú³ÉÔ±
 	cout << endl << "-------------- QMap ---------------" << endl;
     QMap<CMyClass, uint>::iterator iteMap;
     for (iteMap = mapObj.begin(); iteMap != mapObj.end(); iteMap++) {
         cout << "key = ("<< iteMap.key().getId() << ", " << iteMap.key().getName().toLocal8Bit().data() << "), value = "<< iteMap.value() << endl;
     }
 
-	// ï¿½ï¿½ï¿½ï¿½&É¾ï¿½ï¿½
+	// ²éÕÒ&É¾³ý
 	cout << endl << "-------------- QMap ---------------" << endl;
 	cout << "begin find member in QMap......" << endl;
 	CMyClass myclassx(2013, "john");
 	iteMap = mapObj.find(myclassx);
 	if (iteMap != mapObj.end()) {
 		cout << "find myclassx in map. key = (" << iteMap.key().getId() << ", " << iteMap.key().getName().toLocal8Bit().data() <<"), value = "  << iteMap.value() << endl;
-        mapObj.erase(iteMap); // É¾ï¿½ï¿½
+        mapObj.erase(iteMap); // É¾³ý
 	}
 	else {
 		cout << "cannot find myclassx in map" << endl;
@@ -159,12 +159,12 @@ void example02(){
 }
 
 /**
-* @brief  QMapï¿½ï¿½valueï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½Í¡ï¿½
-* @return ï¿½ï¿½
+* @brief  QMapµÄvalueÊÇÁÐ±íÀàÐÍ¡£
+* @return ÎÞ
 */
 void example03() {
 
-    // ï¿½ï¿½ï¿½Ó³ï¿½Ô±
+    // Ìí¼Ó³ÉÔ±
     QMap<uint, QStringList> mapObj;
    
     QMap<uint, QStringList>::iterator iteMap;
@@ -174,12 +174,12 @@ void example03() {
     {
         cout << "not found!" << endl;
 		if (0) {
-			mapObj[1].push_back("hello");// ï¿½ÐµÄ±ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½Ð¸ï¿½ï¿½Ð´ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½
+			mapObj[1].push_back("hello");// ÓÐµÄ±àÒëÆ÷Ö´ÐÐ¸ÃÐÐ´úÂëÊ±±¨´í
 		}
 		else
 		{
-			// ï¿½ÐµÄ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½Ó¶ï¿½Î´ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½valueï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-			// ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½3ï¿½Ð´ï¿½ï¿½ë£ºï¿½È¶ï¿½ï¿½ï¿½Ò»ï¿½ï¿½QStringListï¿½ï¿½ï¿½ï¿½lstï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý²ï¿½ï¿½ï¿½lst,È»ï¿½ï¿½ï¿½ï¿½lstï¿½ï¿½Îªvalueï¿½ï¿½Ð´ï¿½ï¿½QMap
+			// ÓÐµÄ±àÒëÆ÷²»ÔÊÐíÖ±½Ó¶ÔÎ´³õÊ¼»¯µÄvalue²Ù×÷£¬
+			// ¶øÓ¦¸ÃÓÃÏÂÃæµÄ3ÐÐ´úÂë£ºÏÈ¶¨ÒåÒ»¸öQStringList¶ÔÏólst£¬°ÑÊý¾Ý²åÈëlst,È»ºó°Ñlst×÷ÎªvalueÌîÐ´µ½QMap
 			QStringList lst;
 			lst.push_back("hello");
 			mapObj[1] = lst;

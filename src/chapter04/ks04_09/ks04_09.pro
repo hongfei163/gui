@@ -1,10 +1,10 @@
-锘縤nclude ($$(TRAINDEVHOME)/src/gui_base.pri)
+include ($$(TRAINDEVHOME)/src/gui_base.pri)
 
 TEMPLATE	= app
 LANGUAGE	= C++
 
 CONFIG += console
-# 锟斤拷要锟矫碉拷QApplication
+# 需要用到QApplication
 QT += widgets
 
 TEMPDIR		= $$TRAIN_OBJ_PATH/chapter04/ks04_09/

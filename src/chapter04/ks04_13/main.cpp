@@ -1,13 +1,13 @@
-ï»¿/*! 
-* Copyright (C) 2018 Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
-* ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ð¡ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Î³Ì¡ï¿½Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ð´«²ï¿½ï¿½ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Ö¤ï¿½È¶ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+/*! 
+* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
+* °æÈ¨ËùÓÐ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
+* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file: main.cpp
-\brief main()ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½Ä¼ï¿½
+\brief main()º¯ÊýµÄÊµÏÖÎÄ¼þ
 
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½   http://xingdianketang.cn/
+\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
 \Date 2018/9
 */
 
@@ -48,14 +48,14 @@ int main(int argc, char * argv[])
 }
 
 /**
-* @brief ï¿½ï¿½ï¿½ï¿½xmlï¿½ï¿½Ê½ï¿½Ä¼ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-*        xmlï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
+* @brief ±£´æxml¸ñÊ½ÎÄ¼þÊ¾Àý´úÂë
+*        xmlÎÄ¼þÄÚÈÝ
 *        <doc>
-*           <courses institution="ï¿½ï¿½ï¿½ï¿½ï¿½Ø¹ï¿½ï¿½ï¿½"  teacher="Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½" serie="C++ï¿½ï¿½Æ½Ì¨ï¿½ï¿½ï¿½ï¿½ï¿½É»ï¿½Ïµï¿½ï¿½" count="7">
-*               <lesson id="1" url="" fee="ï¿½ï¿½ï¿½ï¿½" >C++ï¿½ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½<lesson/>
-*               <lesson id="2" url="" fee="ï¿½ï¿½ï¿½ï¿½" >C++ï¿½ï¿½Æ½Ì¨ï¿½ï¿½ï¿½ï¿½ï¿½ÐµÄ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½<lesson/>
-*               <lesson id="3" url="" >Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½<lesson/>
-*               <lesson id="4" url=""  >C++ï¿½ï¿½Æ½Ì¨ï¿½ï¿½ï¿½ï¿½Ä£ï¿½é¿ªï¿½ï¿½<lesson/>
+*           <courses institution="Èí¼þÌØ¹¥¶Ó"  teacher="Å®¶ù½ÐÀÏ°×" serie="C++¿çÆ½Ì¨¿ª·¢¸É»õÏµÁÐ" count="7">
+*               <lesson id="1" url="" fee="Ãâ·Ñ" >C++ÀÏÄñÈÕ¼Ç<lesson/>
+*               <lesson id="2" url="" fee="Ãâ·Ñ" >C++¿çÆ½Ì¨¿ª·¢ÖÐµÄ±àÒë´íÎó<lesson/>
+*               <lesson id="3" url="" >QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢<lesson/>
+*               <lesson id="4" url=""  >C++¿çÆ½Ì¨·þÎñÄ£¿é¿ª·¢<lesson/>
 *           </courses>
 *        </doc>
 */
@@ -66,9 +66,9 @@ void example01() {
 		strPath += "/";
 	}
 
-	QString strFileName = strPath + "test04_13.xml"; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ï¿½Âµï¿½xmlï¿½Ä¼ï¿½
+	QString strFileName = strPath + "test04_13.xml"; // ³ÌÐòÔËÐÐÄ¿Â¼ÏÂµÄxmlÎÄ¼þ
 	QFile file(strFileName);
-	if (!file.open(QFile::WriteOnly | QFile::Text | QFile::Truncate))	{ // QFile::Truncate,ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Ô­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	if (!file.open(QFile::WriteOnly | QFile::Text | QFile::Truncate))	{ // QFile::Truncate,ÐèÒªÇå¿ÕÔ­À´µÄÄÚÈÝ
 		return ;
 	}
 
@@ -76,16 +76,16 @@ void example01() {
 	out.setCodec("GB2312");
 
 	QDomDocument document;
-    QDomProcessingInstruction instruction;  //ï¿½ï¿½ï¿½Ó´ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
+    QDomProcessingInstruction instruction;  //Ìí¼Ó´¦ÀíÖ¸Áî
     instruction = document.createProcessingInstruction("xml",
-        "version=\"1.0\" encoding=\"GB2312\""); // ï¿½ï¿½×¢ï¿½ï¿½ï¿½Ë´ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ä±ï¿½ï¿½ë±£ï¿½ï¿½Ò»ï¿½Â¡ï¿½
+        "version=\"1.0\" encoding=\"GB2312\""); // Çë×¢Òâ´Ë´¦µÄ±àÂë±ØÐëºÍÄúµÄÔ´´úÂëÎÄ¼þµÄ±àÂë±£³ÖÒ»ÖÂ¡£
 
     document.appendChild(instruction);
 	// doc
 	QDomElement rootDoc = document.createElement("doc");
 	document.appendChild(rootDoc);
 	
-	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½example02()ï¿½ï¿½
+	// Ìí¼ÓÈÅÂÒÏîÄ¿£¬ÓÃÀ´²âÊÔexample02()¡£
 	QDomElement eleConfig = document.createElement("config");
 	eleConfig.setAttribute("id", 5);
 	rootDoc.appendChild(eleConfig);
@@ -97,11 +97,11 @@ void example01() {
 	rootDoc.appendChild(eleCourses);
 
 	strName = "institution";
-	strValue = QString::fromLocal8Bit("ï¿½ï¿½ï¿½ï¿½ï¿½Ø¹ï¿½ï¿½ï¿½");
+	strValue = QString::fromLocal8Bit("Èí¼þÌØ¹¥¶Ó");
     eleCourses.setAttribute(strName, strValue);
 
 	strName = "teacher";
-	strValue = QString::fromLocal8Bit("Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½");
+	strValue = QString::fromLocal8Bit("Å®¶ù½ÐÀÏ°×");
     eleCourses.setAttribute(strName, strValue);
 
 	strName = "count";
@@ -120,10 +120,10 @@ void example01() {
     eleLesson.setAttribute(strName, strValue);
 
     strName = "fee";
-    strValue = QString::fromLocal8Bit("ï¿½ï¿½ï¿½ï¿½");
+    strValue = QString::fromLocal8Bit("Ãâ·Ñ");
     eleLesson.setAttribute(strName, strValue);
 
-    QDomText dtText = document.createTextNode(QString::fromLocal8Bit("C++ï¿½ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½"));
+    QDomText dtText = document.createTextNode(QString::fromLocal8Bit("C++ÀÏÄñÈÕ¼Ç"));
     eleLesson.appendChild(dtText);
     eleCourses.appendChild(eleLesson);
 
@@ -139,10 +139,10 @@ void example01() {
     eleLesson.setAttribute(strName, strValue);
 
     strName = "fee";
-    strValue = QString::fromLocal8Bit("ï¿½ï¿½ï¿½ï¿½");
+    strValue = QString::fromLocal8Bit("Ãâ·Ñ");
     eleLesson.setAttribute(strName, strValue);
 
-    dtText = document.createTextNode(QString::fromLocal8Bit("C++ï¿½ï¿½Æ½Ì¨ï¿½ï¿½ï¿½ï¿½ï¿½ÐµÄ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"));
+    dtText = document.createTextNode(QString::fromLocal8Bit("C++¿çÆ½Ì¨¿ª·¢ÖÐµÄ±àÒë´íÎó"));
     eleLesson.appendChild(dtText);
     eleCourses.appendChild(eleLesson);  
 
@@ -158,7 +158,7 @@ void example01() {
     eleLesson.setAttribute(strName, strValue);
 
 
-    dtText = document.createTextNode(QString::fromLocal8Bit("Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½"));
+    dtText = document.createTextNode(QString::fromLocal8Bit("QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢"));
     eleLesson.appendChild(dtText);
     eleCourses.appendChild(eleLesson);
 
@@ -174,13 +174,13 @@ void example01() {
     strValue = "sorry, not ready";
     eleLesson.setAttribute(strName, strValue);
 	 
-    dtText = document.createTextNode(QString::fromLocal8Bit("C++ï¿½ï¿½Æ½Ì¨ï¿½ï¿½ï¿½ï¿½Ä£ï¿½é¿ªï¿½ï¿½"));
+    dtText = document.createTextNode(QString::fromLocal8Bit("C++¿çÆ½Ì¨·þÎñÄ£¿é¿ª·¢"));
     eleLesson.appendChild(dtText);
     eleCourses.appendChild(eleLesson);
     
-    document.save(out, 4, QDomNode::EncodingFromTextStream);    // 4:ï¿½ï¿½ï¿½ï¿½Öµ
+    document.save(out, 4, QDomNode::EncodingFromTextStream);    // 4:Ëõ½øÖµ
 	
-	// ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¶ï¿½
+	// ½«ÐÅÏ¢Êä³öµ½ÖÕ¶Ë
 	qDebug() << "XML to write";		
 	qDebug() << document.toString(4);
 
@@ -188,7 +188,7 @@ void example01() {
 }
 
 /**
-* @brief ï¿½ï¿½È¡xmlï¿½ï¿½Ê½ï¿½Ä¼ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+* @brief ¶ÁÈ¡xml¸ñÊ½ÎÄ¼þÊ¾Àý´úÂë
 */
 void example02() {
 
@@ -198,7 +198,7 @@ void example02() {
 		strPath += "/";
 	}
 
-	QString strFileName = strPath + "test04_13.xml"; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ï¿½Âµï¿½xmlï¿½Ä¼ï¿½
+	QString strFileName = strPath + "test04_13.xml"; // ³ÌÐòÔËÐÐÄ¿Â¼ÏÂµÄxmlÎÄ¼þ
 	QFile file(strFileName);
 	if (!file.open(QFile::ReadOnly | QFile::Text))	{
 		return;

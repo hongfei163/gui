@@ -1,12 +1,12 @@
-ï»¿/*!
-* Copyright (C) 2018 Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
-* ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ð¡ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Î³Ì¡ï¿½Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ð´«²ï¿½ï¿½ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Ö¤ï¿½È¶ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+/*!
+* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
+* °æÈ¨ËùÓÐ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
+* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file tablemodel.cpp
-\brief  TableÄ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½Ä¼ï¿½
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½   http://xingdianketang.cn/
+\brief  TableÄ£ÐÍÀàµÄÊµÏÖÎÄ¼þ
+\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
 \Date 2019/1
 */
 #include "tablemodel.h"
@@ -64,13 +64,13 @@ Qt::ItemFlags CTableModel::flags(const QModelIndex &dataIndex) const
 	Qt::ItemFlags itemFlags = Qt::ItemIsEnabled;
 
 	if (1 == dataIndex.column()) {
-		if (dataIndex.parent().isValid()) {// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		if (dataIndex.parent().isValid()) {// ÊÇ×ÓÊý¾ÝÏî
 			itemFlags =
 				Qt::ItemFlags(Qt::ItemIsEnabled | Qt::ItemIsEditable);
 		}
-		else {// ï¿½Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		else {// ÊÇ¸ùÊý¾ÝÏî
 			itemFlags = (hasChildren(index(dataIndex.row(), 0, dataIndex.parent()))
-				? Qt::ItemIsEnabled // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½à¼­
+				? Qt::ItemIsEnabled // ÓÐ×ÓÊý¾ÝÏî£¬Ôò±¾Éí²»ÔÊÐí±à¼­
 				: Qt::ItemFlags(Qt::ItemIsEnabled | Qt::ItemIsEditable));
 		}
 	}
@@ -84,7 +84,7 @@ QVariant CTableModel::data(const QModelIndex &index, int role) const
 		? index.parent()
 		: index;
 	QVariant var;
-	if (index.column() == 0) { // ï¿½ï¿½0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½â´¦ï¿½ï¿½
+	if (index.column() == 0) { // µÚ0ÁÐÎÞÐèÌØÊâ´¦Àí
 		var = QStandardItemModel::data(index, role);
 		return var;
 	}
@@ -103,22 +103,22 @@ QVariant CTableModel::data(const QModelIndex &index, int role) const
 			var = (var.toInt() ? "Y" : "N");
 			break;
 		case Eattr_Animate: 
-			if (idxParent == index) {// "ï¿½ï¿½ï¿½ï¿½"
+			if (idxParent == index) {// "¶¯»­"
 
 			}
-			else if (index.row() == (Eattr_AnimateSpeed)) {// "ï¿½ï¿½ï¿½ï¿½ï¿½Ù¶ï¿½"
+			else if (index.row() == (Eattr_AnimateSpeed)) {// "¶¯»­ËÙ¶È"
 				CTableModel::EAnimateSpeed animateSpeed =
 					static_cast<CTableModel::EAnimateSpeed>(var.toInt());
 				switch (animateSpeed)
 				{
 				case EAnimateSpeed_Slow:
-					var = QString::fromLocal8Bit("ï¿½ï¿½ï¿½ï¿½");
+					var = QString::fromLocal8Bit("ÂýËÙ");
 					break;
 				case EAnimateSpeed_Normal:
-					var = QString::fromLocal8Bit("ï¿½ï¿½ï¿½ï¿½");
+					var = QString::fromLocal8Bit("ÖÐËÙ");
 					break;
 				case EAnimateSpeed_Fast:
-					var = QString::fromLocal8Bit("ï¿½ï¿½ï¿½ï¿½");
+					var = QString::fromLocal8Bit("¿ìËÙ");
 					break;
 				}
 			}

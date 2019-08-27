@@ -1,4 +1,4 @@
-ï»¿#ifndef INFODIALOG_H
+#ifndef INFODIALOG_H
 #define INFODIALOG_H
 
 #include <QDialog>
@@ -16,8 +16,8 @@ public:
     ~CInfoDialog();
 private slots:
     /*
-     *  @brief ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½à¼­Ê±ï¿½ï¿½Ó¦ï¿½Ä²Ûºï¿½ï¿½ï¿½
-     *  @param[in] b true:ï¿½ï¿½ï¿½ï¿½ï¿½à¼­, false:ï¿½ï¿½Ö¹ï¿½à¼­
+     *  @brief µ¥»÷ÔÊÐí±à¼­Ê±¶ÔÓ¦µÄ²Ûº¯Êý
+     *  @param[in] b true:ÔÊÐí±à¼­, false:½ûÖ¹±à¼­
      *  @return void
     */
     void slot_editEnabled(bool b);

@@ -1,13 +1,13 @@
-ï»¿/*! 
-* Copyright (C) 2018 Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
-* ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ğ¡ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Î³Ì¡ï¿½Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ğ´«²ï¿½ï¿½ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Ö¤ï¿½È¶ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+/*! 
+* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
+* °æÈ¨ËùÓĞ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
+* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file: province.h
-\brief Ê¡(ï¿½ï¿½)ï¿½à¶¨ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
+\brief Ê¡(Öİ)Àà¶¨ÒåÎÄ¼ş¡£
        
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½   http://xingdianketang.cn/
+\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
 \Date 2018/10
 */
 
@@ -23,7 +23,7 @@
 class CCity;
 class CCountry;
 
-// Ê¡(ï¿½ï¿½)ï¿½ï¿½
+// Ê¡(Öİ)Àà
 //-----------------------------------------
 class CProvince
 {
@@ -32,73 +32,73 @@ public:
 	~CProvince();
 
     /**
-    * @brief ï¿½ï¿½ï¿½ï¿½Ê¡(ï¿½ï¿½)ï¿½ï¿½ï¿½ï¿½.
-    * @param[in] strName Ê¡(ï¿½ï¿½)ï¿½ï¿½ï¿½ï¿½
+    * @brief ÉèÖÃÊ¡(Öİ)Ãû³Æ.
+    * @param[in] strName Ê¡(Öİ)Ãû³Æ
     * @return void
     */
 	void  setName(const QString& str) {m_strName = str;}
 
     /**
-    * @brief ï¿½ï¿½È¡Ê¡(ï¿½ï¿½)ï¿½ï¿½ï¿½ï¿½.
-    * @return Ê¡(ï¿½ï¿½)ï¿½ï¿½ï¿½ï¿½
+    * @brief »ñÈ¡Ê¡(Öİ)Ãû³Æ.
+    * @return Ê¡(Öİ)Ãû³Æ
     */
 	QString  getName(void) const {return m_strName;}
    
    
     /**
-    * @brief ï¿½ï¿½ï¿½ï¿½Ê¡(ï¿½ï¿½)ï¿½ï¿½ï¿½Ú¹ï¿½ï¿½ï¿½
-    * @param[in] pCountry Ê¡(ï¿½ï¿½)ï¿½ï¿½ï¿½Ú¹ï¿½ï¿½ï¿½
+    * @brief ÉèÖÃÊ¡(Öİ)ËùÔÚ¹ú¼Ò
+    * @param[in] pCountry Ê¡(Öİ)ËùÔÚ¹ú¼Ò
     * @return void
     */
 	void  setCountry(CCountry* pCountry) {m_pCountry = pCountry;}
 
     /**
-    * @brief ï¿½ï¿½È¡Ê¡(ï¿½ï¿½)ï¿½ï¿½ï¿½Ú¹ï¿½ï¿½ï¿½
-    * @return Ê¡(ï¿½ï¿½)ï¿½ï¿½ï¿½Ú¹ï¿½ï¿½ï¿½
+    * @brief »ñÈ¡Ê¡(Öİ)ËùÔÚ¹ú¼Ò
+    * @return Ê¡(Öİ)ËùÔÚ¹ú¼Ò
     */
 	CCountry*  getCountry(void) const {return m_pCountry;}
 
     /**
-    * @brief ï¿½ï¿½ï¿½Ó³ï¿½ï¿½ï¿½
-    * @param[in] pCity ï¿½ï¿½ï¿½ï¿½
-    * @return ï¿½ï¿½ï¿½Óºï¿½ï¿½Ä³ï¿½ï¿½Ğ¸ï¿½ï¿½ï¿½
+    * @brief Ìí¼Ó³ÇÊĞ
+    * @param[in] pCity ³ÇÊĞ
+    * @return Ìí¼ÓºóµÄ³ÇÊĞ¸öÊı
     */
 	int addCity(CCity* pCity);
 
     /**
-    * @brief ï¿½ï¿½ï¿½Ó³ï¿½ï¿½ï¿½
-    * @param[out] lstCities ï¿½ï¿½ï¿½ï¿½ï¿½Ğ±ï¿½
-    * @return ï¿½ï¿½ï¿½Ğ³ï¿½ï¿½Ğ¸ï¿½ï¿½ï¿½
+    * @brief Ìí¼Ó³ÇÊĞ
+    * @param[out] lstCities ³ÇÊĞÁĞ±í
+    * @return ÒÑÓĞ³ÇÊĞ¸öÊı
     */
 	int getCities(QList<CCity*>& lstCities) const { lstCities = m_lstCities; return lstCities.size(); }
 	
 	/**
-	* @brief ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ¶ï¿½ï¿½ï¿½ï¿½Æ·ï¿½Ê½ï¿½ï¿½ï¿½Ğ»ï¿½ï¿½Äºï¿½ï¿½ï¿½ï¿½ï¿½
-	* @param[in] ds ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	* @param[in|out] pError ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½
-	* @return ESerializeCodeÃ¶ï¿½ï¿½Öµï¿½ï¿½
+	* @brief ÓÃÀ´°ÑÀà¶ÔÏó½øĞĞ¶ş½øÖÆ·½Ê½ĞòÁĞ»¯µÄº¯Êı¡£
+	* @param[in] ds ÎÄ¼şÁ÷¶ÔÏó¡£
+	* @param[in|out] pError ´íÎóĞÅÏ¢¡£
+	* @return ESerializeCodeÃ¶¾ÙÖµ¡£
 	*/
 	ESerializeCode serializeBinary(QDataStream& ds, QString* pError) const;
 	/**
-	* @brief ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ¶ï¿½ï¿½ï¿½ï¿½Æ·ï¿½Ê½ï¿½ï¿½ï¿½Ğ»ï¿½ï¿½Äºï¿½ï¿½ï¿½ï¿½ï¿½
-	*        ï¿½ò¿ªµï¿½ï¿½Ä¼ï¿½ï¿½ë±£ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ByteOrder(ï¿½ï¿½ï¿½Ó¿ï¿½ï¿½Ú²ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½QDataStream::setByteOrder)ï¿½ï¿½
-	* @param[in] ds ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	* @param[in|out] pError ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½
-	* @return ESerializeCodeÃ¶ï¿½ï¿½Öµï¿½ï¿½
+	* @brief ÓÃÀ´°ÑÀà¶ÔÏó½øĞĞ¶ş½øÖÆ·½Ê½ĞòÁĞ»¯µÄº¯Êı¡£
+	*        ´ò¿ªµÄÎÄ¼şÓë±£´æÊ±²ÉÓÃÏàÍ¬µÄByteOrder(±¾½Ó¿ÚÄÚ²¿ÒÑ¾­µ÷ÓÃQDataStream::setByteOrder)¡£
+	* @param[in] ds ÎÄ¼şÁ÷¶ÔÏó¡£
+	* @param[in|out] pError ´íÎóĞÅÏ¢¡£
+	* @return ESerializeCodeÃ¶¾ÙÖµ¡£
 	*/
 	ESerializeCode deSerializeBinary(QDataStream& ds, QString* pError);
 	/**
-	* @brief ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½Ğ»ï¿½ï¿½Äºï¿½ï¿½ï¿½ï¿½ï¿½
-	* @param[in|out] doc QDomDocumentï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½â²¿ï¿½ï¿½ï¿½ï¿½
-	* @param[in] eleProvince Ê¡Ôªï¿½Ø¶ï¿½ï¿½ï¿½
-	* @return ESerializeCodeÃ¶ï¿½ï¿½Öµï¿½ï¿½
+	* @brief ÓÃÀ´°ÑÀà¶ÔÏó½øĞĞÎÄ±¾·½Ê½ĞòÁĞ»¯µÄº¯Êı¡£
+	* @param[in|out] doc QDomDocument¶ÔÏó£¬ĞèÒªÍâ²¿¹¹½¨
+	* @param[in] eleProvince Ê¡ÔªËØ¶ÔÏó
+	* @return ESerializeCodeÃ¶¾ÙÖµ¡£
 	*/
 	ESerializeCode serializeXML(QDomDocument& doc, QDomElement& eleProvince, QString* pError) const;
 
 	/**
-	* @brief ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½Ğ»ï¿½ï¿½Äºï¿½ï¿½ï¿½ï¿½ï¿½
-	* @param[in] eleProvince Ê¡Ôªï¿½Ø¶ï¿½ï¿½ï¿½
-	* @return ESerializeCodeÃ¶ï¿½ï¿½Öµï¿½ï¿½
+	* @brief ÓÃÀ´°ÑÀà¶ÔÏó½øĞĞÎÄ±¾·½Ê½ĞòÁĞ»¯µÄº¯Êı¡£
+	* @param[in] eleProvince Ê¡ÔªËØ¶ÔÏó
+	* @return ESerializeCodeÃ¶¾ÙÖµ¡£
 	*/
 	ESerializeCode deSerializeXML(const QDomElement& eleProvince, QString* pError = NULL);
 private:	

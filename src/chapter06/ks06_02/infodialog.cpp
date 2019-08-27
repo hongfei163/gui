@@ -1,4 +1,4 @@
-ï»¿#include "infodialog.h"
+#include "infodialog.h"
 #include "ui_infodialog.h"
 
 #include <QIntValidator>
@@ -20,12 +20,12 @@ CInfoDialog::CInfoDialog(QWidget *parent) :
     // setValidator for leStature
     ui->leStature->setValidator(new QIntValidator(0, 300, ui->leStature)); // min:0cm, max:300cm
 
-    // setMask for leBirthday, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-ï¿½ï¿½ï¿½ï¿½-ï¿½ï¿½ï¿½ï¿½
+    // setMask for leBirthday, ÄêÄêÄêÄê-ÔÂÔÂ-ÈÕÈÕ
     ui->leBirthday->setInputMask("0000-00-00");
     ui->leBirthday->setText("00000000");
     ui->leBirthday->setCursorPosition(0);
 
-    // mask & validator,ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½maskï¿½Þ·ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½Öµï¿½Ä·ï¿½Î§
+    // mask & validator,µ¥´¿Ê¹ÓÃmaskÎÞ·¨Ô¼ÊøÊýÖµµÄ·¶Î§
     QRegExp regExp("^1[3|4|5|8][0-9][0-9]{8}");
     ui->lePhone->setValidator(new QRegExpValidator(regExp, ui->lePhone));
     ui->lePhone->setInputMask("#00-000-00000000"); // eg. +86-135-87989898

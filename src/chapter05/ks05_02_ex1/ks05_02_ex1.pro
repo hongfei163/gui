@@ -18,7 +18,7 @@ HEADERS		+=  $$TRAIN_SRC_PATH/gui_base.pri \
 SOURCES    +=  main.cpp \
 				dialog.cpp
 				
-FORMS		+= dialogbase.ui
+FORMS		+= dialog.ui
 
 RESOURCES	+= ks05_02_ex1.qrc
 

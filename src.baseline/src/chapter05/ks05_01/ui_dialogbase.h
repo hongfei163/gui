@@ -1,5 +1,5 @@
 ﻿/********************************************************************************
-** Form generated from reading UI file 'dialogbase.ui'
+** Form generated from reading UI file 'dialog.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.11.1
 **

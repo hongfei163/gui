@@ -1,13 +1,13 @@
-ï»¿/*! 
-* Copyright (C) 2018 Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
-* ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ð¡ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Î³Ì¡ï¿½Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ð´«²ï¿½ï¿½ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Ö¤ï¿½È¶ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+/*! 
+* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
+* °æÈ¨ËùÓÐ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
+* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file: serialize.h
-\brief ï¿½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë¶¨ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
+\brief ÐòÁÐ»¯´íÎóÂë¶¨ÒåÎÄ¼þ¡£
 
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½   http://xingdianketang.cn/
+\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
 \Date 2018/10
 * please import basedll.dll
 */
@@ -17,21 +17,21 @@
 
 
 /**
-* @brief ï¿½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½
+* @brief ÐòÁÐ»¯´íÎóÂëµÄÃ¶¾Ù
 *
-* ESerializeCode Ã¶ï¿½Ù¡ï¿½
-* ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½Ð»ï¿½Ê±ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ï¿½ï¿½Ô­ï¿½ï¿½
+* ESerializeCode Ã¶¾Ù¡£
+* ÓÃÀ´ËµÃ÷ÐòÁÐ»¯Ê±³öÏÖ´íÎóµÄÔ­Òò
 *
 */
 enum ESerializeCode
 {
-	ESERIALIZECODE_OK = 0,					/// ï¿½ï¿½ï¿½ï¿½
-	ESERIALIZECODE_FILENOTFOND,				/// ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	ESERIALIZECODE_DOC_ELEMENT_NOTFOUND,	/// docÔªï¿½Ø²ï¿½ï¿½ï¿½ï¿½ï¿½: ï¿½Ä¼ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½<doc>Ôªï¿½ï¿½
-	ESERIALIZECODE_CONTENT_ELEMENT_NOTFOUND,/// contentÔªï¿½Ø²ï¿½ï¿½ï¿½ï¿½ï¿½: ï¿½Ä¼ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½<content>Ôªï¿½ï¿½
-	ESERIALIZECODE_SETCONTENT_ERROR,		/// QDomDocument::setContent()ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½
-	ESERIALIZECODE_VERSION_NOTRECOGNIZE,	/// ï¿½ï¿½ï¿½ï¿½Ê¶ï¿½ï¿½ï¿½Ä°æ±¾ï¿½ï¿½
-	ESERIALIZECODE_OTHERERROR,					/// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	ESERIALIZECODE_OK = 0,					/// Õý³£
+	ESERIALIZECODE_FILENOTFOND,				/// ÎÄ¼þ²»´æÔÚ
+	ESERIALIZECODE_DOC_ELEMENT_NOTFOUND,	/// docÔªËØ²»´æÔÚ: ÎÄ¼þÖÐ±ØÐë´æÔÚ<doc>ÔªËØ
+	ESERIALIZECODE_CONTENT_ELEMENT_NOTFOUND,/// contentÔªËØ²»´æÔÚ: ÎÄ¼þÖÐ±ØÐë´æÔÚ<content>ÔªËØ
+	ESERIALIZECODE_SETCONTENT_ERROR,		/// QDomDocument::setContent()µ÷ÓÃÊ§°Ü
+	ESERIALIZECODE_VERSION_NOTRECOGNIZE,	/// ²»¿ÉÊ¶±ðµÄ°æ±¾ºÅ
+	ESERIALIZECODE_OTHERERROR,					/// ÆäËû´íÎó
 
 };
 

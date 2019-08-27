@@ -1,13 +1,13 @@
-ï»¿/*! 
-* Copyright (C) 2018 Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
-* ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ð¡ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Î³Ì¡ï¿½Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ð´«²ï¿½ï¿½ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Ö¤ï¿½È¶ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+/*! 
+* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
+* °æÈ¨ËùÓÐ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
+* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file: mainwindow.h
-\brief ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½Ä¼ï¿½
+\brief Ö÷´°ÌåÍ·ÎÄ¼þ
   
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½   http://xingdianketang.cn/
+\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
 \Date 2018/12 
 */
 
@@ -55,40 +55,40 @@ private slots:
 	void slot_addEllipse();
 
 private:
-	void createActions();		/// ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½QActionï¿½ï¿½
-	void createPluginActions();	/// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Actionï¿½ï¿½
-	//void createMenus();			/// ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½
-	void createToolBars();		/// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	void createStatusBar();		/// ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½
-	void initialize();			/// ï¿½ï¿½Ê¼ï¿½ï¿½
+	void createActions();		/// ¹¹½¨²Ëµ¥Ïî¶ÔÓ¦µÄQAction¡£
+	void createPluginActions();	/// ¹¹½¨²å¼þAction¡£
+	//void createMenus();			/// ¹¹½¨²Ëµ¥
+	void createToolBars();		/// ¹¹½¨¹¤¾ßÌõ
+	void createStatusBar();		/// ¹¹½¨×´Ì¬À¸
+	void initialize();			/// ³õÊ¼»¯
 	
-	void connectSignalAndSlot();/// ï¿½ï¿½ï¿½ï¿½ï¿½ÅºÅ²ï¿½
+	void connectSignalAndSlot();/// °ó¶¨ÐÅºÅ²Û
 	
 private:
-	QMenu *m_pFileMenu;			/// ï¿½Ä¼ï¿½ï¿½Ëµï¿½
-	QMenu *m_pEditMenu;			/// ï¿½à¼­ï¿½Ëµï¿½
-	QMenu *m_pFormatMenu;		/// ï¿½ï¿½Ê½ï¿½Ëµï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½)
-	QMenu *m_pHelpMenu;			/// ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½
+	QMenu *m_pFileMenu;			/// ÎÄ¼þ²Ëµ¥
+	QMenu *m_pEditMenu;			/// ±à¼­²Ëµ¥
+	QMenu *m_pFormatMenu;		/// ¸ñÊ½²Ëµ¥(¶þ¼¶²Ëµ¥)
+	QMenu *m_pHelpMenu;			/// °ïÖú²Ëµ¥
 	
-	QToolBar *m_pEditToolBar;	/// ï¿½à¼­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	QToolBar *m_pEditToolBar;	/// ±à¼­¹¤¾ßÌõ
 
 	QActionGroup *m_pAlignmentGroup;
 
 #ifndef QT_NO_CLIPBOARD
-	QAction *m_pCutAct;			/// ï¿½ï¿½ï¿½ï¿½
-	QAction *m_pCopyAct;		/// ï¿½ï¿½ï¿½ï¿½
-	QAction *m_pPasteAct;		/// ï¿½ï¿½ï¿½ï¿½
+	QAction *m_pCutAct;			/// ¼ôÇÐ
+	QAction *m_pCopyAct;		/// ¸´ÖÆ
+	QAction *m_pPasteAct;		/// ð¤Ìù
 #endif
-    QAction *m_pRectAct;        /// ï¿½ï¿½ï¿½Ó¾ï¿½ï¿½ï¿½
-    QAction *m_pEllipseAct;     /// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô²
+    QAction *m_pRectAct;        /// Ìí¼Ó¾ØÐÎ
+    QAction *m_pEllipseAct;     /// Ìí¼ÓÍÖÔ²
 
-	QAction *m_pAboutAct;	/// ï¿½ï¿½ï¿½ï¿½
+	QAction *m_pAboutAct;	/// ¹ØÓÚ
 
-	QLabel *m_pInfoLabel;	/// ï¿½ï¿½Ï¢ï¿½ï¿½Ç©
-	QLabel* m_pMouseLabel;	/// ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½Ê¾
+	QLabel *m_pInfoLabel;	/// ÐÅÏ¢±êÇ©
+	QLabel* m_pMouseLabel;	/// Êó±êÎ»ÖÃÏÔÊ¾
 
-	CGraphView* m_pView;        /// ï¿½ï¿½Í¼
-    QGraphicsScene* m_pScene;   /// ï¿½ï¿½ï¿½ï¿½(ï¿½Äµï¿½)
+	CGraphView* m_pView;        /// ÊÓÍ¼
+    QGraphicsScene* m_pScene;   /// ³¡¾°(ÎÄµµ)
     QList<CActionObjectInterface*> m_lstActionObject;
 };
 

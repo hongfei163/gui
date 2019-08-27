@@ -1,13 +1,13 @@
-ï»¿/*! 
-* Copyright (C) 2018 Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
-* ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ð¡ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Î³Ì¡ï¿½Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ð´«²ï¿½ï¿½ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Ö¤ï¿½È¶ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+/*! 
+* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
+* °æÈ¨ËùÓÐ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
+* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file: dialog.cpp
 \brief  CDialog
 
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½   http://xingdianketang.cn/
+\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
 \Date 2018/9
 */
 
@@ -31,7 +31,7 @@ void Client::setupUi()
     setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
     setWindowTitle(QGuiApplication::applicationDisplayName());
 
-    // ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½
+    // ²éÕÒ»úÆ÷Ãû
     QString name = QHostInfo::localHostName();
     if (!name.isEmpty()) {
         ui.hostCombo->addItem(name);
@@ -42,26 +42,26 @@ void Client::setupUi()
     if (name != QLatin1String("localhost"))
         ui.hostCombo->addItem(QString("localhost"));
 
-    // ï¿½ï¿½ï¿½Ò±ï¿½ï¿½ï¿½ipï¿½Ð±ï¿½
+    // ²éÕÒ±¾»úipÁÐ±í
     QList<QHostAddress> ipAddressesList = QNetworkInterface::allAddresses();
 
-    // ï¿½Ñ·ï¿½localhostï¿½ï¿½ipï¿½ï¿½Ö·ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½
+    // °Ñ·ÇlocalhostµÄipµØÖ·Ìí¼Óµ½½çÃæ
     for (int i = 0; i < ipAddressesList.size(); ++i) {
         if (!ipAddressesList.at(i).isLoopback())
             ui.hostCombo->addItem(ipAddressesList.at(i).toString());
     }
 
-    // ï¿½ï¿½localhostï¿½ï¿½Ö·ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½
+    // °ÑlocalhostµØÖ·Ìí¼Óµ½×îºó
     for (int i = 0; i < ipAddressesList.size(); ++i) {
         if (ipAddressesList.at(i).isLoopback())
             ui.hostCombo->addItem(ipAddressesList.at(i).toString());
     }
 
-    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½ï¿½ï¿½
+    // ÉèÖÃÓÐÐ§Çø¼ä
     ui.portLineEdit->setValidator(new QIntValidator(1, 65535, this));
     ui.portLineEdit->setFocus();
 
-    // ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½Ç©ï¿½Ä¿ï¿½ï¿½Ý¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½Ä¿Ø¼ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿Úºï¿½)
+    // °ÑÎÄ±¾±êÇ©µÄ¿ì½Ý¼ü¹ØÁªµ½¶ÔÓ¦µÄ¿Ø¼þ(Ö÷»ú¡¢¶Ë¿ÚºÅ)
     ui.hostLabel->setBuddy(ui.hostCombo);
     ui.portLabel->setBuddy(ui.portLineEdit);
 
@@ -93,13 +93,13 @@ void Client::initialSession()
 {
     QNetworkConfigurationManager manager;
     if (manager.capabilities() & QNetworkConfigurationManager::NetworkSessionRequired) {
-        // ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        // »ñÈ¡ÍøÂçÅäÖÃ
         QSettings settings(QSettings::UserScope, QLatin1String("QtProject"));
         settings.beginGroup(QLatin1String("QtNetwork"));
         const QString id = settings.value(QLatin1String("DefaultNetworkConfiguration")).toString();
         settings.endGroup();
 
-        // ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ï¿½ï¿½ï¿½ÏµÍ³Ä¬ï¿½ï¿½Öµ
+        // Èç¹ûÃ»ÓÐ±£´æ¹ýÍøÂçÅäÖÃ£¬¾ÍÓÃÏµÍ³Ä¬ÈÏÖµ
         QNetworkConfiguration config = manager.configurationFromIdentifier(id);
         if ((config.state() & QNetworkConfiguration::Discovered) !=
             QNetworkConfiguration::Discovered) {
@@ -153,16 +153,16 @@ void Client::displayError(QAbstractSocket::SocketError socketError)
     case QAbstractSocket::RemoteHostClosedError:
         break;
     case QAbstractSocket::HostNotFoundError:
-    //    QMessageBox::information(this, QString::fromLocal8Bit("ï¿½Í»ï¿½ï¿½ï¿½"), QString::fromLocal8Bit("ï¿½Þ·ï¿½ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿Úºï¿½ï¿½Ç·ï¿½ï¿½ï¿½È·."));
-         QMessageBox::information(this, QString::fromLocal8Bit("ï¿½Í»ï¿½ï¿½ï¿½"), QString::fromLocal8Bit(""));
+    //    QMessageBox::information(this, QString::fromLocal8Bit("¿Í»§¶Ë"), QString::fromLocal8Bit("ÎÞ·¨Á¬½Óµ½Ö÷»ú£¬Çë¼ì²é×¢ÒâÃû³ÆÓë¶Ë¿ÚºÅÊÇ·ñÕýÈ·."));
+         QMessageBox::information(this, QString::fromLocal8Bit("¿Í»§¶Ë"), QString::fromLocal8Bit(""));
        break;
     case QAbstractSocket::ConnectionRefusedError:
-        QMessageBox::information(this, QString::fromLocal8Bit("ï¿½Í»ï¿½ï¿½ï¿½"),
-            QString::fromLocal8Bit("ï¿½ï¿½ï¿½Ó±ï¿½ï¿½Ô·ï¿½ï¿½Ø±Õ¡ï¿½ï¿½ï¿½È·ï¿½Ï·ï¿½ï¿½ï¿½ï¿½Ë´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¡ï¿½ï¿½Ë¿ÚºÅ¡ï¿½"));
+        QMessageBox::information(this, QString::fromLocal8Bit("¿Í»§¶Ë"),
+            QString::fromLocal8Bit("Á¬½Ó±»¶Ô·½¹Ø±Õ¡£ÇëÈ·ÈÏ·þÎñ¶Ë´¦ÓÚÔËÐÐ×´Ì¬²¢¼ì²é·þÎñÆ÷Ãû³Æ¡¢¶Ë¿ÚºÅ¡£"));
         break;
     default:
-        QMessageBox::information(this, QString::fromLocal8Bit("ï¿½Í»ï¿½ï¿½ï¿½"),
-            QString::fromLocal8Bit("ï¿½ï¿½ï¿½Ð³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢:%1.")
+        QMessageBox::information(this, QString::fromLocal8Bit("¿Í»§¶Ë"),
+            QString::fromLocal8Bit("ÔËÐÐ³ö´í¡£´íÎóÐÅÏ¢:%1.")
             .arg(tcpSocket->errorString()));
     }
 
@@ -179,7 +179,7 @@ void Client::enableGetDataButton()
 
 void Client::sessionOpened()
 {
-    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    // ±£´æÍøÂçÅäÖÃ
     QNetworkConfiguration config = networkSession->configuration();
     QString id;
     if (config.type() == QNetworkConfiguration::UserChoice) {

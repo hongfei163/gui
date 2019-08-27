@@ -16,7 +16,7 @@ UI_DIR		= $$TEMPDIR/ui
 
 TRANSLATIONS += ks03_01.ts
 				
-FORMS		+= dialogbase.ui
+FORMS		+= dialog.ui
 
 HEADERS		+= ks03_01.pro \
 				dialog.h

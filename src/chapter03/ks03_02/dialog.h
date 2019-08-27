@@ -1,10 +1,10 @@
-ï»¿#ifndef DIALOG_H
+#ifndef DIALOG_H
 #define DIALOG_H
 
-#include "ui_dialog.h" // Í·ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: dialog.ui  ---> ui_dialog.h
+#include "ui_dialog.h" // Í·ÎÄ¼þÃû³ÆÀ´×Ô: dialog.ui  ---> ui_dialog.h
 
 
-// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½uiï¿½Ä¼ï¿½ï¿½Ð¶Ô»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é¿´ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½
+// ¸¸ÀàµÄÃû³ÆÀ´×ÔuiÎÄ¼þÖÐ¶Ô»°¿òµÄÀàÃû£º¶ÔÏó²é¿´Æ÷ÖÐµÄÀàÃû
 class CDialog : public QDialog
 {
 	Q_OBJECT

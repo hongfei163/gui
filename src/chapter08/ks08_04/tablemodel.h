@@ -1,12 +1,12 @@
-ï»¿/*!
-* Copyright (C) 2018 Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
-* ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ð¡ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Î³Ì¡ï¿½Qtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-GUIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ð´«²ï¿½ï¿½ï¿½
-* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Ö¤ï¿½È¶ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+/*!
+* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
+* °æÈ¨ËùÓÐ¡£
+* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
+* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
 
 \file tablemodel.h
-\brief  TableÄ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½Ä¼ï¿½
-\author Å®ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½   http://xingdianketang.cn/
+\brief  TableÄ£ÐÍÀàµÄÍ·ÎÄ¼þ
+\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
 \Date 2019/1
 */
 #ifndef TABLEMODEL_H
@@ -19,24 +19,24 @@ class CTableModel : public QStandardItemModel
 {
 	Q_OBJECT
 public:
-	/// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	/// ¸÷ÐÐËù´ú±íµÄÒâÒå
 	enum EAttrIndex {
 		EAttr_Id = 0,		// id
-		EAttr_Descrition,	// ï¿½ï¿½ï¿½ï¿½
-		EAttr_LastOneFlag,	// ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½
-		Eattr_Animate,		// ï¿½ï¿½ï¿½ï¿½
-			Eattr_AnimateSpeed=0,	// ï¿½ï¿½ï¿½ï¿½ï¿½Ù¶ï¿½
-			Eattr_AnimateType,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-		EAttr_Checked= Eattr_Animate+1,		// ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤
+		EAttr_Descrition,	// ÃèÊö
+		EAttr_LastOneFlag,	// ÊÇ·ñ×îºóÒ»¸ö
+		Eattr_Animate,		// ¶¯»­
+			Eattr_AnimateSpeed=0,	// ¶¯»­ËÙ¶È
+			Eattr_AnimateType,		// ¶¯»­ÀàÐÍ
+		EAttr_Checked= Eattr_Animate+1,		// ÊÇ·ñÒÑÑéÖ¤
 
 		Eattr_Max,
 	};
 
-	/// ï¿½Ù¶ï¿½Ã¶ï¿½ï¿½Öµ
+	/// ËÙ¶ÈÃ¶¾ÙÖµ
 	enum EAnimateSpeed {
-		EAnimateSpeed_Slow = 0, // ï¿½ï¿½ï¿½ï¿½
-		EAnimateSpeed_Normal,	// ï¿½ï¿½ï¿½ï¿½
-		EAnimateSpeed_Fast,		// ï¿½ï¿½ï¿½ï¿½
+		EAnimateSpeed_Slow = 0, // ÂýËÙ
+		EAnimateSpeed_Normal,	// ÖÐËÙ
+		EAnimateSpeed_Fast,		// ¿ìËÙ
 
 		EAnimateSpeed_Max,
 	};
@@ -45,53 +45,53 @@ public:
 	CTableModel(int rows, int columns, QObject *parent = nullptr);
 
 	/**
-	* @brief  ï¿½ï¿½È¡parentï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	* @param[in] index ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	* @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @brief  »ñÈ¡parentµÄ×ÓÊý¾ÝÏîµÄÐÐÊý
+	* @param[in] index Êý¾ÝÏîÐòºÅ
+	* @return ÐÐÊý¡£
 	*/
 	int rowCount(const QModelIndex &parent) const override;
 	/**
-	* @brief ï¿½ï¿½È¡parentï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	* @param[in] index ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	* @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @brief »ñÈ¡parentµÄ×ÓÊý¾ÝÏîµÄÁÐÊý
+	* @param[in] index Êý¾ÝÏîÐòºÅ
+	* @return ÁÐÊý¡£
 	*/
 	int columnCount(const QModelIndex &parent) const override;
 	/**
-	* @brief  ï¿½ï¿½È¡ï¿½Ð¡ï¿½ï¿½Ð±ï¿½ï¿½ï¿½
-	* @param[in] section ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	* @param[in] orientation ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½
-	* @return Ö¸ï¿½ï¿½ï¿½ï¿½/ï¿½ÐµÄ±ï¿½ï¿½â¡£
+	* @brief  »ñÈ¡ÐÐ¡¢ÁÐ±êÌâ
+	* @param[in] section ÐÐ/ÁÐÐòºÅ
+	* @param[in] orientation ·½Ïò£ºÐÐ/ÁÐ
+	* @return Ö¸¶¨ÐÐ/ÁÐµÄ±êÌâ¡£
 	*/
 	QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
 
 	/**
-	* @brief  ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½Ð±ï¿½ï¿½ï¿½
-	* @param[in] section ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	* @param[in] orientation ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½
-	* @return Ö¸ï¿½ï¿½ï¿½ï¿½/ï¿½ÐµÄ±ï¿½ï¿½â¡£
+	* @brief  ÉèÖÃÐÐ¡¢ÁÐ±êÌâ
+	* @param[in] section ÐÐ/ÁÐÐòºÅ
+	* @param[in] orientation ·½Ïò£ºÐÐ/ÁÐ
+	* @return Ö¸¶¨ÐÐ/ÁÐµÄ±êÌâ¡£
 	*/
 	virtual bool setHeaderData(int section, Qt::Orientation orientation, const QVariant &value,
 		int role = Qt::EditRole);
 	
 	/**
-	* @brief  ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½Ö¾
-	* @param[in] index ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	* @return Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½Ö¾
+	* @brief  ÉèÖÃÄ³Êý¾ÝÏîµÄ±êÖ¾
+	* @param[in] index Êý¾ÝÏîÐòºÅ
+	* @return Ö¸¶¨Êý¾ÝÏîµÄ±êÖ¾
 	*/
 	Qt::ItemFlags flags(const QModelIndex &index) const override;
 	/**
-	* @brief  ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½
-	* @param[in] index ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	* @param[in] role ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½setData(). È¡Öµï¿½ï¿½Î§ï¿½ï¿½Qt::EditRole, Qt::DispalyRole.
-	* @return Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¡ï¿½
+	* @brief  »ñÈ¡Êý¾Ý
+	* @param[in] index Êý¾ÝÏîÐòºÅ
+	* @param[in] role ½ÇÉ«£¬¼ûsetData(). È¡Öµ·¶Î§£ºQt::EditRole, Qt::DispalyRole.
+	* @return Ö¸¶¨µÄÊý¾Ý¡£
 	*/
 	QVariant data(const QModelIndex &index, int role) const override;
 	/**
-	* @brief  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	* @param[in] index ï¿½ï¿½ï¿½ï¿½
-	* @param[in] value ï¿½ï¿½ï¿½ï¿½
-	* @param[in] role ï¿½ï¿½É«
-	* @return true:ï¿½É¹ï¿½, false:Ê§ï¿½Ü¡ï¿½
+	* @brief  ÉèÖÃÊý¾Ý
+	* @param[in] index ÐòºÅ
+	* @param[in] value Êý¾Ý
+	* @param[in] role ½ÇÉ«
+	* @return true:³É¹¦, false:Ê§°Ü¡£
 	*/
 	bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) Q_DECL_OVERRIDE;
 
