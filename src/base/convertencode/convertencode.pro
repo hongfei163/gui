@@ -5,7 +5,7 @@ LANGUAGE	= C++
 
 CONFIG		+= qt
 
-QT		+= widgets
+QT			+= widgets
 
 TEMPDIR		= $$TRAIN_OBJ_PATH/base/convertencode
 
