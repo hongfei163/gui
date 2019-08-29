@@ -1,12 +1,12 @@
-/*! 
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+ï»¿/*! 
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file: myclass.h
-\brief exe+dll±à³ÌÊ¾Àı£¬µ¥ÌåÀàµÄ¶¨ÒåÍ·ÎÄ¼ş
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\brief exe+dllç¼–ç¨‹ç¤ºä¾‹ï¼Œå•ä½“ç±»çš„å®šä¹‰å¤´æ–‡ä»¶
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/9 
 * please import ks04_19_dll.dll
 */
@@ -15,7 +15,7 @@
 #define _KS19_CONFIG_DLL_H
 
 
-// ¶¯Ì¬¿âµ¼³öºê¶¨Òå
+// åŠ¨æ€åº“å¯¼å‡ºå®å®šä¹‰
 #ifdef WIN32		// windows platform
 #	if defined __KS04_19_CONFIG_DLL_SOURCE__
 #		define KS04_19_CONFIG_Export __declspec(dllexport)
@@ -32,23 +32,23 @@
 class KS04_19_CONFIG_Export CConfig {
 public:
     /**
-    * @brief  ¹¹Ôìº¯Êı£¬¶¨ÒåÎªË½ÓĞµÄÄ¿µÄÊÇ·ÀÖ¹ËûÈËÊ¹ÓÃ¸ÃÀà¹¹Ôì¶ÔÏó¡£
-    * @return ÎŞ
+    * @brief  æ„é€ å‡½æ•°ï¼Œå®šä¹‰ä¸ºç§æœ‰çš„ç›®çš„æ˜¯é˜²æ­¢ä»–äººä½¿ç”¨è¯¥ç±»æ„é€ å¯¹è±¡ã€‚
+    * @return æ— 
     */
     CConfig(){}
     /**
-    * @brief  Îö¹¹Ôìº¯Êı£¬¶¨ÒåÎªË½ÓĞµÄÄ¿µÄÊÇ·ÀÖ¹ËûÈËÓÃdeleteÓï¾äÉ¾³ıµ¥Ìå¶ÔÏó¡£
-    * @return ÎŞ
+    * @brief  ææ„é€ å‡½æ•°ï¼Œå®šä¹‰ä¸ºç§æœ‰çš„ç›®çš„æ˜¯é˜²æ­¢ä»–äººç”¨deleteè¯­å¥åˆ é™¤å•ä½“å¯¹è±¡ã€‚
+    * @return æ— 
     */
 	~CConfig(){}  
 	/**
-    * @brief  ÉèÖÃÊó±êµãÑ¡Í¼ÔªÊ±µÄÅö×²°ë¾¶
-    * @param[in] dR  °ë¾¶
+    * @brief  è®¾ç½®é¼ æ ‡ç‚¹é€‰å›¾å…ƒæ—¶çš„ç¢°æ’åŠå¾„
+    * @param[in] dR  åŠå¾„
     */
     void setSelectRadius(qreal dR) { m_dSelectRadius = dR; }
     /**
-    * @brief  »ñÈ¡Êó±êµãÑ¡Í¼ÔªÊ±µÄÅö×²°ë¾¶
-    * @return °ë¾¶
+    * @brief  è·å–é¼ æ ‡ç‚¹é€‰å›¾å…ƒæ—¶çš„ç¢°æ’åŠå¾„
+    * @return åŠå¾„
     */
     qreal getSelectRadius() const { return m_dSelectRadius; }
 private:    
@@ -56,8 +56,8 @@ private:
 
 
  private:
-   static CConfig s_config;	    /// ÅäÖÃ¶ÔÏóÊµÀı
-   qreal m_dSelectRadius;       /// Êó±ê¼à²â°ë¾¶
+   static CConfig s_config;	    /// é…ç½®å¯¹è±¡å®ä¾‹
+   qreal m_dSelectRadius;       /// é¼ æ ‡ç›‘æµ‹åŠå¾„
 
 };
 

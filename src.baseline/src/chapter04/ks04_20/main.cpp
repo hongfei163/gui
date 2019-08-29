@@ -1,13 +1,13 @@
-/*! 
-* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
-* °æÈ¨ËùÓÐ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
-* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+ï»¿/*! 
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºŽè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸Žæé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜Ž:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åŽæžœè‡ªè´Ÿã€‚
 
 \file: main.cpp
-\brief main()º¯ÊýµÄÊµÏÖÎÄ¼þ
+\brief main()å‡½æ•°çš„å®žçŽ°æ–‡ä»¶
 
-\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/9
 */
 
@@ -47,17 +47,17 @@ int main(int argc, char * argv[])
 }
 
 /**
-* @brief ±£´æxml¸ñÊ½ÎÄ¼þÊ¾Àý´úÂë
-*        xmlÎÄ¼þÄÚÈÝ
+* @brief ä¿å­˜xmlæ ¼å¼æ–‡ä»¶ç¤ºä¾‹ä»£ç 
+*        xmlæ–‡ä»¶å†…å®¹
 *       --------------------------------------------------------------------
 *       <?xml version="1.0" encoding="GB2312" standalone="yes"?>
-*       <!--Èí¼þÌØ¹¥¶Ó-->
+*       <!--è½¯ä»¶ç‰¹æ”»é˜Ÿ-->
 *       <doc>
-*           <courses count="4" institution="Èí¼þÌØ¹¥¶Ó" teacher="Å®¶ù½ÐÀÏ°×">
-*               <lesson url="https://study.163.com/instructor/1143174933.htm" id="1" fee="Ãâ·Ñ">C++ÀÏÄñÈÕ¼Ç</lesson>
-*               <lesson url="https://study.163.com/instructor/1143174933.htm" id="2" fee="Ãâ·Ñ">C++¿çÆ½Ì¨¿ª·¢ÖÐµÄ±àÒë´íÎó</lesson>
-*               <lesson url="https://study.163.com/instructor/1143174933.htm" id="3">QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢</lesson>
-*               <lesson url="sorry, not ready" id="4">C++¿çÆ½Ì¨·þÎñÄ£¿é¿ª·¢</lesson>
+*           <courses count="4" institution="è½¯ä»¶ç‰¹æ”»é˜Ÿ" teacher="å¥³å„¿å«è€ç™½">
+*               <lesson url="https://study.163.com/instructor/1143174933.htm" id="1" fee="å…è´¹">C++è€é¸Ÿæ—¥è®°</lesson>
+*               <lesson url="https://study.163.com/instructor/1143174933.htm" id="2" fee="å…è´¹">C++è·¨å¹³å°å¼€å‘ä¸­çš„ç¼–è¯‘é”™è¯¯</lesson>
+*               <lesson url="https://study.163.com/instructor/1143174933.htm" id="3">Qtå…¥é—¨ä¸Žæé«˜-GUIäº§å“å¼€å‘</lesson>
+*               <lesson url="sorry, not ready" id="4">C++è·¨å¹³å°æœåŠ¡æ¨¡å—å¼€å‘</lesson>
 *           </courses>
 *       </doc>
 *
@@ -67,7 +67,7 @@ void example01() {
 }
 
 /**
-* @brief ¶ÁÈ¡xml¸ñÊ½ÎÄ¼þÊ¾Àý´úÂë
+* @brief è¯»å–xmlæ ¼å¼æ–‡ä»¶ç¤ºä¾‹ä»£ç 
 */
 void example02() {
 

@@ -1,13 +1,13 @@
-/*! 
-* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
-* °æÈ¨ËùÓÐ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
-* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+ï»¿/*! 
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºŽè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸Žæé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜Ž:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åŽæžœè‡ªè´Ÿã€‚
 
 \file: maindialog.h
-\brief  CMainDialogÀà¶¨ÒåÍ·ÎÄ¼þ
+\brief  CMainDialogç±»å®šä¹‰å¤´æ–‡ä»¶
 
-\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/9
 */
 
@@ -16,13 +16,13 @@
 
 #include <QPixmap>
 
-#include "ui_maindialog.h" // Í·ÎÄ¼þÃû³ÆÀ´×Ô: maindailog.ui  ---> ui_maindialog.h
+#include "ui_maindialog.h" // å¤´æ–‡ä»¶åç§°æ¥è‡ª: maindailog.ui  ---> ui_maindialog.h
 
 QT_BEGIN_NAMESPACE
 class QMovie;
 QT_END_NAMESPACE
 
-// ¸¸ÀàµÄÃû³ÆÀ´×ÔuiÎÄ¼þÖÐ¶Ô»°¿òµÄÀàÃû£º¶ÔÏó²é¿´Æ÷ÖÐµÄÀàÃû
+// çˆ¶ç±»çš„åç§°æ¥è‡ªuiæ–‡ä»¶ä¸­å¯¹è¯æ¡†çš„ç±»åï¼šå¯¹è±¡æŸ¥çœ‹å™¨ä¸­çš„ç±»å
 class CMainDialog : public QDialog
 {
 	Q_OBJECT

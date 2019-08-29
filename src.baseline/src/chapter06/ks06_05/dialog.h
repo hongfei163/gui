@@ -1,13 +1,13 @@
-/*! 
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+ï»¿/*! 
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file: dialog.h
-\brief ÑİÊ¾ÓÃÍ·ÎÄ¼ş
+\brief æ¼”ç¤ºç”¨å¤´æ–‡ä»¶
   
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/8 
 */
 
@@ -27,32 +27,32 @@ public:
 
 protected:
     /*
-     * @brief ³õÊ¼»¯½çÃæ
+     * @brief åˆå§‹åŒ–ç•Œé¢
     */
 	void initialDialog();
 private:
     /*
-     * @brief ³õÊ¼»¯¸÷¸ö×Ó¿Ø¼ş
+     * @brief åˆå§‹åŒ–å„ä¸ªå­æ§ä»¶
     */
 	void initialControls();
     /*
-     * @brief Á¬½ÓĞÅºÅ²Û
+     * @brief è¿æ¥ä¿¡å·æ§½
     */
 	void connectSignalsAndSlots();
 
 
 private slots:
     /*
-     * @brief ´ò¿ªgifÎÄ¼ş²Ûº¯Êı
+     * @brief æ‰“å¼€gifæ–‡ä»¶æ§½å‡½æ•°
     */
 	void slot_open();
     /*
-     * @brief ÔİÍ£²Ûº¯Êı
-     * @param[in] b true:ÔİÍ£, false:²¥·Å
+     * @brief æš‚åœæ§½å‡½æ•°
+     * @param[in] b true:æš‚åœ, false:æ’­æ”¾
     */
     void slot_pause(bool b);
     /*
-     * @brief ¸üĞÂ°´Å¥µÄ×´Ì¬¡£±ÈÈç°´Å¥µÄÊ¹ÄÜ×´Ì¬(enable/disable)
+     * @brief æ›´æ–°æŒ‰é’®çš„çŠ¶æ€ã€‚æ¯”å¦‚æŒ‰é’®çš„ä½¿èƒ½çŠ¶æ€(enable/disable)
     */
 	void slot_updateButtons();
 private:

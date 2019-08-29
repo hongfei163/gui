@@ -1,13 +1,13 @@
-/*! 
-* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
-* °æÈ¨ËùÓÐ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
-* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+ï»¿/*! 
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºŽè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸Žæé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜Ž:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åŽæžœè‡ªè´Ÿã€‚
 
 \file: main.cpp
-\brief main()º¯ÊýµÄÊµÏÖÎÄ¼þ
+\brief main()å‡½æ•°çš„å®žçŽ°æ–‡ä»¶
 
-\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/8
 */
 
@@ -30,7 +30,7 @@ int main(int argc, char * argv[])
     CModel model;
     model.initialize();
 
-    qreal r = 0.f;// todo£¬µ÷ÓÃCConfigµÄgetSelectRadius()½Ó¿ÚÀ´»ñÈ¡ÅäÖÃ²ÎÊý¡£
+    qreal r = 0.f;// todoï¼Œè°ƒç”¨CConfigçš„getSelectRadius()æŽ¥å£æ¥èŽ·å–é…ç½®å‚æ•°ã€‚
     cout << "r = " << r << endl;
 	return 0;
 }

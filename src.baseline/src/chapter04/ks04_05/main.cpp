@@ -1,13 +1,13 @@
-/*! 
-* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
-* °æÈ¨ËùÓÐ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
-* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+ï»¿/*! 
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºŽè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸Žæé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜Ž:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åŽæžœè‡ªè´Ÿã€‚
 
 \file: main.cpp
-\brief main()º¯ÊýµÄÊµÏÖÎÄ¼þ
+\brief main()å‡½æ•°çš„å®žçŽ°æ–‡ä»¶
 
-\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/9
 */
 
@@ -50,9 +50,9 @@ int main(int argc, char * argv[])
 }
 
 /**
-* @brief  qDebug()<< ·½Ê½Êä³öÐÅÏ¢
-*		  ¿ÉÒÔÖ±½ÓÓÃ<<²Ù×÷·û½«ÐèÒªÊä³öµÄÐÅÏ¢Êä³öµ½qDebug()¡£
-* @return ÎÞ
+* @brief  qDebug()<< æ–¹å¼è¾“å‡ºä¿¡æ¯
+*		  å¯ä»¥ç›´æŽ¥ç”¨<<æ“ä½œç¬¦å°†éœ€è¦è¾“å‡ºçš„ä¿¡æ¯è¾“å‡ºåˆ°qDebug()ã€‚
+* @return æ— 
 */
 void example01(){
 	
@@ -61,8 +61,8 @@ void example01(){
 }
 
 /**
-* @brief  Ê¹ÓÃqDebug("%")¸ñÊ½»¯Êä³öÐÅÏ¢
-* @return ÎÞ
+* @brief  ä½¿ç”¨qDebug("%")æ ¼å¼åŒ–è¾“å‡ºä¿¡æ¯
+* @return æ— 
 */
 void example02(){
 	
@@ -71,8 +71,8 @@ void example02(){
 
 
 /**
-* @brief  ½«×Ô¶¨ÒåÀàÊä³öµ½qDebug
-* @param[in] mc ×Ô¶¨ÒåÀà
+* @brief  å°†è‡ªå®šä¹‰ç±»è¾“å‡ºåˆ°qDebug
+* @param[in] mc è‡ªå®šä¹‰ç±»
 * @return 
 */
 void example03(){

@@ -1,13 +1,13 @@
-/*! 
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+ï»¿/*! 
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file: country.h
-\brief ¹ú¼ÒÀà¶¨ÒåÎÄ¼ş¡£
+\brief å›½å®¶ç±»å®šä¹‰æ–‡ä»¶ã€‚
        
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/10
 */
 
@@ -20,7 +20,7 @@
 class CProvince;
 
 
-// ¹ú¼ÒÀà
+// å›½å®¶ç±»
 //-----------------------------------------
 class CCountry
 {
@@ -30,42 +30,42 @@ public:
 	~CCountry();
 
     /**
-    * @brief ÉèÖÃ¹ú¼ÒÃû³Æ.
-    * @param[in] strName ¹ú¼ÒÃû³Æ
+    * @brief è®¾ç½®å›½å®¶åç§°.
+    * @param[in] strName å›½å®¶åç§°
     * @return void
     */
 	void  setName(const QString& str) {m_strName = str;}
 
     /**
-    * @brief »ñÈ¡¹ú¼ÒÃû³Æ.
-    * @return ¹ú¼ÒÃû³Æ
+    * @brief è·å–å›½å®¶åç§°.
+    * @return å›½å®¶åç§°
     */
 	QString  getName(void) const {return m_strName;}   
    
     /**
-    * @brief ÉèÖÃ¹ú¼ÒËùÔÚ´óÖŞÃû³Æ
-    * @param[in] str ¹ú¼ÒËùÔÚ´óÖŞÃû³Æ
+    * @brief è®¾ç½®å›½å®¶æ‰€åœ¨å¤§æ´²åç§°
+    * @param[in] str å›½å®¶æ‰€åœ¨å¤§æ´²åç§°
     * @return void
     */
 	void  setContinent(const QString& str) {m_strContinent = str;}
 
     /**
-    * @brief »ñÈ¡¹ú¼ÒËùÔÚ´óÖŞÃû³Æ
-    * @return ¹ú¼ÒËùÔÚ´óÖŞÃû³Æ
+    * @brief è·å–å›½å®¶æ‰€åœ¨å¤§æ´²åç§°
+    * @return å›½å®¶æ‰€åœ¨å¤§æ´²åç§°
     */
 	QString  getContinent(void) const {return m_strContinent;}
 
 	/**
-	* @brief Ìí¼ÓÊ¡
-	* @param[in] pProvince Ê¡
-	* @return Ìí¼ÓºóµÄÊ¡¸öÊı
+	* @brief æ·»åŠ çœ
+	* @param[in] pProvince çœ
+	* @return æ·»åŠ åçš„çœä¸ªæ•°
 	*/
 	int addProvince(CProvince* pProvince);
 
 	/**
-	* @brief »ñÈ¡Ê¡ÁĞ±í
-	* @param[out] lstProvinces Ê¡ÁĞ±í
-	* @return ÒÑÓĞÊ¡¸öÊı
+	* @brief è·å–çœåˆ—è¡¨
+	* @param[out] lstProvinces çœåˆ—è¡¨
+	* @return å·²æœ‰çœä¸ªæ•°
 	*/
 	int getProvinces(QList<CProvince*>& lstProvinces) const { lstProvinces = m_lstProvinces; return lstProvinces.size(); }
 private:	

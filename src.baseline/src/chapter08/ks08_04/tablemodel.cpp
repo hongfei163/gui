@@ -1,12 +1,12 @@
-/*!
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+ï»¿/*!
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file tablemodel.cpp
-\brief  TableÄ£ĞÍÀàµÄÊµÏÖÎÄ¼ş
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\brief  Tableæ¨¡å‹ç±»çš„å®ç°æ–‡ä»¶
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2019/1
 */
 #include "tablemodel.h"
@@ -50,7 +50,7 @@ Qt::ItemFlags CTableModel::flags(const QModelIndex &index) const
 {
 	Qt::ItemFlags itemFlags;
 	if (0 == index.column()) {
-		itemFlags &= (~Qt::ItemIsEditable);// Qt::ItemIsEditable±íÊ¾¿É±à¼­
+		itemFlags &= (~Qt::ItemIsEditable);// Qt::ItemIsEditableè¡¨ç¤ºå¯ç¼–è¾‘
 		return itemFlags;
 	}
 	else {
@@ -66,7 +66,7 @@ QVariant CTableModel::data(const QModelIndex &index, int role) const
 	}
 	else if (Qt::DisplayRole == role) {
 		var = QStandardItemModel::data(index, Qt::EditRole);
-		if (index.column() == 0) { // µÚ0ÁĞÎŞĞèÌØÊâ´¦Àí
+		if (index.column() == 0) { // ç¬¬0åˆ—æ— éœ€ç‰¹æ®Šå¤„ç†
 			return var;
 		}
 		switch (index.row())
@@ -84,13 +84,13 @@ QVariant CTableModel::data(const QModelIndex &index, int role) const
 			switch (animateSpeed)
 			{
 			case EAnimateSpeed_Slow:
-				var = QString::fromLocal8Bit("ÂıËÙ");
+				var = QString::fromLocal8Bit("æ…¢é€Ÿ");
 				break;
 			case EAnimateSpeed_Normal:
-				var = QString::fromLocal8Bit("ÖĞËÙ");
+				var = QString::fromLocal8Bit("ä¸­é€Ÿ");
 				break;
 			case EAnimateSpeed_Fast:
-				var = QString::fromLocal8Bit("¿ìËÙ");
+				var = QString::fromLocal8Bit("å¿«é€Ÿ");
 				break;
 			}
 		}

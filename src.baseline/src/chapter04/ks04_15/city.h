@@ -1,13 +1,13 @@
-/*! 
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+ï»¿/*! 
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file: city.h
-\brief ³ÇÊĞÀà¶¨ÒåÎÄ¼ş¡£
+\brief åŸå¸‚ç±»å®šä¹‰æ–‡ä»¶ã€‚
        
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/10
 */
 
@@ -18,7 +18,7 @@
 
 class CProvince;
 
-// ³ÇÊĞÀà
+// åŸå¸‚ç±»
 //-----------------------------------------
 class CCity
 {
@@ -27,28 +27,28 @@ public:
 	~CCity();
 
     /**
-    * @brief ÉèÖÃ³ÇÊĞÃû³Æ.
-    * @param[in] strName ³ÇÊĞÃû³Æ
+    * @brief è®¾ç½®åŸå¸‚åç§°.
+    * @param[in] strName åŸå¸‚åç§°
     * @return void
     */
 	void  setName(const QString& str) {m_strName = str;}
 
     /**
-    * @brief »ñÈ¡³ÇÊĞÃû³Æ.
-    * @return ³ÇÊĞÃû³Æ
+    * @brief è·å–åŸå¸‚åç§°.
+    * @return åŸå¸‚åç§°
     */
 	QString  getName(void)const {return m_strName;}
  
     /**
-    * @brief ÉèÖÃ³ÇÊĞËùÔÚÊ¡(Öİ)
-    * @param[in] pProvince ³ÇÊĞËùÔÚÊ¡(Öİ)
+    * @brief è®¾ç½®åŸå¸‚æ‰€åœ¨çœ(å·)
+    * @param[in] pProvince åŸå¸‚æ‰€åœ¨çœ(å·)
     * @return void
     */
 	void  setProvince(CProvince* pProvince) { m_pProvince = pProvince;}
 
     /**
-    * @brief »ñÈ¡³ÇÊĞËùÔÚÊ¡(Öİ)
-    * @return ³ÇÊĞËùÔÚÊ¡(Öİ)
+    * @brief è·å–åŸå¸‚æ‰€åœ¨çœ(å·)
+    * @return åŸå¸‚æ‰€åœ¨çœ(å·)
     */
 	CProvince*  getProvince(void) const {return m_pProvince;}
 

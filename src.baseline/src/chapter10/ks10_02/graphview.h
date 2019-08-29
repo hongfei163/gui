@@ -1,13 +1,13 @@
-/*! 
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+ï»¿/*! 
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file: graphview.h
-\brief ÑİÊ¾ÓÃÍ·ÎÄ¼ş
+\brief æ¼”ç¤ºç”¨å¤´æ–‡ä»¶
   
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/8 
 */
 
@@ -28,7 +28,7 @@ public:
     ~CGraphView();
 
 public:
-    QPointF getMousePressPoint() { return m_ptView; }///»ñÈ¡Êó±êµ¥»÷µãµÄ×ø±ê
+    QPointF getMousePressPoint() { return m_ptView; }///è·å–é¼ æ ‡å•å‡»ç‚¹çš„åæ ‡
     void addEllipse();
     void addRect();
     bool isValid();
@@ -36,21 +36,21 @@ public:
 
 public slots:
  #ifndef QT_NO_CLIPBOARD
-    void cut();     /// ¼ôÇĞ
-    void copy();    /// ¿½±´
-    void paste();   /// ğ¤Ìù
+    void cut();     /// å‰ªåˆ‡
+    void copy();    /// æ‹·è´
+    void paste();   /// é»è´´
 #endif
 
 Q_SIGNALS:
     void viewMouseMove(const QPointF&);
-    void viewClose(QWidget*);		/// ÇëÔÚÊÕµ½±¾ĞÅºÅºó£¬µ÷ÓÃdisconnectÏà¹ØµÄsignal½â³ı¡£
+    void viewClose(QWidget*);		/// è¯·åœ¨æ”¶åˆ°æœ¬ä¿¡å·åï¼Œè°ƒç”¨disconnectç›¸å…³çš„signalè§£é™¤ã€‚
 protected:
     void mousePressEvent(QMouseEvent *event) override;
     virtual void mouseMoveEvent(QMouseEvent *e) override;
     /**
-    * @brief ÊÓÍ¼¹Ø±ÕÊÂÏî´¦Àí¡£
-    * ÕâÊÇÖØÔØµÄ¸¸Ààº¯Êı¡£ÓÃÓÚÍ¨ÖªÊôĞÔ´°µÈ½øĞĞÏàÓ¦´¦Àí¡£
-    * @param event ÊÓÍ¼¹Ø±ÕÊÂÏî¡£
+    * @brief è§†å›¾å…³é—­äº‹é¡¹å¤„ç†ã€‚
+    * è¿™æ˜¯é‡è½½çš„çˆ¶ç±»å‡½æ•°ã€‚ç”¨äºé€šçŸ¥å±æ€§çª—ç­‰è¿›è¡Œç›¸åº”å¤„ç†ã€‚
+    * @param event è§†å›¾å…³é—­äº‹é¡¹ã€‚
     */
     virtual void closeEvent(QCloseEvent *event) Q_DECL_OVERRIDE;
     virtual void drawBackground(QPainter *painter, const QRectF &rect);
@@ -63,12 +63,12 @@ protected:
 Q_SIGNALS:
 
 private:
-    void copyItems(QList<QGraphicsItem*>&);    /// ¿½±´Í¼Ôª
+    void copyItems(QList<QGraphicsItem*>&);    /// æ‹·è´å›¾å…ƒ
 private:
 #ifndef QT_NO_CLIPBOARD
-    QAction *m_pCutAct;         /// ¼ôÇĞ
-    QAction *m_pCopyAct;		/// ¸´ÖÆ
-    QAction *m_pPasteAct;		/// ğ¤Ìù
+    QAction *m_pCutAct;         /// å‰ªåˆ‡
+    QAction *m_pCopyAct;		/// å¤åˆ¶
+    QAction *m_pPasteAct;		/// é»è´´
 #endif
     QPointF m_ptView;
     QPointF m_ptScene;

@@ -1,13 +1,13 @@
-/*! 
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+ï»¿/*! 
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file: main.cpp
-\brief QInputDialogµÄÊ¹ÓÃ
+\brief QInputDialogçš„ä½¿ç”¨
             
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/9
 */
 
@@ -62,40 +62,40 @@ int main(int argc, char * argv[])
 }
 
 /**
-* @brief  »ñÈ¡ÎÄ±¾
-* @return ÎŞ
+* @brief  è·å–æ–‡æœ¬
+* @return æ— 
 */
 void example01(){
 	
  
 }
 /**
-* @brief  »ñÈ¡¶àĞĞÎÄ±¾
-* @return ÎŞ
+* @brief  è·å–å¤šè¡Œæ–‡æœ¬
+* @return æ— 
 */
 void example02(){
  
 }
 
 /**
-* @brief  »ñÈ¡ÌõÄ¿
-* @return ÎŞ
+* @brief  è·å–æ¡ç›®
+* @return æ— 
 */
 void example03() {
    
 }
 
 /**
-* @brief  »ñÈ¡ÕûÊı
-* @return ÎŞ
+* @brief  è·å–æ•´æ•°
+* @return æ— 
 */
 void example04() {
   
 }
 
 /**
-* @brief  »ñÈ¡¸¡µãÊı
-* @return ÎŞ
+* @brief  è·å–æµ®ç‚¹æ•°
+* @return æ— 
 */
 void example05() {
    

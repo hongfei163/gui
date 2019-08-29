@@ -1,12 +1,12 @@
-/*!
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+ï»¿/*!
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file delegate.cpp
-\brief delegateÊµÏÖÎÄ¼ş
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\brief delegateå®ç°æ–‡ä»¶
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2019/1
 */
 #include "delegate.h"
@@ -22,7 +22,7 @@
 CDelegate::CDelegate(QObject *parent)
     : QStyledItemDelegate(parent)
 {
-	m_strListSpeed << QString::fromLocal8Bit("ÂıËÙ") << QString::fromLocal8Bit("ÖĞËÙ") << QString::fromLocal8Bit("¿ìËÙ");
+	m_strListSpeed << QString::fromLocal8Bit("æ…¢é€Ÿ") << QString::fromLocal8Bit("ä¸­é€Ÿ") << QString::fromLocal8Bit("å¿«é€Ÿ");
 	m_strListYesNo << "yes" << "no";
 }
 
@@ -55,7 +55,7 @@ QWidget *CDelegate::createEditor(QWidget *parent,
 		return pEditor;
 	}
 	else if (index.row() == CTableModel::Eattr_AnimateSpeed){
-		// ¶¯»­ËÙ¶ÈÉèÖÃµ¥Ôª¸ñ	
+		// åŠ¨ç”»é€Ÿåº¦è®¾ç½®å•å…ƒæ ¼	
 		QComboBox* pEditor = new QComboBox(parent);
 		pEditor->addItems(m_strListSpeed);
 		pEditor->setItemData(0, CTableModel::EAnimateSpeed_Slow);
@@ -96,7 +96,7 @@ void CDelegate::setEditorData(QWidget *editor,
 
 	}
 	else if (index.row() == CTableModel::Eattr_AnimateSpeed) {
-		// ¶¯»­ËÙ¶ÈÉèÖÃµ¥Ôª¸ñ
+		// åŠ¨ç”»é€Ÿåº¦è®¾ç½®å•å…ƒæ ¼
 		QComboBox* pEditor = static_cast<QComboBox*>(editor);
 		int nValue = index.model()->data(index, Qt::EditRole).toInt();
 		CTableModel::EAnimateSpeed animateSpeed = static_cast<CTableModel::EAnimateSpeed>(nValue);
@@ -119,24 +119,24 @@ void CDelegate::setModelData(QWidget *editor, QAbstractItemModel *model,
 		spinBox->interpretText();
 		int value = spinBox->value();
 
-		model->setData(index, value, Qt::EditRole); // ÎªÄ£ĞÍÉèÖÃÊı¾İ
+		model->setData(index, value, Qt::EditRole); // ä¸ºæ¨¡å‹è®¾ç½®æ•°æ®
 	} 
  	else if (index.row() == CTableModel::EAttr_Checked) {
 		QComboBox* pBox = static_cast<QComboBox*>(editor);
 		QVariant var = pBox->currentData();
-		model->setData(index, var.toBool());// ÎªÄ£ĞÍÉèÖÃÊı¾İ
+		model->setData(index, var.toBool());// ä¸ºæ¨¡å‹è®¾ç½®æ•°æ®
 	}
  	else if (index.row() == CTableModel::EAttr_LastOneFlag) {
 		CEditor *pEditor = qobject_cast<CEditor *>(editor);
 		QVariant var;
 		var.setValue((pEditor->text() == "Y") ? Qt::Checked : Qt::Unchecked);
-		model->setData(index, var);// ÎªÄ£ĞÍÉèÖÃÊı¾İ
+		model->setData(index, var);// ä¸ºæ¨¡å‹è®¾ç½®æ•°æ®
 	}
 	else if (index.row() == CTableModel::Eattr_AnimateSpeed) {
-		// ¶¯»­ËÙ¶ÈÉèÖÃµ¥Ôª¸ñ
+		// åŠ¨ç”»é€Ÿåº¦è®¾ç½®å•å…ƒæ ¼
 		QComboBox* pBox = static_cast<QComboBox*>(editor);
 		QVariant var = pBox->currentData();
-		model->setData(index, var);// ÎªÄ£ĞÍÉèÖÃÊı¾İ
+		model->setData(index, var);// ä¸ºæ¨¡å‹è®¾ç½®æ•°æ®
 	}
    else {
 		QStyledItemDelegate::setModelData(editor, model, index);

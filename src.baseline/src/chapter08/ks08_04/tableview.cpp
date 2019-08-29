@@ -1,12 +1,12 @@
-/*!
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+ï»¿/*!
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file tableview.cpp
-\brief tableviewÊµÏÖÎÄ¼ş
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\brief tableviewå®ç°æ–‡ä»¶
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2019/1
 */
 
@@ -18,13 +18,13 @@ void CTableView::mousePressEvent(QMouseEvent *event)
 {
 	QPoint pos = event->pos();
 	QPersistentModelIndex index = indexAt(pos);
-	// Èç¹û±¾´ÎÑ¡ÔñºÍÉÏ´Î²»Ò»Ñù£¬ÔòĞèÒª¹Ø±ÕÉÏ´ÎµÄ±à¼­Æ÷
+	// å¦‚æœæœ¬æ¬¡é€‰æ‹©å’Œä¸Šæ¬¡ä¸ä¸€æ ·ï¼Œåˆ™éœ€è¦å…³é—­ä¸Šæ¬¡çš„ç¼–è¾‘å™¨
 	if ((index != m_indexLast) && m_indexLast.isValid()) {
 		closePersistentEditor(m_indexLast);
 	}
 	m_indexLast = index;
 	if (index.isValid() && (1==index.column())) {
-		// ´ò¿ª±à¼­Æ÷½øÈë±à¼­×´Ì¬
+		// æ‰“å¼€ç¼–è¾‘å™¨è¿›å…¥ç¼–è¾‘çŠ¶æ€
 		openPersistentEditor(index);
 	}
 	QTableView::mousePressEvent(event);

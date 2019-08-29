@@ -1,22 +1,22 @@
-/*! 
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+ï»¿/*! 
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file: city.cpp
-\brief ³ÇÊĞÀàÊµÏÖÎÄ¼ş
+\brief åŸå¸‚ç±»å®ç°æ–‡ä»¶
 
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/10
 */
 
 #include "city.h"
 
-// domÔªËØ±êÇ©¶¨ÒåÇø
+// domå…ƒç´ æ ‡ç­¾å®šä¹‰åŒº
 static const char* c_tag_card = "card";
 
-// domÔªËØÊôĞÔÃû¶¨ÒåÇø
+// domå…ƒç´ å±æ€§åå®šä¹‰åŒº
 static const char* c_attribute_name = "name";
 static const char* c_attribute_string = "string";
 
@@ -29,10 +29,10 @@ ESerializeCode CCard::serializeXML(QDomDocument& /*doc*/, QDomElement& eleCard, 
 }
 
 /**
-* @brief ÓÃÀ´°ÑÀà¶ÔÏó½øĞĞÎÄ±¾·½Ê½ĞòÁĞ»¯µÄº¯Êı¡£
-* @param[in] eleCity ³ÇÊĞÔªËØ¶ÔÏó
-* @param[in] pError ´íÎóĞÅÏ¢¡£
-* @return ESerializeCodeÃ¶¾ÙÖµ¡£
+* @brief ç”¨æ¥æŠŠç±»å¯¹è±¡è¿›è¡Œæ–‡æœ¬æ–¹å¼åºåˆ—åŒ–çš„å‡½æ•°ã€‚
+* @param[in] eleCity åŸå¸‚å…ƒç´ å¯¹è±¡
+* @param[in] pError é”™è¯¯ä¿¡æ¯ã€‚
+* @return ESerializeCodeæšä¸¾å€¼ã€‚
 */
 ESerializeCode CCard::deSerializeXML(const QDomElement& eleCard, QString* /*pError*/) {
 	m_str = eleCard.attribute(c_attribute_name);

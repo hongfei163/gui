@@ -1,13 +1,13 @@
-/*!
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+ï»¿/*!
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file: itembase.h
-\brief ÑİÊ¾ÓÃÍ·ÎÄ¼ş
+\brief æ¼”ç¤ºç”¨å¤´æ–‡ä»¶
 
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/8
 */
 
@@ -23,39 +23,39 @@ public:
     virtual int type() const { return QGraphicsItem::UserType; }
 
     /**
-    * @brief »ñÈ¡¼¸ºÎ¾ØĞÎ(Í¼Ôª×ø±êÏµ)
-    * @return ¼¸ºÎ¾ØĞÎ
+    * @brief è·å–å‡ ä½•çŸ©å½¢(å›¾å…ƒåæ ‡ç³»)
+    * @return å‡ ä½•çŸ©å½¢
     */
     virtual QRectF  getItemRect() const =0 ;
     
     /**
-    * @brief setWidthÖØÉèÖÃ¾ØĞÎ¿í
+    * @brief setWidthé‡è®¾ç½®çŸ©å½¢å®½
     *
-    * @param[in] dW  ¿í
+    * @param[in] dW  å®½
     */
     void setWidth(qreal dW) { m_width = dW; }
     /**
-    * @brief getWidth() »ñÈ¡¾ØĞÎ¿í
+    * @brief getWidth() è·å–çŸ©å½¢å®½
     *
-    * @return ¿í
+    * @return å®½
     */
     qreal getWidth() const { return m_width; }
 
     /**
-    * @brief setHeightÖØÉèÖÃ¾ØĞÎ¸ß
+    * @brief setHeighté‡è®¾ç½®çŸ©å½¢é«˜
     *
-    * @param dH  ¸ß
+    * @param dH  é«˜
     */
     void setHeight(qreal dH) { m_height = dH; }
     /**
-    * @brief getHeight() »ñÈ¡¾ØĞÎ¸ß
+    * @brief getHeight() è·å–çŸ©å½¢é«˜
     *
-    * @return ¸ß
+    * @return é«˜
     */
     qreal getHeight() const { return m_height; }
 
 protected:
-	/// Îö¹¹º¯Êı
+	/// ææ„å‡½æ•°
     virtual ~CGraphItemBase() { ; }
 private:
     qreal m_width;
