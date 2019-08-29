@@ -1,13 +1,13 @@
 /*! 
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file: main.cpp
-\brief main()º¯ÊıµÄÊµÏÖÎÄ¼ş
+\brief main()å‡½æ•°çš„å®ç°æ–‡ä»¶
 
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/9
 */
 
@@ -50,17 +50,17 @@ int main(int argc, char * argv[])
 }
 
 /**
-* @brief ±£´æxml¸ñÊ½ÎÄ¼şÊ¾Àı´úÂë
-*        xmlÎÄ¼şÄÚÈİ
+* @brief ä¿å­˜xmlæ ¼å¼æ–‡ä»¶ç¤ºä¾‹ä»£ç 
+*        xmlæ–‡ä»¶å†…å®¹
 *       --------------------------------------------------------------------
 *       <?xml version="1.0" encoding="GB2312" standalone="yes"?>
-*       <!--Èí¼şÌØ¹¥¶Ó-->
+*       <!--è½¯ä»¶ç‰¹æ”»é˜Ÿ-->
 *       <doc>
-*           <courses count="4" institution="Èí¼şÌØ¹¥¶Ó" teacher="Å®¶ù½ĞÀÏ°×">
-*               <lesson url="https://study.163.com/instructor/1143174933.htm" id="1" fee="Ãâ·Ñ">C++ÀÏÄñÈÕ¼Ç</lesson>
-*               <lesson url="https://study.163.com/instructor/1143174933.htm" id="2" fee="Ãâ·Ñ">C++¿çÆ½Ì¨¿ª·¢ÖĞµÄ±àÒë´íÎó</lesson>
-*               <lesson url="https://study.163.com/instructor/1143174933.htm" id="3">QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢</lesson>
-*               <lesson url="sorry, not ready" id="4">C++¿çÆ½Ì¨·şÎñÄ£¿é¿ª·¢</lesson>
+*           <courses count="4" institution="è½¯ä»¶ç‰¹æ”»é˜Ÿ" teacher="å¥³å„¿å«è€ç™½">
+*               <lesson url="https://study.163.com/instructor/1143174933.htm" id="1" fee="å…è´¹">C++è€é¸Ÿæ—¥è®°</lesson>
+*               <lesson url="https://study.163.com/instructor/1143174933.htm" id="2" fee="å…è´¹">C++è·¨å¹³å°å¼€å‘ä¸­çš„ç¼–è¯‘é”™è¯¯</lesson>
+*               <lesson url="https://study.163.com/instructor/1143174933.htm" id="3">Qtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘</lesson>
+*               <lesson url="sorry, not ready" id="4">C++è·¨å¹³å°æœåŠ¡æ¨¡å—å¼€å‘</lesson>
 *           </courses>
 *       </doc>
 *
@@ -75,22 +75,22 @@ void example01() {
     dir.mkpath(strPath);
     QString strFileName = strPath + "test04_20.xml";
     QFile file(strFileName);
-    if (!file.open(QFile::WriteOnly | QFile::Text | QFile::Truncate)) {// QFile::Truncate£ºÎªÁËÇå¿ÕÔ­À´µÄÎÄ¼şÄÚÈİ
+    if (!file.open(QFile::WriteOnly | QFile::Text | QFile::Truncate)) {// QFile::Truncateï¼šä¸ºäº†æ¸…ç©ºåŸæ¥çš„æ–‡ä»¶å†…å®¹
         return;
     }
     QXmlStreamWriter writer(&file);    
-    writer.setCodec("UTF-8");// ÉèÖÃXML±àÂë
-    writer.setAutoFormatting(true); // ×Ô¶¯¸ñÊ½»¯
-    writer.writeStartDocument("1.0", true); // ¿ªÊ¼ÎÄµµ£¬xmlÉùÃ÷
-    writer.writeComment(QString::fromLocal8Bit("Èí¼şÌØ¹¥¶Ó"));
+    writer.setCodec("UTF-8");// è®¾ç½®XMLç¼–ç 
+    writer.setAutoFormatting(true); // è‡ªåŠ¨æ ¼å¼åŒ–
+    writer.writeStartDocument("1.0", true); // å¼€å§‹æ–‡æ¡£ï¼Œxmlå£°æ˜
+    writer.writeComment(QString::fromLocal8Bit("è½¯ä»¶ç‰¹æ”»é˜Ÿ"));
 
-    writer.writeStartElement("doc");    // ¿ªÊ¼×ÓÔªËØ<doc>
-    // ÏÂÃæ¿ªÊ¼Ğ´ÄÚÈİ
-    writer.writeStartElement("courses"); // ¿ªÊ¼×ÓÔªËØ<courses>
+    writer.writeStartElement("doc");    // å¼€å§‹å­å…ƒç´ <doc>
+    // ä¸‹é¢å¼€å§‹å†™å†…å®¹
+    writer.writeStartElement("courses"); // å¼€å§‹å­å…ƒç´ <courses>
     {
         writer.writeAttribute("count", "4");
-        writer.writeAttribute("institution", QString::fromLocal8Bit("Èí¼şÌØ¹¥¶Ó"));
-        writer.writeAttribute("teacher", QString::fromLocal8Bit("Å®¶ù½ĞÀÏ°×"));
+        writer.writeAttribute("institution", QString::fromLocal8Bit("è½¯ä»¶ç‰¹æ”»é˜Ÿ"));
+        writer.writeAttribute("teacher", QString::fromLocal8Bit("å¥³å„¿å«è€ç™½"));
 
         // lesson1
         {
@@ -98,10 +98,10 @@ void example01() {
             {
                 writer.writeAttribute("url", "https://study.163.com/instructor/1143174933.htm");
                 writer.writeAttribute("id", "1");
-                writer.writeAttribute("fee", QString::fromLocal8Bit("Ãâ·Ñ"));
-                writer.writeCharacters(QString::fromLocal8Bit("C++ÀÏÄñÈÕ¼Ç"));
+                writer.writeAttribute("fee", QString::fromLocal8Bit("å…è´¹"));
+                writer.writeCharacters(QString::fromLocal8Bit("C++è€é¸Ÿæ—¥è®°"));
            }
-            writer.writeEndElement();   // ½áÊø×ÓÔªËØ </lesson>
+            writer.writeEndElement();   // ç»“æŸå­å…ƒç´  </lesson>
         }
         // lesson2
         {
@@ -109,10 +109,10 @@ void example01() {
             {
                 writer.writeAttribute("url", "https://study.163.com/instructor/1143174933.htm");
                 writer.writeAttribute("id", "2");
-                writer.writeAttribute("fee", QString::fromLocal8Bit("Ãâ·Ñ"));
-                writer.writeCharacters(QString::fromLocal8Bit("C++¿çÆ½Ì¨¿ª·¢ÖĞµÄ±àÒë´íÎó"));
+                writer.writeAttribute("fee", QString::fromLocal8Bit("å…è´¹"));
+                writer.writeCharacters(QString::fromLocal8Bit("C++è·¨å¹³å°å¼€å‘ä¸­çš„ç¼–è¯‘é”™è¯¯"));
             }
-            writer.writeEndElement();   // ½áÊø×ÓÔªËØ </lesson>
+            writer.writeEndElement();   // ç»“æŸå­å…ƒç´  </lesson>
         }
         // lesson3
         {
@@ -120,9 +120,9 @@ void example01() {
             {
                 writer.writeAttribute("url", "https://study.163.com/instructor/1143174933.htm");
                 writer.writeAttribute("id", "3");
-                writer.writeCharacters(QString::fromLocal8Bit("QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢"));
+                writer.writeCharacters(QString::fromLocal8Bit("Qtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘"));
             }
-            writer.writeEndElement();   // ½áÊø×ÓÔªËØ </lesson>
+            writer.writeEndElement();   // ç»“æŸå­å…ƒç´  </lesson>
         }
         // lesson4
         {
@@ -130,21 +130,21 @@ void example01() {
             {
                 writer.writeAttribute("url", "sorry, not ready");
                 writer.writeAttribute("id", "4");
-                writer.writeCharacters(QString::fromLocal8Bit("C++¿çÆ½Ì¨·şÎñÄ£¿é¿ª·¢"));
+                writer.writeCharacters(QString::fromLocal8Bit("C++è·¨å¹³å°æœåŠ¡æ¨¡å—å¼€å‘"));
             }
-            writer.writeEndElement();   // ½áÊø×ÓÔªËØ </lesson>
+            writer.writeEndElement();   // ç»“æŸå­å…ƒç´  </lesson>
         }
     }
-    writer.writeEndElement();   // ½áÊø×ÓÔªËØ </courses>
+    writer.writeEndElement();   // ç»“æŸå­å…ƒç´  </courses>
 
-    writer.writeEndElement();   // ½áÊø×ÓÔªËØ </doc>
-    writer.writeEndDocument();  // ½áÊøÎÄµµ
+    writer.writeEndElement();   // ç»“æŸå­å…ƒç´  </doc>
+    writer.writeEndDocument();  // ç»“æŸæ–‡æ¡£
 
     file.close();
 }
 
 /**
-* @brief ¶ÁÈ¡xml¸ñÊ½ÎÄ¼şÊ¾Àı´úÂë
+* @brief è¯»å–xmlæ ¼å¼æ–‡ä»¶ç¤ºä¾‹ä»£ç 
 */
 void example02() {
     QString strPath =
@@ -163,28 +163,28 @@ void example02() {
     QString strVersion;
     QString strEncoding;
     QXmlStreamReader::TokenType nType = reader.readNext();
-    while (!reader.atEnd()) {// ±éÀúÕû¸öÎÄ¼ş
-        // ¶ÁÈ¡ÏÂÒ»¸öÔªËØ
+    while (!reader.atEnd()) {// éå†æ•´ä¸ªæ–‡ä»¶
+        // è¯»å–ä¸‹ä¸€ä¸ªå…ƒç´ 
         nType = reader.tokenType();
         switch (nType) {
-        case QXmlStreamReader::StartDocument: { // ÎÄµµ¿ªÊ¼
-            qDebug() << QString::fromLocal8Bit("============== ¿ªÊ¼ÎÄµµ(XMLÉùÃ÷) ===============");
-            // XMLÉùÃ÷
+        case QXmlStreamReader::StartDocument: { // æ–‡æ¡£å¼€å§‹
+            qDebug() << QString::fromLocal8Bit("============== å¼€å§‹æ–‡æ¡£(XMLå£°æ˜) ===============");
+            // XMLå£°æ˜
             strVersion = reader.documentVersion().toString();
             strEncoding = reader.documentEncoding().toString();
             bool bStandalone = reader.isStandaloneDocument();
-            qDebug() << QString::fromLocal8Bit("XML°æ±¾:%1  XML±àÂë:%2 Standalone=%3")
+            qDebug() << QString::fromLocal8Bit("XMLç‰ˆæœ¬:%1  XMLç¼–ç :%2 Standalone=%3")
                 .arg(strVersion).arg(strEncoding).arg(bStandalone);
             break;
         }
-        case QXmlStreamReader::Comment: {// ×¢ÊÍ
-            qDebug() << QString::fromLocal8Bit("========== XML ×¢ÊÍ ===========");
+        case QXmlStreamReader::Comment: {// æ³¨é‡Š
+            qDebug() << QString::fromLocal8Bit("========== XML æ³¨é‡Š ===========");
             QString strComment = reader.text().toString();
             qDebug()<< strComment << "\r\n";
             break;
         }
-        case QXmlStreamReader::ProcessingInstruction: {  // ´¦ÀíÖ¸Áî
-            qDebug() << QString::fromLocal8Bit("============= ´¦ÀíÖ¸Áî ============= ");
+        case QXmlStreamReader::ProcessingInstruction: {  // å¤„ç†æŒ‡ä»¤
+            qDebug() << QString::fromLocal8Bit("============= å¤„ç†æŒ‡ä»¤ ============= ");
             QString strProcInstr = reader.processingInstructionData().toString();
             qDebug() << strProcInstr << "\r\n";
             break;
@@ -192,38 +192,38 @@ void example02() {
         case QXmlStreamReader::DTD: {   // DTD
             qDebug() << QString::fromLocal8Bit("============= DTD ============= ");
             QString strDTD = reader.text().toString();
-            QXmlStreamNotationDeclarations notationDeclarations = reader.notationDeclarations();  // ·ûºÅÉùÃ÷
-            QXmlStreamEntityDeclarations entityDeclarations = reader.entityDeclarations();  // ÊµÌåÉùÃ÷
-                                                                                            // DTD ÉùÃ÷
+            QXmlStreamNotationDeclarations notationDeclarations = reader.notationDeclarations();  // ç¬¦å·å£°æ˜
+            QXmlStreamEntityDeclarations entityDeclarations = reader.entityDeclarations();  // å®ä½“å£°æ˜
+                                                                                            // DTD å£°æ˜
             QString strDTDName = reader.dtdName().toString();
-            QString strDTDPublicId = reader.dtdPublicId().toString();  // DTD ¹«¿ª±êÊ¶·û
-            QString strDTDSystemId = reader.dtdSystemId().toString();  // DTD ÏµÍ³±êÊ¶·û
+            QString strDTDPublicId = reader.dtdPublicId().toString();  // DTD å…¬å¼€æ ‡è¯†ç¬¦
+            QString strDTDSystemId = reader.dtdSystemId().toString();  // DTD ç³»ç»Ÿæ ‡è¯†ç¬¦
             qDebug() << QString::fromLocal8Bit("DTD : %1").arg(strDTD);
-            qDebug() << QString::fromLocal8Bit("DTD Ãû³Æ : %1").arg(strDTDName);
-            qDebug() << QString::fromLocal8Bit("DTD ¹«¿ª±êÊ¶·û : %1").arg(strDTDPublicId);
-            qDebug() << QString::fromLocal8Bit("DTD ÏµÍ³±êÊ¶·û : %1").arg(strDTDSystemId);
+            qDebug() << QString::fromLocal8Bit("DTD åç§° : %1").arg(strDTDName);
+            qDebug() << QString::fromLocal8Bit("DTD å…¬å¼€æ ‡è¯†ç¬¦ : %1").arg(strDTDPublicId);
+            qDebug() << QString::fromLocal8Bit("DTD ç³»ç»Ÿæ ‡è¯†ç¬¦ : %1").arg(strDTDSystemId);
             qDebug() << "\r\n";
 
             break;
         }
-        case QXmlStreamReader::StartElement: { // ¿ªÊ¼ÔªËØ
+        case QXmlStreamReader::StartElement: { // å¼€å§‹å…ƒç´ 
             QString strElementName = reader.name().toString();
-            if (QString::compare(strElementName, "doc") == 0) { // ¸ùÔªËØdoc
-                qDebug() << QString::fromLocal8Bit("============== ¿ªÊ¼ÔªËØ<doc> ==============");
-                // ´¦ÀídocÔªËØ¼°Æä×ÓÔªËØ
+            if (QString::compare(strElementName, "doc") == 0) { // æ ¹å…ƒç´ doc
+                qDebug() << QString::fromLocal8Bit("============== å¼€å§‹å…ƒç´ <doc> ==============");
+                // å¤„ç†docå…ƒç´ åŠå…¶å­å…ƒç´ 
                 parseDoc(reader);
             }
             break;
         }
-        case QXmlStreamReader::EndElement: { // ½áÊøÔªËØ 
+        case QXmlStreamReader::EndElement: { // ç»“æŸå…ƒç´  
             QString strElementName = reader.name().toString();
-            if (QString::compare(strElementName, "doc") == 0) { // ¸ùÔªËØdoc
-                qDebug() << QString::fromLocal8Bit("============= ½áÊøÔªËØ</doc> ===============");
+            if (QString::compare(strElementName, "doc") == 0) { // æ ¹å…ƒç´ doc
+                qDebug() << QString::fromLocal8Bit("============= ç»“æŸå…ƒç´ </doc> ===============");
             }
             break;
         }
-        case QXmlStreamReader::EndDocument: { // ÎÄµµ½áÊø
-            qDebug() << QString::fromLocal8Bit("============== ÎÄµµ½áÊø ================");
+        case QXmlStreamReader::EndDocument: { // æ–‡æ¡£ç»“æŸ
+            qDebug() << QString::fromLocal8Bit("============== æ–‡æ¡£ç»“æŸ ================");
             break;
         }
         default:
@@ -232,7 +232,7 @@ void example02() {
         reader.readNext();
     }
     if (reader.hasError()) {
-        // ´íÎó´¦Àí,±ÈÈçÊä³öÈÕÖ¾»òÖ´ĞĞÆäËû²Ù×÷
+        // é”™è¯¯å¤„ç†,æ¯”å¦‚è¾“å‡ºæ—¥å¿—æˆ–æ‰§è¡Œå…¶ä»–æ“ä½œ
     }
     file.close();
 }
@@ -243,18 +243,18 @@ void parseDoc(QXmlStreamReader& reader) {
     while (!reader.atEnd()) {
         nType = reader.tokenType();
         switch (nType) {
-        case QXmlStreamReader::StartElement: { // ¿ªÊ¼ÔªËØ
+        case QXmlStreamReader::StartElement: { // å¼€å§‹å…ƒç´ 
             QString strElementName = reader.name().toString();
             if (QString::compare(strElementName, "courses") == 0) {
-                qDebug() << QString::fromLocal8Bit("============== ¿ªÊ¼ÔªËØ<courses> ==============");
-                // ´¦Àícourses
+                qDebug() << QString::fromLocal8Bit("============== å¼€å§‹å…ƒç´ <courses> ==============");
+                // å¤„ç†courses
                 parseCourses(reader);
             }
             break;
         }
-        case QXmlStreamReader::EndElement: { // ½áÊøÔªËØ 
+        case QXmlStreamReader::EndElement: { // ç»“æŸå…ƒç´  
             QString strElementName = reader.name().toString();
-            qDebug() << QString::fromLocal8Bit("============= ½áÊøÔªËØ<%1> =============").arg(strElementName);
+            qDebug() << QString::fromLocal8Bit("============= ç»“æŸå…ƒç´ <%1> =============").arg(strElementName);
             return;
         }
         default:
@@ -265,24 +265,24 @@ void parseDoc(QXmlStreamReader& reader) {
 }
 
 void    parseCourses(QXmlStreamReader& reader) {
-    QXmlStreamReader::TokenType nType = reader.readNext(); // ½«readerÖ¸Ïòlesson×ÓÔªËØ.
+    QXmlStreamReader::TokenType nType = reader.readNext(); // å°†readeræŒ‡å‘lessonå­å…ƒç´ .
     while (!reader.atEnd()) {
         nType = reader.tokenType();
         switch (nType) {
-        case QXmlStreamReader::StartElement: { // ¿ªÊ¼ÔªËØ 
+        case QXmlStreamReader::StartElement: { // å¼€å§‹å…ƒç´  
             QString strElementName = reader.name().toString();
-            if (QString::compare(strElementName, "lesson") == 0) { // lessonÔªËØ
-                qDebug() << QString::fromLocal8Bit("============= ¿ªÊ¼ÔªËØ<lesson> =============");
-                // ½âÎölesson
+            if (QString::compare(strElementName, "lesson") == 0) { // lessonå…ƒç´ 
+                qDebug() << QString::fromLocal8Bit("============= å¼€å§‹å…ƒç´ <lesson> =============");
+                // è§£ælesson
                 parseLesson(reader);
                 continue;
             }
             break;
         }
-        case QXmlStreamReader::EndElement: { // ½áÊøÔªËØ 
+        case QXmlStreamReader::EndElement: { // ç»“æŸå…ƒç´  
             QString strElementName = reader.name().toString();
-            qDebug() << QString::fromLocal8Bit("============= ½áÊøÔªËØ<%1> =============").arg(strElementName);
-            if (QString::compare(strElementName, "courses") == 0) { // ½áÊøÔªËØ
+            qDebug() << QString::fromLocal8Bit("============= ç»“æŸå…ƒç´ <%1> =============").arg(strElementName);
+            if (QString::compare(strElementName, "courses") == 0) { // ç»“æŸå…ƒç´ 
                 return;
             }
             break;
@@ -316,7 +316,7 @@ void parseLesson(QXmlStreamReader& reader) {
             if (strElementName != "lesson") {
                 return;
             }
-            qDebug() << QString::fromLocal8Bit("============= ½áÊøÔªËØ:%1 =============").arg(strElementName); 
+            qDebug() << QString::fromLocal8Bit("============= ç»“æŸå…ƒç´ :%1 =============").arg(strElementName); 
             break;
         case QXmlStreamReader::Characters:
             strText = reader.text().toString();

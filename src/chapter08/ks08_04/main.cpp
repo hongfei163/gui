@@ -1,12 +1,12 @@
 /*!
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file main.cpp
-\brief delegate example main()º¯Êı
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\brief delegate example main()å‡½æ•°
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2019/1
 */
 
@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
     CTableModel model(CTableModel::Eattr_Max, 2);
 	CTreeView treeView;
 	treeView.setAlternatingRowColors(true);
-	treeView.setModel(&model); // ½«Ä£ĞÍÊÓÍ¼½¨Á¢¹ØÁª
+	treeView.setModel(&model); // å°†æ¨¡å‹è§†å›¾å»ºç«‹å…³è”
 	
 	QFile file(":/qss/treeview.qss");
 	bool bok = file.open(QFile::ReadOnly);
@@ -37,39 +37,39 @@ int main(int argc, char *argv[])
    // tableView.horizontalHeader()->setStretchLastSection(true);
 
     CDelegate delegate;
-	treeView.setItemDelegate(&delegate); // ÎªÊÓÍ¼ÉèÖÃ´úÀí
+	treeView.setItemDelegate(&delegate); // ä¸ºè§†å›¾è®¾ç½®ä»£ç†
 	QModelIndex index;
 
     for (int row = 0; row < CTableModel::Eattr_Max; ++row) {
-		// ÏÈÌîĞ´µÚ0ÁĞ
+		// å…ˆå¡«å†™ç¬¬0åˆ—
         index = model.index(row, 0, QModelIndex());
 		if (CTableModel::EAttr_Id == row) {
 			model.setData(index, "Id");
 		}
 		else if (CTableModel::EAttr_Descrition == row)	{
-			model.setData(index, QString::fromLocal8Bit("ÃèÊö"));
+			model.setData(index, QString::fromLocal8Bit("æè¿°"));
 		}
 		else if (CTableModel::EAttr_Checked == row)	{
-			model.setData(index, QString::fromLocal8Bit("ÑéÖ¤±êÖ¾"));
+			model.setData(index, QString::fromLocal8Bit("éªŒè¯æ ‡å¿—"));
 		}
 		else if (CTableModel::EAttr_LastOneFlag == row)	{
-			model.setData(index, QString::fromLocal8Bit("ÊÇ·ñ×îºóÒ»¸ö"));
+			model.setData(index, QString::fromLocal8Bit("æ˜¯å¦æœ€åä¸€ä¸ª"));
 		}
 		else if (CTableModel::Eattr_Animate == row)	{
-			model.setData(index, QString::fromLocal8Bit("¶¯»­"));
-			model.insertRows(0, 2, index);		// ²åÈëÁ½¸ö×ÓÊı¾İÏî
-			model.insertColumns(0, 2, index);	// ²åÈëÁ½ÁĞ(ÊôĞÔÃû¡¢ÊôĞÔÖµ)
-			model.setData(model.index(CTableModel::Eattr_AnimateSpeed, 0, index), QString::fromLocal8Bit("ËÙ¶È"));
-			model.setData(model.index(CTableModel::Eattr_AnimateType, 0, index), QString::fromLocal8Bit("ÀàĞÍ"));
+			model.setData(index, QString::fromLocal8Bit("åŠ¨ç”»"));
+			model.insertRows(0, 2, index);		// æ’å…¥ä¸¤ä¸ªå­æ•°æ®é¡¹
+			model.insertColumns(0, 2, index);	// æ’å…¥ä¸¤åˆ—(å±æ€§åã€å±æ€§å€¼)
+			model.setData(model.index(CTableModel::Eattr_AnimateSpeed, 0, index), QString::fromLocal8Bit("é€Ÿåº¦"));
+			model.setData(model.index(CTableModel::Eattr_AnimateType, 0, index), QString::fromLocal8Bit("ç±»å‹"));
 		}
 		
-		// ÔÙÌîĞ´µÚ1ÁĞ
+		// å†å¡«å†™ç¬¬1åˆ—
 		index = model.index(row, 1, QModelIndex());
 		if (CTableModel::EAttr_Id == row) {
 			model.setData(index, 0);
 		}
 		else if (CTableModel::EAttr_Descrition == row) {
-			model.setData(index, QString::fromLocal8Bit("±¸×¢"));
+			model.setData(index, QString::fromLocal8Bit("å¤‡æ³¨"));
 		}
 		else if (CTableModel::EAttr_Checked == row) {
 			model.setData(index, false);
@@ -90,7 +90,7 @@ int main(int argc, char *argv[])
 	//}
 	treeView.setWindowTitle(QObject::tr("Delegate Example"));
 	treeView.show();
-    return app.exec(); // ½«appÔËĞĞÆğÀ´
+    return app.exec(); // å°†appè¿è¡Œèµ·æ¥
 }
 
 

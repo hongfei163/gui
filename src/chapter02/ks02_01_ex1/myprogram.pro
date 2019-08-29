@@ -1,4 +1,4 @@
-﻿TEMPLATE = app
+TEMPLATE = app
 LANGUAGE = C++
 
 CONFIG	+= console

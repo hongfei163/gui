@@ -1,4 +1,4 @@
-﻿/*! 
+/*! 
 * Copyright (C) 2018 女儿叫老白
 * 版权所有。
 * 代码仅用于课程《Qt入门与提高-GUI产品开发》的学习，请勿传播。
@@ -12,7 +12,7 @@
 */
 
 #include "dialog.h"
-
+#include <QFontComboBox>
 
 CDialog::CDialog(QWidget* pParent) : QDialog(pParent) {
 	ui.setupUi(this);
@@ -20,7 +20,17 @@ CDialog::CDialog(QWidget* pParent) : QDialog(pParent) {
 	//connect(ui.fontComboBox, SIGNAL(currentFontChanged(const QFont &)), this, SLOT(slot_fontFamilyChanged(const QFont &)));
 	connect(ui.cbFontSize, SIGNAL(currentIndexChanged(int)), this, SLOT(slot_fontSizeChanged(int)));
 
-	connect(ui.fontComboBox, &QFontComboBox::currentFontChanged, this, &CDialog::slot_fontFamilyChanged);
+    /*
+    connect(ui.fontComboBox, &QFontComboBox::currentFontChanged,
+    [=](const QFont &font) {
+        int fontSize = ui.cbFontSize->currentText().toInt();
+        QFont ft = font;
+        ft.setPointSize(fontSize);
+        ui.plainTextEdit->setFont(ft);
+    });
+   */
+
+    connect(ui.fontComboBox, &QFontComboBox::currentFontChanged, this, &CDialog::slot_fontFamilyChanged);
 	//connect(ui.cbFontSize, &QFontComboBox::currentIndexChanged, this, &CDialog::slot_fontSizeChanged);
 }
 

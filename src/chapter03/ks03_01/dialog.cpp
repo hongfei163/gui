@@ -1,4 +1,4 @@
-﻿#include "dialog.h"
+#include "dialog.h"
 
 
 CDialog::CDialog(QWidget* pParent) : QDialog(pParent)

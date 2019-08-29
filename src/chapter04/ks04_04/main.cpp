@@ -1,13 +1,13 @@
 /*! 
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file: main.cpp
-\brief qDebugµÄÊ¹ÓÃÊ¾Àı
+\brief qDebugçš„ä½¿ç”¨ç¤ºä¾‹
 
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/9
 */
 
@@ -34,12 +34,12 @@ void example02();
 void example03();
 
 QString getPath(const QString& strInputPath);
-QMutex g_mutex; // ÎªÁËÖ§³Ö¶àÏß³Ì¹¦ÄÜ£¬ĞèÒªÊ¹ÓÃËøÀ´±£»¤¶ÔÈÕÖ¾ÎÄ¼şµÄ²Ù×÷¡£
+QMutex g_mutex; // ä¸ºäº†æ”¯æŒå¤šçº¿ç¨‹åŠŸèƒ½ï¼Œéœ€è¦ä½¿ç”¨é”æ¥ä¿æŠ¤å¯¹æ—¥å¿—æ–‡ä»¶çš„æ“ä½œã€‚
 void customMessageHandler(QtMsgType type, const QMessageLogContext& context, const QString& info)
 {
-	// ¼ÓËø
+	// åŠ é”
 	QMutexLocker locker(&g_mutex);
-	// °ÑĞÅÏ¢¸ñÊ½»¯
+	// æŠŠä¿¡æ¯æ ¼å¼åŒ–
 	QString log = QString::fromLocal8Bit("msg-[%1], file-[%2], func-[%3], category-[%4]\n").arg(info).arg(context.file)
 		.arg(context.function).arg(context.category);
 	
@@ -86,11 +86,11 @@ int main(int argc, char * argv[])
 	Q_UNUSED(argv);
 	QApplication app(argc, argv);
 	
-	// Êä³öÖØ¶¨Ïò
+	// è¾“å‡ºé‡å®šå‘
 	//qInstallMessageHandler(customMessageHandler);
 
-	// ¹ú¼Ê»¯
-	// °²×°qt×Ô´øµÄÖĞÎÄ·­Òë
+	// å›½é™…åŒ–
+	// å®‰è£…qtè‡ªå¸¦çš„ä¸­æ–‡ç¿»è¯‘
 	const QString localSysName = QLocale::system().name();
 	QScopedPointer<QTranslator> qtTranslator(new QTranslator(QCoreApplication::instance()));
 	if (qtTranslator->load(QStringLiteral("qt_") + localSysName,
@@ -99,8 +99,8 @@ int main(int argc, char * argv[])
 		QCoreApplication::installTranslator(qtTranslator.take());
 	}
 
-	// °²×°ÎÒÃÇÏîÄ¿µÄ·­ÒëÎÄ¼ş
-	QString strPath = qgetenv("TRAINDEVHOME");	// »ñÈ¡»·¾³±äÁ¿ËùÖ¸ÏòµÄÂ·¾¶
+	// å®‰è£…æˆ‘ä»¬é¡¹ç›®çš„ç¿»è¯‘æ–‡ä»¶
+	QString strPath = qgetenv("TRAINDEVHOME");	// è·å–ç¯å¢ƒå˜é‡æ‰€æŒ‡å‘çš„è·¯å¾„
 	strPath += "/system/lang";					// $TRAINDEVHOME/system/lang/ks03_01.qm
 	QScopedPointer<QTranslator> gpTranslator(new QTranslator(QCoreApplication::instance()));
 	if (gpTranslator->load("ks04_04.qm", strPath))
@@ -129,15 +129,15 @@ int main(int argc, char * argv[])
 
 	cout << "please input any key to exit......";
 	char ch = '\0';
-	cin >> ch; // ¼üÈëÈÎÒâ×Ö·ûÍË³ö
+	cin >> ch; // é”®å…¥ä»»æ„å­—ç¬¦é€€å‡º
 
 	return 0;
 }
 
 /**
-* @brief  qDebug()<< ·½Ê½Êä³öĞÅÏ¢
-*		  ¿ÉÒÔÖ±½ÓÓÃ<<²Ù×÷·û½«ĞèÒªÊä³öµÄĞÅÏ¢Êä³öµ½qDebug()¡£
-* @return ÎŞ
+* @brief  qDebug()<< æ–¹å¼è¾“å‡ºä¿¡æ¯
+*		  å¯ä»¥ç›´æ¥ç”¨<<æ“ä½œç¬¦å°†éœ€è¦è¾“å‡ºçš„ä¿¡æ¯è¾“å‡ºåˆ°qDebug()ã€‚
+* @return æ— 
 */
 void example01(){
 	
@@ -151,8 +151,8 @@ void example01(){
 }
 
 /**
-* @brief  Ê¹ÓÃqDebug("%")¸ñÊ½»¯Êä³öĞÅÏ¢
-* @return ÎŞ
+* @brief  ä½¿ç”¨qDebug("%")æ ¼å¼åŒ–è¾“å‡ºä¿¡æ¯
+* @return æ— 
 */
 void example02(){
 	
@@ -167,21 +167,21 @@ void example02(){
 		dt.date().year(), dt.date().month(), dt.date().day());
 	qCritical("I live in %s. Today is %04d-%02d-%02d", str.toLocal8Bit().data(),
 		dt.date().year(), dt.date().month(), dt.date().day());
-	// ÏÂÃæÁ½ĞĞ´úÂëÈç¹û½â·â£¬Æä¹¦ÄÜÊÇµ¯³öÒì³£½çÃæ£¬²¢ÏÔÊ¾ÎÒÃÇ¸ø³öµÄÒì³£ĞÅÏ¢¡£
+	// ä¸‹é¢ä¸¤è¡Œä»£ç å¦‚æœè§£å°ï¼Œå…¶åŠŸèƒ½æ˜¯å¼¹å‡ºå¼‚å¸¸ç•Œé¢ï¼Œå¹¶æ˜¾ç¤ºæˆ‘ä»¬ç»™å‡ºçš„å¼‚å¸¸ä¿¡æ¯ã€‚
 	//qFatal("I live in %s. Today is %04d-%02d-%02d", str.toLocal8Bit().data(),
 	//	dt.date().year(), dt.date().month(), dt.date().day());
 }
 
 
 /**
-* @brief  ½«×Ô¶¨ÒåÀàÊä³öµ½qDebug
-* @param[in] mc ×Ô¶¨ÒåÀà
+* @brief  å°†è‡ªå®šä¹‰ç±»è¾“å‡ºåˆ°qDebug
+* @param[in] mc è‡ªå®šä¹‰ç±»
 * @return 
 */
 void example03(){
 	CMyClass mc;
 	mc.setId(10000);
-	mc.setName(QString::fromLocal8Bit("ÇØÊ¼»Ê"));
+	mc.setName(QString::fromLocal8Bit("ç§¦å§‹çš‡"));
 	qDebug() << mc;
 }
 
@@ -201,7 +201,7 @@ QString getPath(const QString& strInputPath) {
 	QString str = qEnvironmentVariable(strEnvironmentVariable.toLocal8Bit().data());
 	if (str.length() > 0) {
 		str.replace("\\", "/");
-		if (str.right(1) == "/") { // É¾³ı»·¾³±äÁ¿ÖĞ×îºóµÄ"/"
+		if (str.right(1) == "/") { // åˆ é™¤ç¯å¢ƒå˜é‡ä¸­æœ€åçš„"/"
 			str = str.left(str.length() - 1);
 		}
 		strPath.insert(0, str);

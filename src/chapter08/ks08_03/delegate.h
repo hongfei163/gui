@@ -1,12 +1,12 @@
 /*!
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file delegate.h
-\brief delegateÍ·ÎÄ¼ş
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\brief delegateå¤´æ–‡ä»¶
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2019/1
 */
 #pragma once
@@ -21,64 +21,64 @@ public:
 
     // editing
     /*
-     * @brief ÎªÖ¸¶¨Êı¾İÏî´´½¨±à¼­Æ÷
-     * @param[in] parent ´ı´´½¨±à¼­Æ÷µÄ¸¸´°¿Ú
-     * @param[in] option ÑùÊ½Ñ¡Ïî
-     * @param[in] index Êı¾İÏîĞòºÅ
-     * @return ´´½¨ºÃµÄ±à¼­Æ÷
+     * @brief ä¸ºæŒ‡å®šæ•°æ®é¡¹åˆ›å»ºç¼–è¾‘å™¨
+     * @param[in] parent å¾…åˆ›å»ºç¼–è¾‘å™¨çš„çˆ¶çª—å£
+     * @param[in] option æ ·å¼é€‰é¡¹
+     * @param[in] index æ•°æ®é¡¹åºå·
+     * @return åˆ›å»ºå¥½çš„ç¼–è¾‘å™¨
      */
     QWidget *createEditor(QWidget *parent,
                           const QStyleOptionViewItem &option,
                           const QModelIndex &index) const override;
     /**
-    * @brief ÎªÖ¸¶¨Êı¾İÏîµÄ±à¼­Æ÷ÉèÖÃÖµ¡£´ÓÄ£ĞÍ»ñÈ¡Êı¾İ²¢ÉèÖÃµ½±à¼­Æ÷¿Ø¼ş¡£
+    * @brief ä¸ºæŒ‡å®šæ•°æ®é¡¹çš„ç¼–è¾‘å™¨è®¾ç½®å€¼ã€‚ä»æ¨¡å‹è·å–æ•°æ®å¹¶è®¾ç½®åˆ°ç¼–è¾‘å™¨æ§ä»¶ã€‚
     *
-    * @param[in|out] editor Ö¸¶¨Êı¾İÏîµÄ±à¼­Æ÷
-    * @param[in] index ÖÆ¶¨Êı¾İÏîµÄĞòºÅ
-    * @return ÎŞ
+    * @param[in|out] editor æŒ‡å®šæ•°æ®é¡¹çš„ç¼–è¾‘å™¨
+    * @param[in] index åˆ¶å®šæ•°æ®é¡¹çš„åºå·
+    * @return æ— 
     */
     void setEditorData(QWidget *editor, const QModelIndex &index) const override;
     /**
-    * @brief ´Ó±à¼­Æ÷¶ÁÈ¡Ö¸¶¨Êı¾İÏîµÄÖµ²¢ÉèÖÃµ½Ä£ĞÍ¡£
-    *           ÓÃ»§ÓÃ±à¼­Æ÷¿Ø¼şĞŞ¸ÄÍêÊı¾İºó£¬´¥·¢¸Ã½Ó¿Ú¡£
+    * @brief ä»ç¼–è¾‘å™¨è¯»å–æŒ‡å®šæ•°æ®é¡¹çš„å€¼å¹¶è®¾ç½®åˆ°æ¨¡å‹ã€‚
+    *           ç”¨æˆ·ç”¨ç¼–è¾‘å™¨æ§ä»¶ä¿®æ”¹å®Œæ•°æ®åï¼Œè§¦å‘è¯¥æ¥å£ã€‚
     *
-    * @param[in|out] editor Ö¸¶¨Êı¾İÏîµÄ±à¼­Æ÷
-    * @param[in|out] model Ä£ĞÍ
-    * @param[in] index Êı¾İÏîĞòºÅ
-    * @return ÎŞ
+    * @param[in|out] editor æŒ‡å®šæ•°æ®é¡¹çš„ç¼–è¾‘å™¨
+    * @param[in|out] model æ¨¡å‹
+    * @param[in] index æ•°æ®é¡¹åºå·
+    * @return æ— 
     */
     void setModelData(QWidget *editor,
                       QAbstractItemModel *model,
                       const QModelIndex &index) const override;
     /**
-    * @brief ¸üĞÂÖ¸¶¨Êı¾İÏîµÄ±à¼­Æ÷³ß´ç¡£
+    * @brief æ›´æ–°æŒ‡å®šæ•°æ®é¡¹çš„ç¼–è¾‘å™¨å°ºå¯¸ã€‚
     *
-    * @param[in|out] editor Ö¸¶¨Êı¾İÏîµÄ±à¼­Æ÷
-    * @param[in] option ÑùÊ½Ñ¡Ïî
-    * @param[in] index Êı¾İÏîĞòºÅ
-    * @return ÎŞ
+    * @param[in|out] editor æŒ‡å®šæ•°æ®é¡¹çš„ç¼–è¾‘å™¨
+    * @param[in] option æ ·å¼é€‰é¡¹
+    * @param[in] index æ•°æ®é¡¹åºå·
+    * @return æ— 
     */
     void updateEditorGeometry(QWidget *editor,
                               const QStyleOptionViewItem &option,
                               const QModelIndex &index) const override;
 
     /**
-    *	@brief	ÖØĞ´¸¸Àà¸Ã½Ó¿Ú£¬ÊµÏÖboolÀàĞÍÊ±ÏÔÊ¾ÊÇ»òÕß·ñ¡£
-    *	@param[in] value    ÊıÖµ
-    *	@param[in] locale   ±¾µØ¶ÔÏó
-    *	return ÏÔÊ¾µÄ×Ö·û´®
+    *	@brief	é‡å†™çˆ¶ç±»è¯¥æ¥å£ï¼Œå®ç°boolç±»å‹æ—¶æ˜¾ç¤ºæ˜¯æˆ–è€…å¦ã€‚
+    *	@param[in] value    æ•°å€¼
+    *	@param[in] locale   æœ¬åœ°å¯¹è±¡
+    *	return æ˜¾ç¤ºçš„å­—ç¬¦ä¸²
     */
     virtual QString displayText(const QVariant &value,
                                 const QLocale &locale) const override;
 private slots:
     /**
-    *	@brief	ÊôĞÔ¡°lastoneflag¡±Íê³É±à¼­Ê±¶ÔÓ¦µÄ²Ûº¯Êı
+    *	@brief	å±æ€§â€œlastoneflagâ€å®Œæˆç¼–è¾‘æ—¶å¯¹åº”çš„æ§½å‡½æ•°
     *	return void
     */
     void slot_commitAndCloseEditor();
 private:
-    QStringList m_strListYesNo;/// ÓÃÀ´´æ´¢yes¡¢no×Ö·û´®
-    QStringList m_strListSpeed;/// ÓÃÀ´´æ´¢ËÙ¶È×Ö·û´®
+    QStringList m_strListYesNo;/// ç”¨æ¥å­˜å‚¨yesã€noå­—ç¬¦ä¸²
+    QStringList m_strListSpeed;/// ç”¨æ¥å­˜å‚¨é€Ÿåº¦å­—ç¬¦ä¸²
 };
 
 

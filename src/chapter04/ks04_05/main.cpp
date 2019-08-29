@@ -1,13 +1,13 @@
-/*! * Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+/*! * Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file: main.cpp
-\brief	  QVectorµÄÊ¹ÓÃ
+\brief	  QVectorçš„ä½¿ç”¨
 		  	
 
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/9
 */
 
@@ -56,12 +56,12 @@ int main(int argc, char * argv[])
 }
 
 /**
-* @brief  ÏòQVectorÌí¼Ó³ÉÔ±²¢±éÀú¡£
-* @return ÎŞ
+* @brief  å‘QVectoræ·»åŠ æˆå‘˜å¹¶éå†ã€‚
+* @return æ— 
 */
 void example01(){
 	
-	// Ìí¼Ó³ÉÔ±
+	// æ·»åŠ æˆå‘˜
 	QVector<quint32> vecId;
 	QVector<quint32>::iterator iteVec = vecId.begin();
 	vecId.push_back(2011);
@@ -73,7 +73,7 @@ void example01(){
 	vecId.push_front(2046);
 
 
-	// ±éÀú³ÉÔ±-Ê¹ÓÃÏÂ±ê
+	// éå†æˆå‘˜-ä½¿ç”¨ä¸‹æ ‡
 	cout << endl << "-------------- QVector ---------------" << endl;
 	cout << "print members using idx......" << endl;
 	int idxVec = 0;
@@ -81,7 +81,7 @@ void example01(){
 		cout << "    vecId[" << idxVec << "] =" << vecId[idxVec] << endl;
 	}
 
-	// ±éÀú³ÉÔ±-Ê¹ÓÃµü´úÆ÷(ÕıĞò)
+	// éå†æˆå‘˜-ä½¿ç”¨è¿­ä»£å™¨(æ­£åº)
 	cout << endl << "-------------- QVector ---------------" << endl;
 	cout << "print members using iterator......" << endl;
 	iteVec = vecId.begin();
@@ -90,7 +90,7 @@ void example01(){
 		cout << "    " << *iteVec << endl;
 	}	
 
-	// ±éÀú³ÉÔ±-Ê¹ÓÃµü´úÆ÷(µ¹Ğò)
+	// éå†æˆå‘˜-ä½¿ç”¨è¿­ä»£å™¨(å€’åº)
 	cout << endl << "-------------- QVector ---------------" << endl;
 	cout << "print members using reverse iterator......" << endl;
 	QVector<quint32>::reverse_iterator reverseIteVec = vecId.rbegin();
@@ -98,27 +98,27 @@ void example01(){
 		cout << "    " << *reverseIteVec << endl;
 	}	
 
-	// ²éÕÒ&²åÈë
+	// æŸ¥æ‰¾&æ’å…¥
 	iteVec = std::find(vecId.begin(), vecId.end(), 2042);
-	if (iteVec != vecId.end())	{ // ÔÚ2042Ö®Ç°²åÈëÊı¾İ:10000.
+	if (iteVec != vecId.end())	{ // åœ¨2042ä¹‹å‰æ’å…¥æ•°æ®:10000.
 		vecId.insert(iteVec, 10000); // insert before
 		cout << endl << "-------------- QVector ---------------" << endl;
 		cout << "insert 10000 before 2042 in vector." << endl;
 	}
-	// ±éÀú³ÉÔ±
+	// éå†æˆå‘˜
 	cout << endl << "-------------- QVector ---------------" << endl;
 	cout << "print members using idx......" << endl;
 	for (idxVec = 0; idxVec < vecId.size(); idxVec++) {
 		cout << "    vecId[" << idxVec << "] =" << vecId[idxVec] << endl;
 	}
 
-	// ²éÕÒ&É¾³ı
+	// æŸ¥æ‰¾&åˆ é™¤
 	iteVec = std::find(vecId.begin(), vecId.end(), 2042);
 	if (iteVec != vecId.end())	{
 		cout << "erase 2042 from vector." << endl;
 		vecId.erase(iteVec);
 	}
-	// ±éÀú³ÉÔ±
+	// éå†æˆå‘˜
 	cout << endl << "-------------- QVector ---------------" << endl;
 	cout << "print members using idx......" << endl;
 	for (idxVec = 0; idxVec < vecId.size(); idxVec++) {
@@ -126,16 +126,16 @@ void example01(){
 	}
 
 
-	// ²éÕÒ&É¾³ı
+	// æŸ¥æ‰¾&åˆ é™¤
 	for (iteVec=vecId.begin(); iteVec != vecId.end(); )	{
 		if ((*iteVec) == 2033)	{
 			cout << "find 2033 in vector." << endl;
-			iteVec = vecId.erase(iteVec); // erase()½Ó¿Ú»á·µ»ØÉ¾³ıºóµÄÏÂÒ»¸öµü´úÎ»ÖÃ
+			iteVec = vecId.erase(iteVec); // erase()æ¥å£ä¼šè¿”å›åˆ é™¤åçš„ä¸‹ä¸€ä¸ªè¿­ä»£ä½ç½®
 		} else {
 			iteVec++;
 		}
 	}
-	// ±éÀú³ÉÔ±
+	// éå†æˆå‘˜
 	cout << endl << "-------------- QVector ---------------" << endl;
 	cout << "print members using idx......" << endl;
 	for (idxVec = 0; idxVec < vecId.size(); idxVec++) {
@@ -144,11 +144,11 @@ void example01(){
 
 }
 /**
-* @brief  Ê¹ÓÃ×Ô¶¨ÒåÀà¶ÔÏó
-* @return ÎŞ
+* @brief  ä½¿ç”¨è‡ªå®šä¹‰ç±»å¯¹è±¡
+* @return æ— 
 */
 void example02(){
-	// Ìí¼Ó³ÉÔ±
+	// æ·»åŠ æˆå‘˜
 	QVector<CMyClass> vecObj;
 	CMyClass myclass1(2011, "lisa");
 	CMyClass myclass2(2012, "mike");
@@ -157,7 +157,7 @@ void example02(){
 	CMyClass myclass5(2013, "ping");
 	CMyClass myclass6(2025, "ping");
 
-	// Èç¹ûÏëÈÃÏÂÃæµÄÓï¾ä±àÒëÍ¨¹ı²¢ÇÒ°´ÕÕÔ¤ÆÚÖ´ĞĞ£¬ĞèÒªÎªCMyClassÀàÌá¹©¿½±´¹¹Ôìº¯Êı
+	// å¦‚æœæƒ³è®©ä¸‹é¢çš„è¯­å¥ç¼–è¯‘é€šè¿‡å¹¶ä¸”æŒ‰ç…§é¢„æœŸæ‰§è¡Œï¼Œéœ€è¦ä¸ºCMyClassç±»æä¾›æ‹·è´æ„é€ å‡½æ•°
 	vecObj.push_back(myclass1);
 	vecObj.push_back(myclass2);
 	vecObj.push_back(myclass3);
@@ -165,7 +165,7 @@ void example02(){
 	vecObj.push_back(myclass5);
 	vecObj.push_back(myclass6);
 
-	// ±éÀú³ÉÔ±£¬Ê¹ÓÃÏÂ±ê
+	// éå†æˆå‘˜ï¼Œä½¿ç”¨ä¸‹æ ‡
 	cout << endl << "-------------- QVector ---------------" << endl;
 	cout << "print members using idx......" << endl;
 	int idxVec = 0;
@@ -173,7 +173,7 @@ void example02(){
 		cout << "    vecObj[" << idxVec << "] : id = " << vecObj[idxVec].getId() << ", name = " << vecObj[idxVec].getName().toLocal8Bit().data() << endl;
 	}
 
-	// ±éÀú³ÉÔ±£¬Ê¹ÓÃµü´úÆ÷
+	// éå†æˆå‘˜ï¼Œä½¿ç”¨è¿­ä»£å™¨
 	cout << endl << "-------------- QVector ---------------" << endl;
 	cout << "print members using iterator......" << endl;
 	QVector<CMyClass>::iterator iteVec = vecObj.begin();
@@ -182,7 +182,7 @@ void example02(){
 		cout << "    vecObj[" << idxVec++ << "] : id = " << (*iteVec).getId() << ", name = " << (*iteVec).getName().toLocal8Bit().data() << endl;
 	}
 
-	// ²éÕÒ
+	// æŸ¥æ‰¾
 	cout << endl << "-------------- QVector ---------------" << endl;
 	cout << "begin find member in QVector......" << endl;
 	CMyClass myclassx(2013, "john");
@@ -196,11 +196,11 @@ void example02(){
 }
 
 /**
-* @brief  Ê¹ÓÃ×Ô¶¨ÒåÀà¶ÔÏóÖ¸Õë
-* @return ÎŞ
+* @brief  ä½¿ç”¨è‡ªå®šä¹‰ç±»å¯¹è±¡æŒ‡é’ˆ
+* @return æ— 
 */
 void example03() {
-	// Ìí¼Ó³ÉÔ±
+	// æ·»åŠ æˆå‘˜
 	QVector<CMyClass*> vecObj;
 	CMyClass* pMyclass1 = new CMyClass(2011, "lisa");
 	CMyClass* pMyclass2 = new CMyClass(2012, "mike");
@@ -209,7 +209,7 @@ void example03() {
 	CMyClass* pMyclass5 = new CMyClass(2013, "ping");
 	CMyClass* pMyclass6 = new CMyClass(2025, "ping");
 
-	// ÎŞĞèÎªCMyClassÀàÌá¹©¿½±´¹¹Ôìº¯Êı
+	// æ— éœ€ä¸ºCMyClassç±»æä¾›æ‹·è´æ„é€ å‡½æ•°
 	vecObj.push_back(pMyclass1);
 	vecObj.push_back(pMyclass2);
 	vecObj.push_back(pMyclass3);
@@ -217,7 +217,7 @@ void example03() {
 	vecObj.push_back(pMyclass5);
 	vecObj.push_back(pMyclass6);
 
-	// ±éÀú³ÉÔ±
+	// éå†æˆå‘˜
 	cout << endl << "-------------- QVector ---------------" << endl;
 	cout << "print members in custom defined class using idx......" << endl;
 	int idxVec = 0;
@@ -225,8 +225,8 @@ void example03() {
 		cout << "    vecObj[" << idxVec << "] : id = " << vecObj[idxVec]->getId() << ", name = " << vecObj[idxVec]->getName().toLocal8Bit().data() << endl;
 	}
 
-	// ÍË³öÇ°ÒªÊÍ·ÅÄÚ´æ
-	// ·½·¨1£¬Ê¹ÓÃÏÂ±ê±éÀú
+	// é€€å‡ºå‰è¦é‡Šæ”¾å†…å­˜
+	// æ–¹æ³•1ï¼Œä½¿ç”¨ä¸‹æ ‡éå†
 	if (0)	{
 		cout << endl << "-------------- QVector ---------------" << endl;
 		cout << "desctruct members before exit......" << endl;
@@ -240,7 +240,7 @@ void example03() {
 	{
 		cout << endl << "-------------- QVector ---------------" << endl;
 		cout << "desctruct members before exit......" << endl;
-		// ·½·¨2£¬Ê¹ÓÃµü´úÆ÷±éÀú
+		// æ–¹æ³•2ï¼Œä½¿ç”¨è¿­ä»£å™¨éå†
 		QVector<CMyClass*>::iterator iteVec = vecObj.begin();
 		idxVec = 0;
 		for (iteVec = vecObj.begin(); iteVec != vecObj.end(); iteVec++) {

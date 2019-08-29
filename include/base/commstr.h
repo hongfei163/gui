@@ -1,4 +1,4 @@
-﻿// commonstring.h
+// commonstring.h
 #ifndef _CCOMMONSTRING_H
 #define _CCOMMONSTRING_H
 

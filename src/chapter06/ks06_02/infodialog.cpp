@@ -20,12 +20,12 @@ CInfoDialog::CInfoDialog(QWidget *parent) :
     // setValidator for leStature
     ui->leStature->setValidator(new QIntValidator(0, 300, ui->leStature)); // min:0cm, max:300cm
 
-    // setMask for leBirthday, 年年年年-月月-日日
+    // setMask for leBirthday, 骞村勾骞村勾-鏈堟湀-鏃ユ棩
     ui->leBirthday->setInputMask("0000-00-00");
     ui->leBirthday->setText("00000000");
     ui->leBirthday->setCursorPosition(0);
 
-    // mask & validator,单纯使用mask无法约束数值的范围
+    // mask & validator,鍗曠函浣跨敤mask鏃犳硶绾︽潫鏁板�肩殑鑼冨洿
     QRegExp regExp("^1[3|4|5|8][0-9][0-9]{8}");
     ui->lePhone->setValidator(new QRegExpValidator(regExp, ui->lePhone));
     ui->lePhone->setInputMask("#00-000-00000000"); // eg. +86-135-87989898

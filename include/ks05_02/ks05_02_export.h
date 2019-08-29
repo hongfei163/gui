@@ -1,12 +1,12 @@
 /*! 
-* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
-* °æÈ¨ËùÓÐ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
-* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºŽè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸Žæé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜Ž:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åŽæžœè‡ªè´Ÿã€‚
 
 \file: myclass.h
-\brief exe+dll±à³ÌÊ¾Àý£¬Òý³öÀàËùÔÚµÄÍ·ÎÄ¼þ
-\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
+\brief exe+dllç¼–ç¨‹ç¤ºä¾‹ï¼Œå¼•å‡ºç±»æ‰€åœ¨çš„å¤´æ–‡ä»¶
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/10 
 * please import ks05_02_dll.dll
 */
@@ -15,7 +15,7 @@
 #define _KS05_02_EXPORT_H
 
 
-// ¶¯Ì¬¿âµ¼³öºê¶¨Òå
+// åŠ¨æ€åº“å¯¼å‡ºå®å®šä¹‰
 #ifdef WIN32		// windows platform
 #	if defined __KS05_02_DLL_SOURCE__
 #		define KS05_02_Export __declspec(dllexport)

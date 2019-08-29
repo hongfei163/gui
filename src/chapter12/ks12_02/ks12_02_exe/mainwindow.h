@@ -1,13 +1,13 @@
 /*! 
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file: mainwindow.h
-\brief Ö÷´°ÌåÍ·ÎÄ¼ş
+\brief ä¸»çª—ä½“å¤´æ–‡ä»¶
   
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/12 
 */
 
@@ -55,40 +55,40 @@ private slots:
 	void slot_addEllipse();
 
 private:
-	void createActions();		/// ¹¹½¨²Ëµ¥Ïî¶ÔÓ¦µÄQAction¡£
-	void createPluginActions();	/// ¹¹½¨²å¼şAction¡£
-	//void createMenus();			/// ¹¹½¨²Ëµ¥
-	void createToolBars();		/// ¹¹½¨¹¤¾ßÌõ
-	void createStatusBar();		/// ¹¹½¨×´Ì¬À¸
-	void initialize();			/// ³õÊ¼»¯
+	void createActions();		/// æ„å»ºèœå•é¡¹å¯¹åº”çš„QActionã€‚
+	void createPluginActions();	/// æ„å»ºæ’ä»¶Actionã€‚
+	//void createMenus();			/// æ„å»ºèœå•
+	void createToolBars();		/// æ„å»ºå·¥å…·æ¡
+	void createStatusBar();		/// æ„å»ºçŠ¶æ€æ 
+	void initialize();			/// åˆå§‹åŒ–
 	
-	void connectSignalAndSlot();/// °ó¶¨ĞÅºÅ²Û
+	void connectSignalAndSlot();/// ç»‘å®šä¿¡å·æ§½
 	
 private:
-	QMenu *m_pFileMenu;			/// ÎÄ¼ş²Ëµ¥
-	QMenu *m_pEditMenu;			/// ±à¼­²Ëµ¥
-	QMenu *m_pFormatMenu;		/// ¸ñÊ½²Ëµ¥(¶ş¼¶²Ëµ¥)
-	QMenu *m_pHelpMenu;			/// °ïÖú²Ëµ¥
+	QMenu *m_pFileMenu;			/// æ–‡ä»¶èœå•
+	QMenu *m_pEditMenu;			/// ç¼–è¾‘èœå•
+	QMenu *m_pFormatMenu;		/// æ ¼å¼èœå•(äºŒçº§èœå•)
+	QMenu *m_pHelpMenu;			/// å¸®åŠ©èœå•
 	
-	QToolBar *m_pEditToolBar;	/// ±à¼­¹¤¾ßÌõ
+	QToolBar *m_pEditToolBar;	/// ç¼–è¾‘å·¥å…·æ¡
 
 	QActionGroup *m_pAlignmentGroup;
 
 #ifndef QT_NO_CLIPBOARD
-	QAction *m_pCutAct;			/// ¼ôÇĞ
-	QAction *m_pCopyAct;		/// ¸´ÖÆ
-	QAction *m_pPasteAct;		/// ğ¤Ìù
+	QAction *m_pCutAct;			/// å‰ªåˆ‡
+	QAction *m_pCopyAct;		/// å¤åˆ¶
+	QAction *m_pPasteAct;		/// é»è´´
 #endif
-    QAction *m_pRectAct;        /// Ìí¼Ó¾ØĞÎ
-    QAction *m_pEllipseAct;     /// Ìí¼ÓÍÖÔ²
+    QAction *m_pRectAct;        /// æ·»åŠ çŸ©å½¢
+    QAction *m_pEllipseAct;     /// æ·»åŠ æ¤­åœ†
 
-	QAction *m_pAboutAct;	/// ¹ØÓÚ
+	QAction *m_pAboutAct;	/// å…³äº
 
-	QLabel *m_pInfoLabel;	/// ĞÅÏ¢±êÇ©
-	QLabel* m_pMouseLabel;	/// Êó±êÎ»ÖÃÏÔÊ¾
+	QLabel *m_pInfoLabel;	/// ä¿¡æ¯æ ‡ç­¾
+	QLabel* m_pMouseLabel;	/// é¼ æ ‡ä½ç½®æ˜¾ç¤º
 
-	CGraphView* m_pView;        /// ÊÓÍ¼
-    QGraphicsScene* m_pScene;   /// ³¡¾°(ÎÄµµ)
+	CGraphView* m_pView;        /// è§†å›¾
+    QGraphicsScene* m_pScene;   /// åœºæ™¯(æ–‡æ¡£)
     QList<CActionObjectInterface*> m_lstActionObject;
 };
 

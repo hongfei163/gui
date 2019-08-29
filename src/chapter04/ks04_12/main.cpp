@@ -1,13 +1,13 @@
 /*! 
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file: main.cpp
-\brief main()º¯ÊıµÄÊµÏÖÎÄ¼ş
+\brief main()å‡½æ•°çš„å®ç°æ–‡ä»¶
 
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/9
 */
 
@@ -29,7 +29,7 @@ void example02(void);
 void example03(void);
 void example04(void);
 
-// ÔİÍ£Ò»ÏÂ
+// æš‚åœä¸€ä¸‹
 void pauseOnce()
 {
 	char c = '\0';
@@ -42,26 +42,26 @@ int main(int argc, char * argv[])
 	Q_UNUSED(argc);
 	Q_UNUSED(argv);
 
-    // ÎÄ±¾ÎÄ¼ş³õÊ¼»¯
+    // æ–‡æœ¬æ–‡ä»¶åˆå§‹åŒ–
     initialize();
 
 
-    // ÎÄ±¾ÎÄ¼ş¶ÁÈ¡
+    // æ–‡æœ¬æ–‡ä»¶è¯»å–
     if (1) {
         example01();
     }
 
-    // ÎÄ±¾ÎÄ¼ş,×·¼ÓĞ´Èë
+    // æ–‡æœ¬æ–‡ä»¶,è¿½åŠ å†™å…¥
     if (0) {
         example02();
     }
 
-    // ÎÄ±¾ÎÄ¼ş,ÔÚ¿ªÍ·Ğ´Èë
+    // æ–‡æœ¬æ–‡ä»¶,åœ¨å¼€å¤´å†™å…¥
     if (0) {
         example03();
     }
 
-    // ÎÄ¼ş¿½±´¡¢¸ÄÃû¡¢ÒÆ¶¯¡¢É¾³ı
+    // æ–‡ä»¶æ‹·è´ã€æ”¹åã€ç§»åŠ¨ã€åˆ é™¤
     if (1) {
         example04();
     }
@@ -73,7 +73,7 @@ int main(int argc, char * argv[])
 
 
 /**
-* @brief ÎÄ±¾ÎÄ¼ş³õÊ¼»¯
+* @brief æ–‡æœ¬æ–‡ä»¶åˆå§‹åŒ–
 *
 * @return void
 */
@@ -86,12 +86,12 @@ void initialize(void)
 	dir.mkpath(strDir);
 
     QFile file(strFileName);
-    // ´ò¿ª·½Ê½£ºÖ»¶Á¡¢ÎÄ±¾·½Ê½
+    // æ‰“å¼€æ–¹å¼ï¼šåªè¯»ã€æ–‡æœ¬æ–¹å¼
     if (!file.open(QFile::Truncate | QFile::WriteOnly | QFile::Text)) {
         qDebug("open failed! file name is:%s", strFileName.toLocal8Bit().data());
         return;
     }
-    // Êä³öÕû¸öÎÄ¼şµÄÄÚÈİ
+    // è¾“å‡ºæ•´ä¸ªæ–‡ä»¶çš„å†…å®¹
     QString strContent;
     strContent += "i have an apple, here you are.\n";
     strContent += "i have a pear, here you are.\n";
@@ -111,7 +111,7 @@ void initialize(void)
 }
 
 /**
-* @brief ÎÄ±¾ÎÄ¼ş¶ÁÈ¡
+* @brief æ–‡æœ¬æ–‡ä»¶è¯»å–
 *
 * @return void
 */
@@ -121,22 +121,22 @@ void example01()
     strFileName = ns_train::getPath("$TRAINDEVHOME/test/chapter04/ks04_12/example01.txt");
 
     QFile file(strFileName);
-    // ´ò¿ª·½Ê½£ºÖ»¶Á¡¢ÎÄ±¾·½Ê½
+    // æ‰“å¼€æ–¹å¼ï¼šåªè¯»ã€æ–‡æœ¬æ–¹å¼
     if (!file.open(QFile::ReadOnly | QFile::Text)) {
         qDebug("open failed! file name is:%s", strFileName.toLocal8Bit().data());
         return;
     }
-    // Êä³öÕû¸öÎÄ¼şµÄÄÚÈİ
+    // è¾“å‡ºæ•´ä¸ªæ–‡ä»¶çš„å†…å®¹
     QString strContent = file.readAll();
     qDebug("=====================================\n");
     qDebug("File Opened, this is the content:\n");
     qDebug() << strContent;
     
     
-    // ½«ÎÄ¼şÓÎ±êÒÆµ½ÎÄ¼ş¿ªÍ·£¬·ñÔòµÄ»°£¬ÏÖÔÚÓÎ±êÒÑ¾­ÒÆ¶¯µ½ÎÄ¼şÎ²£¬ÔÙÖ´ĞĞºóÃæµÄ´úÂë½«ÎŞ·¨¶ÁÈ¡µ½ÄÚÈİ¡£
+    // å°†æ–‡ä»¶æ¸¸æ ‡ç§»åˆ°æ–‡ä»¶å¼€å¤´ï¼Œå¦åˆ™çš„è¯ï¼Œç°åœ¨æ¸¸æ ‡å·²ç»ç§»åŠ¨åˆ°æ–‡ä»¶å°¾ï¼Œå†æ‰§è¡Œåé¢çš„ä»£ç å°†æ— æ³•è¯»å–åˆ°å†…å®¹ã€‚
     file.seek(0);
 
-    // °´ĞĞ´òÓ¡
+    // æŒ‰è¡Œæ‰“å°
     qDebug("\n\n=====================================\n");
     qDebug("All the lines:\n");
     if (true) {
@@ -159,12 +159,12 @@ void example01()
 			qDebug("%s", line.toLocal8Bit().data());
 		}
 	}
-    file.close(); // Ç§Íò²»ÒªÍü¼Ç¹Ø±ÕÎÄ¼şÅ¶
+    file.close(); // åƒä¸‡ä¸è¦å¿˜è®°å…³é—­æ–‡ä»¶å“¦
 
 }
 
 /**
-* @brief ÎÄ±¾ÎÄ¼ş£¬×·¼ÓĞ´Èë
+* @brief æ–‡æœ¬æ–‡ä»¶ï¼Œè¿½åŠ å†™å…¥
 *
 * @return void
 */
@@ -174,7 +174,7 @@ void example02()
     strFileName = ns_train::getPath("$TRAINDEVHOME/test/chapter04/ks04_12/example01.txt");
 
     QFile file(strFileName);
-    // ´ò¿ª·½Ê½£ºÖ»¶Á¡¢ÎÄ±¾·½Ê½
+    // æ‰“å¼€æ–¹å¼ï¼šåªè¯»ã€æ–‡æœ¬æ–¹å¼
     //if (!file.open(QFile::ReadWrite | QFile::Text)) {
     if (!file.open(QFile::ReadWrite | QFile::Append | QFile::Text)) {
         qDebug("open failed! file name is:%s", strFileName.toLocal8Bit().data());
@@ -182,18 +182,18 @@ void example02()
     }
 	qDebug("\n\n=====================================\n");
 	qDebug("File Opened, this is the content:\n");
-	file.seek(0);// Ê¹ÓÃQFile::Append´ò¿ªÎÄ¼şºó£¬ÓÎ±êÄ¬ÈÏÔÚÎÄ¼şÎ²¡£
-	QString strContent = file.readAll();// readAll()µ¼ÖÂÎÄ¼şµÄÓÎ±êµ½´ïÎÄ¼şÎ²¡£
+	file.seek(0);// ä½¿ç”¨QFile::Appendæ‰“å¼€æ–‡ä»¶åï¼Œæ¸¸æ ‡é»˜è®¤åœ¨æ–‡ä»¶å°¾ã€‚
+	QString strContent = file.readAll();// readAll()å¯¼è‡´æ–‡ä»¶çš„æ¸¸æ ‡åˆ°è¾¾æ–‡ä»¶å°¾ã€‚
     qDebug() << strContent;
 
     QString strNew = "i got another apple.";
     file.write(strNew.toLocal8Bit());
 
-     // Êä³öÕû¸öÎÄ¼şµÄÄÚÈİ
+     // è¾“å‡ºæ•´ä¸ªæ–‡ä»¶çš„å†…å®¹
 	qDebug("\n\n=====================================\n");
 	qDebug("File appended, this is the content:\n");
  	file.seek(0);
-    strContent = file.readAll();// readAll()µ¼ÖÂÎÄ¼şµÄÓÎ±êµ½´ïÎÄ¼şÎ²¡£
+    strContent = file.readAll();// readAll()å¯¼è‡´æ–‡ä»¶çš„æ¸¸æ ‡åˆ°è¾¾æ–‡ä»¶å°¾ã€‚
     qDebug() << strContent;
 
     file.close();
@@ -202,7 +202,7 @@ void example02()
 
 
 /**
-* @brief ÎÄ±¾ÎÄ¼ş£¬ÔÚ¿ªÍ·Ğ´Èë
+* @brief æ–‡æœ¬æ–‡ä»¶ï¼Œåœ¨å¼€å¤´å†™å…¥
 *
 * @return void
 */
@@ -212,12 +212,12 @@ void example03()
     strFileName = ns_train::getPath("$TRAINDEVHOME/test/chapter04/ks04_12/example01.txt");
 
     QFile file(strFileName);
-    // ´ò¿ª·½Ê½£ºÖ»¶Á¡¢ÎÄ±¾·½Ê½
+    // æ‰“å¼€æ–¹å¼ï¼šåªè¯»ã€æ–‡æœ¬æ–¹å¼
     if (!file.open(QFile::ReadWrite | QFile::Text)) {
         qDebug("open failed! file name is:%s", strFileName.toLocal8Bit().data());
         return;
     }
-    // Êä³öÕû¸öÎÄ¼şµÄÄÚÈİ
+    // è¾“å‡ºæ•´ä¸ªæ–‡ä»¶çš„å†…å®¹
 	qDebug("\n\n=====================================\n");
 	qDebug("File Opened, this is the content:\n");
     QString strContent = file.readAll();
@@ -227,11 +227,11 @@ void example03()
     QString strNew = "add new line at the first line\n";
     strContent = strNew + strContent;
     
-    file.resize(0); // ½«ÎÄ¼şÄÚÈİÇå¿Õ
+    file.resize(0); // å°†æ–‡ä»¶å†…å®¹æ¸…ç©º
 
     file.write(strContent.toLocal8Bit());
 
-    file.seek(0);   // ½«ÎÄ¼şÓÎ±êÒÆµ½ÎÄ¼ş¿ªÍ·£¬·ñÔòµÄ»°£¬ÏÖÔÚÓÎ±êÒÑ¾­ÒÆ¶¯µ½ÎÄ¼şÎ²£¬ÔÙÖ´ĞĞºóÃæµÄ´úÂë½«ÎŞ·¨¶ÁÈ¡µ½ÄÚÈİ¡£
+    file.seek(0);   // å°†æ–‡ä»¶æ¸¸æ ‡ç§»åˆ°æ–‡ä»¶å¼€å¤´ï¼Œå¦åˆ™çš„è¯ï¼Œç°åœ¨æ¸¸æ ‡å·²ç»ç§»åŠ¨åˆ°æ–‡ä»¶å°¾ï¼Œå†æ‰§è¡Œåé¢çš„ä»£ç å°†æ— æ³•è¯»å–åˆ°å†…å®¹ã€‚
 	strContent = file.readAll();
     qDebug() << strContent;
 
@@ -241,7 +241,7 @@ void example03()
 
 
 /**
-* @brief ÎÄ¼ş¿½±´¡¢¸ÄÃû¡¢ÒÆ¶¯¡¢É¾³ı
+* @brief æ–‡ä»¶æ‹·è´ã€æ”¹åã€ç§»åŠ¨ã€åˆ é™¤
 *
 * @return void
 */
@@ -257,28 +257,28 @@ void example04()
     }
     QDir dir;
     QString strDirectory;
-    // ¿½±´
+    // æ‹·è´
     QString strNewFileName = ns_train::getPath("$TRAINDEVHOME/test/chapter04/ks04_12/copy.txt");
     strDirectory  = ns_train::getDirectory(strNewFileName);
-    dir.mkpath(strDirectory); // Çë×¢Òâmakepath()Óëmakedir()µÄÇø±ğ
+    dir.mkpath(strDirectory); // è¯·æ³¨æ„makepath()ä¸makedir()çš„åŒºåˆ«
     file.copy(strNewFileName);
     pauseOnce();
 
-    // ¸ÄÃû
+    // æ”¹å
     strNewFileName = ns_train::getPath("$TRAINDEVHOME/test/chapter04/ks04_12/new.txt");
     strDirectory = ns_train::getDirectory(strNewFileName);
     dir.mkpath(strDirectory);
     file.rename(strNewFileName);
     pauseOnce();
 
-    // ÒÆ¶¯
+    // ç§»åŠ¨
     strNewFileName = ns_train::getPath("$TRAINDEVHOME/test/chapter04/ks04_12/move/dir/new.txt");
     strDirectory = ns_train::getDirectory(strNewFileName);
     dir.mkpath(strDirectory);
     file.rename(strNewFileName);
     pauseOnce();
 
-    // É¾³ı
+    // åˆ é™¤
     file.remove();
 
     file.close();

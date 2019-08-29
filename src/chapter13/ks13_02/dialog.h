@@ -1,20 +1,20 @@
 /*! 
-* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
-* °æÈ¨ËùÓÐ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
-* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºŽè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸Žæé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜Ž:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åŽæžœè‡ªè´Ÿã€‚
 
 \file: dialog.h
-\brief  CDialogÀà¶¨ÒåÍ·ÎÄ¼þ
+\brief  CDialogç±»å®šä¹‰å¤´æ–‡ä»¶
 
-\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/9
 */
 
 #ifndef DIALOG_H
 #define DIALOG_H
 
-#include "ui_dialog.h" // Í·ÎÄ¼þÃû³ÆÀ´×Ô: dialog.ui  ---> ui_dialog.h
+#include "ui_dialog.h" // å¤´æ–‡ä»¶åç§°æ¥è‡ª: dialog.ui  ---> ui_dialog.h
 
 QT_BEGIN_NAMESPACE
 class QEvent;

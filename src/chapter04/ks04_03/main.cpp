@@ -1,13 +1,13 @@
 /*! 
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file: main.cpp
-\brief main()º¯ÊıµÄÊµÏÖÎÄ¼ş
+\brief main()å‡½æ•°çš„å®ç°æ–‡ä»¶
 
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/9
 */
 
@@ -38,8 +38,8 @@ int main(int argc, char * argv[])
 	Q_UNUSED(argv);
 	QApplication app(argc, argv);
 
-	// ¹ú¼Ê»¯
-	// °²×°qt×Ô´øµÄÖĞÎÄ·­Òë
+	// å›½é™…åŒ–
+	// å®‰è£…qtè‡ªå¸¦çš„ä¸­æ–‡ç¿»è¯‘
 	const QString localSysName = QLocale::system().name();
 	QScopedPointer<QTranslator> qtTranslator(new QTranslator(QCoreApplication::instance()));
 	if (qtTranslator->load(QStringLiteral("qt_") + localSysName,
@@ -48,8 +48,8 @@ int main(int argc, char * argv[])
 		QCoreApplication::installTranslator(qtTranslator.take());
 	}
 
-	// °²×°ÎÒÃÇÏîÄ¿µÄ·­ÒëÎÄ¼ş
-	QString strPath = qgetenv("TRAINDEVHOME");	// »ñÈ¡»·¾³±äÁ¿ËùÖ¸ÏòµÄÂ·¾¶
+	// å®‰è£…æˆ‘ä»¬é¡¹ç›®çš„ç¿»è¯‘æ–‡ä»¶
+	QString strPath = qgetenv("TRAINDEVHOME");	// è·å–ç¯å¢ƒå˜é‡æ‰€æŒ‡å‘çš„è·¯å¾„
 	strPath += "/system/lang";					// $TRAINDEVHOME/system/lang/ks03_01.qm
 	QScopedPointer<QTranslator> gpTranslator(new QTranslator(QCoreApplication::instance()));
 	if (gpTranslator->load("ks04_03.qm", strPath))
@@ -57,7 +57,7 @@ int main(int argc, char * argv[])
 		QCoreApplication::installTranslator(gpTranslator.take());
 	}
 
-	// example01, ´ÓÊäÈëÄ¿Â¼ÖĞ»ñÈ¡Ä¿Â¼Ãû¡¢ÎÄ¼şÃû
+	// example01, ä»è¾“å…¥ç›®å½•ä¸­è·å–ç›®å½•åã€æ–‡ä»¶å
 	if (false) {
 		QString strInput = "d:\\project\\gui\\src\\chapter01\\ks01_01\\ks01_01.pro";
 		bool bok;
@@ -66,29 +66,29 @@ int main(int argc, char * argv[])
 		bok = example01(strInput, strDir, strFileName);
 	}
 
-	// example02, ×éÖ¯ÈÕÖ¾ĞÅÏ¢
+	// example02, ç»„ç»‡æ—¥å¿—ä¿¡æ¯
 	if (false) {
 		QString strWholeInfo = example02(3, "Lisa", "adm01", "modified data at 12:00PM.");
 	}
 
-	// example03, Ê¹ÓÃarg()½Ó¿Ú¶ÔĞÅÏ¢¸ñÊ½»¯, Êä³ö¾ØĞÎµÄ×ø±ê¡¢¿í¸ß
+	// example03, ä½¿ç”¨arg()æ¥å£å¯¹ä¿¡æ¯æ ¼å¼åŒ–, è¾“å‡ºçŸ©å½¢çš„åæ ‡ã€å®½é«˜
 	if (false) {
 		QRectF rct(20.f, 30.f, 50.f, 60.f);
 		example03(rct);
 	}
 
-	// example04, Ê¹ÓÃarg()½Ó¿Ú¶ÔĞÅÏ¢¸ñÊ½»¯, ´ø·­Òë
+	// example04, ä½¿ç”¨arg()æ¥å£å¯¹ä¿¡æ¯æ ¼å¼åŒ–, å¸¦ç¿»è¯‘
 	if (false) {
-		example04(QString::fromLocal8Bit("ÖùÉÏ¶ÏÂ·Æ÷"), 2);
+		example04(QString::fromLocal8Bit("æŸ±ä¸Šæ–­è·¯å™¨"), 2);
 	}
 
 
-	// example05, ½âÎöÓÃÌØ¶¨·Ö¸ô·û×é³ÉµÄ×Ö·û´®
+	// example05, è§£æç”¨ç‰¹å®šåˆ†éš”ç¬¦ç»„æˆçš„å­—ç¬¦ä¸²
 	if (false) {
 		example05();
 	}
 
-	// example06, ×Ö·û´®ÓëÊıÖµµÄÏà»¥×ª»»
+	// example06, å­—ç¬¦ä¸²ä¸æ•°å€¼çš„ç›¸äº’è½¬æ¢
 	if (true) {
 		example06();
 	}
@@ -101,11 +101,11 @@ int main(int argc, char * argv[])
 }
 
 /**
-* @brief  ´ÓÊäÈëÄ¿Â¼ÖĞ»ñÈ¡Ä¿Â¼Ãû¡¢ÎÄ¼şÃû
-* @param[in] strInput  ÎÄ¼şÈ«Â·¾¶
-* @param[out] strDir	ÎÄ¼şËùÔÚÄ¿Â¼
-* @param[out] strFileName  ÎÄ¼şÃû(²»º¬Ä¿Â¼)
-* @return true:³É¹¦, false:Ê§°Ü
+* @brief  ä»è¾“å…¥ç›®å½•ä¸­è·å–ç›®å½•åã€æ–‡ä»¶å
+* @param[in] strInput  æ–‡ä»¶å…¨è·¯å¾„
+* @param[out] strDir	æ–‡ä»¶æ‰€åœ¨ç›®å½•
+* @param[out] strFileName  æ–‡ä»¶å(ä¸å«ç›®å½•)
+* @return true:æˆåŠŸ, false:å¤±è´¥
 */
 bool example01(const QString& strInput, QString& strDir, QString& strFileName){
 	
@@ -114,26 +114,26 @@ bool example01(const QString& strInput, QString& strDir, QString& strFileName){
 
 	QString str = strInput;		// str = "d:\\project\\gui\\src\\chapter01\\ks01_01\\ks01_01.pro";
 
-	// Ê×ÏÈ½«·Ö¸ô·ûÍ³Ò»£¬±ãÓÚÍ³Ò»´¦Àíwindows¼°linuxµÄÄ¿Â¼
+	// é¦–å…ˆå°†åˆ†éš”ç¬¦ç»Ÿä¸€ï¼Œä¾¿äºç»Ÿä¸€å¤„ç†windowsåŠlinuxçš„ç›®å½•
 	str.replace("\\", "/");		// str=d:/project/gui/src/chapter01/ks01_01/ks01_01.pro
 	
 	int idx = str.lastIndexOf("/");
 	strDir = str.left(idx);		// strDir=d:/project/gui/src/chapter01/ks01_01
 
 
-	strFileName = str.right(str.length()-(idx+1));	// ÓÃidx+1µÄÄ¿µÄÊÇºöÂÔÎÄ¼şÃûÇ°ÃæµÄ"/"
+	strFileName = str.right(str.length()-(idx+1));	// ç”¨idx+1çš„ç›®çš„æ˜¯å¿½ç•¥æ–‡ä»¶åå‰é¢çš„"/"
 								// strFileName = ks01_01.pro
 
 	return true;
 }
 
 /**
-* @brief  ×éÖ¯ÈÕÖ¾ĞÅÏ¢
-* @param[in] level  ÈÕÖ¾µÈ¼¶
-* @param[in] strPerson	ÈËÔ±ĞÅÏ¢
-* @param[in] strComputer  »úÆ÷ĞÅÏ¢
-* @param[in] strInfo  ÈÕÖ¾ÏêÇé
-* @return Æ´½ÓºóµÄÈÕÖ¾
+* @brief  ç»„ç»‡æ—¥å¿—ä¿¡æ¯
+* @param[in] level  æ—¥å¿—ç­‰çº§
+* @param[in] strPerson	äººå‘˜ä¿¡æ¯
+* @param[in] strComputer  æœºå™¨ä¿¡æ¯
+* @param[in] strInfo  æ—¥å¿—è¯¦æƒ…
+* @return æ‹¼æ¥åçš„æ—¥å¿—
 */
 QString example02(int level, const QString& strPerson, const QString& strComputer, const QString& strInfo){
 	QString str;
@@ -148,19 +148,19 @@ QString example02(int level, const QString& strPerson, const QString& strCompute
 
 
 /**
-* @brief  Ê¹ÓÃarg()½Ó¿Ú¶ÔĞÅÏ¢¸ñÊ½»¯,Êä³ö¾ØĞÎµÄ×ø±ê¡¢¿í¸ß
-* @param[in] rect  ¾ØĞÎ
-* @return ¾ØĞÎµÄ×ø±ê¡¢¿í¸ß
+* @brief  ä½¿ç”¨arg()æ¥å£å¯¹ä¿¡æ¯æ ¼å¼åŒ–,è¾“å‡ºçŸ©å½¢çš„åæ ‡ã€å®½é«˜
+* @param[in] rect  çŸ©å½¢
+* @return çŸ©å½¢çš„åæ ‡ã€å®½é«˜
 */
 QString example03(const QRectF& rect){
 	QString strRect = QString("%1,%2,%3,%4").arg(rect.x()).arg(rect.y()).arg(rect.width()).arg(rect.height());
 	return strRect;
 }
 /**
-* @brief  Ê¹ÓÃarg()½Ó¿Ú¶ÔĞÅÏ¢¸ñÊ½»¯,´ø·­Òë
-* @param[in] strTemplateName  Ä£°åÃû³Æ
-* @param[in] nTerminalCount  ¶Ë×Ó¸öÊı
-* @return ¸ñÊ½»¯ºóµÄĞÅÏ¢
+* @brief  ä½¿ç”¨arg()æ¥å£å¯¹ä¿¡æ¯æ ¼å¼åŒ–,å¸¦ç¿»è¯‘
+* @param[in] strTemplateName  æ¨¡æ¿åç§°
+* @param[in] nTerminalCount  ç«¯å­ä¸ªæ•°
+* @return æ ¼å¼åŒ–åçš„ä¿¡æ¯
 */
 QString example04(const QString& strTemplateName, int nTerminalCount){
 	QString strInfo = QObject::tr("template name:%1 already has terminal count=%2.").arg(strTemplateName).arg(nTerminalCount);
@@ -169,35 +169,35 @@ QString example04(const QString& strTemplateName, int nTerminalCount){
 }
 
 /**
-* @brief  ½âÎöÓÃÌØ¶¨·Ö¸ô·û×é³ÉµÄ×Ö·û´®
-* @return ¸ñÊ½»¯ºóµÄĞÅÏ¢
+* @brief  è§£æç”¨ç‰¹å®šåˆ†éš”ç¬¦ç»„æˆçš„å­—ç¬¦ä¸²
+* @return æ ¼å¼åŒ–åçš„ä¿¡æ¯
 */
 void example05(){
-	QString str = QString::fromLocal8Bit("Èí¼şÌØ¹¥¶Ó, Å®¶ù½ĞÀÏ°×, C++|Qt");
+	QString str = QString::fromLocal8Bit("è½¯ä»¶ç‰¹æ”»é˜Ÿ, å¥³å„¿å«è€ç™½, C++|Qt");
 	
-	// É¾³ı¶àÓàµÄ¿Õ¸ñ
+	// åˆ é™¤å¤šä½™çš„ç©ºæ ¼
 	str = str.trimmed();	
 
-	QStringList strList = str.split(",");	// strList[0] : "Èí¼şÌØ¹¥¶Ó"
-											// strList[1] : "Å®¶ù½ĞÀÏ°×"
+	QStringList strList = str.split(",");	// strList[0] : "è½¯ä»¶ç‰¹æ”»é˜Ÿ"
+											// strList[1] : "å¥³å„¿å«è€ç™½"
 											// strList[2] : "C++|Qt"
 
-	cout << "»ú¹¹:" << strList[0].toLocal8Bit().data() << endl;
-	cout << "ĞÕÃû:" << strList[1].toLocal8Bit().data() << endl;
+	cout << "æœºæ„:" << strList[0].toLocal8Bit().data() << endl;
+	cout << "å§“å:" << strList[1].toLocal8Bit().data() << endl;
 
-	// °Ñ"|"»»³É","
+	// æŠŠ"|"æ¢æˆ","
 	QString strCategory = strList[2];		// strCategory : "C++|Qt"
 	strCategory.replace("|", ",");			// strCategory : "C++,Qt"
-	cout << "ÁìÓò:" << strCategory.toLocal8Bit().data() << endl;
+	cout << "é¢†åŸŸ:" << strCategory.toLocal8Bit().data() << endl;
 }
 
 /**
-* @brief  ×Ö·û´®ÓëÊı×Ö»¥Ïà×ª»»
-* @return ÎŞ
+* @brief  å­—ç¬¦ä¸²ä¸æ•°å­—äº’ç›¸è½¬æ¢
+* @return æ— 
 */
 void example06(){
 
-	QString str1 = "2147483648"; // int32×î´óÖµ£º2147483647
+	QString str1 = "2147483648"; // int32æœ€å¤§å€¼ï¼š2147483647
 	int nInt32 = str1.toInt();
 	uint uInt32 = str1.toUInt();
 	cout << "int32 data = " << nInt32 << endl;
@@ -230,7 +230,7 @@ void example06(){
 	QString strData;
 	strData = QString::number(d);
 	cout << "double data = " << strData.toLocal8Bit().data() << endl;
-	strData = QString::number(d, 'g', 16); // ĞèÒªÃ÷È·Ö¸Ã÷¾«¶È£¬·ñÔòÄ¬ÈÏÖ»ÓĞ6Î»Ğ¡Êı¡£
+	strData = QString::number(d, 'g', 16); // éœ€è¦æ˜ç¡®æŒ‡æ˜ç²¾åº¦ï¼Œå¦åˆ™é»˜è®¤åªæœ‰6ä½å°æ•°ã€‚
 	cout << "double data = " << strData.toLocal8Bit().data() << endl;
 
 }

@@ -1,12 +1,12 @@
 /*! 
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file: prevwindow.cpp
-\brief  ¶Ô»°¿ò±à³ÌÊ¾Àı, Ô¤ÀÀ´°¿ÚÀàÊµÏÖÎÄ¼ş
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\brief  å¯¹è¯æ¡†ç¼–ç¨‹ç¤ºä¾‹, é¢„è§ˆçª—å£ç±»å®ç°æ–‡ä»¶
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/10
 */
 
@@ -22,7 +22,7 @@ CPreviewWindow::CPreviewWindow(QWidget *parent)
 
     connect(ui.closeButton, SIGNAL(clicked()), this, SLOT(close()));
 
-    setWindowTitle(QString::fromLocal8Bit("Ô¤ÀÀ"));
+    setWindowTitle(QString::fromLocal8Bit("é¢„è§ˆ"));
 }
 
 void CPreviewWindow::setWindowFlags(Qt::WindowFlags flags)

@@ -1,12 +1,12 @@
 /*!
-* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
-* °æÈ¨ËùÓÐ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
-* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºŽè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸Žæé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜Ž:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åŽæžœè‡ªè´Ÿã€‚
 
 \file main.cpp
-\brief delegate example main()º¯Êý
-\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
+\brief delegate example main()å‡½æ•°
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2019/1
 */
 
@@ -32,34 +32,34 @@ int main(int argc, char *argv[])
     CDelegate delegate;
     tableView.setItemDelegate(&delegate);
 
-    // ÎªÄ£ÐÍÉèÖÃÊý¾Ý
+    // ä¸ºæ¨¡åž‹è®¾ç½®æ•°æ®
     QModelIndex index;
     QModelIndex indexRoot = model.invisibleRootItem()->index();
     for (int row=0; row<CTableModel::Eattr_Max; row++){
-        // ÏÈÉèÖÃµÚ0ÁÐ
+        // å…ˆè®¾ç½®ç¬¬0åˆ—
         index = model.index(row, 0, indexRoot);
         if (CTableModel::EAttr_Id == row){
             model.setData(index, "id");
         }
         else if (CTableModel::EAttr_Descrition == row ){
-            model.setData(index, QString::fromLocal8Bit("ÃèÊö"));
+            model.setData(index, QString::fromLocal8Bit("æè¿°"));
         }
         else if (CTableModel::EAttr_Checked == row ){
-            model.setData(index, QString::fromLocal8Bit("ÑéÖ¤"));
+            model.setData(index, QString::fromLocal8Bit("éªŒè¯"));
         }
         else if (CTableModel::EAttr_LastOneFlag == row ){
-            model.setData(index, QString::fromLocal8Bit("ÊÇ×îºóÒ»¸ö"));
+            model.setData(index, QString::fromLocal8Bit("æ˜¯æœ€åŽä¸€ä¸ª"));
         }
         else if (CTableModel::Eattr_AnimateSpeed == row ){
-            model.setData(index, QString::fromLocal8Bit("¶¯»­ËÙ¶È"));
+            model.setData(index, QString::fromLocal8Bit("åŠ¨ç”»é€Ÿåº¦"));
         }
-        // ÔÙÉèÖÃµÚ1ÁÐ
+        // å†è®¾ç½®ç¬¬1åˆ—
         index = model.index(row, 1, indexRoot);
         if (CTableModel::EAttr_Id == row){
             model.setData(index, 0);
         }
         else if (CTableModel::EAttr_Descrition == row ){
-            model.setData(index, QString::fromLocal8Bit("±¸×¢"));
+            model.setData(index, QString::fromLocal8Bit("å¤‡æ³¨"));
         }
         else if (CTableModel::EAttr_Checked == row ){
             model.setData(index, 0);// 0:yes, 1:no
@@ -74,7 +74,7 @@ int main(int argc, char *argv[])
 
     tableView.setWindowTitle("Delegate Example");
     tableView.show();
-    return app.exec(); // ½«appÔËÐÐÆðÀ´
+    return app.exec(); // å°†appè¿è¡Œèµ·æ¥
 }
 
 

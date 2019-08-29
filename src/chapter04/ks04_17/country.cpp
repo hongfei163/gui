@@ -1,13 +1,13 @@
 /*! 
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file: country.cpp
-\brief ¹ú¼ÒÀàÊµÏÖÎÄ¼ş
+\brief å›½å®¶ç±»å®ç°æ–‡ä»¶
 
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/10
 */
 #include <QDir>
@@ -55,7 +55,7 @@ int CCountry::addProvince(CProvince* pProvince) {
 ESerializeCode CCountry::serializeBinary(const QString& strFileName, QString* pError) const {
 	if (0 == strFileName.length()) {
 		if (NULL != pError) {
-			pError->append(QString::fromLocal8Bit("\nÎÄ¼şÃûÎª¿Õ"));
+			pError->append(QString::fromLocal8Bit("\næ–‡ä»¶åä¸ºç©º"));
 		}
 		return ESERIALIZECODE_FILENOTFOND;
 	}
@@ -80,9 +80,9 @@ ESerializeCode CCountry::serializeBinary(const QString& strFileName, QString* pE
 ESerializeCode  CCountry::serializeBinary(QDataStream& ds, QString* pError) const {
 	ds << m_strName;
 	ds << m_strContinent;
-	quint16 nCount = m_lstProvinces.size(); // ĞèÒªÃ÷È·Ö¸¶¨Êı¾İÀàĞÍ£¬·ñÔò¿çÆ½Ì¨Ê±¿ÉÄÜ³öÎÊÌâ¡£±ÈÈçintÔÚ¸÷¸öÆ½Ì¨ÉÏ¿ÉÄÜ³¤¶È²»Ò»Ñù¡£
+	quint16 nCount = m_lstProvinces.size(); // éœ€è¦æ˜ç¡®æŒ‡å®šæ•°æ®ç±»å‹ï¼Œå¦åˆ™è·¨å¹³å°æ—¶å¯èƒ½å‡ºé—®é¢˜ã€‚æ¯”å¦‚intåœ¨å„ä¸ªå¹³å°ä¸Šå¯èƒ½é•¿åº¦ä¸ä¸€æ ·ã€‚
 	ds << nCount; 
-	QList<CProvince*>::ConstIterator iteLst = m_lstProvinces.constBegin(); // ÒòÎª±¾º¯ÊıÎªconst£¬ËùÒÔĞèÒªµ÷ÓÃconstÀàĞÍµÄ½Ó¿Ú
+	QList<CProvince*>::ConstIterator iteLst = m_lstProvinces.constBegin(); // å› ä¸ºæœ¬å‡½æ•°ä¸ºconstï¼Œæ‰€ä»¥éœ€è¦è°ƒç”¨constç±»å‹çš„æ¥å£
 	ESerializeCode ret = ESERIALIZECODE_OK;
 	while (iteLst != m_lstProvinces.end()) {
 		ESerializeCode retcode = (*iteLst)->serializeBinary(ds, pError);
@@ -122,7 +122,7 @@ ESerializeCode CCountry::deSerializeBinary(QDataStream& ds, QString* pError) {
 	ESerializeCode retcode = ESERIALIZECODE_OK;
 	ds >> m_strName;
 	ds >> m_strContinent;
-	quint16 nCount = 0; // ĞèÒªÃ÷È·Ö¸¶¨Êı¾İÀàĞÍ£¬·ñÔò¿çÆ½Ì¨Ê±¿ÉÄÜ³öÎÊÌâ¡£±ÈÈçintÔÚ¸÷¸öÆ½Ì¨ÉÏ¿ÉÄÜ³¤¶È²»Ò»Ñù¡£
+	quint16 nCount = 0; // éœ€è¦æ˜ç¡®æŒ‡å®šæ•°æ®ç±»å‹ï¼Œå¦åˆ™è·¨å¹³å°æ—¶å¯èƒ½å‡ºé—®é¢˜ã€‚æ¯”å¦‚intåœ¨å„ä¸ªå¹³å°ä¸Šå¯èƒ½é•¿åº¦ä¸ä¸€æ ·ã€‚
 	ds >> nCount;
 	quint16 idx = 0;
 	CProvince* pProvince = NULL;
@@ -158,14 +158,14 @@ ESerializeCode CCountry::serializeXML(QDomDocument& doc, QString* pError) const
 {
     QDomElement rootDoc = doc.createElement(c_tag_doc);
 
-    // ¿ªÊ¼×éÖ¯ÎÄ¼şÄÚÈİ
+    // å¼€å§‹ç»„ç»‡æ–‡ä»¶å†…å®¹
     QDomElement eleContent = doc.createElement(c_tag_content);
     eleContent.setAttribute(c_attribute_name, m_strName);
     eleContent.setAttribute(c_attribute_continent, m_strContinent);
 
     ESerializeCode ret = ESERIALIZECODE_OK;
 
-    // ÒòÎª±¾º¯ÊıÎªconst£¬ËùÒÔĞèÒª¶Ô³ÉÔ±±äÁ¿µ÷ÓÃconstÀàĞÍµÄ½Ó¿Ú
+    // å› ä¸ºæœ¬å‡½æ•°ä¸ºconstï¼Œæ‰€ä»¥éœ€è¦å¯¹æˆå‘˜å˜é‡è°ƒç”¨constç±»å‹çš„æ¥å£
     QList<CProvince*>::ConstIterator iteList = m_lstProvinces.constBegin();
     for (; iteList != m_lstProvinces.constEnd(); iteList++) {
         QDomElement eleProvince = doc.createElement(c_tag_province);

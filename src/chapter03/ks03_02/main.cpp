@@ -1,18 +1,18 @@
 /*! 
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file: main.cpp
-\brief main()º¯ÊıµÄÊµÏÖÎÄ¼ş
+\brief main()å‡½æ•°çš„å®ç°æ–‡ä»¶
 
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/ 
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/ 
 \Date 2018/8
 */
 #include <QApplication>
-#include <QTranslator>		// ¹ú¼Ê»¯
-#include <QLibraryInfo> 	// ¹ú¼Ê»¯
+#include <QTranslator>		// å›½é™…åŒ–
+#include <QLibraryInfo> 	// å›½é™…åŒ–
 
 #include <iostream>
 #include <QDebug>
@@ -39,15 +39,15 @@ int main(int argc, char * argv[])
 	Q_UNUSED(argv);
 
 	QApplication app(argc, argv);
-	// °²×°qt×Ô´øµÄÖĞÎÄ·­Òë
-	const QString localSysName = QLocale::system().name();  // »ñÈ¡±¾»úÏµÍ³µÄÓïÑÔ»·¾³
+	// å®‰è£…qtè‡ªå¸¦çš„ä¸­æ–‡ç¿»è¯‘
+	const QString localSysName = QLocale::system().name();  // è·å–æœ¬æœºç³»ç»Ÿçš„è¯­è¨€ç¯å¢ƒ
 	QScopedPointer<QTranslator> qtTranslator(new QTranslator(QCoreApplication::instance()));
 	if (qtTranslator->load(QStringLiteral("qt_") + localSysName,
 		QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
 	{
 		QCoreApplication::installTranslator(qtTranslator.take());
 	}
-	QString strPath = qgetenv("TRAINDEVHOME");  // »ñÈ¡»·¾³±äÁ¿ËùÖ¸ÏòµÄÂ·¾¶
+	QString strPath = qgetenv("TRAINDEVHOME");  // è·å–ç¯å¢ƒå˜é‡æ‰€æŒ‡å‘çš„è·¯å¾„
 	strPath += "/system/lang";       // $TRAINDEVHOME/system/lang/ks03_01.qm
 	QScopedPointer<QTranslator> gpTranslator(new QTranslator(QCoreApplication::instance()));
 	if (gpTranslator->load("ks03_02.qm", strPath))
@@ -60,6 +60,6 @@ int main(int argc, char * argv[])
 
 	CDialog dlg(NULL);
 	dlg.exec();
-	//cout << "ÎÒÕæµÄÉ¶Ò²Ã»¸É." << endl;
+	//cout << "æˆ‘çœŸçš„å•¥ä¹Ÿæ²¡å¹²." << endl;
 	return 0;
 }

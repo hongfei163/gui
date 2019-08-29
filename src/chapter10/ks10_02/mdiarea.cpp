@@ -1,13 +1,13 @@
 /*!
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file: mdiarea.cpp
-\brief ÑİÊ¾ÓÃÍ·ÎÄ¼ş
+\brief æ¼”ç¤ºç”¨å¤´æ–‡ä»¶
 
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/8
 */
 #include <QAction>
@@ -79,17 +79,17 @@ void CEditMdiArea::onSubWindowActivate(QMdiSubWindow *pMdiChild)
                 pWidget = getActiveEditView(m_pLastActivatedMdiChild);
                 pView = dynamic_cast<CGraphView*>(pWidget);
                 if (NULL != pView)   {
-                    // ĞèÒª°Ñ²Ûº¯Êı¸ú¾ÉÊÓÍ¼½â°ó£¬·ÀÖ¹¾ÉÊÓÍ¼ĞÅºÅ¼ÌĞø´¥·¢²Ûº¯Êı
+                    // éœ€è¦æŠŠæ§½å‡½æ•°è·Ÿæ—§è§†å›¾è§£ç»‘ï¼Œé˜²æ­¢æ—§è§†å›¾ä¿¡å·ç»§ç»­è§¦å‘æ§½å‡½æ•°
                     disconnectEditViewWithSlot_whenInActivate(pView);
                 }
             }
             pWidget = getActiveEditView(pMdiChild);
             pView = dynamic_cast<CGraphView*>(pWidget);
             if (NULL != pView)   {
-                // ½«±à¼­ÊÓÍ¼¹Ò½Óµ½¶à´°¿ÚÇøÓòµÄ²Ûº¯Êı
+                // å°†ç¼–è¾‘è§†å›¾æŒ‚æ¥åˆ°å¤šçª—å£åŒºåŸŸçš„æ§½å‡½æ•°
                 connectEditViewWithSlot(pView);
             }
-            emit editViewChanged(pView); // ·¢³öĞÅºÅ
+            emit editViewChanged(pView); // å‘å‡ºä¿¡å·
             m_pLastActivatedMdiChild = pMdiChild;
         }
     }
@@ -257,12 +257,12 @@ void CEditMdiArea::onViewClose(QWidget* pChild)
 
     CGraphView* pView = dynamic_cast<CGraphView*>(pChild);
     if (NULL != pView)   {
-        disconnectEditViewWithSlot(pView); // ½«±à¼­ÊÓÍ¼Óë¶à´°¿ÚÇøÓòµÄ²Ûº¯Êı¶Ï¿ªÁ¬½Ó
+        disconnectEditViewWithSlot(pView); // å°†ç¼–è¾‘è§†å›¾ä¸å¤šçª—å£åŒºåŸŸçš„æ§½å‡½æ•°æ–­å¼€è¿æ¥
     }
     m_pLastActivatedMdiChild = NULL;
 
     emit editViewClose(pChild);
-    m_pLastActivatedMdiChild = NULL; // ·ÀÖ¹Ó¦ÓÃ²ã¶ÔÓÚ editViewClose ĞÅºÅµÄ´¦Àíµ¼ÖÂ´¥·¢activeSubWindow´Ó¶øÊ¹m_pLastActivatedMdiChildÖØĞÂ±»¸³Öµ£¨ÎªÒÑ¹Ø±ÕµÄ´°¿Ú£©
+    m_pLastActivatedMdiChild = NULL; // é˜²æ­¢åº”ç”¨å±‚å¯¹äº editViewClose ä¿¡å·çš„å¤„ç†å¯¼è‡´è§¦å‘activeSubWindowä»è€Œä½¿m_pLastActivatedMdiChildé‡æ–°è¢«èµ‹å€¼ï¼ˆä¸ºå·²å…³é—­çš„çª—å£ï¼‰
 
 }
 

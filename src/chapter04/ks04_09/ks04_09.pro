@@ -4,7 +4,7 @@ TEMPLATE	= app
 LANGUAGE	= C++
 
 CONFIG += console
-# 需要用到QApplication
+# 闇�瑕佺敤鍒癚Application
 QT += widgets
 
 TEMPDIR		= $$TRAIN_OBJ_PATH/chapter04/ks04_09/

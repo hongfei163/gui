@@ -1,12 +1,12 @@
 /*! 
-* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
-* °æÈ¨ËùÓÐ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
-* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºŽè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸Žæé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜Ž:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åŽæžœè‡ªè´Ÿã€‚
 
 \file: step1.cpp
-\brief  ¶Ô»°¿ò±à³ÌÊ¾Àý, Ô¤ÀÀ´°¿ÚÀàÊµÏÖÎÄ¼þ
-\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
+\brief  å¯¹è¯æ¡†ç¼–ç¨‹ç¤ºä¾‹, é¢„è§ˆçª—å£ç±»å®žçŽ°æ–‡ä»¶
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2019/7
 */
 
@@ -24,5 +24,5 @@ CStep1::CStep1(QWidget *parent)
 }
 
 void CStep1::slot_next() {
-    emit sig_showPage(1); // ÐòºÅ´Ó0¿ªÊ¼, step1½çÃæÊÇµÚ0¸ö£¬ËùÒÔÏÂÒ»²½ÒªÏÔÊ¾µÚ1¸ö¡£
+    emit sig_showPage(1); // åºå·ä»Ž0å¼€å§‹, step1ç•Œé¢æ˜¯ç¬¬0ä¸ªï¼Œæ‰€ä»¥ä¸‹ä¸€æ­¥è¦æ˜¾ç¤ºç¬¬1ä¸ªã€‚
 }

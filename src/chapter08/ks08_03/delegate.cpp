@@ -1,12 +1,12 @@
 /*!
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file delegate.cpp
-\brief delegateÊµÏÖÎÄ¼ş
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\brief delegateå®ç°æ–‡ä»¶
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2019/1
 */
 
@@ -21,16 +21,16 @@
 CDelegate::CDelegate(QObject* parent):
     QStyledItemDelegate (parent){
 
-    m_strListYesNo << "yes" << "no"; // 0£ºyes, 1:no
-    m_strListSpeed << QString::fromLocal8Bit("ÂıËÙ") // tr("")
-                   << QString::fromLocal8Bit("ÖĞËÙ")
-                   << QString::fromLocal8Bit("¿ìËÙ");
+    m_strListYesNo << "yes" << "no"; // 0ï¼šyes, 1:no
+    m_strListSpeed << QString::fromLocal8Bit("æ…¢é€Ÿ") // tr("")
+                   << QString::fromLocal8Bit("ä¸­é€Ÿ")
+                   << QString::fromLocal8Bit("å¿«é€Ÿ");
 }
 
 QWidget *CDelegate::createEditor(QWidget *parent,
                       const QStyleOptionViewItem &option,
                       const QModelIndex &index) const {
-    // Ö»ÓĞµÚ1ÁĞÔÊĞí±à¼­
+    // åªæœ‰ç¬¬1åˆ—å…è®¸ç¼–è¾‘
     if (1 != index.column()){
         return QStyledItemDelegate::createEditor(parent,
                                                  option,
@@ -47,8 +47,8 @@ QWidget *CDelegate::createEditor(QWidget *parent,
     else if (CTableModel::EAttr_Checked == index.row()) {
         QComboBox* pEditor = new QComboBox(parent);
         pEditor->addItems(m_strListYesNo);
-        pEditor->setItemData(0, 0); // 0:yes,ĞòºÅ=0£¬¶ÔÓ¦µÄÖµ=0
-        pEditor->setItemData(1, 1); // 1:no,ĞòºÅ=1£¬¶ÔÓ¦µÄÖµ=1
+        pEditor->setItemData(0, 0); // 0:yes,åºå·=0ï¼Œå¯¹åº”çš„å€¼=0
+        pEditor->setItemData(1, 1); // 1:no,åºå·=1ï¼Œå¯¹åº”çš„å€¼=1
         return pEditor;
     }
     else if(CTableModel::EAttr_LastOneFlag == index.row()) {
@@ -95,10 +95,10 @@ void CDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const{
         QVariant var = index.model()->data(index, Qt::EditRole);
         Qt::CheckState checkState = static_cast<Qt::CheckState>(var.toInt());
         if (checkState) {
-            pEditor->setText(QString::fromLocal8Bit("ÊÇ"));
+            pEditor->setText(QString::fromLocal8Bit("æ˜¯"));
         }
         else {
-            pEditor->setText(QString::fromLocal8Bit("·ñ"));
+            pEditor->setText(QString::fromLocal8Bit("å¦"));
         }
     }
     else if (CTableModel::Eattr_AnimateSpeed == index.row()){
@@ -133,7 +133,7 @@ void CDelegate::setModelData(QWidget *editor,
     }
     else if (CTableModel::EAttr_LastOneFlag == index.row()) {
         CEditor* pEditor = qobject_cast<CEditor*>(editor);
-        var.setValue((pEditor->text()==QString::fromLocal8Bit("ÊÇ")) ? true : false);
+        var.setValue((pEditor->text()==QString::fromLocal8Bit("æ˜¯")) ? true : false);
         model->setData(index, var);
     }
     else if (CTableModel::Eattr_AnimateSpeed == index.row()){
@@ -159,8 +159,8 @@ void CDelegate::slot_commitAndCloseEditor() {
 
     CEditor* pEditor = dynamic_cast<CEditor*>(sender());
 
-    emit commitData(pEditor); // Ìá½»Êı¾İ
-    emit closeEditor(pEditor);// ¹Ø±Õ±à¼­Æ÷¿Ø¼ş
+    emit commitData(pEditor); // æäº¤æ•°æ®
+    emit closeEditor(pEditor);// å…³é—­ç¼–è¾‘å™¨æ§ä»¶
 
 }
 
@@ -171,8 +171,8 @@ QString CDelegate::displayText(const QVariant &value,
     case QMetaType::Bool:
         {
             QString str = (value.toBool() ?
-                               QString::fromLocal8Bit("ÊÇ") :
-                               QString::fromLocal8Bit("·ñ"));
+                               QString::fromLocal8Bit("æ˜¯") :
+                               QString::fromLocal8Bit("å¦"));
             return str;
         }
         break;

@@ -1,13 +1,13 @@
 /*! 
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file: main.cpp
-\brief main()º¯ÊıµÄÊµÏÖÎÄ¼ş
+\brief main()å‡½æ•°çš„å®ç°æ–‡ä»¶
 
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/9
 */
 
@@ -48,14 +48,14 @@ int main(int argc, char * argv[])
 }
 
 /**
-* @brief ±£´æxml¸ñÊ½ÎÄ¼şÊ¾Àı´úÂë
-*        xmlÎÄ¼şÄÚÈİ
+* @brief ä¿å­˜xmlæ ¼å¼æ–‡ä»¶ç¤ºä¾‹ä»£ç 
+*        xmlæ–‡ä»¶å†…å®¹
 *        <doc>
-*           <courses institution="Èí¼şÌØ¹¥¶Ó"  teacher="Å®¶ù½ĞÀÏ°×" serie="C++¿çÆ½Ì¨¿ª·¢¸É»õÏµÁĞ" count="7">
-*               <lesson id="1" url="" fee="Ãâ·Ñ" >C++ÀÏÄñÈÕ¼Ç<lesson/>
-*               <lesson id="2" url="" fee="Ãâ·Ñ" >C++¿çÆ½Ì¨¿ª·¢ÖĞµÄ±àÒë´íÎó<lesson/>
-*               <lesson id="3" url="" >QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢<lesson/>
-*               <lesson id="4" url=""  >C++¿çÆ½Ì¨·şÎñÄ£¿é¿ª·¢<lesson/>
+*           <courses institution="è½¯ä»¶ç‰¹æ”»é˜Ÿ"  teacher="å¥³å„¿å«è€ç™½" serie="C++è·¨å¹³å°å¼€å‘å¹²è´§ç³»åˆ—" count="7">
+*               <lesson id="1" url="" fee="å…è´¹" >C++è€é¸Ÿæ—¥è®°<lesson/>
+*               <lesson id="2" url="" fee="å…è´¹" >C++è·¨å¹³å°å¼€å‘ä¸­çš„ç¼–è¯‘é”™è¯¯<lesson/>
+*               <lesson id="3" url="" >Qtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘<lesson/>
+*               <lesson id="4" url=""  >C++è·¨å¹³å°æœåŠ¡æ¨¡å—å¼€å‘<lesson/>
 *           </courses>
 *        </doc>
 */
@@ -66,9 +66,9 @@ void example01() {
 		strPath += "/";
 	}
 
-	QString strFileName = strPath + "test04_13.xml"; // ³ÌĞòÔËĞĞÄ¿Â¼ÏÂµÄxmlÎÄ¼ş
+	QString strFileName = strPath + "test04_13.xml"; // ç¨‹åºè¿è¡Œç›®å½•ä¸‹çš„xmlæ–‡ä»¶
 	QFile file(strFileName);
-	if (!file.open(QFile::WriteOnly | QFile::Text | QFile::Truncate))	{ // QFile::Truncate,ĞèÒªÇå¿ÕÔ­À´µÄÄÚÈİ
+	if (!file.open(QFile::WriteOnly | QFile::Text | QFile::Truncate))	{ // QFile::Truncate,éœ€è¦æ¸…ç©ºåŸæ¥çš„å†…å®¹
 		return ;
 	}
 
@@ -76,16 +76,16 @@ void example01() {
 	out.setCodec("GB2312");
 
 	QDomDocument document;
-    QDomProcessingInstruction instruction;  //Ìí¼Ó´¦ÀíÖ¸Áî
+    QDomProcessingInstruction instruction;  //æ·»åŠ å¤„ç†æŒ‡ä»¤
     instruction = document.createProcessingInstruction("xml",
-        "version=\"1.0\" encoding=\"GB2312\""); // Çë×¢Òâ´Ë´¦µÄ±àÂë±ØĞëºÍÄúµÄÔ´´úÂëÎÄ¼şµÄ±àÂë±£³ÖÒ»ÖÂ¡£
+        "version=\"1.0\" encoding=\"GB2312\""); // è¯·æ³¨æ„æ­¤å¤„çš„ç¼–ç å¿…é¡»å’Œæ‚¨çš„æºä»£ç æ–‡ä»¶çš„ç¼–ç ä¿æŒä¸€è‡´ã€‚
 
     document.appendChild(instruction);
 	// doc
 	QDomElement rootDoc = document.createElement("doc");
 	document.appendChild(rootDoc);
 	
-	// Ìí¼ÓÈÅÂÒÏîÄ¿£¬ÓÃÀ´²âÊÔexample02()¡£
+	// æ·»åŠ æ‰°ä¹±é¡¹ç›®ï¼Œç”¨æ¥æµ‹è¯•example02()ã€‚
 	QDomElement eleConfig = document.createElement("config");
 	eleConfig.setAttribute("id", 5);
 	rootDoc.appendChild(eleConfig);
@@ -97,11 +97,11 @@ void example01() {
 	rootDoc.appendChild(eleCourses);
 
 	strName = "institution";
-	strValue = QString::fromLocal8Bit("Èí¼şÌØ¹¥¶Ó");
+	strValue = QString::fromLocal8Bit("è½¯ä»¶ç‰¹æ”»é˜Ÿ");
     eleCourses.setAttribute(strName, strValue);
 
 	strName = "teacher";
-	strValue = QString::fromLocal8Bit("Å®¶ù½ĞÀÏ°×");
+	strValue = QString::fromLocal8Bit("å¥³å„¿å«è€ç™½");
     eleCourses.setAttribute(strName, strValue);
 
 	strName = "count";
@@ -120,10 +120,10 @@ void example01() {
     eleLesson.setAttribute(strName, strValue);
 
     strName = "fee";
-    strValue = QString::fromLocal8Bit("Ãâ·Ñ");
+    strValue = QString::fromLocal8Bit("å…è´¹");
     eleLesson.setAttribute(strName, strValue);
 
-    QDomText dtText = document.createTextNode(QString::fromLocal8Bit("C++ÀÏÄñÈÕ¼Ç"));
+    QDomText dtText = document.createTextNode(QString::fromLocal8Bit("C++è€é¸Ÿæ—¥è®°"));
     eleLesson.appendChild(dtText);
     eleCourses.appendChild(eleLesson);
 
@@ -139,10 +139,10 @@ void example01() {
     eleLesson.setAttribute(strName, strValue);
 
     strName = "fee";
-    strValue = QString::fromLocal8Bit("Ãâ·Ñ");
+    strValue = QString::fromLocal8Bit("å…è´¹");
     eleLesson.setAttribute(strName, strValue);
 
-    dtText = document.createTextNode(QString::fromLocal8Bit("C++¿çÆ½Ì¨¿ª·¢ÖĞµÄ±àÒë´íÎó"));
+    dtText = document.createTextNode(QString::fromLocal8Bit("C++è·¨å¹³å°å¼€å‘ä¸­çš„ç¼–è¯‘é”™è¯¯"));
     eleLesson.appendChild(dtText);
     eleCourses.appendChild(eleLesson);  
 
@@ -158,7 +158,7 @@ void example01() {
     eleLesson.setAttribute(strName, strValue);
 
 
-    dtText = document.createTextNode(QString::fromLocal8Bit("QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢"));
+    dtText = document.createTextNode(QString::fromLocal8Bit("Qtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘"));
     eleLesson.appendChild(dtText);
     eleCourses.appendChild(eleLesson);
 
@@ -174,13 +174,13 @@ void example01() {
     strValue = "sorry, not ready";
     eleLesson.setAttribute(strName, strValue);
 	 
-    dtText = document.createTextNode(QString::fromLocal8Bit("C++¿çÆ½Ì¨·şÎñÄ£¿é¿ª·¢"));
+    dtText = document.createTextNode(QString::fromLocal8Bit("C++è·¨å¹³å°æœåŠ¡æ¨¡å—å¼€å‘"));
     eleLesson.appendChild(dtText);
     eleCourses.appendChild(eleLesson);
     
-    document.save(out, 4, QDomNode::EncodingFromTextStream);    // 4:Ëõ½øÖµ
+    document.save(out, 4, QDomNode::EncodingFromTextStream);    // 4:ç¼©è¿›å€¼
 	
-	// ½«ĞÅÏ¢Êä³öµ½ÖÕ¶Ë
+	// å°†ä¿¡æ¯è¾“å‡ºåˆ°ç»ˆç«¯
 	qDebug() << "XML to write";		
 	qDebug() << document.toString(4);
 
@@ -188,7 +188,7 @@ void example01() {
 }
 
 /**
-* @brief ¶ÁÈ¡xml¸ñÊ½ÎÄ¼şÊ¾Àı´úÂë
+* @brief è¯»å–xmlæ ¼å¼æ–‡ä»¶ç¤ºä¾‹ä»£ç 
 */
 void example02() {
 
@@ -198,7 +198,7 @@ void example02() {
 		strPath += "/";
 	}
 
-	QString strFileName = strPath + "test04_13.xml"; // ³ÌĞòÔËĞĞÄ¿Â¼ÏÂµÄxmlÎÄ¼ş
+	QString strFileName = strPath + "test04_13.xml"; // ç¨‹åºè¿è¡Œç›®å½•ä¸‹çš„xmlæ–‡ä»¶
 	QFile file(strFileName);
 	if (!file.open(QFile::ReadOnly | QFile::Text))	{
 		return;

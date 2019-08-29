@@ -1,6 +1,6 @@
 /*! \file: fileattribute.h
-	\brief ÎÄ¼şÊôĞÔµÄ·ÃÎÊÀà¶¨Òå
-	\author Å®¶ù½ĞÀÏ°×@Èí¼şÌØ¹¥¶Ó
+	\brief æ–‡ä»¶å±æ€§çš„è®¿é—®ç±»å®šä¹‰
+	\author å¥³å„¿å«è€ç™½@è½¯ä»¶ç‰¹æ”»é˜Ÿ
 	\Date : 2018/1/10
 * please import basedll.dll
 */
@@ -19,40 +19,40 @@ class QDomElement;
 
 namespace ns_train {
 	
-static const quint16 c_MainVersion = 1;		/// Í¼ĞÎÆ½Ì¨µ±Ç°Í¼ĞÎµÄÖ÷°æ±¾ºÅ
-static const quint16 c_SubVersion = 12;		/// Í¼ĞÎÆ½Ì¨µ±Ç°Í¼ĞÎµÄ´Î°æ±¾ºÅ
+static const quint16 c_MainVersion = 1;		/// å›¾å½¢å¹³å°å½“å‰å›¾å½¢çš„ä¸»ç‰ˆæœ¬å·
+static const quint16 c_SubVersion = 12;		/// å›¾å½¢å¹³å°å½“å‰å›¾å½¢çš„æ¬¡ç‰ˆæœ¬å·
 
-const quint16 c_MD5_Length = 16;			/// md5ÂëµÄ³¤¶È£¬µ¥Î»£º×Ö½Ú¡£
-/// ÎÄ¼şµÄÊôĞÔ
+const quint16 c_MD5_Length = 16;			/// md5ç çš„é•¿åº¦ï¼Œå•ä½ï¼šå­—èŠ‚ã€‚
+/// æ–‡ä»¶çš„å±æ€§
 struct BASE_API SFileAttr
 {
-	quint16	mainVer;						/// Ö÷°æ±¾ºÅ
-	quint16	subVer;							/// ´Î°æ±¾ºÅ
-	quint8	md5[c_MD5_Length];				/// ±¾ÎÄ¼şµÄmd5Âë, ¶ş½øÖÆ¸ñÊ½Ê¹ÓÃ£¬ÎÄ±¾¸ñÊ½²»ÓÃ¸ÃÊôĞÔ¡£
+	quint16	mainVer;						/// ä¸»ç‰ˆæœ¬å·
+	quint16	subVer;							/// æ¬¡ç‰ˆæœ¬å·
+	quint8	md5[c_MD5_Length];				/// æœ¬æ–‡ä»¶çš„md5ç , äºŒè¿›åˆ¶æ ¼å¼ä½¿ç”¨ï¼Œæ–‡æœ¬æ ¼å¼ä¸ç”¨è¯¥å±æ€§ã€‚
 
 	SFileAttr(){ mainVer = 1; subVer = 0; memset(md5, 0, c_MD5_Length); }
 };
-/// ĞòÁĞ»¯ÎÄ¼şµÄ×Ô¶¨ÒåÊôĞÔ(¶ş½øÖÆ)
+/// åºåˆ—åŒ–æ–‡ä»¶çš„è‡ªå®šä¹‰å±æ€§(äºŒè¿›åˆ¶)
 BASE_API QDataStream& operator<<(QDataStream& stream, const SFileAttr& attrs);
-/// ·´ĞòÁĞ»¯ÎÄ¼şµÄ×Ô¶¨ÒåÊôĞÔ(¶ş½øÖÆ)
+/// ååºåˆ—åŒ–æ–‡ä»¶çš„è‡ªå®šä¹‰å±æ€§(äºŒè¿›åˆ¶)
 BASE_API QDataStream& operator>>(QDataStream& stream, SFileAttr& attrs);
-/// ĞòÁĞ»¯ÎÄ¼şµÄ»ù±¾Êı¾İ(XML)
+/// åºåˆ—åŒ–æ–‡ä»¶çš„åŸºæœ¬æ•°æ®(XML)
 BASE_API QDomElement& operator<<(QDomElement& ele, const SFileAttr& attrs);
-/// ·´ĞòÁĞ»¯ÎÄ¼şµÄ»ù±¾Êı¾İ(XML)
+/// ååºåˆ—åŒ–æ–‡ä»¶çš„åŸºæœ¬æ•°æ®(XML)
 BASE_API QDomElement& operator>>(QDomElement& ele, SFileAttr& attrs);
 
-//£¡¶ÁÈ¡ÎÄ¼şµÄÊôĞÔ-¶ş½øÖÆ·½Ê½
+//ï¼è¯»å–æ–‡ä»¶çš„å±æ€§-äºŒè¿›åˆ¶æ–¹å¼
 /**
-* @param[in] fileName	ÎÄ¼şÈ«Â·¾¶Ãû
-* @param[out] attrs		ÊôĞÔ
+* @param[in] fileName	æ–‡ä»¶å…¨è·¯å¾„å
+* @param[out] attrs		å±æ€§
 * @retval ESerializeCode
 */
 BASE_API ESerializeCode readInfoFromBinary(const QString& fileName, SFileAttr& attrs);
 
-//£¡¶ÁÈ¡ÎÄ¼şµÄÊôĞÔ-xml·½Ê½
+//ï¼è¯»å–æ–‡ä»¶çš„å±æ€§-xmlæ–¹å¼
 /**
-* @param[in] fileName	ÎÄ¼şÈ«Â·¾¶Ãû
-* @param[out] attrs		ÊôĞÔ
+* @param[in] fileName	æ–‡ä»¶å…¨è·¯å¾„å
+* @param[out] attrs		å±æ€§
 * @retval ESerializeCode
 */
 BASE_API ESerializeCode readInfoFromXML(const QString& fileName, SFileAttr& attrs);

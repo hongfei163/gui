@@ -1,17 +1,17 @@
 /*! 
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file: main.cpp
-\brief      QMapµÄÊ¹ÓÃ
-            --Ìí¼Ó³ÉÔ±
-            --±éÀú
-            --²éÕÒ
-            --É¾³ı
+\brief      QMapçš„ä½¿ç”¨
+            --æ·»åŠ æˆå‘˜
+            --éå†
+            --æŸ¥æ‰¾
+            --åˆ é™¤
 
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/9
 */
 
@@ -63,12 +63,12 @@ int main(int argc, char * argv[])
 }
 
 /**
-* @brief  ÏòQMapÌí¼Ó³ÉÔ±²¢±éÀú¡£
-* @return ÎŞ
+* @brief  å‘QMapæ·»åŠ æˆå‘˜å¹¶éå†ã€‚
+* @return æ— 
 */
 void example01(){
 	
-	// Ìí¼Ó³ÉÔ±
+	// æ·»åŠ æˆå‘˜
 	QMap<uint, QString> mapObj;
 	mapObj[1] = "BeiJing";
 	mapObj[2] = "ShangHia";
@@ -77,7 +77,7 @@ void example01(){
 
     mapObj.insert(5, "XiaMen");
     	
-	// ±éÀú³ÉÔ±-Ê¹ÓÃµü´úÆ÷(ÕıĞò)
+	// éå†æˆå‘˜-ä½¿ç”¨è¿­ä»£å™¨(æ­£åº)
 	//printByIterator(mapObj);
 	cout << endl << "-------------- QMap ---------------" << endl;
 	cout << "print members using iterator......" << endl;
@@ -86,36 +86,36 @@ void example01(){
 		cout << "-- key = " << iteMap.key() << ", value = " << iteMap.value().toLocal8Bit().data() << endl;
 	}
 
-	// ²éÕÒ
+	// æŸ¥æ‰¾
 	//QMap<uint, QString>::iterator iteMap;
-	// µü´úÆ÷ = map¶ÔÏó.find(key);
+	// è¿­ä»£å™¨ = mapå¯¹è±¡.find(key);
 	iteMap = mapObj.find(5);
 	if (iteMap != mapObj.end())	{
 		cout << endl << "-------------- QMap ---------------" << endl;
-		// µü´úÆ÷.key()±íÊ¾¼ü; µü´úÆ÷.value()±íÊ¾¶ÔÓ¦µÄÖµ
+		// è¿­ä»£å™¨.key()è¡¨ç¤ºé”®; è¿­ä»£å™¨.value()è¡¨ç¤ºå¯¹åº”çš„å€¼
 		cout << "find member where key = 5, and value = " << iteMap.value().toLocal8Bit().data() << endl;
 	} else {
 		cout << "cannot find member from map where key = 5." << endl;
     }
 
-	// É¾³ı
+	// åˆ é™¤
 	cout << endl << "-------------- QMap ---------------" << endl;
 	if (iteMap != mapObj.end())	{
 		cout << "erase it from map." << endl;
 		mapObj.erase(iteMap);
 	} 
 
-	// ±éÀú³ÉÔ±-Ê¹ÓÃµü´úÆ÷(ÕıĞò)
+	// éå†æˆå‘˜-ä½¿ç”¨è¿­ä»£å™¨(æ­£åº)
 	printByIterator(mapObj);    
 
 
 }
 /**
-* @brief  Ê¹ÓÃ×Ô¶¨ÒåÀà¶ÔÏó
-* @return ÎŞ
+* @brief  ä½¿ç”¨è‡ªå®šä¹‰ç±»å¯¹è±¡
+* @return æ— 
 */
 void example02(){
-	// Ìí¼Ó³ÉÔ±
+	// æ·»åŠ æˆå‘˜
 	QMap<CMyClass, uint> mapObj;
 	CMyClass myclass1(2011, "lisa");
 	CMyClass myclass2(2012, "mike");
@@ -123,7 +123,7 @@ void example02(){
 	CMyClass myclass4(2013, "john");
 	CMyClass myclass5(2013, "ping");
 	CMyClass myclass6(2025, "ping");
-	// Èç¹ûÏëÈÃÏÂÃæµÄÓï¾ä±àÒëÍ¨¹ı²¢ÇÒ°´ÕÕÔ¤ÆÚÖ´ĞĞ£¬ĞèÒªÎªCMyClassÀàÌá¹©¿½±´¹¹Ôìº¯Êı£¬²¢ÖØÔØoperator<²Ù×÷·û¡£
+	// å¦‚æœæƒ³è®©ä¸‹é¢çš„è¯­å¥ç¼–è¯‘é€šè¿‡å¹¶ä¸”æŒ‰ç…§é¢„æœŸæ‰§è¡Œï¼Œéœ€è¦ä¸ºCMyClassç±»æä¾›æ‹·è´æ„é€ å‡½æ•°ï¼Œå¹¶é‡è½½operator<æ“ä½œç¬¦ã€‚
     mapObj[myclass1] = 1;
     mapObj[myclass2] = 2;
     mapObj[myclass3] = 3;
@@ -131,21 +131,21 @@ void example02(){
     mapObj[myclass5] = 5;
     mapObj[myclass6] = 6;
     
-	// ±éÀú³ÉÔ±
+	// éå†æˆå‘˜
 	cout << endl << "-------------- QMap ---------------" << endl;
     QMap<CMyClass, uint>::iterator iteMap;
     for (iteMap = mapObj.begin(); iteMap != mapObj.end(); iteMap++) {
         cout << "key = ("<< iteMap.key().getId() << ", " << iteMap.key().getName().toLocal8Bit().data() << "), value = "<< iteMap.value() << endl;
     }
 
-	// ²éÕÒ&É¾³ı
+	// æŸ¥æ‰¾&åˆ é™¤
 	cout << endl << "-------------- QMap ---------------" << endl;
 	cout << "begin find member in QMap......" << endl;
 	CMyClass myclassx(2013, "john");
 	iteMap = mapObj.find(myclassx);
 	if (iteMap != mapObj.end()) {
 		cout << "find myclassx in map. key = (" << iteMap.key().getId() << ", " << iteMap.key().getName().toLocal8Bit().data() <<"), value = "  << iteMap.value() << endl;
-        mapObj.erase(iteMap); // É¾³ı
+        mapObj.erase(iteMap); // åˆ é™¤
 	}
 	else {
 		cout << "cannot find myclassx in map" << endl;
@@ -159,12 +159,12 @@ void example02(){
 }
 
 /**
-* @brief  QMapµÄvalueÊÇÁĞ±íÀàĞÍ¡£
-* @return ÎŞ
+* @brief  QMapçš„valueæ˜¯åˆ—è¡¨ç±»å‹ã€‚
+* @return æ— 
 */
 void example03() {
 
-    // Ìí¼Ó³ÉÔ±
+    // æ·»åŠ æˆå‘˜
     QMap<uint, QStringList> mapObj;
    
     QMap<uint, QStringList>::iterator iteMap;
@@ -174,12 +174,12 @@ void example03() {
     {
         cout << "not found!" << endl;
 		if (0) {
-			mapObj[1].push_back("hello");// ÓĞµÄ±àÒëÆ÷Ö´ĞĞ¸ÃĞĞ´úÂëÊ±±¨´í
+			mapObj[1].push_back("hello");// æœ‰çš„ç¼–è¯‘å™¨æ‰§è¡Œè¯¥è¡Œä»£ç æ—¶æŠ¥é”™
 		}
 		else
 		{
-			// ÓĞµÄ±àÒëÆ÷²»ÔÊĞíÖ±½Ó¶ÔÎ´³õÊ¼»¯µÄvalue²Ù×÷£¬
-			// ¶øÓ¦¸ÃÓÃÏÂÃæµÄ3ĞĞ´úÂë£ºÏÈ¶¨ÒåÒ»¸öQStringList¶ÔÏólst£¬°ÑÊı¾İ²åÈëlst,È»ºó°Ñlst×÷ÎªvalueÌîĞ´µ½QMap
+			// æœ‰çš„ç¼–è¯‘å™¨ä¸å…è®¸ç›´æ¥å¯¹æœªåˆå§‹åŒ–çš„valueæ“ä½œï¼Œ
+			// è€Œåº”è¯¥ç”¨ä¸‹é¢çš„3è¡Œä»£ç ï¼šå…ˆå®šä¹‰ä¸€ä¸ªQStringListå¯¹è±¡lstï¼ŒæŠŠæ•°æ®æ’å…¥lst,ç„¶åæŠŠlstä½œä¸ºvalueå¡«å†™åˆ°QMap
 			QStringList lst;
 			lst.push_back("hello");
 			mapObj[1] = lst;

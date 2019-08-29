@@ -1,12 +1,12 @@
 /*!
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file editor.cpp
-\brief CEditorÊµÏÖÎÄ¼ş
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\brief CEditorå®ç°æ–‡ä»¶
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2019/1
 */
 #include "editor.h"
@@ -22,11 +22,11 @@ void CEditor::paintEvent(QPaintEvent* event){
 
 void CEditor::mousePressEvent(QMouseEvent* event) {
     Q_UNUSED(event);
-    if (text() == QString::fromLocal8Bit("·ñ")) {
-        setText(QString::fromLocal8Bit("ÊÇ"));
+    if (text() == QString::fromLocal8Bit("å¦")) {
+        setText(QString::fromLocal8Bit("æ˜¯"));
     }
     else {
-        setText(QString::fromLocal8Bit("·ñ"));
+        setText(QString::fromLocal8Bit("å¦"));
     }
     emit sig_editFinished();
 }

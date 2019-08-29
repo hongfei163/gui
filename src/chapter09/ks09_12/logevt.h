@@ -1,13 +1,13 @@
 /*!
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file: logevt.h
-\brief ÈÕÖ¾ÊÂÏîÀà¶¨ÒåÎÄ¼ş
+\brief æ—¥å¿—äº‹é¡¹ç±»å®šä¹‰æ–‡ä»¶
 
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2019/01
 */
 
@@ -18,20 +18,20 @@
 #include <QTime>
 
 
-/// ÈÕÖ¾¼¶±ğÃ¶¾Ù
+/// æ—¥å¿—çº§åˆ«æšä¸¾
 enum ELogLevel
 {
-	ELogLevel_Error = 1,	/// ´íÎó
-	ELogLevel_Warning,		/// ¾¯¸æ
-	ELogLevel_Normal,		/// Ò»°ã
+	ELogLevel_Error = 1,	/// é”™è¯¯
+	ELogLevel_Warning,		/// è­¦å‘Š
+	ELogLevel_Normal,		/// ä¸€èˆ¬
 };
 
-/// ÈÕÖ¾½á¹¹
+/// æ—¥å¿—ç»“æ„
 struct SLog
 {
-	ELogLevel level;		/// ÈÕÖ¾¼¶±ğ
-	QString		msg;		/// ÈÕÖ¾ÄÚÈİ
-	QTime		time;		/// ½ÓÊÕÈÕÖ¾Ê±¼ä
+	ELogLevel level;		/// æ—¥å¿—çº§åˆ«
+	QString		msg;		/// æ—¥å¿—å†…å®¹
+	QTime		time;		/// æ¥æ”¶æ—¥å¿—æ—¶é—´
 	static QString translateLevel(ELogLevel level);
 };
 
@@ -44,23 +44,23 @@ class CLogEvt : public QEvent
 {
 public:
 	/**
-	* @brief ¹¹Ôìº¯Êı
-	* @param[in] nType ÊÂ¼şÀàĞÍ
+	* @brief æ„é€ å‡½æ•°
+	* @param[in] nType äº‹ä»¶ç±»å‹
 	*/
 	CLogEvt(ELogEvt nType = ELogEvt_LogOut);
 	
-	/// Îö¹¹º¯Êı
+	/// ææ„å‡½æ•°
 	virtual ~CLogEvt();
 
 	/**
-	* @brief »ñÈ¡ÈÕÖ¾
-	* @return ÈÕÖ¾
+	* @brief è·å–æ—¥å¿—
+	* @return æ—¥å¿—
 	*/
 	SLog getLog() const;
 
 	/**
-	* @brief ÉèÖÃÈÕÖ¾
-	* @param[in] log ÈÕÖ¾
+	* @brief è®¾ç½®æ—¥å¿—
+	* @param[in] log æ—¥å¿—
 	*/
 	void setLog(const SLog& log);
 private:

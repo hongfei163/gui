@@ -1,13 +1,13 @@
 /*! 
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file: main.cpp
-\brief      QVariantµÄÊ¹ÓÃ
+\brief      QVariantçš„ä½¿ç”¨
             
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/9
 */
 
@@ -62,26 +62,26 @@ int main(int argc, char * argv[])
 }
 
 /**
-* @brief  ³£¼ûQtÀàÓëQVariant»¥Ïà×ª»»
-* @return ÎŞ
+* @brief  å¸¸è§Qtç±»ä¸QVariantäº’ç›¸è½¬æ¢
+* @return æ— 
 */
 void example01(){
-	// ÕûÊı
+	// æ•´æ•°
     QVariant var1(1);
     cout << "this is an integer:" << var1.toInt() << endl;
 
-    // ÎŞ·ûºÅÕûÊı
+    // æ— ç¬¦å·æ•´æ•°
     uint uVal = 599;
     QVariant var2(uVal);
     cout << "this is an unsigned integer:" << var2.toUInt() << endl;
 
-    // Ë«¾«¶È¸¡µãÊı
+    // åŒç²¾åº¦æµ®ç‚¹æ•°
     qreal dVal = 100.23456;
     QVariant var3(dVal);
     cout << "this is a double:" << var3.toDouble() << endl;
     cout << "this is a double:" << var3.toString().toLocal8Bit().data() << endl;
 
-    // ×Ö·û´®
+    // å­—ç¬¦ä¸²
     QString str("I'm a string!");
     QVariant var4(str);
     cout << "this is a string:" << var4.toString().toLocal8Bit().data() << endl;
@@ -93,23 +93,23 @@ void example01(){
     cout << "this is a QPointF:" << var5.toPointF().x() << ", " << var5.toPointF().y() << endl;
 }
 /**
-* @brief  QVariant::value<>()µÄÊ¹ÓÃ
-* @return ÎŞ
+* @brief  QVariant::value<>()çš„ä½¿ç”¨
+* @return æ— 
 */
 void example02(){
 
-    // QVariant Óë QColor »¥Ïà×ª»»
+    // QVariant ä¸ QColor äº’ç›¸è½¬æ¢
     QColor clr1(Qt::darkMagenta);
     QVariant var1(clr1);
     cout << "clr1:" << clr1.redF() << ", " << clr1.greenF() << ", " << clr1.blueF() << endl;
 
-    // ½«var1»¹Ô­ÎªQColor
+    // å°†var1è¿˜åŸä¸ºQColor
     QColor clr2 = var1.value<QColor>();
     cout << "clr2:" << clr2.redF() << ", " << clr2.greenF() << ", " << clr2.blueF() << endl;
 
 
-    // QVariant Óë QFont »¥Ïà×ª»»
-    QFont ft1(QString::fromLocal8Bit("ËÎÌå"));
+    // QVariant ä¸ QFont äº’ç›¸è½¬æ¢
+    QFont ft1(QString::fromLocal8Bit("å®‹ä½“"));
     ft1.setPointSizeF(12.6);
     QVariant var2(ft1);
     QFont ft2 = var2.value<QFont>();
@@ -121,22 +121,22 @@ void example02(){
 }
 
 /**
-* @brief  QVariantListµÄÊ¹ÓÃ
-* @return ÎŞ
+* @brief  QVariantListçš„ä½¿ç”¨
+* @return æ— 
 */
 void example03() {
-    // ÕûÊı
+    // æ•´æ•°
     QVariant var1(1);
 
-    // ÎŞ·ûºÅÕûÊı
+    // æ— ç¬¦å·æ•´æ•°
     uint uVal = 599;
     QVariant var2(uVal);
 
-    // Ë«¾«¶È¸¡µãÊı
+    // åŒç²¾åº¦æµ®ç‚¹æ•°
     qreal dVal = 100.23456;
     QVariant var3(dVal);
 
-    // ×Ö·û´®
+    // å­—ç¬¦ä¸²
     QString str("I'm a string!");
     QVariant var4(str);
 
@@ -177,7 +177,7 @@ void example03() {
 
 /**
 * @brief  QVariant::nameToType(), QVariant::typeToName()
-* @return ÎŞ
+* @return æ— 
 */
 void example04() {
 

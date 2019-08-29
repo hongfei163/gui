@@ -1,12 +1,12 @@
 /*! \file: iniconfig.h
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
-\brief ini¸ñÊ½ÅäÖÃÎÄ¼ş¶¨ÒåÊµÏÖÎÄ¼ş
+\brief iniæ ¼å¼é…ç½®æ–‡ä»¶å®šä¹‰å®ç°æ–‡ä»¶
 
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/9
 */
 
@@ -33,13 +33,13 @@ bool CIniConfig::setFileName(const QString& strFileName)
 
     m_yFile.setFileName(strFileName);
 
-    if (!m_yFile.open(QFile::ReadOnly))		// ÎÄ¼ş²»´æÔÚÔò·µ»Øfalse
+    if (!m_yFile.open(QFile::ReadOnly))		// æ–‡ä»¶ä¸å­˜åœ¨åˆ™è¿”å›false
     {
         m_yFile.close();
         return false;
     }
 
-    // ÎÄ¼ş³¤¶È=0Ôò·µ»Øfalse
+    // æ–‡ä»¶é•¿åº¦=0åˆ™è¿”å›false
     int t_nFileLen = m_yFile.size();
 
     if (t_nFileLen <= 0)
@@ -50,7 +50,7 @@ bool CIniConfig::setFileName(const QString& strFileName)
     m_bIsOpen = true;
     m_arString.clear();
 
-    // ½«ÎÄ¼şÄÚÈİ¶ÁÈëĞĞÁ´±í
+    // å°†æ–‡ä»¶å†…å®¹è¯»å…¥è¡Œé“¾è¡¨
     while (m_yFile.readLine(pTmp, c_bufLen) > 0)
     {
         tStr = pTmp;
@@ -90,20 +90,20 @@ bool CIniConfig::deleteKey(const QString& strKey)
 
     for (int i = 0; i < m_arString.size(); ++i)
     {
-        if (m_arString[i].left(1) == ";")			// ×¢ÊÍ
+        if (m_arString[i].left(1) == ";")			// æ³¨é‡Š
             continue;
 
-        if (!bFindKey)		// Î´ÕÒµ½Ö÷¼ü
+        if (!bFindKey)		// æœªæ‰¾åˆ°ä¸»é”®
         {
             if (m_arString[i].indexOf(m_szTmp, Qt::CaseInsensitive) == 0)
             {
                 bFindKey = true;
-                nEnd = nBegin = i;//Èç¹ûÖ÷¼üÃ»ÓĞ×Ó¼ü£¬ÔòÉ¾³ıÖ÷¼ü²»³É¹¦¡£
+                nEnd = nBegin = i;//å¦‚æœä¸»é”®æ²¡æœ‰å­é”®ï¼Œåˆ™åˆ é™¤ä¸»é”®ä¸æˆåŠŸã€‚
             }
         }
-        else			// ÒÑ¾­ÕÒµ½Ö÷¼ü
+        else			// å·²ç»æ‰¾åˆ°ä¸»é”®
         {
-            if (m_arString[i].indexOf("[") == 0)				// ×Ó¼ü²»´æÔÚ
+            if (m_arString[i].indexOf("[") == 0)				// å­é”®ä¸å­˜åœ¨
             {
                 nEnd = i;
                 break;
@@ -146,14 +146,14 @@ bool CIniConfig::getBool(const QString& strKey, const QString& strSubKey, bool i
     if (o_bRet != NULL)
         *o_bRet = true;
 
-    // ³éÈ¡½á¹û×Ö·û´®
+    // æŠ½å–ç»“æœå­—ç¬¦ä¸²
     if (!getValueString(searchLine(strKey, strSubKey), t_strResult))
     {
         if (o_bRet != NULL)
             *o_bRet = false;
     }
 
-    // ½«½á¹û×Ö·û´®×ª»»ÎªÕûĞÎÊı
+    // å°†ç»“æœå­—ç¬¦ä¸²è½¬æ¢ä¸ºæ•´å½¢æ•°
     if (t_strResult == "Y" || t_strResult == "y")
         return true;
     else if (t_strResult == "N" || t_strResult == "n")
@@ -180,7 +180,7 @@ bool CIniConfig::setBool(const QString& strKey, const QString& strSubKey, bool i
     else
         sprintf(t_szBool, "%s", "N");
 
-    if (nLine > 0)							// ´æÔÚÖ÷¼üºÍ×Ó¼ü
+    if (nLine > 0)							// å­˜åœ¨ä¸»é”®å’Œå­é”®
     {
         if (!setValueString(nLine, t_szBool))
             return false;
@@ -202,7 +202,7 @@ int CIniConfig::getInt(const QString& strKey, const QString& strSubKey, int i_nD
     if (o_bRet != NULL)
         *o_bRet = true;
 
-    // ³éÈ¡½á¹û×Ö·û´®
+    // æŠ½å–ç»“æœå­—ç¬¦ä¸²
     if (!getValueString(searchLine(strKey, strSubKey), t_strResult))
     {
         if (o_bRet != NULL)
@@ -210,7 +210,7 @@ int CIniConfig::getInt(const QString& strKey, const QString& strSubKey, int i_nD
         return i_nDefault;
     }
 
-    // ½«½á¹û×Ö·û´®×ª»»ÎªÕûĞÎÊı
+    // å°†ç»“æœå­—ç¬¦ä¸²è½¬æ¢ä¸ºæ•´å½¢æ•°
     return atoi(t_strResult.toLocal8Bit().data());
 }
 
@@ -224,7 +224,7 @@ bool CIniConfig::setInt(const QString& strKey, const QString& strSubKey, int i_n
 
     int nLine = searchLine(strKey, strSubKey);
 
-    if (nLine > 0)							// ´æÔÚÖ÷¼üºÍ×Ó¼ü
+    if (nLine > 0)							// å­˜åœ¨ä¸»é”®å’Œå­é”®
     {
         if (!setValueString(nLine, t_szInt))
             return false;
@@ -246,7 +246,7 @@ double CIniConfig::getReal(const QString& strKey, const QString& strSubKey, doub
     if (o_bRet != NULL)
         *o_bRet = true;
 
-    // ³éÈ¡½á¹û×Ö·û´®
+    // æŠ½å–ç»“æœå­—ç¬¦ä¸²
     if (!getValueString(searchLine(strKey, strSubKey), t_strResult))
     {
         if (o_bRet != NULL)
@@ -254,7 +254,7 @@ double CIniConfig::getReal(const QString& strKey, const QString& strSubKey, doub
         return i_fDefault;
     }
 
-    // ½«½á¹û×Ö·û´®×ª»»Îª¸¡µãÊı
+    // å°†ç»“æœå­—ç¬¦ä¸²è½¬æ¢ä¸ºæµ®ç‚¹æ•°
     return atof(t_strResult.toLocal8Bit().data());
 }
 
@@ -268,7 +268,7 @@ bool CIniConfig::setReal(const QString& strKey, const QString& strSubKey, double
 
     int nLine = searchLine(strKey, strSubKey);
 
-    if (nLine > 0)							// ´æÔÚÖ÷¼üºÍ×Ó¼ü
+    if (nLine > 0)							// å­˜åœ¨ä¸»é”®å’Œå­é”®
     {
         if (!setValueString(nLine, t_szReal))
             return false;
@@ -290,7 +290,7 @@ QString CIniConfig::getString(const QString& strKey, const QString& strSubKey, c
     if (o_bRet != NULL)
         *o_bRet = true;
 
-    // ³éÈ¡½á¹û×Ö·û´®
+    // æŠ½å–ç»“æœå­—ç¬¦ä¸²
     if (!getValueString(searchLine(strKey, strSubKey), tStr))
     {
         if (o_bRet != NULL)
@@ -307,7 +307,7 @@ QString CIniConfig::getStringExt(const QString& strKey, const QString& strSubKey
         *o_bRet = true;
 
     int nIndex = searchLine(strKey, strSubKey);
-    // ³éÈ¡½á¹û×Ö·û´®
+    // æŠ½å–ç»“æœå­—ç¬¦ä¸²
     if (!getValueString(nIndex, tStr))
     {
         if (o_bRet != NULL)
@@ -315,7 +315,7 @@ QString CIniConfig::getStringExt(const QString& strKey, const QString& strSubKey
         return strDefault;
     }
 
-    // ÂúÖµÔÙ¶ÁÒ»ĞĞ
+    // æ»¡å€¼å†è¯»ä¸€è¡Œ
     QString tNextLine = m_arString[nIndex];
     while (tNextLine.length() == (c_bufLen - 1))
     {
@@ -336,7 +336,7 @@ bool CIniConfig::setString(const QString& strKey, const QString& strSubKey, cons
 
     int nLine = searchLine(strKey, strSubKey);
 
-    if (nLine > 0)							// ´æÔÚÖ÷¼üºÍ×Ó¼ü
+    if (nLine > 0)							// å­˜åœ¨ä¸»é”®å’Œå­é”®
     {
         if (!setValueString(nLine, strValue))
             return false;
@@ -362,17 +362,17 @@ QString CIniConfig::getKeyList(const QString& strKey)
     QString tStr;
     for (int i = 0; i < m_arString.size(); ++i)
     {
-        if (m_arString[i][0] == ';')			// ×¢ÊÍ
+        if (m_arString[i][0] == ';')			// æ³¨é‡Š
             continue;
 
-        if (!bFindKey)		// Î´ÕÒµ½Ö÷¼ü
+        if (!bFindKey)		// æœªæ‰¾åˆ°ä¸»é”®
         {
             if (m_arString[i].indexOf(m_szTmp, Qt::CaseInsensitive) == 0)
                 bFindKey = true;
         }
-        else			// ÒÑ¾­ÕÒµ½Ö÷¼ü
+        else			// å·²ç»æ‰¾åˆ°ä¸»é”®
         {
-            if (m_arString[i].indexOf("[") == 0)				// ×Ó¼üµÄËÑË÷µ½Í·
+            if (m_arString[i].indexOf("[") == 0)				// å­é”®çš„æœç´¢åˆ°å¤´
                 return tStr;
 
             if (bFirstTime)
@@ -400,7 +400,7 @@ bool CIniConfig::setKeyList(const QString& strKey, const QString& i_pStr)
 
     for (int i = 0; i < m_arString.size(); ++i)
     {
-        if (m_arString[i][0] == ';')			// ×¢ÊÍ
+        if (m_arString[i][0] == ';')			// æ³¨é‡Š
             continue;
 
         if (m_arString[i].indexOf(m_szTmp, Qt::CaseInsensitive) == 0)
@@ -410,7 +410,7 @@ bool CIniConfig::setKeyList(const QString& strKey, const QString& i_pStr)
         }
     }
 
-    if (tBeginPos < 0)	// Î´ÕÒµ½Ö÷¼ü
+    if (tBeginPos < 0)	// æœªæ‰¾åˆ°ä¸»é”®
     {
         m_arString.push_front(m_szTmp);
         tBeginPos = 1;
@@ -424,7 +424,7 @@ bool CIniConfig::setKeyList(const QString& strKey, const QString& i_pStr)
         }
     }
 
-    // ²åÈë´¦Àí,
+    // æ’å…¥å¤„ç†,
     QStringList strList = tStr.split("\n");
     QStringList::iterator iteStr = strList.begin();
     while (iteStr != strList.end()) {
@@ -437,7 +437,7 @@ bool CIniConfig::setKeyList(const QString& strKey, const QString& i_pStr)
 }
 
 //=======================================================
-// Ë½ÓĞº¯Êı
+// ç§æœ‰å‡½æ•°
 //=======================================================
 int CIniConfig::searchLine(const QString& strKey, const QString& strSubKey)
 {
@@ -451,30 +451,30 @@ int CIniConfig::searchLine(const QString& strKey, const QString& strSubKey)
 
     for (int i = 0; i < m_arString.size(); ++i)
     {
-        if (m_arString[i][0] == ';')			// ×¢ÊÍ
+        if (m_arString[i][0] == ';')			// æ³¨é‡Š
             continue;
 
-        if (!bFindKey)		// Î´ÕÒµ½Ö÷¼ü
+        if (!bFindKey)		// æœªæ‰¾åˆ°ä¸»é”®
         {
             if (m_arString[i].indexOf(m_szTmp, Qt::CaseInsensitive) == 0)
             {
                 bFindKey = true;
-                nRet = -i - 1;										// ÓĞÖ÷¼ü
+                nRet = -i - 1;										// æœ‰ä¸»é”®
             }
         }
-        else			// ÒÑ¾­ÕÒµ½Ö÷¼ü
+        else			// å·²ç»æ‰¾åˆ°ä¸»é”®
         {
             nTmpPos = m_arString[i].indexOf("=");
             tStr = m_arString[i].left(nTmpPos);
             tStr = tStr.trimmed();
 
-            if (tStr == strSubKey)		// ÕÒµ½×Ó¼ü
+            if (tStr == strSubKey)		// æ‰¾åˆ°å­é”®
             {
                 nRet = i;
                 break;
             }
 
-            if (m_arString[i][0] == '[')							// ×Ó¼ü²»´æÔÚ
+            if (m_arString[i][0] == '[')							// å­é”®ä¸å­˜åœ¨
                 break;
         }
     }
@@ -486,7 +486,7 @@ bool CIniConfig::writeToFile()
     if (!m_yFile.open(QFile::WriteOnly))
         return false;
 
-    // ½«»º´æÇøĞ´ÈëÎÄ¼ş
+    // å°†ç¼“å­˜åŒºå†™å…¥æ–‡ä»¶
     m_yFile.seek(0);
     QString str;
     for (int i = 0; i < m_arString.size(); ++i) {
@@ -507,7 +507,7 @@ bool CIniConfig::getValueString(int i_nIndex, QString& o_pValue)
 
     int nBegin = m_arString[i_nIndex].indexOf("=") + 1;
 
-    if (nBegin < 0)				// Ã»ÓĞ"="ºÅÔò´íÎó
+    if (nBegin < 0)				// æ²¡æœ‰"="å·åˆ™é”™è¯¯
         return false;
 
     o_pValue = m_arString[i_nIndex].mid(nBegin);
@@ -522,7 +522,7 @@ bool CIniConfig::setValueString(int i_nIndex, const QString& strValue)
 
     int nBegin = m_arString[i_nIndex].indexOf("=") + 1;
 
-    if (nBegin < 0)				// Ã»ÓĞ"="ºÅÔò´íÎó
+    if (nBegin < 0)				// æ²¡æœ‰"="å·åˆ™é”™è¯¯
         return false;
 
     QString tStr = m_arString[i_nIndex].mid(nBegin);
@@ -532,24 +532,24 @@ bool CIniConfig::setValueString(int i_nIndex, const QString& strValue)
 
 void CIniConfig::addValueString(const QString& strKey, const QString& strSubKey, const QString& strValue, int i_nRet)
 {
-    if (i_nRet == 0)			// ÎŞÖ÷¼ü
+    if (i_nRet == 0)			// æ— ä¸»é”®
     {
-        // Ôö¼ÓÖ÷¼ü
+        // å¢åŠ ä¸»é”®
         m_szTmp = "[";
         m_szTmp += strKey;
         m_szTmp += "]";
         m_arString.push_back("");
         m_arString.push_back(m_szTmp);
 
-        // Ôö¼Ó×Ó¼ü
+        // å¢åŠ å­é”®
         m_szTmp = strSubKey;
         m_szTmp += "=";
         m_szTmp += strValue;
         m_arString.push_back(m_szTmp);
     }
-    else						// ÓĞÖ÷¼üÎŞ×Ó¼ü
+    else						// æœ‰ä¸»é”®æ— å­é”®
     {
-        // Ôö¼Ó×Ó¼ü
+        // å¢åŠ å­é”®
         m_szTmp = strSubKey;
         m_szTmp += "=";
         m_szTmp += strValue;

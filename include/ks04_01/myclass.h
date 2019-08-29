@@ -1,12 +1,12 @@
 /*! 
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file: myclass.h
-\brief exe+dll±à³ÌÊ¾Àı£¬Òı³öÀàCPrintµÄ¶¨ÒåÍ·ÎÄ¼ş
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\brief exe+dllç¼–ç¨‹ç¤ºä¾‹ï¼Œå¼•å‡ºç±»CPrintçš„å®šä¹‰å¤´æ–‡ä»¶
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/9 
 * please import ks04_01_dll.dll
 */
@@ -15,16 +15,16 @@
 #define _MYCLASS_DLL_H
 
 #include "ks04_01_export.h"
-/// ´òÓ¡ÀàCPrint¶¨Òå
+/// æ‰“å°ç±»CPrintå®šä¹‰
 class KS04_01_Export CPrint {
 public:
 	CPrint(){}
 	~CPrint(){}
 public:
 	/**
-	* @brief ½«Ö¸¶¨ĞÅÏ¢´òÓ¡µ½ÆÁÄ»
+	* @brief å°†æŒ‡å®šä¿¡æ¯æ‰“å°åˆ°å±å¹•
 
-	* @param[in] szInfo  ´ı´òÓ¡µÄĞÅÏ¢
+	* @param[in] szInfo  å¾…æ‰“å°çš„ä¿¡æ¯
 	* @return void
 	*/
 	void printOnScreen(const char*);

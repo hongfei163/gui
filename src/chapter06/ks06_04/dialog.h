@@ -1,13 +1,13 @@
 /*! 
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file: dialog.h
-\brief ÑİÊ¾ÓÃÍ·ÎÄ¼ş
+\brief æ¼”ç¤ºç”¨å¤´æ–‡ä»¶
   
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/8 
 */
 
@@ -26,48 +26,48 @@ public:
 	~CDialog(){;}
 private:
     /*
-     * @brief ³õÊ¼»¯
+     * @brief åˆå§‹åŒ–
      * @return void
     */
     void initialize();
 
 private slots:
     /*
-     * @brief ½«Ñ¡ÖĞµÄÏîÄ¿ÒÆ¶¯µ½ÓÒ²àÁĞ±í
+     * @brief å°†é€‰ä¸­çš„é¡¹ç›®ç§»åŠ¨åˆ°å³ä¾§åˆ—è¡¨
      * @return void
     */
     void slot_move2Right();
     /*
-     * @brief ½«Ñ¡ÖĞµÄÏîÄ¿ÒÆ¶¯µ½×ó²àÁĞ±í
+     * @brief å°†é€‰ä¸­çš„é¡¹ç›®ç§»åŠ¨åˆ°å·¦ä¾§åˆ—è¡¨
      * @return void
     */
     void slot_move2Left();
     /*
-     * @brief ½«ÓÒ²àÁĞ±íÉıĞòÅÅÁĞ
+     * @brief å°†å³ä¾§åˆ—è¡¨å‡åºæ’åˆ—
      * @return void
     */
     void slot_ascending();
     /*
-     * @brief ½«ÓÒ²àÁĞ±í½µĞòÅÅÁĞ
+     * @brief å°†å³ä¾§åˆ—è¡¨é™åºæ’åˆ—
      * @return void
     */
     void slot_descending();
     /*
-     * @brief ×ó²àµÄÏî±»µ¥»÷
-     * @param[in] pItem ±»µ¥»÷µÄÏî
+     * @brief å·¦ä¾§çš„é¡¹è¢«å•å‡»
+     * @param[in] pItem è¢«å•å‡»çš„é¡¹
      * @return void
     */
     void slot_leftItemClicked(QListWidgetItem* pItem);
     /*
-     * @brief ×ó²àµÄÏî±»Ë«»÷
-     * @param[in] pItem ±»Ë«»÷µÄÏî
+     * @brief å·¦ä¾§çš„é¡¹è¢«åŒå‡»
+     * @param[in] pItem è¢«åŒå‡»çš„é¡¹
      * @return void
     */
     void slot_leftItemDoubleClicked(QListWidgetItem *pItem);
     /*
-     * @brief ×ó²àÑ¡ÖĞµÄÏî·¢Éú±ä»¯
-     * @param[in] current ĞÂÑ¡ÖĞµÄÏî
-     * @param[in] previous Ö®Ç°Ñ¡ÖĞµÄÏî
+     * @brief å·¦ä¾§é€‰ä¸­çš„é¡¹å‘ç”Ÿå˜åŒ–
+     * @param[in] current æ–°é€‰ä¸­çš„é¡¹
+     * @param[in] previous ä¹‹å‰é€‰ä¸­çš„é¡¹
      * @return void
     */
     void slot_leftCurrentItemChanged(QListWidgetItem *current,

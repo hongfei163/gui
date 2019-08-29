@@ -1,13 +1,13 @@
 /*! 
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file: main.cpp
-\brief QInputDialogµÄÊ¹ÓÃ
+\brief QInputDialogçš„ä½¿ç”¨
             
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/9
 */
 
@@ -62,45 +62,45 @@ int main(int argc, char * argv[])
 }
 
 /**
-* @brief  »ñÈ¡ÎÄ±¾
-* @return ÎŞ
+* @brief  è·å–æ–‡æœ¬
+* @return æ— 
 */
 void example01(){
     QString str = QInputDialog::getText(NULL,
-                                        QString::fromLocal8Bit("QInputDialog Ê¾Àı"),
-                                        QString::fromLocal8Bit("ÇëÊäÈëÎÄ±¾"));
+                                        QString::fromLocal8Bit("QInputDialog ç¤ºä¾‹"),
+                                        QString::fromLocal8Bit("è¯·è¾“å…¥æ–‡æœ¬"));
     QMessageBox::information(NULL,
-                             QString::fromLocal8Bit("ÄúÊäÈëµÄÎÄ±¾ÊÇ"),
+                             QString::fromLocal8Bit("æ‚¨è¾“å…¥çš„æ–‡æœ¬æ˜¯"),
                              str);
 
     str = QInputDialog::getText(NULL,
-                                QString::fromLocal8Bit("QInputDialog Ê¾Àı"),
-                                QString::fromLocal8Bit("ÇëÊäÈëÃÜÂë"),
+                                QString::fromLocal8Bit("QInputDialog ç¤ºä¾‹"),
+                                QString::fromLocal8Bit("è¯·è¾“å…¥å¯†ç "),
                                 QLineEdit::Password);
     QMessageBox::information(NULL,
-                             QString::fromLocal8Bit("ÄúÊäÈëµÄÃÜÂëÊÇ"),
-                             QString::fromLocal8Bit("ÎÒ²»¸æËßÄã!"));
+                             QString::fromLocal8Bit("æ‚¨è¾“å…¥çš„å¯†ç æ˜¯"),
+                             QString::fromLocal8Bit("æˆ‘ä¸å‘Šè¯‰ä½ !"));
  
 }
 /**
-* @brief  »ñÈ¡¶àĞĞÎÄ±¾
-* @return ÎŞ
+* @brief  è·å–å¤šè¡Œæ–‡æœ¬
+* @return æ— 
 */
 void example02(){
     QString str = QInputDialog::getMultiLineText(NULL,
-                                                 QString::fromLocal8Bit("QInputDialog Ê¾Àı"),
-                                                 QString::fromLocal8Bit("ÇëÊäÈë¶àĞĞÎÄ±¾"));
+                                                 QString::fromLocal8Bit("QInputDialog ç¤ºä¾‹"),
+                                                 QString::fromLocal8Bit("è¯·è¾“å…¥å¤šè¡Œæ–‡æœ¬"));
 
     QMessageBox::information(NULL,
-                             QString::fromLocal8Bit("ÄúÊäÈëµÄÎÄ±¾ÊÇ:"),
+                             QString::fromLocal8Bit("æ‚¨è¾“å…¥çš„æ–‡æœ¬æ˜¯:"),
                             str);
-    // ½«¶àĞĞÎÄ±¾²ğ·Ö
+    // å°†å¤šè¡Œæ–‡æœ¬æ‹†åˆ†
     QStringList lst = str.split("\n");
     QStringList::iterator iteLst = lst.begin();
     while (iteLst != lst.end()) {
         str = *iteLst;
         QMessageBox::information(NULL,
-                                 QString::fromLocal8Bit("ÄúÊäÈëµÄÎÄ±¾ÊÇ:"),
+                                 QString::fromLocal8Bit("æ‚¨è¾“å…¥çš„æ–‡æœ¬æ˜¯:"),
                                 str);
 
         iteLst++;
@@ -108,62 +108,62 @@ void example02(){
 }
 
 /**
-* @brief  »ñÈ¡ÌõÄ¿
-* @return ÎŞ
+* @brief  è·å–æ¡ç›®
+* @return æ— 
 */
 void example03() {
     QStringList lst;
-    lst << QString::fromLocal8Bit("Æ»¹û")
-        << QString::fromLocal8Bit("Ïã½¶")
+    lst << QString::fromLocal8Bit("è‹¹æœ")
+        << QString::fromLocal8Bit("é¦™è•‰")
         << QString::fromLocal8Bit("orange")
         << QString::fromLocal8Bit("pear");
 
     QString str =
         QInputDialog::getItem(NULL,
-            QString::fromLocal8Bit("QInputDialog Ê¾Àı"),
-            QString::fromLocal8Bit("ÇëÑ¡ÔñÄãÏ²»¶µÄË®¹û"),
+            QString::fromLocal8Bit("QInputDialog ç¤ºä¾‹"),
+            QString::fromLocal8Bit("è¯·é€‰æ‹©ä½ å–œæ¬¢çš„æ°´æœ"),
             lst,
             2,
             true);
 
     QMessageBox::information(NULL,
-                             QString::fromLocal8Bit("ÄúµÄÑ¡ÔñÊÇ:"),
+                             QString::fromLocal8Bit("æ‚¨çš„é€‰æ‹©æ˜¯:"),
                              str);
 
 }
 
 /**
-* @brief  »ñÈ¡ÕûÊı
-* @return ÎŞ
+* @brief  è·å–æ•´æ•°
+* @return æ— 
 */
 void example04() {
     int i = QInputDialog::getInt(NULL,
-        QString::fromLocal8Bit("QInputDialog Ê¾Àı"),
-        QString::fromLocal8Bit("ÇëÊäÈëÕûÊı:"),
+        QString::fromLocal8Bit("QInputDialog ç¤ºä¾‹"),
+        QString::fromLocal8Bit("è¯·è¾“å…¥æ•´æ•°:"),
         20,
         -100,
         200,
         10);
 
     QMessageBox::information(NULL,
-        QString::fromLocal8Bit("QInputDialog Ê¾Àı"),
-        QString::fromLocal8Bit("ÄúÊäÈëµÄÕûÊıÊÇ:%1").arg(i));
+        QString::fromLocal8Bit("QInputDialog ç¤ºä¾‹"),
+        QString::fromLocal8Bit("æ‚¨è¾“å…¥çš„æ•´æ•°æ˜¯:%1").arg(i));
 }
 
 /**
-* @brief  »ñÈ¡¸¡µãÊı
-* @return ÎŞ
+* @brief  è·å–æµ®ç‚¹æ•°
+* @return æ— 
 */
 void example05() {
     double d = QInputDialog::getDouble(NULL,
-        QString::fromLocal8Bit("QInputDialog Ê¾Àı"),
-        QString::fromLocal8Bit("»ñÈ¡¸¡µãÊı"),
+        QString::fromLocal8Bit("QInputDialog ç¤ºä¾‹"),
+        QString::fromLocal8Bit("è·å–æµ®ç‚¹æ•°"),
         100.32,
         -12.4,
         999.5,
         3);
 
     QMessageBox::information(NULL,
-        QString::fromLocal8Bit("QInputDialog Ê¾Àı"),
+        QString::fromLocal8Bit("QInputDialog ç¤ºä¾‹"),
         QString("%1").arg(d));
 }

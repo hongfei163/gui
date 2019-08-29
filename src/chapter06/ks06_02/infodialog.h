@@ -16,8 +16,8 @@ public:
     ~CInfoDialog();
 private slots:
     /*
-     *  @brief µ¥»÷ÔÊĞí±à¼­Ê±¶ÔÓ¦µÄ²Ûº¯Êı
-     *  @param[in] b true:ÔÊĞí±à¼­, false:½ûÖ¹±à¼­
+     *  @brief å•å‡»å…è®¸ç¼–è¾‘æ—¶å¯¹åº”çš„æ§½å‡½æ•°
+     *  @param[in] b true:å…è®¸ç¼–è¾‘, false:ç¦æ­¢ç¼–è¾‘
      *  @return void
     */
     void slot_editEnabled(bool b);

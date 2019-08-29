@@ -1,13 +1,13 @@
 /*!
-* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
-* °æÈ¨ËùÓÐ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
-* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºŽè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸Žæé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜Ž:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åŽæžœè‡ªè´Ÿã€‚
 
 \file: logdockwidget.cpp
-\brief ÈÕÖ¾´°¿ÚÀàÊµÏÖÎÄ¼þ
+\brief æ—¥å¿—çª—å£ç±»å®žçŽ°æ–‡ä»¶
 
-\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2019/01
 */
 
@@ -19,13 +19,13 @@
 #include "logevt.h"
 
 
-const int maxLogNum = 1000;	// ÈÕÖ¾´°¿ÚÏÔÊ¾µÄ×î´óÈÕÖ¾ÊýÄ¿
+const int maxLogNum = 1000;	// æ—¥å¿—çª—å£æ˜¾ç¤ºçš„æœ€å¤§æ—¥å¿—æ•°ç›®
 
 /**
-* @brief ¹¹Ôìº¯Êý
-* @param[in] title	ÈÕÖ¾Ðü¸¡´°µÄ±êÌâ
-* @param[in] parent ÈÕÖ¾Ðü¸¡´°µÄ¸¸¶ÔÏó
-* @param[in] flags	ÈÕÖ¾Ðü¸¡´°µÄ±êÖ¾
+* @brief æž„é€ å‡½æ•°
+* @param[in] title	æ—¥å¿—æ‚¬æµ®çª—çš„æ ‡é¢˜
+* @param[in] parent æ—¥å¿—æ‚¬æµ®çª—çš„çˆ¶å¯¹è±¡
+* @param[in] flags	æ—¥å¿—æ‚¬æµ®çª—çš„æ ‡å¿—
 */
 CLogDockWidget::CLogDockWidget(const QString &title, QWidget *parent/* = 0*/, Qt::WindowFlags flags/* = 0*/) : QDockWidget(title, parent, flags), m_pTableWidget(NULL)
 {
@@ -34,30 +34,30 @@ CLogDockWidget::CLogDockWidget(const QString &title, QWidget *parent/* = 0*/, Qt
 	Q_UNUSED(flags);
 	m_pTableWidget = new QTableWidget(this);
 	m_pTableWidget->setColumnCount(3);
-	QFont font = m_pTableWidget->horizontalHeader()->font();	// ÉèÖÃ±íÍ·×ÖÌå¼Ó´Ö
+	QFont font = m_pTableWidget->horizontalHeader()->font();	// è®¾ç½®è¡¨å¤´å­—ä½“åŠ ç²—
 	font.setBold(true);
 	m_pTableWidget->horizontalHeader()->setFont(font);
-	m_pTableWidget->horizontalHeader()->setFixedHeight(25); //ÉèÖÃ±íÍ·µÄ¸ß¶È
+	m_pTableWidget->horizontalHeader()->setFixedHeight(25); //è®¾ç½®è¡¨å¤´çš„é«˜åº¦
 	m_pTableWidget->horizontalHeader()->setDefaultAlignment(Qt::AlignLeft);
-	m_pTableWidget->setHorizontalHeaderLabels(QStringList() << QString::fromLocal8Bit("¼¶±ð") << QString::fromLocal8Bit("Ê±¼ä") << QString::fromLocal8Bit("ÄÚÈÝ"));
+	m_pTableWidget->setHorizontalHeaderLabels(QStringList() << QString::fromLocal8Bit("çº§åˆ«") << QString::fromLocal8Bit("æ—¶é—´") << QString::fromLocal8Bit("å†…å®¹"));
 	m_pTableWidget->setColumnWidth(0, 100);
 	m_pTableWidget->setColumnWidth(1, 100);
 	m_pTableWidget->horizontalHeader()->setStretchLastSection(true);
-	m_pTableWidget->setShowGrid(false); //ÉèÖÃ²»ÏÔÊ¾¸ñ×ÓÏß
-	m_pTableWidget->verticalHeader()->setHidden(true);	// ÉèÖÃ´¹Ö±±íÍ·²»¿É¼û
-	m_pTableWidget->horizontalHeader()->setStyleSheet("QHeaderView::section{background:skyblue;}"); //ÉèÖÃ±íÍ·±³¾°É«
+	m_pTableWidget->setShowGrid(false); //è®¾ç½®ä¸æ˜¾ç¤ºæ ¼å­çº¿
+	m_pTableWidget->verticalHeader()->setHidden(true);	// è®¾ç½®åž‚ç›´è¡¨å¤´ä¸å¯è§
+	m_pTableWidget->horizontalHeader()->setStyleSheet("QHeaderView::section{background:skyblue;}"); //è®¾ç½®è¡¨å¤´èƒŒæ™¯è‰²
 	setWidget(m_pTableWidget);
 }
 
-//! Îö¹¹º¯Êý
+//! æžæž„å‡½æ•°
 CLogDockWidget::~CLogDockWidget()
 {
 
 }
 
 /**
-* @brief ÔÚÈÕÖ¾Ðü¸¡´°ÖÐÏÔÊ¾ÈÕÖ¾
-* @param[in] QEvent	ÈÕÖ¾ÊÂ¼þ
+* @brief åœ¨æ—¥å¿—æ‚¬æµ®çª—ä¸­æ˜¾ç¤ºæ—¥å¿—
+* @param[in] QEvent	æ—¥å¿—äº‹ä»¶
 */
 void CLogDockWidget::customEvent(QEvent* e)
 {
@@ -69,11 +69,11 @@ void CLogDockWidget::customEvent(QEvent* e)
 
 		int rowIndex = m_pTableWidget->rowCount();
 		while (rowIndex >= maxLogNum)
-		{//É¾³ý×îºóµÄ
+		{//åˆ é™¤æœ€åŽçš„
 			m_pTableWidget->removeRow(rowIndex - 1);
 			rowIndex--;
 		}		
-		//ÐÂÔöµÄÓÀÔ¶¼Óµ½×îÇ°Ãæ
+		//æ–°å¢žçš„æ°¸è¿œåŠ åˆ°æœ€å‰é¢
 		m_pTableWidget->insertRow(0);
 		m_pTableWidget->setItem(0, 0, new QTableWidgetItem(SLog::translateLevel(log.level)));
 		m_pTableWidget->setItem(0, 1, new QTableWidgetItem(log.time.toString()));

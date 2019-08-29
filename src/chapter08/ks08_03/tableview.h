@@ -1,12 +1,12 @@
 /*!
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file tableview.h
-\brief tableviewÍ·ÎÄ¼ş
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\brief tableviewå¤´æ–‡ä»¶
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2019/1
 */
 
@@ -21,8 +21,8 @@ public:
     virtual ~CTableView(){}
 protected:
     /*
-     * @brief ÖØĞ´¸¸ÀàµÄÊó±ê°´ÏÂÊÂ¼ş
-     * @param[in] event Êó±ê°´ÏÂÊÂ¼ş¶ÔÏó
+     * @brief é‡å†™çˆ¶ç±»çš„é¼ æ ‡æŒ‰ä¸‹äº‹ä»¶
+     * @param[in] event é¼ æ ‡æŒ‰ä¸‹äº‹ä»¶å¯¹è±¡
     */
     virtual void mousePressEvent(QMouseEvent* event) override;
 private:

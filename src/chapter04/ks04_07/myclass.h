@@ -1,13 +1,13 @@
 /*! 
-* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
-* °æÈ¨ËùÓÐ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
-* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºŽè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸Žæé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜Ž:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åŽæžœè‡ªè´Ÿã€‚
 
 
 \file: myclass.h
-\brief exe+dll±à³ÌÊ¾Àý£¬Òý³öÀàµÄ¶¨ÒåÍ·ÎÄ¼þ
-\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
+\brief exe+dllç¼–ç¨‹ç¤ºä¾‹ï¼Œå¼•å‡ºç±»çš„å®šä¹‰å¤´æ–‡ä»¶
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/9 
 */
 
@@ -19,43 +19,43 @@
 class CMyClass
 {
 public:
-	// ¹¹Ôìº¯Êý
+	// æž„é€ å‡½æ•°
 	CMyClass(): m_id(0), m_pStrName(NULL){}
-	// ¹¹Ôìº¯Êý
+	// æž„é€ å‡½æ•°
 	CMyClass(int id, const QString& name): m_id(id), m_pStrName(new QString(name)){}
 
-	// ¿½±´¹¹Ôìº¯Êý
+	// æ‹·è´æž„é€ å‡½æ•°
 	CMyClass(const CMyClass& right);
 
-	// Îö¹¹º¯Êý
+	// æžæž„å‡½æ•°
 	~CMyClass();
 
-	// ÖØÔØ²Ù×÷·ûoperator<
+	// é‡è½½æ“ä½œç¬¦operator<
 	bool operator<(const CMyClass& right) const;
 
 	/**
-	* @brief  ÉèÖÃid
+	* @brief  è®¾ç½®id
 	* @param[in] id id
 	*/
 	void setId(int id) { m_id = id; }
 	/**
-	* @brief  »ñÈ¡id
+	* @brief  èŽ·å–id
 	* @return id
 	*/
 	int getId() const { return m_id; }
 
 	/**
-	* @brief  ÉèÖÃÃû×Ö
-	* @param[in] name Ãû×Ö
+	* @brief  è®¾ç½®åå­—
+	* @param[in] name åå­—
 	*/
 	void setName(const QString& str);
 	/**
-	* @brief  »ñÈ¡Ãû×Ö
-	* @return Ãû×Ö
+	* @brief  èŽ·å–åå­—
+	* @return åå­—
 	*/
 	QString getName() const;
 private:
-	/// ³õÊ¼»¯Êý¾ÝÇø
+	/// åˆå§‹åŒ–æ•°æ®åŒº
 	void 	initial();
 
 	int m_id;

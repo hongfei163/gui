@@ -1,13 +1,13 @@
 /*! 
-* Copyright (C) 2018 Å®¶ù½ÐÀÏ°×
-* °æÈ¨ËùÓÐ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎð´«²¥¡£
-* ÃâÔðÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ÐÔ£¬ÇëÎðÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºŽè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸Žæé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜Ž:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åŽæžœè‡ªè´Ÿã€‚
 
 \file: serialize.h
-\brief ÐòÁÐ»¯´íÎóÂë¶¨ÒåÎÄ¼þ¡£
+\brief åºåˆ—åŒ–é”™è¯¯ç å®šä¹‰æ–‡ä»¶ã€‚
 
-\author Å®¶ù½ÐÀÏ°×   http://xingdianketang.cn/
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/10
 * please import basedll.dll
 */
@@ -17,21 +17,21 @@
 
 
 /**
-* @brief ÐòÁÐ»¯´íÎóÂëµÄÃ¶¾Ù
+* @brief åºåˆ—åŒ–é”™è¯¯ç çš„æžšä¸¾
 *
-* ESerializeCode Ã¶¾Ù¡£
-* ÓÃÀ´ËµÃ÷ÐòÁÐ»¯Ê±³öÏÖ´íÎóµÄÔ­Òò
+* ESerializeCode æžšä¸¾ã€‚
+* ç”¨æ¥è¯´æ˜Žåºåˆ—åŒ–æ—¶å‡ºçŽ°é”™è¯¯çš„åŽŸå› 
 *
 */
 enum ESerializeCode
 {
-	ESERIALIZECODE_OK = 0,					/// Õý³£
-	ESERIALIZECODE_FILENOTFOND,				/// ÎÄ¼þ²»´æÔÚ
-	ESERIALIZECODE_DOC_ELEMENT_NOTFOUND,	/// docÔªËØ²»´æÔÚ: ÎÄ¼þÖÐ±ØÐë´æÔÚ<doc>ÔªËØ
-	ESERIALIZECODE_CONTENT_ELEMENT_NOTFOUND,/// contentÔªËØ²»´æÔÚ: ÎÄ¼þÖÐ±ØÐë´æÔÚ<content>ÔªËØ
-	ESERIALIZECODE_SETCONTENT_ERROR,		/// QDomDocument::setContent()µ÷ÓÃÊ§°Ü
-	ESERIALIZECODE_VERSION_NOTRECOGNIZE,	/// ²»¿ÉÊ¶±ðµÄ°æ±¾ºÅ
-	ESERIALIZECODE_OTHERERROR,					/// ÆäËû´íÎó
+	ESERIALIZECODE_OK = 0,					/// æ­£å¸¸
+	ESERIALIZECODE_FILENOTFOND,				/// æ–‡ä»¶ä¸å­˜åœ¨
+	ESERIALIZECODE_DOC_ELEMENT_NOTFOUND,	/// docå…ƒç´ ä¸å­˜åœ¨: æ–‡ä»¶ä¸­å¿…é¡»å­˜åœ¨<doc>å…ƒç´ 
+	ESERIALIZECODE_CONTENT_ELEMENT_NOTFOUND,/// contentå…ƒç´ ä¸å­˜åœ¨: æ–‡ä»¶ä¸­å¿…é¡»å­˜åœ¨<content>å…ƒç´ 
+	ESERIALIZECODE_SETCONTENT_ERROR,		/// QDomDocument::setContent()è°ƒç”¨å¤±è´¥
+	ESERIALIZECODE_VERSION_NOTRECOGNIZE,	/// ä¸å¯è¯†åˆ«çš„ç‰ˆæœ¬å·
+	ESERIALIZECODE_OTHERERROR,					/// å…¶ä»–é”™è¯¯
 
 };
 

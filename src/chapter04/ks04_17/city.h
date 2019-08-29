@@ -1,13 +1,13 @@
 /*! 
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file: city.h
-\brief ³ÇÊĞÀà¶¨ÒåÎÄ¼ş¡£
+\brief åŸå¸‚ç±»å®šä¹‰æ–‡ä»¶ã€‚
        
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/10
 */
 
@@ -23,40 +23,40 @@
 
 class CProvince;
 
-// ÃûÆ¬Àà
+// åç‰‡ç±»
 class CCard {
 public:
 	CCard() {}
 	~CCard() {}
 
 	/**
-	* @brief ÉèÖÃÃûÆ¬×Ö·û´®.
-	* @param[in] str ÃûÆ¬×Ö·û´®.
+	* @brief è®¾ç½®åç‰‡å­—ç¬¦ä¸².
+	* @param[in] str åç‰‡å­—ç¬¦ä¸².
 	* @return void
 	*/
 	void  setString(const QString& str) { m_str = str; }
 
 	/**
-	* @brief »ñÈ¡ÃûÆ¬×Ö·û´®.
-	* @return ÃûÆ¬×Ö·û´®.
+	* @brief è·å–åç‰‡å­—ç¬¦ä¸².
+	* @return åç‰‡å­—ç¬¦ä¸².
 	*/
 	QString  getString(void) const { return m_str; }
 	/**
-	* @brief ÓÃÀ´°ÑÀà¶ÔÏó½øĞĞ¶ş½øÖÆ·½Ê½ĞòÁĞ»¯µÄº¯Êı¡£
-	* @param[in] ds ÎÄ¼şÁ÷¶ÔÏó¡£
-	* @param[in|out] pError ´íÎóĞÅÏ¢¡£
-	* @return ESerializeCodeÃ¶¾ÙÖµ¡£
+	* @brief ç”¨æ¥æŠŠç±»å¯¹è±¡è¿›è¡ŒäºŒè¿›åˆ¶æ–¹å¼åºåˆ—åŒ–çš„å‡½æ•°ã€‚
+	* @param[in] ds æ–‡ä»¶æµå¯¹è±¡ã€‚
+	* @param[in|out] pError é”™è¯¯ä¿¡æ¯ã€‚
+	* @return ESerializeCodeæšä¸¾å€¼ã€‚
 	*/
 	ESerializeCode serializeBinary(QDataStream& ds, QString* /*pError*/) const {
 		ds << m_str;
 		return ESERIALIZECODE_OK;
 	}
 	/**
-	* @brief ÓÃÀ´°ÑÀà¶ÔÏó½øĞĞ¶ş½øÖÆ·½Ê½ĞòÁĞ»¯µÄº¯Êı¡£
-	*        ´ò¿ªµÄÎÄ¼şÓë±£´æÊ±²ÉÓÃÏàÍ¬µÄByteOrder(±¾½Ó¿ÚÄÚ²¿ÒÑ¾­µ÷ÓÃQDataStream::setByteOrder)¡£
-	* @param[in] ds ÎÄ¼şÁ÷¶ÔÏó¡£
-	* @param[in|out] pError ´íÎóĞÅÏ¢¡£
-	* @return ESerializeCodeÃ¶¾ÙÖµ¡£
+	* @brief ç”¨æ¥æŠŠç±»å¯¹è±¡è¿›è¡ŒäºŒè¿›åˆ¶æ–¹å¼åºåˆ—åŒ–çš„å‡½æ•°ã€‚
+	*        æ‰“å¼€çš„æ–‡ä»¶ä¸ä¿å­˜æ—¶é‡‡ç”¨ç›¸åŒçš„ByteOrder(æœ¬æ¥å£å†…éƒ¨å·²ç»è°ƒç”¨QDataStream::setByteOrder)ã€‚
+	* @param[in] ds æ–‡ä»¶æµå¯¹è±¡ã€‚
+	* @param[in|out] pError é”™è¯¯ä¿¡æ¯ã€‚
+	* @return ESerializeCodeæšä¸¾å€¼ã€‚
 	*/
 	ESerializeCode deSerializeBinary(QDataStream& ds, QString* /*pError*/) {
 		ds >> m_str;
@@ -66,7 +66,7 @@ public:
 private:
 	QString m_str;
 };
-// ³ÇÊĞÀà
+// åŸå¸‚ç±»
 //-----------------------------------------
 class CCity
 {
@@ -75,73 +75,73 @@ public:
 	~CCity();
 
     /**
-    * @brief ÉèÖÃ³ÇÊĞÃû³Æ.
-    * @param[in] strName ³ÇÊĞÃû³Æ
+    * @brief è®¾ç½®åŸå¸‚åç§°.
+    * @param[in] strName åŸå¸‚åç§°
     * @return void
     */
 	void  setName(const QString& str) {m_strName = str;}
 
     /**
-    * @brief »ñÈ¡³ÇÊĞÃû³Æ.
-    * @return ³ÇÊĞÃû³Æ
+    * @brief è·å–åŸå¸‚åç§°.
+    * @return åŸå¸‚åç§°
     */
 	QString  getName(void)const {return m_strName;}
  
     /**
-    * @brief ÉèÖÃ³ÇÊĞËùÔÚÊ¡(Öİ)
-    * @param[in] pProvince ³ÇÊĞËùÔÚÊ¡(Öİ)
+    * @brief è®¾ç½®åŸå¸‚æ‰€åœ¨çœ(å·)
+    * @param[in] pProvince åŸå¸‚æ‰€åœ¨çœ(å·)
     * @return void
     */
 	void  setProvince(CProvince* pProvince) { m_pProvince = pProvince;}
 
     /**
-    * @brief »ñÈ¡³ÇÊĞËùÔÚÊ¡(Öİ)
-    * @return ³ÇÊĞËùÔÚÊ¡(Öİ)
+    * @brief è·å–åŸå¸‚æ‰€åœ¨çœ(å·)
+    * @return åŸå¸‚æ‰€åœ¨çœ(å·)
     */
 	CProvince*  getProvince(void) const {return m_pProvince;}
 	/**
-	* @brief ÓÃÀ´°ÑÀà¶ÔÏó½øĞĞ¶ş½øÖÆ·½Ê½ĞòÁĞ»¯µÄº¯Êı¡£
-	* @param[in] ds ÎÄ¼şÁ÷¶ÔÏó¡£
-	* @param[in|out] pError ´íÎóĞÅÏ¢¡£
-	* @return ESerializeCodeÃ¶¾ÙÖµ¡£
+	* @brief ç”¨æ¥æŠŠç±»å¯¹è±¡è¿›è¡ŒäºŒè¿›åˆ¶æ–¹å¼åºåˆ—åŒ–çš„å‡½æ•°ã€‚
+	* @param[in] ds æ–‡ä»¶æµå¯¹è±¡ã€‚
+	* @param[in|out] pError é”™è¯¯ä¿¡æ¯ã€‚
+	* @return ESerializeCodeæšä¸¾å€¼ã€‚
 	*/
 	ESerializeCode serializeBinary(QDataStream& ds, QString* pError) const;
 	/**
-	* @brief ÓÃÀ´°ÑÀà¶ÔÏó½øĞĞ¶ş½øÖÆ·½Ê½ĞòÁĞ»¯µÄº¯Êı¡£
-	*        ´ò¿ªµÄÎÄ¼şÓë±£´æÊ±²ÉÓÃÏàÍ¬µÄByteOrder(±¾½Ó¿ÚÄÚ²¿ÒÑ¾­µ÷ÓÃQDataStream::setByteOrder)¡£
-	* @param[in] ds ÎÄ¼şÁ÷¶ÔÏó¡£
-	* @param[in|out] pError ´íÎóĞÅÏ¢¡£
-	* @return ESerializeCodeÃ¶¾ÙÖµ¡£
+	* @brief ç”¨æ¥æŠŠç±»å¯¹è±¡è¿›è¡ŒäºŒè¿›åˆ¶æ–¹å¼åºåˆ—åŒ–çš„å‡½æ•°ã€‚
+	*        æ‰“å¼€çš„æ–‡ä»¶ä¸ä¿å­˜æ—¶é‡‡ç”¨ç›¸åŒçš„ByteOrder(æœ¬æ¥å£å†…éƒ¨å·²ç»è°ƒç”¨QDataStream::setByteOrder)ã€‚
+	* @param[in] ds æ–‡ä»¶æµå¯¹è±¡ã€‚
+	* @param[in|out] pError é”™è¯¯ä¿¡æ¯ã€‚
+	* @return ESerializeCodeæšä¸¾å€¼ã€‚
 	*/
 	ESerializeCode deSerializeBinary(QDataStream& ds, QString* pError);
 
 
 	/**
-	* @brief ÉèÖÃ³ÇÊĞÃûÆ¬
-	* @param[in] pCard ³ÇÊĞÊĞÃûÆ¬
+	* @brief è®¾ç½®åŸå¸‚åç‰‡
+	* @param[in] pCard åŸå¸‚å¸‚åç‰‡
 	* @return void
 	*/
 	void  setCard(CCard* pCard) { m_pCard = pCard; }
 
 	/**
-	* @brief »ñÈ¡³ÇÊĞÃûÆ¬
-	* @return ³ÇÊĞÃûÆ¬
+	* @brief è·å–åŸå¸‚åç‰‡
+	* @return åŸå¸‚åç‰‡
 	*/
 	CCard*  getCard(void) const { return m_pCard; }
 
     /**
-    * @brief ÓÃÀ´°ÑÀà¶ÔÏó½øĞĞÎÄ±¾·½Ê½ĞòÁĞ»¯µÄº¯Êı¡£
-    * @param[in|out] doc QDomDocument¶ÔÏó£¬ĞèÒªÍâ²¿¹¹½¨
-    * @param[in|out] eleCity ³ÇÊĞÔªËØ½Úµã£¬ĞèÒªÍâ²¿¹¹½¨
-    * @param[in|out] pError ´íÎóĞÅÏ¢¡£
-    * @return ESerializeCodeÃ¶¾ÙÖµ¡£
+    * @brief ç”¨æ¥æŠŠç±»å¯¹è±¡è¿›è¡Œæ–‡æœ¬æ–¹å¼åºåˆ—åŒ–çš„å‡½æ•°ã€‚
+    * @param[in|out] doc QDomDocumentå¯¹è±¡ï¼Œéœ€è¦å¤–éƒ¨æ„å»º
+    * @param[in|out] eleCity åŸå¸‚å…ƒç´ èŠ‚ç‚¹ï¼Œéœ€è¦å¤–éƒ¨æ„å»º
+    * @param[in|out] pError é”™è¯¯ä¿¡æ¯ã€‚
+    * @return ESerializeCodeæšä¸¾å€¼ã€‚
     */
     ESerializeCode serializeXML(QDomDocument& doc, QDomElement& eleCity, QString* pError) const;
     /**
-    * @brief ÓÃÀ´°ÑÀà¶ÔÏó½øĞĞÎÄ±¾·½Ê½ĞòÁĞ»¯µÄº¯Êı¡£
-    * @param[in|out] eleCity QDomElement¶ÔÏó,±íÊ¾³ÇÊĞ½Úµã¡£
-    * @param[in|out] pError ´íÎóĞÅÏ¢¡£
-    * @return ESerializeCodeÃ¶¾ÙÖµ¡£
+    * @brief ç”¨æ¥æŠŠç±»å¯¹è±¡è¿›è¡Œæ–‡æœ¬æ–¹å¼åºåˆ—åŒ–çš„å‡½æ•°ã€‚
+    * @param[in|out] eleCity QDomElementå¯¹è±¡,è¡¨ç¤ºåŸå¸‚èŠ‚ç‚¹ã€‚
+    * @param[in|out] pError é”™è¯¯ä¿¡æ¯ã€‚
+    * @return ESerializeCodeæšä¸¾å€¼ã€‚
     */
     ESerializeCode deSerializeXML(const QDomElement& eleCity, QString* pError = NULL);
 

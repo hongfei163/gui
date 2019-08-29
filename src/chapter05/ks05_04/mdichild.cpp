@@ -1,13 +1,13 @@
 /*! 
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file: mdichild.cpp
-\brief  MdiChild ÀàµÄÊµÏÖÎÄ¼ş
+\brief  MdiChild ç±»çš„å®ç°æ–‡ä»¶
 
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/9
 */
 
@@ -154,7 +154,7 @@ QString MdiChild::strippedName(const QString &fullFileName)
 void MdiChild::mouseReleaseEvent(QMouseEvent *e) {
     QTextCursor tTextCursor = textCursor();
     QString strSelectedText = tTextCursor.selectedText().trimmed();
-    emit textSelected(strSelectedText); // µ±Êó±êÌ§ÆğÊ±·¢ËÍĞÅºÅ
+    emit textSelected(strSelectedText); // å½“é¼ æ ‡æŠ¬èµ·æ—¶å‘é€ä¿¡å·
 
     QTextEdit::mouseReleaseEvent(e);
 }

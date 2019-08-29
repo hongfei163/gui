@@ -1,4 +1,4 @@
-﻿PROJECT_HOME=../../..
+PROJECT_HOME=../../..
 include ($$PROJECT_HOME/src/gui_base.pri)
 
 TEMPLATE	= app

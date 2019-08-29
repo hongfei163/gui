@@ -1,13 +1,13 @@
 /*! 
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file: sync.cpp
-\brief ÎÄ¼şÍ¬²½ÀàÊµÏÖÎÄ¼ş
+\brief æ–‡ä»¶åŒæ­¥ç±»å®ç°æ–‡ä»¶
 
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/9 
 */
 #include <QCoreApplication>
@@ -198,12 +198,12 @@ bool CSync::exec() {
 		QStringList lstFiles = getSyncFileList(strSourcePath, *iteLst, true);
 		QStringList::iterator iteFile = lstFiles.begin();
 		for (; iteFile != lstFiles.end(); iteFile++) {
-			// »ñÈ¡Ïà¶ÔÂ·¾¶
+			// è·å–ç›¸å¯¹è·¯å¾„
 			strSrcFilePath = *iteFile;
 			strReleativePath = ns_train::getReleativePath(strSrcFilePath, strSourcePath);
-			// µÃµ½Ä¿±êÂ·¾¶
+			// å¾—åˆ°ç›®æ ‡è·¯å¾„
 			strDstFilePath = strDestPath + strReleativePath;
-			// »ñÈ¡source md5Âë
+			// è·å–source md5ç 
 			srcMd5 = ns_train::getMd5(strSrcFilePath);
 			dstMd5 = ns_train::getMd5(strDstFilePath);
 			if (srcMd5 != dstMd5) {
@@ -238,7 +238,7 @@ QStringList CSync::getSyncFileList(const QString& strDirectory, const CSyncConfi
 	for (iteFileInfo = fileInfoList.begin(); iteFileInfo != fileInfoList.end(); iteFileInfo++) {
 		fileInfo = *iteFileInfo;
 		strFileName = fileInfo.fileName();
-		if ((strFileName == ".") || (strFileName == "..")) { // Ìø¹ı±¾Ä¿Â¼ºÍÉÏ¼¶Ä¿Â¼Ö¸Ê¾·û¡£
+		if ((strFileName == ".") || (strFileName == "..")) { // è·³è¿‡æœ¬ç›®å½•å’Œä¸Šçº§ç›®å½•æŒ‡ç¤ºç¬¦ã€‚
 			continue;
 		}
 		if (fileInfo.isDir()) {

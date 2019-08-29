@@ -1,4 +1,4 @@
-﻿include ($$(TRAINDEVHOME)/src/gui_base.pri)
+include ($$(TRAINDEVHOME)/src/gui_base.pri)
 
 TEMPLATE	= app
 LANGUAGE	= C++

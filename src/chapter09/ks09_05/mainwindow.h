@@ -1,13 +1,13 @@
 /*! 
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file: mainwindow.h
-\brief Ö÷´°ÌåÍ·ÎÄ¼ş
+\brief ä¸»çª—ä½“å¤´æ–‡ä»¶
   
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/12 
 */
 
@@ -58,45 +58,45 @@ private slots:
 	void onMouseMoveInView(QMouseEvent* event);
 
 private:
-	void createActions();		/// ¹¹½¨²Ëµ¥Ïî¶ÔÓ¦µÄQAction¡£
-	void createMenus();			/// ¹¹½¨²Ëµ¥
-	void createToolBars();		/// ¹¹½¨¹¤¾ßÌõ
-	void createStatusBar();		/// ¹¹½¨×´Ì¬À¸
-	void initialize();			/// ³õÊ¼»¯
+	void createActions();		/// æ„å»ºèœå•é¡¹å¯¹åº”çš„QActionã€‚
+	void createMenus();			/// æ„å»ºèœå•
+	void createToolBars();		/// æ„å»ºå·¥å…·æ¡
+	void createStatusBar();		/// æ„å»ºçŠ¶æ€æ 
+	void initialize();			/// åˆå§‹åŒ–
 
 private:
-	QMenu *m_pFileMenu;			/// ÎÄ¼ş²Ëµ¥
-	QMenu *m_pEditMenu;			/// ±à¼­²Ëµ¥
-	QMenu *m_pFormatMenu;		/// ¸ñÊ½²Ëµ¥(¶ş¼¶²Ëµ¥)
-	QMenu *m_pHelpMenu;			/// °ïÖú²Ëµ¥
+	QMenu *m_pFileMenu;			/// æ–‡ä»¶èœå•
+	QMenu *m_pEditMenu;			/// ç¼–è¾‘èœå•
+	QMenu *m_pFormatMenu;		/// æ ¼å¼èœå•(äºŒçº§èœå•)
+	QMenu *m_pHelpMenu;			/// å¸®åŠ©èœå•
 	
-	QToolBar *m_pFileToolBar;	/// ÎÄ¼ş¹¤¾ßÌõ
-	QToolBar *m_pEditToolBar;	/// ±à¼­¹¤¾ßÌõ
+	QToolBar *m_pFileToolBar;	/// æ–‡ä»¶å·¥å…·æ¡
+	QToolBar *m_pEditToolBar;	/// ç¼–è¾‘å·¥å…·æ¡
 
 	QActionGroup *m_pAlignmentGroup;
 
-	QAction *m_pOpenAct;		/// ´ò¿ª
-	QAction *m_pSaveAct;		/// ±£´æ
-	QAction *m_pExitAct;		/// ÍË³ö
+	QAction *m_pOpenAct;		/// æ‰“å¼€
+	QAction *m_pSaveAct;		/// ä¿å­˜
+	QAction *m_pExitAct;		/// é€€å‡º
 
-	QAction *m_pCutAct;			/// ¼ôÇĞ
-	QAction *m_pCopyAct;		/// ¸´ÖÆ
-	QAction *m_pPasteAct;		/// ğ¤Ìù
-	QAction *m_pBoldAct;		/// ´ÖÌå 
-	QAction *m_pItalicAct;		/// Ğ±Ìå
-	QAction *m_pLeftAlignAct;	/// ×ó¶ÔÆë
-	QAction *m_pRightAlignAct;	/// ÓÒ¶ÔÆë
-	QAction *m_pCenterAct;		/// ¾ÓÖĞ
+	QAction *m_pCutAct;			/// å‰ªåˆ‡
+	QAction *m_pCopyAct;		/// å¤åˆ¶
+	QAction *m_pPasteAct;		/// é»è´´
+	QAction *m_pBoldAct;		/// ç²—ä½“ 
+	QAction *m_pItalicAct;		/// æ–œä½“
+	QAction *m_pLeftAlignAct;	/// å·¦å¯¹é½
+	QAction *m_pRightAlignAct;	/// å³å¯¹é½
+	QAction *m_pCenterAct;		/// å±…ä¸­
 	
-	QAction *m_pSetLineSpacingAct; /// ÉèÖÃĞĞ¼ä¾à
-	QAction *m_pSetParagraphSpacingAct;/// ÉèÖÃ¶Î¼ä¾à
+	QAction *m_pSetLineSpacingAct; /// è®¾ç½®è¡Œé—´è·
+	QAction *m_pSetParagraphSpacingAct;/// è®¾ç½®æ®µé—´è·
 
-	QAction *m_pAboutAct;	/// ¹ØÓÚ
+	QAction *m_pAboutAct;	/// å…³äº
 
-	QLabel *m_pInfoLabel;	/// ĞÅÏ¢±êÇ©
-	QLabel* m_pMouseLabel;	/// Êó±êÎ»ÖÃÏÔÊ¾
+	QLabel *m_pInfoLabel;	/// ä¿¡æ¯æ ‡ç­¾
+	QLabel* m_pMouseLabel;	/// é¼ æ ‡ä½ç½®æ˜¾ç¤º
 
-	CTextEdit* m_pTextEdit; /// ±à¼­Æ÷
+	CTextEdit* m_pTextEdit; /// ç¼–è¾‘å™¨
 };
 
 #endif // MAINWINDOW_H

@@ -1,13 +1,13 @@
 /*! 
-* Copyright (C) 2018 Ů�����ϰ�
-* ��Ȩ���С�
-* ��������ڿγ̡�Qt���������-GUI��Ʒ��������ѧϰ�����𴫲���
-* ��������:���벻��֤�ȶ��ԣ�����������ҵ��;���������Ը���
+* Copyright (C) 2018 女儿叫老白
+* 版权所有。
+* 代码仅用于课程《Qt入门与提高-GUI产品开发》的学习，请勿传播。
+* 免责声明:代码不保证稳定性，请勿用作商业用途，否则后果自负。
 
 \file: dialog.h
-\brief ��ʾ��ͷ�ļ�
+\brief 演示用头文件
   
-\author Ů�����ϰ�   http://xingdianketang.cn/
+\author 女儿叫老白   http://xingdianketang.cn/
 \Date 2018/8 
 */
 
@@ -25,14 +25,14 @@ public:
 	~CDialog(){;}
 private slots:
     /*
-     * @brief ����������ťʱ��Ӧ�Ĳۺ���
-     * @param[in] b true:toogled(��ťΪ����״̬), false:not toogled(��ťΪ̧��״̬)
+     * @brief 单击弹出按钮时对应的槽函数
+     * @param[in] b true:toogled(按钮为按下状态), false:not toogled(按钮为抬起状态)
     */
     void slot_popup(bool b);
 
     /*
-     * @brief ��Ͽ��ֵ�ı�ʱ��Ӧ�Ĳۺ���
-     * @param[in] idx ��ǰ��ѡ�е�����±�
+     * @brief 组合框的值改变时对应的槽函数
+     * @param[in] idx 当前新选中的项的下标
     */
     void slot_cbRoleChanged(int idx);
 

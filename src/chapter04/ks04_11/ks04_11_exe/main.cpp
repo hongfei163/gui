@@ -1,13 +1,13 @@
 /*! 
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file: main.cpp
-\brief main()º¯ÊıµÄÊµÏÖÎÄ¼ş
+\brief main()å‡½æ•°çš„å®ç°æ–‡ä»¶
 
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/8
 */
 #include <QStringList>
@@ -43,7 +43,7 @@ int main(int argc, char * argv[])
 
 
 /**
-* @brief example01, µ÷ÓÃdllÖĞµÄ½Ó¿Ú
+* @brief example01, è°ƒç”¨dllä¸­çš„æ¥å£
 
 * @return void
 */
@@ -57,7 +57,7 @@ void example01(void) {
 }
 
 /**
-* @brief Ê¾Àı1, ¼òµ¥½éÉÜQDirµÄÊ¹ÓÃ
+* @brief ç¤ºä¾‹1, ç®€å•ä»‹ç»QDirçš„ä½¿ç”¨
 
 * @return void
 */
@@ -67,16 +67,16 @@ void example02(void) {
     strPath = ns_train::getPath(strPath);
 	strPath = ns_train::getDirectory(strPath);
     QDir dir(strPath);
-    QString absPath = dir.absolutePath();	// ·µ»ØÂ·¾¶µÄ¾ø¶ÔÂ·¾¶×Ö·û´®
-    QString cancPath = dir.canonicalPath(); // ·µ»ØÂ·¾¶µÄ¹æ·¶Â·¾¶Ãû×Ö·û´®
+    QString absPath = dir.absolutePath();	// è¿”å›è·¯å¾„çš„ç»å¯¹è·¯å¾„å­—ç¬¦ä¸²
+    QString cancPath = dir.canonicalPath(); // è¿”å›è·¯å¾„çš„è§„èŒƒè·¯å¾„åå­—ç¬¦ä¸²
 
 	strPath = "../../../../test/chapter04/ks04_11/a.txt";
     strPath = ns_train::getPath(strPath);
 	dir.setPath(strPath);
-	//dir.mkdir(strPath);		// µ±ÉÏ²ãÂ·¾¶²»´æÔÚÊ±£¬mkdir()Ê§°Ü
+	//dir.mkdir(strPath);		// å½“ä¸Šå±‚è·¯å¾„ä¸å­˜åœ¨æ—¶ï¼Œmkdir()å¤±è´¥
 	absPath = dir.absolutePath();
 	strPath = ns_train::getDirectory(absPath);
-	dir.mkpath(strPath);	// µ±ÉÏ²ãÂ·¾¶²»´æÔÚÊ±£¬mkpath()×Ô¶¯´´½¨ËùÓĞµÄ¸¸Ä¿Â¼²ã´Î¡£
-	cancPath = dir.canonicalPath(); // µ±a.txt²»´æÔÚÊ±£¬canonicalPath()·µ»Ø¿Õ¡£
+	dir.mkpath(strPath);	// å½“ä¸Šå±‚è·¯å¾„ä¸å­˜åœ¨æ—¶ï¼Œmkpath()è‡ªåŠ¨åˆ›å»ºæ‰€æœ‰çš„çˆ¶ç›®å½•å±‚æ¬¡ã€‚
+	cancPath = dir.canonicalPath(); // å½“a.txtä¸å­˜åœ¨æ—¶ï¼ŒcanonicalPath()è¿”å›ç©ºã€‚
 
 }

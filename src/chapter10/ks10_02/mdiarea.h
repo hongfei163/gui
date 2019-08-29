@@ -1,13 +1,13 @@
 /*!
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file: mdiarea.h
-\brief ÑİÊ¾ÓÃÍ·ÎÄ¼ş
+\brief æ¼”ç¤ºç”¨å¤´æ–‡ä»¶
 
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/8
 */
 
@@ -34,83 +34,83 @@ class CEditMdiArea : public QMdiArea
 
 public:
 /**
-	* @brief			¹¹Ôìº¯Êı
-	* @param[in] pMainWindow	¸¸´°¿Ú
+	* @brief			æ„é€ å‡½æ•°
+	* @param[in] pMainWindow	çˆ¶çª—å£
 	*/
     CEditMdiArea(QMainWindow* pMainWindow);
-	/// Îö¹¹º¯Êı
+	/// ææ„å‡½æ•°
     virtual ~CEditMdiArea();
 
 public:
 	/**
-	* @brief »ñÈ¡Ö÷´°¿Ú
-	* @return Ö÷´°¿Ú
+	* @brief è·å–ä¸»çª—å£
+	* @return ä¸»çª—å£
 	*/
     QMainWindow* getMainWindow();
 	/**
-	* @brief »ñÈ¡µ±Ç°»î¶¯ÊÓÍ¼
-	* @return µ±Ç°»î¶¯ÊÓÍ¼
+	* @brief è·å–å½“å‰æ´»åŠ¨è§†å›¾
+	* @return å½“å‰æ´»åŠ¨è§†å›¾
 	*/
     QWidget *activeMdiChild();
     /**
-    * @brief »ñÈ¡µ±Ç°»î¶¯±à¼­ÊÓÍ¼
-    * @param[in] pMdiChild subwindow¶ÔÏó
-    * @return µ±Ç°»î¶¯±à¼­ÊÓÍ¼
+    * @brief è·å–å½“å‰æ´»åŠ¨ç¼–è¾‘è§†å›¾
+    * @param[in] pMdiChild subwindowå¯¹è±¡
+    * @return å½“å‰æ´»åŠ¨ç¼–è¾‘è§†å›¾
     */
     QWidget* getActiveEditView(QMdiSubWindow* pMdiChild);
 
 	/**
-	* @brief ¸ù¾İÎÄ¼ş´´½¨ÊÓÍ¼
-	* @param[in] fileName ÎÄ¼şÃû
-	* @param[in] pError ´íÎóÂë
-	* @return ÊÓÍ¼¶ÔÏó£¬Èç¹û´´½¨µÄÄ£°åÀàĞÍ²»ÕıÈ·Ôò·µ»ØNULL
+	* @brief æ ¹æ®æ–‡ä»¶åˆ›å»ºè§†å›¾
+	* @param[in] fileName æ–‡ä»¶å
+	* @param[in] pError é”™è¯¯ç 
+	* @return è§†å›¾å¯¹è±¡ï¼Œå¦‚æœåˆ›å»ºçš„æ¨¡æ¿ç±»å‹ä¸æ­£ç¡®åˆ™è¿”å›NULL
 	*/
 	CGraphView* createGraphViewMdiChild(const QString& fileName, QString* pError = NULL);
 	/**
-	* @brief ¸ù¾İÎÄ¼ş´´½¨ÎÄ±¾±à¼­ÊÓÍ¼
-	* @param[in] fileName ÎÄ¼şÃû
-	* @param[in] pError ´íÎóÂë
-	* @return ÊÓÍ¼¶ÔÏó£¬Èç¹û´´½¨µÄÄ£°åÀàĞÍ²»ÕıÈ·Ôò·µ»ØNULL
+	* @brief æ ¹æ®æ–‡ä»¶åˆ›å»ºæ–‡æœ¬ç¼–è¾‘è§†å›¾
+	* @param[in] fileName æ–‡ä»¶å
+	* @param[in] pError é”™è¯¯ç 
+	* @return è§†å›¾å¯¹è±¡ï¼Œå¦‚æœåˆ›å»ºçš„æ¨¡æ¿ç±»å‹ä¸æ­£ç¡®åˆ™è¿”å›NULL
 	*/
     CTextEdit* createTexteditMdiChild(const QString& fileName, QString* pError = NULL);
     /**
-    * @brief ²éÕÒÃû×ÖÎªfilenameµÄ×Ó´°¿Ú¶ÔÏó(ÊÓÍ¼ÀàĞÍÎª£ºCGraphView)
-    * @param[in] fileName ÎÄ¼şÃû
-    * return ×Ó´°¿Ú¶ÔÏó
+    * @brief æŸ¥æ‰¾åå­—ä¸ºfilenameçš„å­çª—å£å¯¹è±¡(è§†å›¾ç±»å‹ä¸ºï¼šCGraphView)
+    * @param[in] fileName æ–‡ä»¶å
+    * return å­çª—å£å¯¹è±¡
     */
     QMdiSubWindow *findGraphViewMdiChild(const QString &fileName);
     /**
-    * @brief ²éÕÒÃû×ÖÎªfilenameµÄ×Ó´°¿Ú¶ÔÏó(ÊÓÍ¼ÀàĞÍÎª£ºCTextEdit)
-    * @param[in] fileName ÎÄ¼şÃû
-    * return ×Ó´°¿Ú¶ÔÏó
+    * @brief æŸ¥æ‰¾åå­—ä¸ºfilenameçš„å­çª—å£å¯¹è±¡(è§†å›¾ç±»å‹ä¸ºï¼šCTextEdit)
+    * @param[in] fileName æ–‡ä»¶å
+    * return å­çª—å£å¯¹è±¡
     */
     QMdiSubWindow *findTexteditMdiChild(const QString &fileName);
     
     /**
-    * @brief ¹¹½¨²Ëµ¥Ïî¶ÔÓ¦µÄQAction
+    * @brief æ„å»ºèœå•é¡¹å¯¹åº”çš„QAction
     * return void
     */
     void createActions();		
     
     /**
-    * @brief ¹¹½¨¹¤¾ßÌõ
+    * @brief æ„å»ºå·¥å…·æ¡
     * return void
     */
    void createToolBars();		
 	/**
-	* @brief ´ò¿ªÖ¸¶¨ÎÄ¼ş
-	* @param[in] fileName ÎÄ¼şËùÔÚÂ·¾¶Ãû
-	* @param[in] pError ´íÎóÂë
-	* @retval true ´ò¿ªÎÄ¼ş³É¹¦
-	* @retval true ´ò¿ªÎÄ¼şÊ§°Ü
+	* @brief æ‰“å¼€æŒ‡å®šæ–‡ä»¶
+	* @param[in] fileName æ–‡ä»¶æ‰€åœ¨è·¯å¾„å
+	* @param[in] pError é”™è¯¯ç 
+	* @retval true æ‰“å¼€æ–‡ä»¶æˆåŠŸ
+	* @retval true æ‰“å¼€æ–‡ä»¶å¤±è´¥
 	*/
 	bool openFileByGraphview(const QString &fileName, QString* pError = NULL);
 	/**
-	* @brief ´ò¿ªÖ¸¶¨ÎÄ¼ş(ÓÃÎÄ±¾±à¼­Æ÷Õ¹Ê¾)
-	* @param[in] fileName ÎÄ¼şËùÔÚÂ·¾¶Ãû
-	* @param[in] pError ´íÎóÂë
-	* @retval true ´ò¿ªÎÄ¼ş³É¹¦
-	* @retval true ´ò¿ªÎÄ¼şÊ§°Ü
+	* @brief æ‰“å¼€æŒ‡å®šæ–‡ä»¶(ç”¨æ–‡æœ¬ç¼–è¾‘å™¨å±•ç¤º)
+	* @param[in] fileName æ–‡ä»¶æ‰€åœ¨è·¯å¾„å
+	* @param[in] pError é”™è¯¯ç 
+	* @retval true æ‰“å¼€æ–‡ä»¶æˆåŠŸ
+	* @retval true æ‰“å¼€æ–‡ä»¶å¤±è´¥
 	*/
 	bool openFileByTextview(const QString &fileName, QString* pError = NULL);
    
@@ -122,29 +122,29 @@ private slots:
     void slot_addEllipse(); 
 
 #ifndef QT_NO_CLIPBOARD
-	/// ¼ôÇĞ
+	/// å‰ªåˆ‡
     void slot_cut();
-	/// ¿½±´
+	/// æ‹·è´
     void slot_copy();
- 	/// ğ¤Ìù
+ 	/// é»è´´
    void slot_paste();
 #endif
     /**
-	*	@brief				ÊÓÍ¼¹Ø±ÕµÄ²Ûº¯Êı
-	*	@param[in] pView	ÊÓÍ¼Ö¸Õë
+	*	@brief				è§†å›¾å…³é—­çš„æ§½å‡½æ•°
+	*	@param[in] pView	è§†å›¾æŒ‡é’ˆ
     *   @return             void
 	*/
 	virtual void onViewClose(QWidget*);
     /**
-	*	@brief				´ò¿ªÍ¼ĞÎÎÄ¼ş
-	*	@param[in] strFileName	Í¼ĞÎÎÄ¼şÃû³Æ
+	*	@brief				æ‰“å¼€å›¾å½¢æ–‡ä»¶
+	*	@param[in] strFileName	å›¾å½¢æ–‡ä»¶åç§°
     *   @return             void
 	*/
 	void slot_openTextGraphFile(const QString& strFileName);
 
     /**
-    * @brief ´°¿Ú¼¤»îÏûÏ¢´¦Àí
-    * @param[in] pMdiChild ´°¿ÚÖ¸Õë
+    * @brief çª—å£æ¿€æ´»æ¶ˆæ¯å¤„ç†
+    * @param[in] pMdiChild çª—å£æŒ‡é’ˆ
     */
     virtual void onSubWindowActivate(QMdiSubWindow *pMdiChild);
 
@@ -154,34 +154,34 @@ Q_SIGNALS:
     void editViewClose(QWidget*);
 private:
     /**
-    * @brief ½«±à¼­ÊÓÍ¼¹Ò½Óµ½¶à´°¿ÚÇøÓòµÄ²Ûº¯Êı
-    * @param[in] pView ±à¼­ÊÓÍ¼
+    * @brief å°†ç¼–è¾‘è§†å›¾æŒ‚æ¥åˆ°å¤šçª—å£åŒºåŸŸçš„æ§½å‡½æ•°
+    * @param[in] pView ç¼–è¾‘è§†å›¾
     */
     void connectEditViewWithSlot(CGraphView* pView);
     /**
-    * @brief µ±±à¼­ÊÓÍ¼±äÎª·Ç¼¤»î×´Ì¬Ê±,½«±à¼­ÊÓÍ¼Óë¶à´°¿ÚÇøÓòµÄ²Ûº¯Êı¶Ï¿ªÁ¬½Ó
-    * @param[in] pView ±à¼­ÊÓÍ¼
+    * @brief å½“ç¼–è¾‘è§†å›¾å˜ä¸ºéæ¿€æ´»çŠ¶æ€æ—¶,å°†ç¼–è¾‘è§†å›¾ä¸å¤šçª—å£åŒºåŸŸçš„æ§½å‡½æ•°æ–­å¼€è¿æ¥
+    * @param[in] pView ç¼–è¾‘è§†å›¾
     */
     void disconnectEditViewWithSlot_whenInActivate(CGraphView* pView);
     /**
-    * @brief ½«±à¼­ÊÓÍ¼Óë¶à´°¿ÚÇøÓòµÄ²Ûº¯Êı¶Ï¿ªÁ¬½Ó
-    * @param[in] pView ±à¼­ÊÓÍ¼
+    * @brief å°†ç¼–è¾‘è§†å›¾ä¸å¤šçª—å£åŒºåŸŸçš„æ§½å‡½æ•°æ–­å¼€è¿æ¥
+    * @param[in] pView ç¼–è¾‘è§†å›¾
     */
     void disconnectEditViewWithSlot(CGraphView* pView);
 private:
-	QMdiSubWindow *m_pLastActivatedMdiChild; /// ÉÏ¸ö¼¤»îµÄ´°¿Ú(½¹µã´°¿Ú)
-	QMainWindow* m_pMainWindow;	// Ö÷´°¿ÚÖ¸Õë
-    QToolBar *m_pEditToolBar;	/// ±à¼­¹¤¾ßÌõ
-    QAction *m_pNewAct;			/// ĞÂ½¨
-    QAction *m_pOpenAct;		/// ´ò¿ªÎÄ¼ş
+	QMdiSubWindow *m_pLastActivatedMdiChild; /// ä¸Šä¸ªæ¿€æ´»çš„çª—å£(ç„¦ç‚¹çª—å£)
+	QMainWindow* m_pMainWindow;	// ä¸»çª—å£æŒ‡é’ˆ
+    QToolBar *m_pEditToolBar;	/// ç¼–è¾‘å·¥å…·æ¡
+    QAction *m_pNewAct;			/// æ–°å»º
+    QAction *m_pOpenAct;		/// æ‰“å¼€æ–‡ä»¶
 
 #ifndef QT_NO_CLIPBOARD
-    QAction *m_pCutAct;			/// ¼ôÇĞ
-    QAction *m_pCopyAct;		/// ¸´ÖÆ
-    QAction *m_pPasteAct;		/// ğ¤Ìù
+    QAction *m_pCutAct;			/// å‰ªåˆ‡
+    QAction *m_pCopyAct;		/// å¤åˆ¶
+    QAction *m_pPasteAct;		/// é»è´´
 #endif
-    QAction *m_pRectAct;        /// Ìí¼Ó¾ØĞÎ
-    QAction *m_pEllipseAct;     /// Ìí¼ÓÍÖÔ²
+    QAction *m_pRectAct;        /// æ·»åŠ çŸ©å½¢
+    QAction *m_pEllipseAct;     /// æ·»åŠ æ¤­åœ†
 };
 
 #endif // MDIAREA_H

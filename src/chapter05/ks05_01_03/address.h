@@ -1,23 +1,23 @@
 /*! 
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file: address.h
-\brief  CWidgetAddressÀàµÄ¶¨ÒåÎÄ¼ş
+\brief  CWidgetAddressç±»çš„å®šä¹‰æ–‡ä»¶
 
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/9
 */
 
 #ifndef ADDRESS_H
 #define ADDRESS_H
 
-#include "ui_address.h" // Í·ÎÄ¼şÃû³ÆÀ´×Ô: address.ui  ---> ui_address.h
+#include "ui_address.h" // å¤´æ–‡ä»¶åç§°æ¥è‡ª: address.ui  ---> ui_address.h
 
 
-// ¸¸ÀàµÄÃû³ÆÀ´×ÔuiÎÄ¼şÖĞ¶Ô»°¿òµÄÀàÃû£º¶ÔÏó²é¿´Æ÷ÖĞµÄÀàÃû
+// çˆ¶ç±»çš„åç§°æ¥è‡ªuiæ–‡ä»¶ä¸­å¯¹è¯æ¡†çš„ç±»åï¼šå¯¹è±¡æŸ¥çœ‹å™¨ä¸­çš„ç±»å
 class CWidgetAddress : public QWidget
 {
     Q_OBJECT

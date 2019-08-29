@@ -1,13 +1,13 @@
 /*! 
-* Copyright (C) 2018 Å®¶ù½ĞÀÏ°×
-* °æÈ¨ËùÓĞ¡£
-* ´úÂë½öÓÃÓÚ¿Î³Ì¡¶QtÈëÃÅÓëÌá¸ß-GUI²úÆ·¿ª·¢¡·µÄÑ§Ï°£¬ÇëÎğ´«²¥¡£
-* ÃâÔğÉùÃ÷:´úÂë²»±£Ö¤ÎÈ¶¨ĞÔ£¬ÇëÎğÓÃ×÷ÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º¡£
+* Copyright (C) 2018 å¥³å„¿å«è€ç™½
+* ç‰ˆæƒæ‰€æœ‰ã€‚
+* ä»£ç ä»…ç”¨äºè¯¾ç¨‹ã€ŠQtå…¥é—¨ä¸æé«˜-GUIäº§å“å¼€å‘ã€‹çš„å­¦ä¹ ï¼Œè¯·å‹¿ä¼ æ’­ã€‚
+* å…è´£å£°æ˜:ä»£ç ä¸ä¿è¯ç¨³å®šæ€§ï¼Œè¯·å‹¿ç”¨ä½œå•†ä¸šç”¨é€”ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚
 
 \file: main.cpp
-\brief main()º¯ÊıµÄÊµÏÖÎÄ¼ş
+\brief main()å‡½æ•°çš„å®ç°æ–‡ä»¶
 
-\author Å®¶ù½ĞÀÏ°×   http://xingdianketang.cn/
+\author å¥³å„¿å«è€ç™½   http://xingdianketang.cn/
 \Date 2018/9
 */
 
@@ -34,84 +34,84 @@ int main(int argc, char * argv[])
 
     QApplication app(argc, argv);
 
-    // ¹¹½¨Ä£ĞÍÖĞµÄÊı¾İ
+    // æ„å»ºæ¨¡å‹ä¸­çš„æ•°æ®
     CCountry* pCountry = createCountry();
     if (nullptr == pCountry){
         return 1;
     }
 
-    // ¹¹½¨±äÁ¿ÓÃÓÚÖ¸ÏòpCountryÖĞµÄÊı¾İ
+    // æ„å»ºå˜é‡ç”¨äºæŒ‡å‘pCountryä¸­çš„æ•°æ®
     QList<CProvince*> lstProvinces;
     QList<CCity*> lstCities;
 
     pCountry->getProvinces(lstProvinces);
 
-    // ¹¹½¨Ä£ĞÍ£¬²¢ÉèÖÃÒ»Ğ©ÊôĞÔ
+    // æ„å»ºæ¨¡å‹ï¼Œå¹¶è®¾ç½®ä¸€äº›å±æ€§
     QStandardItemModel model;
     QTreeView treeView;
     treeView.setModel(&model);
-    treeView.setRootIsDecorated(true); // ¸ù·ÖÖ§ÊÇ·ñ¿ÉÕ¹¿ª
-    treeView.header()->setFirstSectionMovable(false);// false:Ê×ÁĞ²»ÔÊĞí±»ÒÆ¶¯,true:Ê×ÁĞÔÊĞíÒÆ¶¯
-    treeView.header()->setStretchLastSection(true); // ½«×îºóÒ»ÁĞÉèÖÃÎª×Ô¶¯À­Éì,true:×Ô¶¯À­Éì,false:²»×Ô¶¯À­Éì¡£
+    treeView.setRootIsDecorated(true); // æ ¹åˆ†æ”¯æ˜¯å¦å¯å±•å¼€
+    treeView.header()->setFirstSectionMovable(false);// false:é¦–åˆ—ä¸å…è®¸è¢«ç§»åŠ¨,true:é¦–åˆ—å…è®¸ç§»åŠ¨
+    treeView.header()->setStretchLastSection(true); // å°†æœ€åä¸€åˆ—è®¾ç½®ä¸ºè‡ªåŠ¨æ‹‰ä¼¸,true:è‡ªåŠ¨æ‹‰ä¼¸,false:ä¸è‡ªåŠ¨æ‹‰ä¼¸ã€‚
 
     treeView.setWindowTitle("normal tree view");
     treeView.show();
 
-    // ½«Êı¾İÌí¼Óµ½Ä£ĞÍ£¬°üÀ¨×ÓÊı¾İ
-    // µÃµ½¸ù½Úµã
+    // å°†æ•°æ®æ·»åŠ åˆ°æ¨¡å‹ï¼ŒåŒ…æ‹¬å­æ•°æ®
+    // å¾—åˆ°æ ¹èŠ‚ç‚¹
     QStandardItem* pItemRoot = model.invisibleRootItem();
-    // µÃµ½¸ù½ÚµãµÄĞòºÅ
+    // å¾—åˆ°æ ¹èŠ‚ç‚¹çš„åºå·
     QModelIndex indexRoot = pItemRoot->index();
-    // ¹¹½¨country½Úµã
+    // æ„å»ºcountryèŠ‚ç‚¹
     QStandardItem* pItemCountry = new QStandardItem(pCountry->getName());
-    // ½«country½Úµã×÷Îª¸ù½ÚµãµÄ×Ó½Úµã
+    // å°†countryèŠ‚ç‚¹ä½œä¸ºæ ¹èŠ‚ç‚¹çš„å­èŠ‚ç‚¹
     pItemRoot->appendRow(pItemCountry);
-    // ÉèÖÃcountryµÄ×ÖÌå¡¢×ÖÉ«
-    QFont ft(QString::fromLocal8Bit("ËÎÌå"), 16);
+    // è®¾ç½®countryçš„å­—ä½“ã€å­—è‰²
+    QFont ft(QString::fromLocal8Bit("å®‹ä½“"), 16);
     ft.setBold(true);
     pItemCountry->setData(ft, Qt::FontRole);
     pItemCountry->setData(QColor(Qt::red), Qt::TextColorRole);
     QImage image(":/images/china.png");
     pItemCountry->setData(image.scaled(QSize(24, 24)), Qt::DecorationRole);
 
-    // ÉèÖÃ pItemRoot µÄÁĞÊıÒÔ±ãÏÔÊ¾Ê¡µÄ¸öÊı
+    // è®¾ç½® pItemRoot çš„åˆ—æ•°ä»¥ä¾¿æ˜¾ç¤ºçœçš„ä¸ªæ•°
     const int COLUMNCOUNT = 2;
     pItemRoot->setColumnCount(COLUMNCOUNT);
-    // ±ØĞëÔÚÉèÖÃÁĞÊıÖ®ºó²ÅÄÜÉèÖÃ±êÌâÖĞ¸ÃÁĞµÄÊı¾İ¡£¼´ÁĞ²»´æÔÚÊ±£¬ÉèÖÃÊı¾İÎŞĞ§¡£
+    // å¿…é¡»åœ¨è®¾ç½®åˆ—æ•°ä¹‹åæ‰èƒ½è®¾ç½®æ ‡é¢˜ä¸­è¯¥åˆ—çš„æ•°æ®ã€‚å³åˆ—ä¸å­˜åœ¨æ—¶ï¼Œè®¾ç½®æ•°æ®æ— æ•ˆã€‚
     model.setHeaderData(1, Qt::Horizontal, "sub item count", Qt::DisplayRole);
 
-    // ÔÚCountry½ÚµãËùÔÚµÄĞĞµÄµÚ1ÁĞÏÔÊ¾Ê¡µÄ¸öÊı
+    // åœ¨CountryèŠ‚ç‚¹æ‰€åœ¨çš„è¡Œçš„ç¬¬1åˆ—æ˜¾ç¤ºçœçš„ä¸ªæ•°
     model.setData(model.index(0, 1, indexRoot), lstProvinces.size());
 
-    // ±éÀú²¢¹¹½¨Ê¡¡¢³ÇÊĞÁ½¼¶½Úµã
+    // éå†å¹¶æ„å»ºçœã€åŸå¸‚ä¸¤çº§èŠ‚ç‚¹
     QStandardItem* pItemProvince = nullptr;
     QStandardItem* pItemCity = nullptr;
     int idProvince = 0;
     QList<CProvince*>::iterator iteProvince = lstProvinces.begin();
     QList<CCity*>::iterator iteCity;
     while (iteProvince != lstProvinces.end()) {
-        // ¹¹½¨Ê¡½Úµã£¬²¢Ìí¼Óµ½¹ú¼Ò½ÚµãµÄÏÂ¼¶
+        // æ„å»ºçœèŠ‚ç‚¹ï¼Œå¹¶æ·»åŠ åˆ°å›½å®¶èŠ‚ç‚¹çš„ä¸‹çº§
         pItemProvince = new QStandardItem((*iteProvince)->getName());
         pItemCountry->appendRow(pItemProvince);
 
         pItemCountry->setColumnCount(COLUMNCOUNT);
 
         (*iteProvince)->getCities(lstCities);
-        // ÉèÖÃProvince½ÚµãµÄµÚ0ÁĞµÄÎÄ±¾ÑÕÉ«ÎªÀ¶É«
+        // è®¾ç½®ProvinceèŠ‚ç‚¹çš„ç¬¬0åˆ—çš„æ–‡æœ¬é¢œè‰²ä¸ºè“è‰²
         model.setData(model.index(idProvince, 0, pItemCountry->index()),
                       QColor(Qt::blue),
                       Qt::TextColorRole);
 
-        // ÉèÖÃCountry½ÚµãµÚ1ÁĞÊı¾İÎª³ÇÊĞ¸öÊı
+        // è®¾ç½®CountryèŠ‚ç‚¹ç¬¬1åˆ—æ•°æ®ä¸ºåŸå¸‚ä¸ªæ•°
         model.setData(model.index(idProvince, 1, pItemCountry->index()),
                       lstCities.size());
 
-        // ±éÀúËùÓĞ³ÇÊĞ
+        // éå†æ‰€æœ‰åŸå¸‚
         iteCity = lstCities.begin();
         while (iteCity != lstCities.end()) {
-            // ¹¹½¨³ÇÊĞ½Úµã
+            // æ„å»ºåŸå¸‚èŠ‚ç‚¹
             pItemCity = new QStandardItem((*iteCity)->getName());
-            // Ìí¼Ó³ÇÊĞ½Úµã
+            // æ·»åŠ åŸå¸‚èŠ‚ç‚¹
             pItemProvince->appendRow(pItemCity);
 
             iteCity++;
@@ -126,13 +126,13 @@ int main(int argc, char * argv[])
 
 
 /**
-* @brief¹¹½¨CCountry¶ÔÏó.
-* @return CCountry¶ÔÏóÖ¸Õë
+* @briefæ„å»ºCCountryå¯¹è±¡.
+* @return CCountryå¯¹è±¡æŒ‡é’ˆ
 */
 CCountry* createCountry(void) {
 	CProvince* pProvince = NULL;
 	CCity* pCity = NULL;
-	CCountry* pCountry = new CCountry(QString::fromLocal8Bit("ÖĞ¹ú"));
+	CCountry* pCountry = new CCountry(QString::fromLocal8Bit("ä¸­å›½"));
 	if (NULL == pCountry) {
 		return NULL;
 	}
@@ -141,16 +141,16 @@ CCountry* createCountry(void) {
 		pProvince = new CProvince();
 		pCountry->addProvince(pProvince);
 		pProvince->setCountry(pCountry);
-		pProvince->setName(QString::fromLocal8Bit("É½¶«"));
+		pProvince->setName(QString::fromLocal8Bit("å±±ä¸œ"));
 		// add city
 		pCity = new CCity();
-		pCity->setName(QString::fromLocal8Bit("¼ÃÄÏ"));
+		pCity->setName(QString::fromLocal8Bit("æµå—"));
 		pCity->setProvince(pProvince);
 		pProvince->addCity(pCity);
 
 		// add city
 		pCity = new CCity();
-		pCity->setName(QString::fromLocal8Bit("Çàµº"));
+		pCity->setName(QString::fromLocal8Bit("é’å²›"));
 		pCity->setProvince(pProvince);
 		pProvince->addCity(pCity);
 	}
@@ -159,27 +159,27 @@ CCountry* createCountry(void) {
 		pProvince = new CProvince();
 		pCountry->addProvince(pProvince);
 		pProvince->setCountry(pCountry);
-		pProvince->setName(QString::fromLocal8Bit("ºÓ±±"));
+		pProvince->setName(QString::fromLocal8Bit("æ²³åŒ—"));
 		// add city
 		pCity = new CCity();
-		pCity->setName(QString::fromLocal8Bit("±±´÷ºÓ"));
+		pCity->setName(QString::fromLocal8Bit("åŒ—æˆ´æ²³"));
 		pCity->setProvince(pProvince);
 		pProvince->addCity(pCity);
 
 		// add city
 		pCity = new CCity();
-		pCity->setName(QString::fromLocal8Bit("ÕÅ¼Ò¿Ú"));
+		pCity->setName(QString::fromLocal8Bit("å¼ å®¶å£"));
 		pCity->setProvince(pProvince);
 		pProvince->addCity(pCity);
 
 		// add city
 		pCity = new CCity();
-		pCity->setName(QString::fromLocal8Bit("±£¶¨"));
+		pCity->setName(QString::fromLocal8Bit("ä¿å®š"));
 		pCity->setProvince(pProvince);
 		pProvince->addCity(pCity);
 	}
 
-	// ·µ»Ø¹¹½¨µÄCCountry¶ÔÏó
+	// è¿”å›æ„å»ºçš„CCountryå¯¹è±¡
 	return pCountry;
 	
 }
